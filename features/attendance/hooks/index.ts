@@ -1,0 +1,4 @@
+/**
+ * Attendance Hooks
+ */
+export {};
