@@ -4,20 +4,18 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
-import { useAuth } from '@/features/auth/hooks/useAuth';
+import { useAuthStore } from '@/store/authStore';
 import { useOjtStore } from '@/store/ojtStore';
 import { ojtService } from '../services/ojtService';
 import { OjtFormData, OjtActionResult, OjtRecord } from '../types';
 
 export function useOjt() {
-  const { user } = useAuth();
-  const {
-    activeOjt,
-    hasCompletedSetup,
-    isLoading: storeLoading,
-    setActiveOjt,
-    setLoading: setStoreLoading,
-  } = useOjtStore();
+  const user = useAuthStore((state) => state.user);
+  const activeOjt = useOjtStore((state) => state.activeOjt);
+  const hasCompletedSetup = useOjtStore((state) => state.hasCompletedSetup);
+  const storeLoading = useOjtStore((state) => state.isLoading);
+  const setActiveOjt = useOjtStore((state) => state.setActiveOjt);
+  const setStoreLoading = useOjtStore((state) => state.setLoading);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);

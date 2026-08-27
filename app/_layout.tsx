@@ -24,9 +24,6 @@ import { colors } from '@/constants/colors';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const { setSession, setUser, setProfile, logout } = useAuthStore();
-  const { setActiveOjt, clearOjt } = useOjtStore();
-
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -46,37 +43,37 @@ export default function RootLayout() {
     }
   }, [fontsLoaded]);
 
-  // 2. Set up global Supabase auth state listener
+  // 2. Set up global Supabase auth state listener (using getState() to prevent root re-renders)
   useEffect(() => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, currentSession) => {
       if (event === 'SIGNED_IN' && currentSession?.user) {
-        setSession(currentSession);
-        setUser(currentSession.user);
+        useAuthStore.getState().setSession(currentSession);
+        useAuthStore.getState().setUser(currentSession.user);
         const profile = await authService.ensureProfile(currentSession.user);
         if (profile) {
-          setProfile(profile);
+          useAuthStore.getState().setProfile(profile);
         }
         const ojt = await ojtService.getActiveOjt(currentSession.user.id);
-        setActiveOjt(ojt);
+        useOjtStore.getState().setActiveOjt(ojt);
       } else if (event === 'SIGNED_OUT') {
-        logout();
-        clearOjt();
+        useAuthStore.getState().logout();
+        useOjtStore.getState().clearOjt();
       } else if (event === 'PASSWORD_RECOVERY') {
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
+          useAuthStore.getState().setSession(currentSession);
+          useAuthStore.getState().setUser(currentSession.user);
         }
       } else if (event === 'TOKEN_REFRESHED' && currentSession) {
-        setSession(currentSession);
+        useAuthStore.getState().setSession(currentSession);
       }
     });
 
     return () => {
       subscription.unsubscribe();
     };
-  }, [setSession, setUser, setProfile, setActiveOjt, logout, clearOjt]);
+  }, []);
 
   // 3. Handle incoming deep link recovery tokens
   useEffect(() => {
@@ -106,8 +103,8 @@ export default function RootLayout() {
             });
 
             if (!error && data.session) {
-              setSession(data.session);
-              setUser(data.session.user);
+              useAuthStore.getState().setSession(data.session);
+              useAuthStore.getState().setUser(data.session.user);
             }
           }
         }
@@ -122,7 +119,7 @@ export default function RootLayout() {
     return () => {
       sub.remove();
     };
-  }, [setSession, setUser]);
+  }, []);
 
   if (!fontsLoaded) {
     return (
