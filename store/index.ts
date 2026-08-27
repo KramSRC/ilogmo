@@ -30,4 +30,5 @@ export * from './ojtStore';
 export * from './journalStore';
 export * from './taskStore';
 export * from './documentStore';
+export * from './notificationStore';
 export default useAppStore;
