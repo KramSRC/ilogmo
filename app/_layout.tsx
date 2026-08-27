@@ -12,7 +12,7 @@ import {
 } from '@expo-google-fonts/inter';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/store/authStore';
 import { authService } from '@/features/auth/services/authService';
@@ -32,8 +32,13 @@ export default function RootLayout() {
     Inter_700Bold,
   });
 
-  // 1. Hide native splash screen once fonts are loaded
+  // 1. Configure transparent Android status bar & hide native splash screen once fonts are loaded
   useEffect(() => {
+    if (Platform.OS === 'android') {
+      RNStatusBar.setTranslucent(true);
+      RNStatusBar.setBackgroundColor('transparent');
+      RNStatusBar.setBarStyle('dark-content');
+    }
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }

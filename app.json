@@ -21,6 +21,15 @@
       "package": "com.ilogmo.app",
       "predictiveBackGestureEnabled": false
     },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#00000000",
+      "translucent": true
+    },
+    "androidNavigationBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#F8FAFC"
+    },
     "web": {
       "bundler": "metro",
       "output": "static",
