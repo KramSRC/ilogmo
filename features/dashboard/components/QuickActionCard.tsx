@@ -1,14 +1,14 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Clock, BookOpen, Calendar, FileText, Folder } from 'lucide-react-native';
+import { Clock, BookOpen, Calendar, FileText, Folder, CheckSquare } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
 
 export interface QuickActionCardProps {
   id: string;
   title: string;
   subtitle: string;
-  icon: 'attendance' | 'journal' | 'calendar' | 'reports' | 'documents';
+  icon: 'attendance' | 'journal' | 'calendar' | 'reports' | 'documents' | 'tasks';
   route: string;
 }
 
@@ -35,6 +35,10 @@ export function QuickActionCard({ title, subtitle, icon, route }: QuickActionCar
     IconComponent = FileText;
     iconColor = '#8B5CF6'; // Violet
     iconBg = 'bg-purple-50 border-purple-100';
+  } else if (icon === 'tasks') {
+    IconComponent = CheckSquare;
+    iconColor = '#F59E0B'; // Amber
+    iconBg = 'bg-amber-50 border-amber-100';
   }
 
   return (

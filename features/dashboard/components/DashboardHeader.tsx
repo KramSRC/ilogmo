@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Bell } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
-
 import { useNotificationStore } from '@/store';
 
 export interface DashboardHeaderProps {
@@ -12,13 +11,24 @@ export interface DashboardHeaderProps {
   unreadCount?: number;
 }
 
+function getGreeting(name?: string): string {
+  const hour = new Date().getHours();
+  let timeGreeting = 'Good morning';
+  if (hour >= 12 && hour < 18) {
+    timeGreeting = 'Good afternoon';
+  } else if (hour >= 18 || hour < 5) {
+    timeGreeting = 'Good evening';
+  }
+  return name ? `${timeGreeting}, ${name} 👋` : `${timeGreeting} 👋`;
+}
+
 export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: DashboardHeaderProps) {
   const router = useRouter();
   const storeUnreadCount = useNotificationStore((state) => state.unreadCount);
   const unreadCount = propUnreadCount ?? storeUnreadCount;
   const hasUnread = unreadCount > 0;
 
-  const greeting = firstName ? `Good morning, ${firstName} 👋` : 'Good morning 👋';
+  const greeting = getGreeting(firstName);
 
   return (
     <View className="flex-row items-center justify-between mb-6">
@@ -41,6 +51,7 @@ export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: Das
         activeOpacity={0.7}
         accessibilityRole="button"
         accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
+        style={{ minHeight: 44, minWidth: 44 }}
         className="w-11 h-11 rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
