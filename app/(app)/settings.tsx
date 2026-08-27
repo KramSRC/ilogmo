@@ -33,6 +33,7 @@ import {
   LegalDocType,
 } from '@/features/settings';
 import { ChangePasswordModal, profileService } from '@/features/profile';
+import { useNotifications, NotificationSettingsModal } from '@/features/notifications';
 import { colors } from '@/constants/colors';
 
 export default function SettingsScreen() {
@@ -49,7 +50,10 @@ export default function SettingsScreen() {
     logout,
   } = useSettings();
 
+  const { settings: notificationSettings, updateSettings } = useNotifications();
+
   // Modals state
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState<boolean>(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState<boolean>(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
@@ -131,8 +135,8 @@ export default function SettingsScreen() {
             iconBgColor="bg-sky-50"
             iconBorderColor="border-sky-100"
             title="Notification Settings"
-            subtitle="Manage your OJT reminders and daily alerts"
-            onPress={() => router.push('/(app)/notifications')}
+            subtitle="Manage shift reminders, task due dates & milestones"
+            onPress={() => setIsNotificationModalOpen(true)}
             isLast={true}
           />
         </SettingsSection>
@@ -247,7 +251,15 @@ export default function SettingsScreen() {
       {/* MODALS */}
       {/* ========================================================================= */}
 
-      {/* 1. Change Password Modal */}
+      {/* 1. Notification Settings Modal */}
+      <NotificationSettingsModal
+        visible={isNotificationModalOpen}
+        onClose={() => setIsNotificationModalOpen(false)}
+        settings={notificationSettings}
+        onUpdateSetting={(key, val) => updateSettings({ [key]: val })}
+      />
+
+      {/* 2. Change Password Modal */}
       <ChangePasswordModal
         visible={isPasswordModalOpen}
         onClose={() => setIsPasswordModalOpen(false)}

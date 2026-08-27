@@ -16,13 +16,22 @@ export interface NotificationSettingsModalProps {
   onUpdateSetting: (key: keyof NotificationSettings, value: boolean) => void;
 }
 
+const DEFAULT_SETTINGS: NotificationSettings = {
+  userId: '',
+  attendanceReminders: true,
+  checkoutReminders: true,
+  taskReminders: true,
+  journalReminders: true,
+  ojtReminders: true,
+};
+
 export function NotificationSettingsModal({
   visible,
   onClose,
   settings,
   onUpdateSetting,
 }: NotificationSettingsModalProps) {
-  if (!settings) return null;
+  const currentSettings = settings || DEFAULT_SETTINGS;
 
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
@@ -66,7 +75,7 @@ export function NotificationSettingsModal({
                 </View>
               </View>
               <Switch
-                value={settings.attendanceReminders}
+                value={currentSettings.attendanceReminders}
                 onValueChange={(val) => onUpdateSetting('attendanceReminders', val)}
                 trackColor={{ false: '#E2E8F0', true: colors.primary[600] }}
                 thumbColor="#FFFFFF"
@@ -89,7 +98,7 @@ export function NotificationSettingsModal({
                 </View>
               </View>
               <Switch
-                value={settings.checkoutReminders}
+                value={currentSettings.checkoutReminders}
                 onValueChange={(val) => onUpdateSetting('checkoutReminders', val)}
                 trackColor={{ false: '#E2E8F0', true: colors.primary[600] }}
                 thumbColor="#FFFFFF"
@@ -112,7 +121,7 @@ export function NotificationSettingsModal({
                 </View>
               </View>
               <Switch
-                value={settings.taskReminders}
+                value={currentSettings.taskReminders}
                 onValueChange={(val) => onUpdateSetting('taskReminders', val)}
                 trackColor={{ false: '#E2E8F0', true: colors.primary[600] }}
                 thumbColor="#FFFFFF"
@@ -135,7 +144,7 @@ export function NotificationSettingsModal({
                 </View>
               </View>
               <Switch
-                value={settings.journalReminders}
+                value={currentSettings.journalReminders}
                 onValueChange={(val) => onUpdateSetting('journalReminders', val)}
                 trackColor={{ false: '#E2E8F0', true: colors.primary[600] }}
                 thumbColor="#FFFFFF"
@@ -158,7 +167,7 @@ export function NotificationSettingsModal({
                 </View>
               </View>
               <Switch
-                value={settings.ojtReminders}
+                value={currentSettings.ojtReminders}
                 onValueChange={(val) => onUpdateSetting('ojtReminders', val)}
                 trackColor={{ false: '#E2E8F0', true: colors.primary[600] }}
                 thumbColor="#FFFFFF"

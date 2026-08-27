@@ -18,6 +18,7 @@ import {
   ProfileSkeleton,
   formatFullName,
 } from '@/features/profile';
+import { useNotifications, NotificationSettingsModal } from '@/features/notifications';
 import { ErrorMessage, Button } from '@/components';
 import { colors } from '@/constants/colors';
 
@@ -35,8 +36,11 @@ export default function ProfileScreen() {
     logout,
   } = useProfile();
 
+  const { settings: notificationSettings, updateSettings } = useNotifications();
+
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState<boolean>(false);
+  const [isNotificationModalOpen, setIsNotificationModalOpen] = useState<boolean>(false);
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
@@ -192,14 +196,22 @@ export default function ProfileScreen() {
             <ProfileAccountCard
               profile={profile}
               onChangePasswordPress={() => setIsPasswordModalOpen(true)}
-              onNotificationSettingsPress={() => router.push('/(app)/notifications')}
+              onNotificationSettingsPress={() => setIsNotificationModalOpen(true)}
               onSignOutPress={handleSignOut}
             />
           </>
         )}
       </ScrollView>
 
-      {/* Change Password Modal */}
+      {/* 1. Notification Settings Modal */}
+      <NotificationSettingsModal
+        visible={isNotificationModalOpen}
+        onClose={() => setIsNotificationModalOpen(false)}
+        settings={notificationSettings}
+        onUpdateSetting={(key, val) => updateSettings({ [key]: val })}
+      />
+
+      {/* 2. Change Password Modal */}
       <ChangePasswordModal
         visible={isPasswordModalOpen}
         onClose={() => setIsPasswordModalOpen(false)}
