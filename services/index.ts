@@ -1,4 +1,1 @@
-/**
- * Shared Core Services
- */
-export {};
+export * from './authService';

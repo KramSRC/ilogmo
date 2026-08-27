@@ -1,7 +1,7 @@
 import '../global.css';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Stack } from 'expo-router';
+import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import {
   useFonts,
@@ -13,11 +13,18 @@ import {
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ActivityIndicator, View } from 'react-native';
+import { supabase } from '@/lib/supabase';
+import { useAuthStore } from '@/store/authStore';
+import { authService } from '@/features/auth/services/authService';
 import { colors } from '@/constants/colors';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const router = useRouter();
+  const segments = useSegments();
+  const { setSession, setUser, setProfile, logout, isAuthenticated, isLoading } = useAuthStore();
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -25,11 +32,55 @@ export default function RootLayout() {
     Inter_700Bold,
   });
 
+  // 1. Hide native splash screen once fonts are loaded
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  // 2. Set up global Supabase auth state listener
+  useEffect(() => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, currentSession) => {
+      if (event === 'SIGNED_IN' && currentSession?.user) {
+        setSession(currentSession);
+        setUser(currentSession.user);
+        const profile = await authService.fetchProfile(currentSession.user.id);
+        if (profile) {
+          setProfile(profile);
+        }
+      } else if (event === 'SIGNED_OUT') {
+        logout();
+      } else if (event === 'PASSWORD_RECOVERY') {
+        // Deep linked from reset password email
+        if (currentSession?.user) {
+          setSession(currentSession);
+          setUser(currentSession.user);
+        }
+        router.push('/(auth)/reset-password');
+      } else if (event === 'TOKEN_REFRESHED' && currentSession) {
+        setSession(currentSession);
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [setSession, setUser, setProfile, logout, router]);
+
+  // 3. Global Route Guard: Protect (app) from unauthenticated access
+  useEffect(() => {
+    if (isLoading || !fontsLoaded) return;
+
+    const inAppGroup = segments[0] === '(app)';
+
+    if (!isAuthenticated && inAppGroup) {
+      // Redirect to login if user is not authenticated and trying to view (app)
+      router.replace('/(auth)/login');
+    }
+  }, [isAuthenticated, isLoading, segments, fontsLoaded, router]);
 
   if (!fontsLoaded) {
     return (
@@ -52,26 +103,15 @@ export default function RootLayout() {
         <StatusBar style="dark" />
         <Stack
           screenOptions={{
-            headerStyle: {
-              backgroundColor: colors.background.card,
-            },
-            headerTintColor: colors.text.primary,
-            headerTitleStyle: {
-              fontFamily: 'Inter_600SemiBold',
-            },
-            headerShadowVisible: false,
+            headerShown: false,
             contentStyle: {
               backgroundColor: colors.background.app,
             },
           }}
         >
-          <Stack.Screen
-            name="index"
-            options={{
-              title: 'iLogMo',
-              headerShown: false,
-            }}
-          />
+          <Stack.Screen name="index" />
+          <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(app)" />
         </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>

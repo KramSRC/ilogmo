@@ -25,4 +25,5 @@ export const useAppStore = create<AppState>((set) => ({
   resetAppState: () => set({ isInitialized: false, isOnline: true, activeFeature: null }),
 }));
 
+export * from './authStore';
 export default useAppStore;

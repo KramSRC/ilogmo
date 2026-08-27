@@ -1,4 +1,1 @@
-/**
- * Shared Hooks
- */
-export {};
+export * from './useAuth';
