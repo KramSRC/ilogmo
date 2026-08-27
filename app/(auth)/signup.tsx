@@ -183,7 +183,7 @@ export default function SignUpScreen() {
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input
                   label="Student ID"
-                  placeholder="2024-00123"
+                  placeholder="12345678"
                   autoCapitalize="characters"
                   value={value}
                   onChangeText={(text) => {
