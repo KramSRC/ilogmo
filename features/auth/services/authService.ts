@@ -97,6 +97,45 @@ export const authService = {
   },
 
   /**
+   * Ensure user's profile exists in the profiles table, creating it from user_metadata if needed.
+   */
+  async ensureProfile(user: User): Promise<UserProfile | null> {
+    try {
+      let profile = await this.fetchProfile(user.id);
+      if (!profile) {
+        const metadata = user.user_metadata || {};
+        const firstName = metadata.first_name || '';
+        const lastName = metadata.last_name || '';
+        const studentId = metadata.student_id || null;
+        const email = user.email || '';
+
+        const { data, error } = await supabase
+          .from('profiles')
+          .upsert({
+            id: user.id,
+            first_name: firstName,
+            last_name: lastName,
+            student_id: studentId,
+            email: email,
+            updated_at: new Date().toISOString(),
+          })
+          .select('*')
+          .maybeSingle();
+
+        if (error) {
+          console.warn('[authService.ensureProfile] Profile upsert warning:', error.message);
+        } else if (data) {
+          profile = data as UserProfile;
+        }
+      }
+      return profile;
+    } catch (err) {
+      console.warn('[authService.ensureProfile] Unexpected error:', err);
+      return null;
+    }
+  },
+
+  /**
    * Sign in with Email and Password.
    */
   async signIn(
@@ -121,6 +160,9 @@ export const authService = {
           error: 'Unable to sign in. Please check your credentials.',
         };
       }
+
+      // Ensure profile exists in database
+      await this.ensureProfile(data.user);
 
       return {
         success: true,

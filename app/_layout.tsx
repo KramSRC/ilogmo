@@ -47,7 +47,7 @@ export default function RootLayout() {
       if (event === 'SIGNED_IN' && currentSession?.user) {
         setSession(currentSession);
         setUser(currentSession.user);
-        const profile = await authService.fetchProfile(currentSession.user.id);
+        const profile = await authService.ensureProfile(currentSession.user);
         if (profile) {
           setProfile(profile);
         }
