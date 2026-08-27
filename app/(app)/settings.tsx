@@ -10,7 +10,6 @@ import { useRouter } from 'expo-router';
 import Constants from 'expo-constants';
 import {
   Bell,
-  User,
   KeyRound,
   Mail,
   Lock,
@@ -143,15 +142,6 @@ export default function SettingsScreen() {
         {/* ========================================================================= */}
         <SettingsSection title="Account">
           <SettingsRow
-            icon={<User size={18} color={colors.primary[600]} />}
-            iconBgColor="bg-primary-50"
-            iconBorderColor="border-primary-100"
-            title="Profile"
-            subtitle="Manage your personal details and photo"
-            onPress={() => router.push('/(app)/profile')}
-          />
-
-          <SettingsRow
             icon={<KeyRound size={18} color="#4F46E5" />}
             iconBgColor="bg-indigo-50"
             iconBorderColor="border-indigo-100"
@@ -179,19 +169,7 @@ export default function SettingsScreen() {
         {/* ========================================================================= */}
         {/* SECTION 4: DATA & PRIVACY */}
         {/* ========================================================================= */}
-        {/* ========================================================================= */}
-        {/* SECTION 4: DATA & PRIVACY */}
-        {/* ========================================================================= */}
         <SettingsSection title="Data & Privacy">
-          <SettingsRow
-            icon={<FileText size={18} color="#8B5CF6" />}
-            iconBgColor="bg-purple-50"
-            iconBorderColor="border-purple-100"
-            title="OJT Progress Reports"
-            subtitle="View formal summaries and export PDF/JSON reports"
-            onPress={() => router.push('/(app)/reports')}
-          />
-
           <SettingsRow
             icon={<Download size={18} color={colors.primary[600]} />}
             iconBgColor="bg-primary-50"

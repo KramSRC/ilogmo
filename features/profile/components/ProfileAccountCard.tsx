@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { KeyRound, Bell, LogOut, ShieldCheck, Settings } from 'lucide-react-native';
+import { KeyRound, Bell, LogOut, ShieldCheck } from 'lucide-react-native';
 import { Profile } from '../types';
 import { formatAccountDate } from '../utils/profileUtils';
 import { colors } from '@/constants/colors';
@@ -14,7 +14,6 @@ export interface ProfileAccountCardProps {
   profile: Profile | null;
   onChangePasswordPress: () => void;
   onNotificationSettingsPress: () => void;
-  onSettingsPress?: () => void;
   onSignOutPress: () => void;
 }
 
@@ -22,7 +21,6 @@ export function ProfileAccountCard({
   profile,
   onChangePasswordPress,
   onNotificationSettingsPress,
-  onSettingsPress,
   onSignOutPress,
 }: ProfileAccountCardProps) {
   const memberSince = formatAccountDate(profile?.createdAt);
@@ -89,26 +87,6 @@ export function ProfileAccountCard({
             </Text>
           </View>
         </TouchableOpacity>
-
-        {/* App Settings */}
-        {onSettingsPress ? (
-          <TouchableOpacity
-            onPress={onSettingsPress}
-            activeOpacity={0.75}
-            accessibilityRole="button"
-            accessibilityLabel="Open app settings"
-            className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white mt-2"
-          >
-            <View className="flex-row items-center flex-1">
-              <View className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center mr-3 border border-neutral-200">
-                <Settings size={15} color={colors.neutral[700]} />
-              </View>
-              <Text className="text-sm font-semibold font-sans text-neutral-800">
-                App Settings & Preferences
-              </Text>
-            </View>
-          </TouchableOpacity>
-        ) : null}
 
         {/* Sign Out Button */}
         <TouchableOpacity
