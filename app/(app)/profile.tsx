@@ -19,7 +19,7 @@ import {
   formatFullName,
 } from '@/features/profile';
 import { useNotifications, NotificationSettingsModal } from '@/features/notifications';
-import { ErrorMessage, Button } from '@/components';
+import { ErrorMessage, Button, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function ProfileScreen() {
@@ -126,13 +126,18 @@ export default function ProfileScreen() {
         className="px-5 pt-3"
       >
         {/* 1. Header */}
-        <View className="mb-4">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
-            Profile
-          </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
-            Manage your personal information
-          </Text>
+        <View className="mb-4 flex-row items-center justify-between">
+          <View className="flex-1 mr-3">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+              Profile
+            </Text>
+            <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+              Manage your personal information
+            </Text>
+          </View>
+
+          {/* Notification Bell */}
+          <NotificationBellButton />
         </View>
 
         {/* Error State Banner */}

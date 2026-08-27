@@ -17,7 +17,7 @@ import {
   InsightsCard,
   AnalyticsSkeleton,
 } from '@/features/analytics/components';
-import { Button, ErrorMessage } from '@/components';
+import { Button, ErrorMessage, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function AnalyticsScreen() {
@@ -40,11 +40,16 @@ export default function AnalyticsScreen() {
         className="px-5 pt-3"
       >
         {/* 1. Header Section */}
-        <View className="pb-4">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
-            Analytics
-          </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">Track your OJT progress</Text>
+        <View className="flex-row items-center justify-between pb-4">
+          <View className="flex-1 mr-3">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+              Analytics
+            </Text>
+            <Text className="text-xs font-sans text-neutral-500 mt-0.5">Track your OJT progress</Text>
+          </View>
+
+          {/* Notification Bell */}
+          <NotificationBellButton />
         </View>
 
         {/* 2. Error Display */}

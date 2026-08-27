@@ -10,7 +10,7 @@ import { useRouter } from 'expo-router';
 import { Plus } from 'lucide-react-native';
 import { useJournal, JournalEntry } from '@/features/journal';
 import { JournalCard, JournalEmptyState, JournalSkeleton } from '@/features/journal/components';
-import { Button, ErrorMessage } from '@/components';
+import { Button, ErrorMessage, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function JournalScreen() {
@@ -54,18 +54,21 @@ export default function JournalScreen() {
             </Text>
           </View>
 
-          {/* New Entry Button */}
-          <TouchableOpacity
-            onPress={handleCreateNew}
-            activeOpacity={0.8}
-            accessibilityRole="button"
-            accessibilityLabel="Create new journal entry"
-            className="flex-row items-center bg-primary-600 px-4 py-2.5 rounded-xl shadow-soft-sm min-h-[44px]"
-          >
-            <Plus size={16} color="#FFFFFF" />
-            <Text className="text-sm font-semibold font-sans text-white ml-1.5">New Entry</Text>
-          </TouchableOpacity>
+          {/* Notification Bell */}
+          <NotificationBellButton />
         </View>
+
+        {/* 2. New Entry Action Button */}
+        <TouchableOpacity
+          onPress={handleCreateNew}
+          activeOpacity={0.8}
+          accessibilityRole="button"
+          accessibilityLabel="Write new journal entry"
+          className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+        >
+          <Plus size={18} color="#FFFFFF" strokeWidth={2.5} />
+          <Text className="text-sm font-bold font-sans text-white ml-2">Write Journal Entry</Text>
+        </TouchableOpacity>
 
         {/* 2. Error Display */}
         {error ? (

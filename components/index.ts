@@ -10,3 +10,4 @@ export * from './ui/ErrorMessage';
 export * from './ui/LoadingIndicator';
 export * from './ui/DatePickerInput';
 export * from './ui/TimePickerInput';
+export * from './ui/NotificationBellButton';

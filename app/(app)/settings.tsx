@@ -34,6 +34,7 @@ import {
 } from '@/features/settings';
 import { ChangePasswordModal, profileService } from '@/features/profile';
 import { useNotifications, NotificationSettingsModal } from '@/features/notifications';
+import { NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function SettingsScreen() {
@@ -105,13 +106,18 @@ export default function SettingsScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
       {/* 1. Header Bar */}
-      <View className="px-5 pt-3 pb-3 border-b border-neutral-100 bg-white">
-        <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
-          Settings
-        </Text>
-        <Text className="text-xs font-sans text-neutral-500">
-          Customize your iLogMo experience
-        </Text>
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+        <View className="flex-1 mr-3">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            Settings
+          </Text>
+          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+            Customize your iLogMo experience
+          </Text>
+        </View>
+
+        {/* Notification Bell */}
+        <NotificationBellButton />
       </View>
 
       <ScrollView

@@ -10,7 +10,7 @@ import { useRouter } from 'expo-router';
 import { ArrowLeft, Plus } from 'lucide-react-native';
 import { useTasks, Task } from '@/features/tasks';
 import { TaskCard, TaskFilterBar, TaskEmptyState, TaskSkeleton } from '@/features/tasks/components';
-import { Button, ErrorMessage } from '@/components';
+import { Button, ErrorMessage, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function TasksScreen() {
@@ -31,12 +31,12 @@ export default function TasksScreen() {
   } = useTasks();
 
   const handleCreateNew = () => {
-    router.push('/task-entry');
+    router.push('/(app)/task-entry');
   };
 
   const handleSelectTask = (task: Task) => {
     router.push({
-      pathname: '/task-details',
+      pathname: '/(app)/task-details',
       params: { id: task.id },
     });
   };
@@ -49,22 +49,13 @@ export default function TasksScreen() {
           <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
             Tasks
           </Text>
-          <Text className="text-xs font-sans text-neutral-500">
+          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
             Stay organized during your OJT
           </Text>
         </View>
 
-        {/* Top New Task CTA */}
-        <TouchableOpacity
-          onPress={handleCreateNew}
-          activeOpacity={0.8}
-          accessibilityRole="button"
-          accessibilityLabel="Create new task"
-          className="flex-row items-center bg-primary-600 px-3.5 py-2.5 rounded-xl shadow-soft-sm min-h-[44px]"
-        >
-          <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
-          <Text className="text-sm font-semibold font-sans text-white ml-1.5">New</Text>
-        </TouchableOpacity>
+        {/* Notification Bell */}
+        <NotificationBellButton />
       </View>
 
       <ScrollView
@@ -80,6 +71,17 @@ export default function TasksScreen() {
         }
         className="px-5 pt-3"
       >
+        {/* New Task Action Button */}
+        <TouchableOpacity
+          onPress={handleCreateNew}
+          activeOpacity={0.8}
+          accessibilityRole="button"
+          accessibilityLabel="Add new task"
+          className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+        >
+          <Plus size={18} color="#FFFFFF" strokeWidth={2.5} />
+          <Text className="text-sm font-bold font-sans text-white ml-2">Add New Task</Text>
+        </TouchableOpacity>
         {/* 2. Error Display */}
         {error ? (
           <View className="mb-4">

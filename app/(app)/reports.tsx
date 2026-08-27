@@ -20,7 +20,7 @@ import {
   ReportExportModal,
   ReportSkeleton,
 } from '@/features/reports';
-import { ErrorMessage, Button } from '@/components';
+import { Button, ErrorMessage, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function ReportsScreen() {
@@ -52,20 +52,25 @@ export default function ReportsScreen() {
           </Text>
         </View>
 
-        {/* Quick Export Header Button */}
-        {report ? (
-          <TouchableOpacity
-            onPress={() => setIsExportModalVisible(true)}
-            activeOpacity={0.75}
-            accessibilityRole="button"
-            accessibilityLabel="Export OJT report"
-            style={{ minHeight: 44 }}
-            className="flex-row items-center bg-primary-50 border border-primary-200 px-3.5 py-2 rounded-xl"
-          >
-            <Download size={15} color={colors.primary[600]} strokeWidth={2.4} />
-            <Text className="text-xs font-bold font-sans text-primary-700 ml-1.5">Export</Text>
-          </TouchableOpacity>
-        ) : null}
+        <View className="flex-row items-center">
+          {/* Quick Export Header Button */}
+          {report ? (
+            <TouchableOpacity
+              onPress={() => setIsExportModalVisible(true)}
+              activeOpacity={0.75}
+              accessibilityRole="button"
+              accessibilityLabel="Export OJT report"
+              style={{ minHeight: 44 }}
+              className="flex-row items-center bg-primary-50 border border-primary-200 px-3.5 py-2 rounded-xl mr-2"
+            >
+              <Download size={15} color={colors.primary[600]} strokeWidth={2.4} />
+              <Text className="text-xs font-bold font-sans text-primary-700 ml-1.5">Export</Text>
+            </TouchableOpacity>
+          ) : null}
+
+          {/* Notification Bell */}
+          <NotificationBellButton />
+        </View>
       </View>
 
       <ScrollView

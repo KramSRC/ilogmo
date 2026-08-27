@@ -15,7 +15,7 @@ import {
   DocumentEmptyState,
   DocumentSkeleton,
 } from '@/features/documents/components';
-import { Button, ErrorMessage } from '@/components';
+import { Button, ErrorMessage, NotificationBellButton } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function DocumentsScreen() {
@@ -68,17 +68,22 @@ export default function DocumentsScreen() {
             </Text>
           </View>
 
-          {/* Top Action: Upload Document */}
-          <TouchableOpacity
-            onPress={handleUploadPress}
-            activeOpacity={0.8}
-            accessibilityRole="button"
-            accessibilityLabel="Upload document"
-            className="flex-row items-center bg-primary-600 px-3.5 py-2.5 rounded-xl shadow-soft-sm min-h-[44px]"
-          >
-            <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
-            <Text className="text-sm font-semibold font-sans text-white ml-1.5">Upload</Text>
-          </TouchableOpacity>
+          <View className="flex-row items-center">
+            {/* Top Action: Upload Document */}
+            <TouchableOpacity
+              onPress={handleUploadPress}
+              activeOpacity={0.8}
+              accessibilityRole="button"
+              accessibilityLabel="Upload document"
+              className="flex-row items-center bg-primary-600 px-3.5 py-2.5 rounded-xl shadow-soft-sm min-h-[44px] mr-2"
+            >
+              <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
+              <Text className="text-sm font-semibold font-sans text-white ml-1.5">Upload</Text>
+            </TouchableOpacity>
+
+            {/* Notification Bell */}
+            <NotificationBellButton />
+          </View>
         </View>
 
         {/* 2. Category Filter Bar */}
