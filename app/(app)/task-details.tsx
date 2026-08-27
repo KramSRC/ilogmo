@@ -146,11 +146,18 @@ export default function TaskDetailsScreen() {
       <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
-            onPress={() => router.back()}
+            onPress={() => {
+              if (router.canGoBack()) {
+                router.back();
+              } else {
+                router.replace('/(app)/tasks');
+              }
+            }}
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Go back"
-            className="w-10 h-10 rounded-full bg-white items-center justify-center border border-neutral-200 mr-3"
+            style={{ minHeight: 44, minWidth: 44 }}
+            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>

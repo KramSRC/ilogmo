@@ -154,8 +154,14 @@ export default function EditOjtScreen() {
       >
         <View className="flex-row items-center px-4 py-3 border-b border-neutral-200 bg-white">
           <TouchableOpacity
-            onPress={() => router.back()}
-            className="p-2 -ml-2 rounded-full active:bg-neutral-100"
+            onPress={() => {
+              if (router.canGoBack()) {
+                router.back();
+              } else {
+                router.replace('/(app)/profile');
+              }
+            }}
+            className="p-2 -ml-2 rounded-full active:bg-neutral-100 min-h-[44px] min-w-[44px] items-center justify-center"
             hitSlop={{ top: 10, right: 10, bottom: 10, left: 10 }}
           >
             <ArrowLeft size={24} color={colors.neutral[800]} />

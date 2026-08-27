@@ -75,11 +75,18 @@ export default function AttendanceHistoryScreen() {
       {/* Top Header */}
       <View className="px-5 pt-3 pb-3 flex-row items-center">
         <TouchableOpacity
-          onPress={() => router.back()}
+          onPress={() => {
+            if (router.canGoBack()) {
+              router.back();
+            } else {
+              router.replace('/(app)/attendance');
+            }
+          }}
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Go back"
-          className="w-10 h-10 rounded-full bg-white items-center justify-center border border-neutral-200 shadow-soft-sm mr-3"
+          style={{ minHeight: 44, minWidth: 44 }}
+          className="rounded-full bg-white items-center justify-center border border-neutral-200 shadow-soft-sm mr-3"
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
         </TouchableOpacity>

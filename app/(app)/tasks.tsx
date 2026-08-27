@@ -45,23 +45,13 @@ export default function TasksScreen() {
     <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
       {/* 1. Header Bar */}
       <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
-        <View className="flex-row items-center flex-1 mr-2">
-          <TouchableOpacity
-            onPress={() => router.back()}
-            activeOpacity={0.7}
-            accessibilityRole="button"
-            accessibilityLabel="Go back"
-            className="w-10 h-10 rounded-full bg-white items-center justify-center border border-neutral-200 mr-3"
-          >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
-          </TouchableOpacity>
-
-          <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Tasks</Text>
-            <Text className="text-xs font-sans text-neutral-500">
-              Stay organized during your OJT
-            </Text>
-          </View>
+        <View className="flex-1 mr-3">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            Tasks
+          </Text>
+          <Text className="text-xs font-sans text-neutral-500">
+            Stay organized during your OJT
+          </Text>
         </View>
 
         {/* Top New Task CTA */}
@@ -70,10 +60,10 @@ export default function TasksScreen() {
           activeOpacity={0.8}
           accessibilityRole="button"
           accessibilityLabel="Create new task"
-          className="flex-row items-center bg-primary-600 px-3.5 py-2 rounded-xl shadow-soft-sm min-h-[40px]"
+          className="flex-row items-center bg-primary-600 px-3.5 py-2.5 rounded-xl shadow-soft-sm min-h-[44px]"
         >
-          <Plus size={16} color="#FFFFFF" />
-          <Text className="text-xs font-bold font-sans text-white ml-1">New Task</Text>
+          <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
+          <Text className="text-sm font-semibold font-sans text-white ml-1.5">New</Text>
         </TouchableOpacity>
       </View>
 

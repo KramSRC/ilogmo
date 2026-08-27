@@ -17,11 +17,17 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
       <View className="flex-row items-center flex-1">
         {/* Back Button */}
         <TouchableOpacity
-          onPress={() => router.back()}
+          onPress={() => {
+            if (router.canGoBack()) {
+              router.back();
+            } else {
+              router.replace('/(app)');
+            }
+          }}
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Go back to previous screen"
-          className="w-11 h-11 rounded-full bg-white items-center justify-center border border-neutral-200 mr-3"
+          className="w-11 h-11 rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
           style={{ elevation: 1 }}
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
