@@ -302,18 +302,34 @@ export default function OjtSetupScreen() {
               control={control}
               name="workingDays"
               render={({ field: { value: selectedDays, onChange } }) => {
+                const DAY_ORDER: Record<WorkingDay, number> = {
+                  Monday: 1,
+                  Tuesday: 2,
+                  Wednesday: 3,
+                  Thursday: 4,
+                  Friday: 5,
+                  Saturday: 6,
+                  Sunday: 7,
+                };
+
                 const toggleDay = (day: WorkingDay) => {
                   const current = [...(selectedDays || [])];
                   const index = current.indexOf(day);
+                  let updated: WorkingDay[];
+
                   if (index !== -1) {
                     if (current.length > 1) {
                       current.splice(index, 1);
-                      onChange(current);
+                      updated = current;
+                    } else {
+                      updated = current;
                     }
                   } else {
-                    current.push(day);
-                    onChange(current);
+                    updated = [...current, day];
                   }
+
+                  updated.sort((a, b) => DAY_ORDER[a] - DAY_ORDER[b]);
+                  onChange(updated);
                 };
 
                 return (
