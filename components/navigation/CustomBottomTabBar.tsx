@@ -1,14 +1,15 @@
 /**
  * iLogMo - CustomBottomTabBar Component
- * Unified bottom navigation bar with 5 tabs: Home, Attendance, Journal, Tasks, and More.
- * Tapping More seamlessly toggles the floating navigation menu.
+ * High-fidelity separated bottom navigation system:
+ * 1. Rounded navigation pill with 4 primary destinations (Home, Attendance, Journal, Tasks).
+ * 2. Completely separate floating circular More button (••• / ×) with visible gap.
  */
 
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { House, Clock, BookOpen, CheckSquare, Menu, X } from 'lucide-react-native';
+import { House, Clock, BookOpen, CheckSquare, Ellipsis, X } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
 import { FloatingNavMenu } from './FloatingNavMenu';
 
@@ -57,12 +58,9 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
     return null;
   }
 
-  const bottomInset = Platform.OS === 'ios' ? Math.max(insets.bottom, 20) : Math.max(insets.bottom, 8);
-  const barHeight = (Platform.OS === 'ios' ? 56 : 60) + bottomInset;
-
+  const bottomInset = Platform.OS === 'ios' ? Math.max(insets.bottom, 16) : Math.max(insets.bottom, 12);
   const isMenuDestinationActive = MENU_ROUTE_NAMES.includes(currentRoute.name);
   const isMoreActive = isMenuOpen || isMenuDestinationActive;
-  const moreColor = isMoreActive ? colors.primary[600] : colors.neutral[400];
 
   const handleTabPress = (routeName: string) => {
     if (isMenuOpen) {
@@ -92,89 +90,105 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
 
   return (
     <>
-      {/* Floating Navigation Menu anchored above the tab bar */}
+      {/* Floating Navigation Menu anchored directly above the More button */}
       <FloatingNavMenu
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         onNavigate={handleMenuNavigate}
-        bottomOffset={barHeight}
+        bottomOffset={64 + bottomInset}
       />
 
-      {/* Unified Bottom Navigation Bar */}
+      {/* Floating Separated Bottom Navigation Container */}
       <View
         style={{
-          backgroundColor: '#FFFFFF',
-          borderTopColor: colors.neutral[200],
-          borderTopWidth: 1,
-          height: barHeight,
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
           paddingBottom: bottomInset,
-          paddingTop: 6,
-          elevation: 8,
-          shadowColor: colors.neutral[900],
-          shadowOffset: { width: 0, height: -2 },
-          shadowOpacity: 0.04,
-          shadowRadius: 8,
+          paddingHorizontal: 16,
+          pointerEvents: 'box-none',
         }}
-        className="flex-row items-center justify-around px-2"
+        className="flex-row items-center justify-between"
       >
-        {/* 4 Primary Navigation Tabs */}
-        {PRIMARY_TABS.map((tab) => {
-          const isFocused = currentRoute.name === tab.name;
-          const activeColor = colors.primary[600];
-          const inactiveColor = colors.neutral[400];
-          const iconColor = isFocused ? activeColor : inactiveColor;
+        {/* 1. Rounded Navigation Pill (4 Primary Destinations) */}
+        <View
+          style={{
+            height: 60,
+            backgroundColor: '#FFFFFF',
+            borderRadius: 30,
+            borderWidth: 1,
+            borderColor: 'rgba(226, 232, 240, 0.9)',
+            shadowColor: '#0F172A',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.08,
+            shadowRadius: 12,
+            elevation: 8,
+          }}
+          className="flex-1 flex-row items-center justify-around px-2 mr-3"
+        >
+          {PRIMARY_TABS.map((tab) => {
+            const isFocused = currentRoute.name === tab.name;
+            const activeColor = colors.primary[600];
+            const inactiveColor = colors.neutral[400];
+            const iconColor = isFocused ? activeColor : inactiveColor;
 
-          return (
-            <TouchableOpacity
-              key={tab.name}
-              onPress={() => handleTabPress(tab.name)}
-              activeOpacity={0.7}
-              accessibilityRole="tab"
-              accessibilityState={{ selected: isFocused }}
-              accessibilityLabel={tab.label}
-              style={{ minHeight: 44 }}
-              className="flex-1 items-center justify-center py-1"
-            >
-              <View className="mb-0.5">{tab.icon(iconColor, 21)}</View>
-              <Text
-                style={{
-                  fontFamily: isFocused ? 'Inter_600SemiBold' : 'Inter_500Medium',
-                  fontSize: 10.5,
-                  color: iconColor,
-                }}
+            return (
+              <TouchableOpacity
+                key={tab.name}
+                onPress={() => handleTabPress(tab.name)}
+                activeOpacity={0.7}
+                accessibilityRole="tab"
+                accessibilityState={{ selected: isFocused }}
+                accessibilityLabel={tab.label}
+                style={{ minHeight: 44 }}
+                className="flex-1 items-center justify-center py-1"
               >
-                {tab.label}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
+                <View className="mb-0.5">{tab.icon(iconColor, 20)}</View>
+                <Text
+                  style={{
+                    fontFamily: isFocused ? 'Inter_600SemiBold' : 'Inter_500Medium',
+                    fontSize: 10,
+                    color: iconColor,
+                  }}
+                >
+                  {tab.label}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
 
-        {/* 5th Tab: More Menu (Unified styling with icon + "More" text) */}
+        {/* 2. Completely Separate Floating Circular More Button (••• / ×) */}
         <TouchableOpacity
           onPress={() => setIsMenuOpen((prev) => !prev)}
-          activeOpacity={0.7}
-          accessibilityRole="tab"
-          accessibilityState={{ selected: isMoreActive }}
-          accessibilityLabel={isMenuOpen ? 'Close More menu' : 'Open More menu'}
-          style={{ minHeight: 44 }}
-          className="flex-1 items-center justify-center py-1"
+          activeOpacity={0.75}
+          accessibilityRole="button"
+          accessibilityLabel={isMenuOpen ? 'Close menu' : 'Open more menu'}
+          style={{
+            width: 60,
+            height: 60,
+            borderRadius: 30,
+            backgroundColor: isMoreActive ? '#EFF6FF' : '#FFFFFF',
+            borderWidth: 1,
+            borderColor: isMoreActive ? colors.primary[300] : 'rgba(226, 232, 240, 0.9)',
+            shadowColor: '#0F172A',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.1,
+            shadowRadius: 12,
+            elevation: 8,
+          }}
+          className="items-center justify-center"
         >
-          <View className="mb-0.5">
-            {isMenuOpen ? (
-              <X size={21} color={colors.primary[600]} strokeWidth={2.2} />
-            ) : (
-              <Menu size={21} color={moreColor} strokeWidth={2.2} />
-            )}
-          </View>
-          <Text
-            style={{
-              fontFamily: isMoreActive ? 'Inter_600SemiBold' : 'Inter_500Medium',
-              fontSize: 10.5,
-              color: moreColor,
-            }}
-          >
-            More
-          </Text>
+          {isMenuOpen ? (
+            <X size={24} color={colors.primary[600]} strokeWidth={2.4} />
+          ) : (
+            <Ellipsis
+              size={24}
+              color={isMenuDestinationActive ? colors.primary[600] : colors.neutral[700]}
+              strokeWidth={2.2}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </>
