@@ -45,7 +45,7 @@ export default function AttendanceScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 24 }}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl

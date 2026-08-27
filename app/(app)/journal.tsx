@@ -31,7 +31,7 @@ export default function JournalScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl

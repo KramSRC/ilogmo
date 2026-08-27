@@ -58,9 +58,12 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
     return null;
   }
 
-  const bottomInset = Platform.OS === 'ios' ? Math.max(insets.bottom, 16) : Math.max(insets.bottom, 12);
+  // Safe bottom offset ensuring healthy breathing room above home indicators
+  const bottomInset = Math.max(insets.bottom, Platform.OS === 'ios' ? 18 : 14) + 6;
   const isMenuDestinationActive = MENU_ROUTE_NAMES.includes(currentRoute.name);
   const isMoreActive = isMenuOpen || isMenuDestinationActive;
+
+  const BAR_HEIGHT = 62;
 
   const handleTabPress = (routeName: string) => {
     if (isMenuOpen) {
@@ -95,18 +98,16 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         onNavigate={handleMenuNavigate}
-        bottomOffset={64 + bottomInset}
+        bottomOffset={BAR_HEIGHT + bottomInset}
       />
 
       {/* Floating Separated Bottom Navigation Container */}
       <View
         style={{
           position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          paddingBottom: bottomInset,
-          paddingHorizontal: 16,
+          bottom: bottomInset,
+          left: 14,
+          right: 14,
           pointerEvents: 'box-none',
         }}
         className="flex-row items-center justify-between"
@@ -114,18 +115,18 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         {/* 1. Rounded Navigation Pill (4 Primary Destinations) */}
         <View
           style={{
-            height: 60,
+            height: BAR_HEIGHT,
             backgroundColor: '#FFFFFF',
-            borderRadius: 30,
+            borderRadius: BAR_HEIGHT / 2,
             borderWidth: 1,
-            borderColor: 'rgba(226, 232, 240, 0.9)',
+            borderColor: 'rgba(226, 232, 240, 0.95)',
             shadowColor: '#0F172A',
             shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.08,
-            shadowRadius: 12,
+            shadowOpacity: 0.09,
+            shadowRadius: 14,
             elevation: 8,
           }}
-          className="flex-1 flex-row items-center justify-around px-2 mr-3"
+          className="flex-1 flex-row items-center justify-around px-1.5 mr-2.5"
         >
           {PRIMARY_TABS.map((tab) => {
             const isFocused = currentRoute.name === tab.name;
@@ -141,19 +142,21 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
                 accessibilityRole="tab"
                 accessibilityState={{ selected: isFocused }}
                 accessibilityLabel={tab.label}
-                style={{ minHeight: 44 }}
+                style={{ height: '100%' }}
                 className="flex-1 items-center justify-center py-1"
               >
-                <View className="mb-0.5">{tab.icon(iconColor, 20)}</View>
-                <Text
-                  style={{
-                    fontFamily: isFocused ? 'Inter_600SemiBold' : 'Inter_500Medium',
-                    fontSize: 10,
-                    color: iconColor,
-                  }}
-                >
-                  {tab.label}
-                </Text>
+                <View className="items-center justify-center">
+                  <View className="mb-0.5">{tab.icon(iconColor, 20)}</View>
+                  <Text
+                    style={{
+                      fontFamily: isFocused ? 'Inter_600SemiBold' : 'Inter_500Medium',
+                      fontSize: 10,
+                      color: iconColor,
+                    }}
+                  >
+                    {tab.label}
+                  </Text>
+                </View>
               </TouchableOpacity>
             );
           })}
@@ -166,25 +169,25 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
           accessibilityRole="button"
           accessibilityLabel={isMenuOpen ? 'Close menu' : 'Open more menu'}
           style={{
-            width: 60,
-            height: 60,
-            borderRadius: 30,
+            width: BAR_HEIGHT,
+            height: BAR_HEIGHT,
+            borderRadius: BAR_HEIGHT / 2,
             backgroundColor: isMoreActive ? '#EFF6FF' : '#FFFFFF',
             borderWidth: 1,
-            borderColor: isMoreActive ? colors.primary[300] : 'rgba(226, 232, 240, 0.9)',
+            borderColor: isMoreActive ? colors.primary[300] : 'rgba(226, 232, 240, 0.95)',
             shadowColor: '#0F172A',
             shadowOffset: { width: 0, height: 4 },
             shadowOpacity: 0.1,
-            shadowRadius: 12,
+            shadowRadius: 14,
             elevation: 8,
           }}
           className="items-center justify-center"
         >
           {isMenuOpen ? (
-            <X size={24} color={colors.primary[600]} strokeWidth={2.4} />
+            <X size={23} color={colors.primary[600]} strokeWidth={2.4} />
           ) : (
             <Ellipsis
-              size={24}
+              size={23}
               color={isMenuDestinationActive ? colors.primary[600] : colors.neutral[700]}
               strokeWidth={2.2}
             />
