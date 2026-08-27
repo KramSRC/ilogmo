@@ -112,7 +112,7 @@ export default function SettingsScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 56 }}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
         className="px-5 pt-4"
       >

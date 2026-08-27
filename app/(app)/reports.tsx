@@ -69,7 +69,7 @@ export default function ReportsScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 56 }}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl
