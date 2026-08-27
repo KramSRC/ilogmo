@@ -110,7 +110,7 @@ export function AttendanceConfirmationSheet({
               className="flex-1 mr-2"
             />
             <Button
-              title={isCheckIn ? 'Confirm Check In' : 'Confirm Check Out'}
+              title={isCheckIn ? 'Check In' : 'Check Out'}
               onPress={onConfirm}
               isLoading={isSubmitting}
               loadingText={isCheckIn ? 'Checking In...' : 'Checking Out...'}

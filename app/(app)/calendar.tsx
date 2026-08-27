@@ -1,38 +1,100 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, RefreshControl, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
-import { Calendar, ArrowLeft } from 'lucide-react-native';
+import { useCalendar } from '@/features/calendar';
+import {
+  CalendarHeader,
+  MonthNavigator,
+  CalendarGrid,
+  CalendarLegend,
+  SelectedDateCard,
+  MonthlySummaryCard,
+  CalendarSkeleton,
+} from '@/features/calendar/components';
+import { ErrorMessage, Button } from '@/components';
+import { isSameMonth } from 'date-fns';
 import { colors } from '@/constants/colors';
 
 export default function CalendarScreen() {
-  const router = useRouter();
+  const {
+    selectedMonth,
+    calendarDays,
+    monthlySummary,
+    selectedDateDetails,
+    canGoPrev,
+    canGoNext,
+    isLoading,
+    isRefreshing,
+    error,
+    goToPreviousMonth,
+    goToNextMonth,
+    selectDate,
+    goToToday,
+    refresh,
+  } = useCalendar();
+
+  const isCurrentMonth = isSameMonth(selectedMonth, new Date());
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app px-6 pt-4">
-      <TouchableOpacity
-        onPress={() => router.back()}
-        activeOpacity={0.7}
-        accessibilityRole="button"
-        accessibilityLabel="Go back"
-        className="w-10 h-10 rounded-full bg-white items-center justify-center border border-neutral-200 shadow-soft-sm mb-6"
+    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 32 }}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refresh}
+            tintColor={colors.primary[600]}
+            colors={[colors.primary[600]]}
+          />
+        }
+        className="px-5 pt-3"
       >
-        <ArrowLeft size={20} color={colors.neutral[700]} />
-      </TouchableOpacity>
+        {/* 1. Header with Back Button and Quick Jump to Today */}
+        <CalendarHeader onPressToday={goToToday} showTodayButton={!isCurrentMonth} />
 
-      <View className="flex-1 items-center justify-center -mt-16">
-        <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
-          <View className="w-16 h-16 bg-emerald-50 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
-            <Calendar size={32} color={colors.success.DEFAULT} />
+        {/* Error Alert */}
+        {error ? (
+          <View className="mb-4">
+            <ErrorMessage message={error} type="error" />
+            <Button
+              title="Try Again"
+              onPress={refresh}
+              variant="outline"
+              size="sm"
+              className="mt-2"
+            />
           </View>
-          <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-1.5">
-            OJT Calendar
-          </Text>
-          <Text className="text-sm font-sans text-neutral-500 text-center leading-5">
-            Shift scheduling, holidays, and milestones calendar coming soon.
-          </Text>
-        </View>
-      </View>
+        ) : null}
+
+        {/* 2. Loading Skeleton or Full Calendar Content */}
+        {isLoading && !isRefreshing ? (
+          <CalendarSkeleton />
+        ) : (
+          <View>
+            {/* 3. Month Navigation */}
+            <MonthNavigator
+              selectedMonth={selectedMonth}
+              canGoPrev={canGoPrev}
+              canGoNext={canGoNext}
+              onPrevMonth={goToPreviousMonth}
+              onNextMonth={goToNextMonth}
+            />
+
+            {/* 4. Calendar Days Grid */}
+            <CalendarGrid days={calendarDays} onSelectDate={selectDate} />
+
+            {/* 5. Attendance Legend */}
+            <CalendarLegend />
+
+            {/* 6. Selected Date Details Card */}
+            <SelectedDateCard details={selectedDateDetails} />
+
+            {/* 7. Monthly Summary Stats Card */}
+            <MonthlySummaryCard summary={monthlySummary} />
+          </View>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 }
