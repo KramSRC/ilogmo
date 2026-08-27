@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Platform, Modal } from 'react-native';
-import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { Clock, X } from 'lucide-react-native';
 import { format, setHours, setMinutes } from 'date-fns';
 import { colors } from '@/constants/colors';
@@ -62,17 +62,17 @@ export function TimePickerInput({
   const selectedDate = parseTimeStringToDate(value);
   const displayFormatted = formatTimeStringForDisplay(value);
 
-  const handleChange = (_event: DateTimePickerEvent, date?: Date) => {
+  const handleValueChange = (_event: any, date?: Date) => {
     if (Platform.OS === 'android') {
       setShowPicker(false);
-      if (date) {
-        onChangeTime(format(date, 'HH:mm'));
-      }
-    } else {
-      if (date) {
-        onChangeTime(format(date, 'HH:mm'));
-      }
     }
+    if (date) {
+      onChangeTime(format(date, 'HH:mm'));
+    }
+  };
+
+  const handleDismiss = () => {
+    setShowPicker(false);
   };
 
   const handleClear = () => {
@@ -135,7 +135,8 @@ export function TimePickerInput({
           mode="time"
           is24Hour={false}
           display="default"
-          onChange={handleChange}
+          onValueChange={handleValueChange}
+          onDismiss={handleDismiss}
         />
       ) : null}
 
@@ -166,7 +167,8 @@ export function TimePickerInput({
                 mode="time"
                 is24Hour={false}
                 display="spinner"
-                onChange={handleChange}
+                onValueChange={handleValueChange}
+                onDismiss={handleDismiss}
                 textColor={colors.neutral[900]}
               />
             </View>

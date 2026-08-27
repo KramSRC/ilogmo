@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Platform, Modal } from 'react-native';
-import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { Calendar, X } from 'lucide-react-native';
 import { format, parseISO, isValid } from 'date-fns';
 import { colors } from '@/constants/colors';
@@ -39,17 +39,17 @@ export function DatePickerInput({
   const displayFormatted =
     value && isValid(parseISO(value)) ? format(parseISO(value), 'MMMM d, yyyy') : '';
 
-  const handleChange = (_event: DateTimePickerEvent, date?: Date) => {
+  const handleValueChange = (_event: any, date?: Date) => {
     if (Platform.OS === 'android') {
       setShowPicker(false);
-      if (date) {
-        onChangeDate(format(date, 'yyyy-MM-dd'));
-      }
-    } else {
-      if (date) {
-        onChangeDate(format(date, 'yyyy-MM-dd'));
-      }
     }
+    if (date) {
+      onChangeDate(format(date, 'yyyy-MM-dd'));
+    }
+  };
+
+  const handleDismiss = () => {
+    setShowPicker(false);
   };
 
   const handleClear = () => {
@@ -113,7 +113,8 @@ export function DatePickerInput({
           display="default"
           minimumDate={minDate}
           maximumDate={maxDate}
-          onChange={handleChange}
+          onValueChange={handleValueChange}
+          onDismiss={handleDismiss}
         />
       ) : null}
 
@@ -145,7 +146,8 @@ export function DatePickerInput({
                 display="spinner"
                 minimumDate={minDate}
                 maximumDate={maxDate}
-                onChange={handleChange}
+                onValueChange={handleValueChange}
+                onDismiss={handleDismiss}
                 textColor={colors.neutral[900]}
               />
             </View>
