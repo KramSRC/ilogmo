@@ -3,13 +3,21 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Bell } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { useNotificationStore } from '@/store';
 
 export interface AttendanceHeaderProps {
   hasUnreadNotifications?: boolean;
+  unreadCount?: number;
 }
 
-export function AttendanceHeader({ hasUnreadNotifications = true }: AttendanceHeaderProps) {
+export function AttendanceHeader({
+  hasUnreadNotifications: propHasUnread,
+  unreadCount: propUnreadCount,
+}: AttendanceHeaderProps) {
   const router = useRouter();
+  const storeUnreadCount = useNotificationStore((state) => state.unreadCount);
+  const unreadCount = propUnreadCount ?? storeUnreadCount;
+  const hasUnread = propHasUnread ?? unreadCount > 0;
 
   return (
     <View className="flex-row items-center justify-between mb-5">
@@ -26,12 +34,16 @@ export function AttendanceHeader({ hasUnreadNotifications = true }: AttendanceHe
         onPress={() => router.push('/(app)/notifications')}
         activeOpacity={0.7}
         accessibilityRole="button"
-        accessibilityLabel="Notifications"
+        accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
         className="w-11 h-11 rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
-        {hasUnreadNotifications ? (
-          <View className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary-600 ring-2 ring-white" />
+        {hasUnread ? (
+          <View className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-600 border-2 border-white items-center justify-center">
+            <Text className="text-[10px] font-bold font-sans text-white leading-none">
+              {unreadCount > 9 ? '9+' : unreadCount > 0 ? unreadCount : ''}
+            </Text>
+          </View>
         ) : null}
       </TouchableOpacity>
     </View>
