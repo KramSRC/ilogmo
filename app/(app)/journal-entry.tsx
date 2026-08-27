@@ -1,9 +1,9 @@
 /**
  * iLogMo - Create / Edit Journal Entry Screen
- * Handles form inputs, validation, OJT date range checking, and duplicate prevention.
+ * Handles form inputs, validation, OJT date range checking, and fresh form resets.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { ArrowLeft, AlertCircle, BookOpen } from 'lucide-react-native';
 import { useJournal, getTodayJournalDate, JournalEntry } from '@/features/journal';
 import { Button, DatePickerInput, ErrorMessage } from '@/components';
@@ -43,35 +43,61 @@ export default function JournalEntryScreen() {
   const [formError, setFormError] = useState<string | null>(null);
   const [isLoadingInitial, setIsLoadingInitial] = useState<boolean>(isEditing);
 
-  // 1. Load existing entry if editing by ID
+  // Load existing entry if editing by ID
   useEffect(() => {
-    async function loadExisting() {
-      if (!id) return;
+    if (!id) return;
 
+    let isMounted = true;
+    async function loadExisting() {
       setIsLoadingInitial(true);
       try {
-        const entry = await getEntryById(id);
-        if (entry) {
+        const entry = await getEntryById(id!);
+        if (isMounted && entry) {
           setEntryDate(entry.entryDate);
           setWorkDescription(entry.workDescription);
           setLearningDescription(entry.learningDescription);
           setChallenges(entry.challenges || '');
           setNotes(entry.notes || '');
-        } else {
+        } else if (isMounted) {
           setFormError('Could not find the requested journal entry.');
         }
       } catch (err) {
-        console.warn('[JournalEntryScreen] Error loading entry:', err);
-        setFormError('Failed to load journal entry for editing.');
+        if (isMounted) {
+          console.warn('[JournalEntryScreen] Error loading entry:', err);
+          setFormError('Failed to load journal entry for editing.');
+        }
       } finally {
-        setIsLoadingInitial(false);
+        if (isMounted) {
+          setIsLoadingInitial(false);
+        }
       }
     }
 
     loadExisting();
-  }, [id, getEntryById, validateOjtDate]);
 
-  // 2. Check if selected date already has an entry (when creating new)
+    return () => {
+      isMounted = false;
+    };
+  }, [id, getEntryById]);
+
+  // Reset form when screen gains focus in new entry mode
+  useFocusEffect(
+    useCallback(() => {
+      if (!id) {
+        setEntryDate(initialDateParam || getTodayJournalDate());
+        setWorkDescription('');
+        setLearningDescription('');
+        setChallenges('');
+        setNotes('');
+        setErrors({});
+        setFormError(null);
+        setExistingEntryOnDate(null);
+        setIsLoadingInitial(false);
+      }
+    }, [id, initialDateParam])
+  );
+
+  // Check if selected date already has an entry (when creating new)
   useEffect(() => {
     let isCancelled = false;
 
@@ -103,7 +129,7 @@ export default function JournalEntryScreen() {
   }, [entryDate, isEditing, getEntryByDate]);
 
   // Derive OJT Period warning
-  const ojtWarning = React.useMemo(() => {
+  const ojtWarning = useMemo(() => {
     if (!entryDate) return null;
     const ojtCheck = validateOjtDate(entryDate);
     return ojtCheck.warning || null;
@@ -186,6 +212,10 @@ export default function JournalEntryScreen() {
       });
 
       if (result.success) {
+        setWorkDescription('');
+        setLearningDescription('');
+        setChallenges('');
+        setNotes('');
         Alert.alert('Success', 'Journal entry saved.', [
           {
             text: 'OK',

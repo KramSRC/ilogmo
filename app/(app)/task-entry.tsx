@@ -3,7 +3,7 @@
  * Provides input forms for task title, description, due date, and priority selection.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import {
   TextInput,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
 import { useTasks, TaskPriority } from '@/features/tasks';
 import { Button, DatePickerInput, ErrorMessage } from '@/components';
@@ -41,30 +41,54 @@ export default function TaskEntryScreen() {
 
   // Load existing task if editing
   useEffect(() => {
-    async function loadTask() {
-      if (!id) return;
+    if (!id) return;
 
+    let isMounted = true;
+    async function loadTask() {
       setIsLoadingInitial(true);
       try {
-        const task = await getTaskById(id);
-        if (task) {
+        const task = await getTaskById(id!);
+        if (isMounted && task) {
           setTitle(task.title);
           setDescription(task.description || '');
           setDueDate(task.dueDate || '');
           setPriority(task.priority);
-        } else {
+        } else if (isMounted) {
           setFormError('Could not find the requested task.');
         }
       } catch (err) {
-        console.warn('[TaskEntryScreen] Error loading task:', err);
-        setFormError('Failed to load task for editing.');
+        if (isMounted) {
+          console.warn('[TaskEntryScreen] Error loading task:', err);
+          setFormError('Failed to load task for editing.');
+        }
       } finally {
-        setIsLoadingInitial(false);
+        if (isMounted) {
+          setIsLoadingInitial(false);
+        }
       }
     }
 
     loadTask();
+
+    return () => {
+      isMounted = false;
+    };
   }, [id, getTaskById]);
+
+  // Reset on focus when creating new task
+  useFocusEffect(
+    useCallback(() => {
+      if (!id) {
+        setTitle('');
+        setDescription('');
+        setDueDate('');
+        setPriority('medium');
+        setErrors({});
+        setFormError(null);
+        setIsLoadingInitial(false);
+      }
+    }, [id])
+  );
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
