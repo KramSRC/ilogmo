@@ -56,7 +56,7 @@ export default function AppLayout() {
       />
 
       {/* ========================================================================= */}
-      {/* SECONDARY / EXPANDABLE MENU & INNER SCREENS (Hidden from Bottom Bar) */}
+      {/* EXPANDABLE MENU DESTINATIONS (Accessible via ☰ Menu; Bottom Bar remains) */}
       {/* ========================================================================= */}
 
       {/* Menu Item 1: Analytics */}
@@ -64,7 +64,6 @@ export default function AppLayout() {
         name="analytics"
         options={{
           href: null,
-          tabBarStyle: { display: 'none' },
         }}
       />
 
@@ -73,7 +72,6 @@ export default function AppLayout() {
         name="documents"
         options={{
           href: null,
-          tabBarStyle: { display: 'none' },
         }}
       />
 
@@ -82,7 +80,6 @@ export default function AppLayout() {
         name="reports"
         options={{
           href: null,
-          tabBarStyle: { display: 'none' },
         }}
       />
 
@@ -91,7 +88,6 @@ export default function AppLayout() {
         name="profile"
         options={{
           href: null,
-          tabBarStyle: { display: 'none' },
         }}
       />
 
@@ -100,11 +96,13 @@ export default function AppLayout() {
         name="settings"
         options={{
           href: null,
-          tabBarStyle: { display: 'none' },
         }}
       />
 
-      {/* Secondary Screens */}
+      {/* ========================================================================= */}
+      {/* INNER / SUB-SCREENS (Bottom Tab Bar Hidden) */}
+      {/* ========================================================================= */}
+
       <Tabs.Screen
         name="calendar"
         options={{

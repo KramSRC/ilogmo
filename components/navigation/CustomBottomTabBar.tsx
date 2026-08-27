@@ -1,11 +1,12 @@
 /**
  * iLogMo - CustomBottomTabBar Component
  * Bottom navigation with 4 primary tabs (Home, Attendance, Journal, Tasks) and a far-right Menu button (☰ / ✕).
- * Seamlessly integrates with FloatingNavMenu and respects safe area insets and child route hiding.
+ * Seamlessly integrates with FloatingNavMenu, useRouter, and respects safe area insets and child route hiding.
  */
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Platform } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { House, Clock, BookOpen, CheckSquare, Menu, X } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
@@ -40,15 +41,18 @@ const PRIMARY_TABS: TabItemConfig[] = [
   },
 ];
 
+const MENU_ROUTE_NAMES = ['analytics', 'documents', 'reports', 'profile', 'settings'];
+
 export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
   const insets = useSafeAreaInsets();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const currentRoute = state.routes[state.index];
   const currentDescriptor = descriptors[currentRoute.key];
   const tabBarStyle = currentDescriptor?.options?.tabBarStyle;
 
-  // If active screen requested tab bar hidden (e.g. secondary screens), return null
+  // If active screen requested tab bar hidden (e.g. sub-screens like upload, edit, details), return null
   if (tabBarStyle?.display === 'none') {
     return null;
   }
@@ -56,8 +60,9 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
   const bottomInset = Platform.OS === 'ios' ? Math.max(insets.bottom, 20) : Math.max(insets.bottom, 8);
   const barHeight = (Platform.OS === 'ios' ? 56 : 60) + bottomInset;
 
+  const isMenuDestinationActive = MENU_ROUTE_NAMES.includes(currentRoute.name);
+
   const handleTabPress = (routeName: string) => {
-    // If menu is open, close it on tab switch
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -70,13 +75,17 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
     });
 
     if (!isFocused && !event.defaultPrevented) {
-      navigation.navigate(routeName);
+      if (routeName === 'index') {
+        router.navigate('/(app)');
+      } else {
+        router.navigate(`/(app)/${routeName}` as any);
+      }
     }
   };
 
   const handleMenuNavigate = (route: string) => {
     setIsMenuOpen(false);
-    navigation.navigate(route);
+    router.push(route as any);
   };
 
   return (
@@ -149,19 +158,23 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         >
           <View
             style={[
-              isMenuOpen && {
+              (isMenuOpen || isMenuDestinationActive) && {
                 backgroundColor: '#EFF6FF',
                 borderColor: colors.primary[200],
               },
             ]}
             className={`w-9 h-9 rounded-xl items-center justify-center ${
-              isMenuOpen ? 'border bg-primary-50' : ''
+              isMenuOpen || isMenuDestinationActive ? 'border bg-primary-50' : ''
             }`}
           >
             {isMenuOpen ? (
               <X size={21} color={colors.primary[600]} strokeWidth={2.4} />
             ) : (
-              <Menu size={22} color={colors.neutral[700]} strokeWidth={2.2} />
+              <Menu
+                size={22}
+                color={isMenuDestinationActive ? colors.primary[600] : colors.neutral[700]}
+                strokeWidth={2.2}
+              />
             )}
           </View>
         </TouchableOpacity>
