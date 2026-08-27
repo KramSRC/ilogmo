@@ -4,6 +4,7 @@
  */
 
 import { supabase } from '@/lib/supabase';
+import * as Linking from 'expo-linking';
 import {
   SignInCredentials,
   SignUpCredentials,
@@ -243,8 +244,9 @@ export const authService = {
    */
   async sendPasswordResetEmail(email: string): Promise<AuthActionResult> {
     try {
+      const redirectUrl = Linking.createURL('/(auth)/reset-password');
       const { error } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
-        redirectTo: 'ilogmo://reset-password',
+        redirectTo: redirectUrl,
       });
 
       if (error) {

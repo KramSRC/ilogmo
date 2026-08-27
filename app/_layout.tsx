@@ -13,6 +13,7 @@ import {
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ActivityIndicator, View, Platform, StatusBar as RNStatusBar } from 'react-native';
+import * as Linking from 'expo-linking';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/store/authStore';
 import { authService } from '@/features/auth/services/authService';
@@ -64,7 +65,7 @@ export default function RootLayout() {
           setSession(currentSession);
           setUser(currentSession.user);
         }
-        router.push('/(auth)/reset-password');
+        router.replace('/(auth)/reset-password');
       } else if (event === 'TOKEN_REFRESHED' && currentSession) {
         setSession(currentSession);
       }
@@ -74,6 +75,55 @@ export default function RootLayout() {
       subscription.unsubscribe();
     };
   }, [setSession, setUser, setProfile, logout, router]);
+
+  // 3. Handle incoming deep link recovery tokens
+  useEffect(() => {
+    const handleUrl = async (url: string | null) => {
+      if (!url) return;
+      try {
+        const hashIdx = url.indexOf('#');
+        const queryIdx = url.indexOf('?');
+        const searchStr =
+          hashIdx !== -1
+            ? url.substring(hashIdx + 1)
+            : queryIdx !== -1
+              ? url.substring(queryIdx + 1)
+              : '';
+
+        if (searchStr) {
+          const params: Record<string, string> = {};
+          searchStr.split('&').forEach((pair) => {
+            const [k, v] = pair.split('=');
+            if (k && v) params[decodeURIComponent(k)] = decodeURIComponent(v);
+          });
+
+          if (params.access_token && params.refresh_token) {
+            const { data, error } = await supabase.auth.setSession({
+              access_token: params.access_token,
+              refresh_token: params.refresh_token,
+            });
+
+            if (!error && data.session) {
+              setSession(data.session);
+              setUser(data.session.user);
+              if (params.type === 'recovery' || url.includes('reset-password')) {
+                router.replace('/(auth)/reset-password');
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('[RootLayout] Deep link handling error:', err);
+      }
+    };
+
+    Linking.getInitialURL().then(handleUrl);
+    const sub = Linking.addEventListener('url', (event) => handleUrl(event.url));
+
+    return () => {
+      sub.remove();
+    };
+  }, [router, setSession, setUser]);
 
   // 3. Global Route Guard: Protect (app) from unauthenticated access
   useEffect(() => {
