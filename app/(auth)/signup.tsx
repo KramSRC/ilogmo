@@ -205,7 +205,7 @@ export default function SignUpScreen() {
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input
                   label="Email Address"
-                  placeholder="juan.delacruz@university.edu"
+                  placeholder="juandelacruz@gmail.com"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   autoCorrect={false}
