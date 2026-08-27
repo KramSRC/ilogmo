@@ -27,7 +27,8 @@ export function NotificationBellButton({
       activeOpacity={0.7}
       accessibilityRole="button"
       accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
-      className={`w-11 h-11 rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative ${className || ''}`}
+      style={{ width: 44, height: 44, minWidth: 44, minHeight: 44 }}
+      className={`rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative ${className || ''}`}
     >
       <Bell size={20} color={colors.neutral[700]} />
       {isUnread ? (
