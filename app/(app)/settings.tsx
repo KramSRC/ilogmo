@@ -190,13 +190,25 @@ export default function SettingsScreen() {
         {/* ========================================================================= */}
         {/* SECTION 4: DATA & PRIVACY */}
         {/* ========================================================================= */}
+        {/* ========================================================================= */}
+        {/* SECTION 4: DATA & PRIVACY */}
+        {/* ========================================================================= */}
         <SettingsSection title="Data & Privacy">
+          <SettingsRow
+            icon={<FileText size={18} color="#8B5CF6" />}
+            iconBgColor="bg-purple-50"
+            iconBorderColor="border-purple-100"
+            title="OJT Progress Reports"
+            subtitle="View formal summaries and export PDF/JSON reports"
+            onPress={() => router.push('/(app)/reports')}
+          />
+
           <SettingsRow
             icon={<Download size={18} color={colors.primary[600]} />}
             iconBgColor="bg-primary-50"
             iconBorderColor="border-primary-100"
             title="Export My Data"
-            subtitle="Create a copy of your records as a JSON file"
+            subtitle="Create a copy of your raw records as JSON"
             onPress={() => setIsExportModalOpen(true)}
           />
 
