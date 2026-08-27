@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View,
   Text,
@@ -42,11 +42,18 @@ export default function EditOjtScreen() {
   const { activeOjt, updateOjt, isSubmitting } = useOjt();
   const [serverError, setServerError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useFocusEffect(
     useCallback(() => {
       setIsSuccess(false);
       setServerError(null);
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+      };
     }, [])
   );
 
@@ -110,8 +117,12 @@ export default function EditOjtScreen() {
       setServerError(result.error || 'Unable to update your OJT setup. Please try again.');
     } else {
       setIsSuccess(true);
-      setTimeout(() => {
-        router.back();
+      timeoutRef.current = setTimeout(() => {
+        if (router.canGoBack()) {
+          router.back();
+        } else {
+          router.replace('/(app)/profile');
+        }
       }, 900);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -42,6 +42,16 @@ export default function OjtSetupScreen() {
   const { createOjt, isSubmitting } = useOjt();
   const [serverError, setServerError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
+  }, []);
 
   const todayStr = getTodayDateString();
 
@@ -86,7 +96,7 @@ export default function OjtSetupScreen() {
       setServerError(result.error || 'Unable to save your OJT setup. Please try again.');
     } else {
       setIsSuccess(true);
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         router.replace('/(app)');
       }, 900);
     }
