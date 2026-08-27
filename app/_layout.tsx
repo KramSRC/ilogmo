@@ -23,7 +23,7 @@ import { colors } from '@/constants/colors';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+function RootLayoutNav() {
   const router = useRouter();
   const segments = useSegments();
   const { setSession, setUser, setProfile, logout, isAuthenticated, isLoading } = useAuthStore();
@@ -173,22 +173,28 @@ export default function RootLayout() {
   }
 
   return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: colors.background.app,
+        },
+      }}
+    >
+      <Stack.Screen name="index" />
+      <Stack.Screen name="(auth)" />
+      <Stack.Screen name="(onboarding)" />
+      <Stack.Screen name="(app)" />
+    </Stack>
+  );
+}
+
+export default function RootLayout() {
+  return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <StatusBar style="dark" />
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: {
-              backgroundColor: colors.background.app,
-            },
-          }}
-        >
-          <Stack.Screen name="index" />
-          <Stack.Screen name="(auth)" />
-          <Stack.Screen name="(onboarding)" />
-          <Stack.Screen name="(app)" />
-        </Stack>
+        <RootLayoutNav />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
