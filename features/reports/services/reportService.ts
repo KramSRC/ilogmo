@@ -763,42 +763,63 @@ export const reportService = {
   },
 
   /**
-   * Generates a PDF file from the HTML template and prompts the system share sheet.
+   * Generates a PDF file from the HTML template and prompts the system share sheet / print dialog.
    */
   async exportPdfReport(summary: ReportSummary): Promise<ReportActionResult<boolean>> {
     try {
       const html = this.generateHtmlReport(summary);
 
       // Generate PDF in cache
-      const { uri } = await Print.printToFileAsync({
+      const printResult = await Print.printToFileAsync({
         html,
         base64: false,
       });
 
+      const uri = printResult?.uri;
+
       if (!uri) {
-        return { success: false, error: 'Failed to generate PDF document.' };
+        // Direct print fallback if printToFile fails
+        await Print.printAsync({ html });
+        return { success: true, data: true };
       }
 
-      // Check if sharing is available
+      // Format clean file URI
+      const fileUri = uri.startsWith('file://') ? uri : `file://${uri}`;
+
+      // Try Sharing.shareAsync first
       const isSharingAvailable = await Sharing.isAvailableAsync();
       if (isSharingAvailable) {
-        await Sharing.shareAsync(uri, {
-          UTI: '.pdf',
-          mimeType: 'application/pdf',
-          dialogTitle: `iLogMo-OJT-Report-${summary.generatedDateDisplay.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`,
-        });
-      } else {
-        // Fallback to print sheet
-        await Print.printAsync({ uri });
+        try {
+          await Sharing.shareAsync(fileUri, {
+            UTI: '.pdf',
+            mimeType: 'application/pdf',
+            dialogTitle: `iLogMo-OJT-Report-${summary.filterLabel.replace(/\s+/g, '_')}.pdf`,
+          });
+          return { success: true, data: true };
+        } catch (shareErr) {
+          console.warn(
+            '[reportService.exportPdfReport] Sharing.shareAsync rejected, falling back to Print dialog:',
+            shareErr
+          );
+        }
       }
 
+      // Fallback: Opens system Print dialog / Save as PDF
+      await Print.printAsync({ uri: fileUri });
       return { success: true, data: true };
     } catch (err: any) {
       console.warn('[reportService.exportPdfReport] PDF generation error:', err);
-      return {
-        success: false,
-        error: err?.message || 'Unable to generate or share PDF report.',
-      };
+      // Final fallback: direct HTML print sheet
+      try {
+        const html = this.generateHtmlReport(summary);
+        await Print.printAsync({ html });
+        return { success: true, data: true };
+      } catch (finalErr: any) {
+        return {
+          success: false,
+          error: finalErr?.message || err?.message || 'Unable to generate or export PDF report.',
+        };
+      }
     }
   },
 
