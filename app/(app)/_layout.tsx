@@ -7,6 +7,7 @@ import { colors } from '@/constants/colors';
 export default function AppLayout() {
   return (
     <Tabs
+      backBehavior="history"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.primary[600],
@@ -109,6 +110,30 @@ export default function AppLayout() {
       />
       <Tabs.Screen
         name="attendance-details"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="journal-entry"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="journal-details"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="task-entry"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="task-details"
         options={{
           href: null,
         }}

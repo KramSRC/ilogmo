@@ -1,4 +1,5 @@
 /**
- * Journal Hooks
+ * iLogMo - Journal Hooks Export
  */
-export {};
+
+export * from './useJournal';

@@ -31,6 +31,7 @@ export function Button({
   rightIcon,
   disabled,
   className = '',
+  style,
   ...props
 }: ButtonProps) {
   const isDisabled = disabled || isLoading;
@@ -45,7 +46,7 @@ export function Button({
     variantText = 'text-neutral-900 font-semibold';
     indicatorColor = colors.neutral[900];
   } else if (variant === 'outline') {
-    variantContainer = 'bg-white active:bg-neutral-50 border border-neutral-200 shadow-soft-sm';
+    variantContainer = 'bg-white active:bg-neutral-50 border border-neutral-200';
     variantText = 'text-neutral-900 font-medium';
     indicatorColor = colors.primary[600];
   } else if (variant === 'ghost') {
@@ -70,15 +71,14 @@ export function Button({
     sizeText = 'text-lg';
   }
 
-  const disabledStyle = isDisabled ? 'opacity-60' : 'opacity-100';
-
   return (
     <TouchableOpacity
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled, busy: isLoading }}
       disabled={isDisabled}
       activeOpacity={0.8}
-      className={`flex-row items-center justify-center ${variantContainer} ${sizeContainer} ${disabledStyle} ${className}`}
+      style={[{ opacity: isDisabled ? 0.6 : 1 }, style]}
+      className={`flex-row items-center justify-center ${variantContainer} ${sizeContainer} ${className}`}
       {...props}
     >
       {isLoading ? (

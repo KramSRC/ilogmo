@@ -1,4 +1,5 @@
 /**
- * Journal Services
+ * iLogMo - Journal Services Export
  */
-export {};
+
+export * from './journalService';

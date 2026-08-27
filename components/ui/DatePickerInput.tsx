@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Platform, Modal } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { View, Text, TouchableOpacity, Platform, Modal, StyleSheet } from 'react-native';
+import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Calendar, X } from 'lucide-react-native';
 import { format, parseISO, isValid } from 'date-fns';
 import { colors } from '@/constants/colors';
@@ -19,6 +19,36 @@ export interface DatePickerInputProps {
   containerClassName?: string;
 }
 
+/**
+ * Safely parses YYYY-MM-DD into a local Date object without timezone offset bugs.
+ */
+function parseDateValue(value?: string): Date {
+  if (!value) return new Date();
+  const parts = value.split('-');
+  if (parts.length === 3) {
+    const y = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10) - 1;
+    const d = parseInt(parts[2], 10);
+    const date = new Date(y, m, d);
+    if (isValid(date)) return date;
+  }
+  const parsed = parseISO(value);
+  return isValid(parsed) ? parsed : new Date();
+}
+
+/**
+ * Formats YYYY-MM-DD into a display string (e.g. "August 28, 2026").
+ */
+function formatDateDisplay(value?: string): string {
+  if (!value) return '';
+  try {
+    const date = parseDateValue(value);
+    return format(date, 'MMMM d, yyyy');
+  } catch {
+    return value;
+  }
+}
+
 export function DatePickerInput({
   label,
   value,
@@ -34,16 +64,16 @@ export function DatePickerInput({
 }: DatePickerInputProps) {
   const [showPicker, setShowPicker] = useState(false);
 
-  // Parse existing value or fallback to today
-  const selectedDate = value && isValid(parseISO(value)) ? parseISO(value) : new Date();
-  const displayFormatted =
-    value && isValid(parseISO(value)) ? format(parseISO(value), 'MMMM d, yyyy') : '';
+  const selectedDate = parseDateValue(value);
+  const displayFormatted = formatDateDisplay(value);
 
-  const handleValueChange = (_event: any, date?: Date) => {
+  const handleValueChange = (event: DateTimePickerEvent, date?: Date) => {
     if (Platform.OS === 'android') {
       setShowPicker(false);
     }
-    if (date) {
+    if (event.type === 'set' && date) {
+      onChangeDate(format(date, 'yyyy-MM-dd'));
+    } else if (Platform.OS === 'ios' && date) {
       onChangeDate(format(date, 'yyyy-MM-dd'));
     }
   };
@@ -70,11 +100,12 @@ export function DatePickerInput({
         accessibilityRole="button"
         accessibilityLabel={label || 'Select date'}
         disabled={disabled}
-        className={`w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white ${
-          error
-            ? 'border-error ring-1 ring-error/20'
-            : 'border-neutral-200 focus:border-primary-600'
-        } ${disabled ? 'opacity-50 bg-neutral-50' : ''}`}
+        className="w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white"
+        style={[
+          styles.container,
+          error ? styles.errorBorder : styles.normalBorder,
+          disabled && styles.disabledStyle,
+        ]}
       >
         <View className="flex-row items-center flex-1 mr-2">
           <Calendar size={18} color={colors.neutral[400]} />
@@ -113,7 +144,7 @@ export function DatePickerInput({
           display="default"
           minimumDate={minDate}
           maximumDate={maxDate}
-          onValueChange={handleValueChange}
+          onChange={handleValueChange}
           onDismiss={handleDismiss}
         />
       ) : null}
@@ -146,8 +177,7 @@ export function DatePickerInput({
                 display="spinner"
                 minimumDate={minDate}
                 maximumDate={maxDate}
-                onValueChange={handleValueChange}
-                onDismiss={handleDismiss}
+                onChange={handleValueChange}
                 textColor={colors.neutral[900]}
               />
             </View>
@@ -157,5 +187,21 @@ export function DatePickerInput({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    minHeight: 48,
+  },
+  normalBorder: {
+    borderColor: '#E2E8F0',
+  },
+  errorBorder: {
+    borderColor: '#EF4444',
+  },
+  disabledStyle: {
+    opacity: 0.5,
+    backgroundColor: '#F8FAFC',
+  },
+});
 
 export default DatePickerInput;

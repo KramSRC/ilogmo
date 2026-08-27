@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Platform, Modal } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { View, Text, TouchableOpacity, Platform, Modal, StyleSheet } from 'react-native';
+import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Clock, X } from 'lucide-react-native';
 import { format, setHours, setMinutes } from 'date-fns';
 import { colors } from '@/constants/colors';
@@ -62,11 +62,13 @@ export function TimePickerInput({
   const selectedDate = parseTimeStringToDate(value);
   const displayFormatted = formatTimeStringForDisplay(value);
 
-  const handleValueChange = (_event: any, date?: Date) => {
+  const handleValueChange = (event: DateTimePickerEvent, date?: Date) => {
     if (Platform.OS === 'android') {
       setShowPicker(false);
     }
-    if (date) {
+    if (event.type === 'set' && date) {
+      onChangeTime(format(date, 'HH:mm'));
+    } else if (Platform.OS === 'ios' && date) {
       onChangeTime(format(date, 'HH:mm'));
     }
   };
@@ -93,11 +95,12 @@ export function TimePickerInput({
         accessibilityRole="button"
         accessibilityLabel={label || 'Select time'}
         disabled={disabled}
-        className={`w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white ${
-          error
-            ? 'border-error ring-1 ring-error/20'
-            : 'border-neutral-200 focus:border-primary-600'
-        } ${disabled ? 'opacity-50 bg-neutral-50' : ''}`}
+        className="w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white"
+        style={[
+          styles.container,
+          error ? styles.errorBorder : styles.normalBorder,
+          disabled && styles.disabledStyle,
+        ]}
       >
         <View className="flex-row items-center flex-1 mr-2">
           <Clock size={16} color={colors.neutral[400]} />
@@ -135,7 +138,7 @@ export function TimePickerInput({
           mode="time"
           is24Hour={false}
           display="default"
-          onValueChange={handleValueChange}
+          onChange={handleValueChange}
           onDismiss={handleDismiss}
         />
       ) : null}
@@ -167,8 +170,7 @@ export function TimePickerInput({
                 mode="time"
                 is24Hour={false}
                 display="spinner"
-                onValueChange={handleValueChange}
-                onDismiss={handleDismiss}
+                onChange={handleValueChange}
                 textColor={colors.neutral[900]}
               />
             </View>
@@ -178,5 +180,21 @@ export function TimePickerInput({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    minHeight: 48,
+  },
+  normalBorder: {
+    borderColor: '#E2E8F0',
+  },
+  errorBorder: {
+    borderColor: '#EF4444',
+  },
+  disabledStyle: {
+    opacity: 0.5,
+    backgroundColor: '#F8FAFC',
+  },
+});
 
 export default TimePickerInput;

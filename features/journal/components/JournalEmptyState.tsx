@@ -1,0 +1,43 @@
+/**
+ * iLogMo - Journal Empty State Component
+ * Displayed when the user has no recorded journal entries yet.
+ */
+
+import React from 'react';
+import { View, Text } from 'react-native';
+import { BookOpen, Plus } from 'lucide-react-native';
+import { Button } from '@/components';
+import { colors } from '@/constants/colors';
+
+export interface JournalEmptyStateProps {
+  onCreateEntry: () => void;
+}
+
+export function JournalEmptyState({ onCreateEntry }: JournalEmptyStateProps) {
+  return (
+    <View className="bg-white rounded-card p-8 border border-neutral-200 shadow-card items-center my-6">
+      <View className="w-16 h-16 bg-primary-50 rounded-3xl items-center justify-center mb-4 border border-primary-100">
+        <BookOpen size={30} color={colors.primary[600]} />
+      </View>
+
+      <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-2">
+        Start your OJT journal
+      </Text>
+
+      <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-6 max-w-xs">
+        Record what you worked on and what you learned each day.
+      </Text>
+
+      <Button
+        title="Create First Entry"
+        onPress={onCreateEntry}
+        variant="primary"
+        size="md"
+        leftIcon={<Plus size={18} color="#FFFFFF" />}
+        className="w-full"
+      />
+    </View>
+  );
+}
+
+export default JournalEmptyState;

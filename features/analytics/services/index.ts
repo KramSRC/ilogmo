@@ -1,4 +1,5 @@
 /**
- * Analytics Services
+ * iLogMo - Analytics Services Export
  */
-export {};
+
+export * from './analyticsService';

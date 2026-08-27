@@ -6,6 +6,7 @@
 import { DashboardData, OjtProgress, DashboardTask, TodayAttendance } from '../types';
 import { attendanceService } from '@/features/attendance/services/attendanceService';
 import { ojtService } from '@/features/ojt/services/ojtService';
+import { taskService } from '@/features/tasks/services/taskService';
 import {
   formatTimeDisplay,
   formatHoursMinutes,
@@ -36,27 +37,6 @@ export function calculateOjtProgress(
   };
 }
 
-const INITIAL_TASKS: DashboardTask[] = [
-  {
-    id: 'task-1',
-    title: 'Review project requirements',
-    completed: true,
-    priority: 'high',
-  },
-  {
-    id: 'task-2',
-    title: 'Complete assigned module',
-    completed: false,
-    priority: 'high',
-  },
-  {
-    id: 'task-3',
-    title: 'Update documentation',
-    completed: false,
-    priority: 'medium',
-  },
-];
-
 export const dashboardService = {
   /**
    * Fetch dashboard summary for the authenticated user.
@@ -70,13 +50,22 @@ export const dashboardService = {
     let requiredHours = 486;
     let completedHours = 0;
     let estimatedCompletionDate: string | undefined = undefined;
+    let tasks: DashboardTask[] = [];
 
     if (userId) {
-      const [realToday, history, activeOjt] = await Promise.all([
+      const [realToday, history, activeOjt, realTasks] = await Promise.all([
         attendanceService.getTodayAttendance(userId),
         attendanceService.getAttendanceHistory(userId, 365),
         ojtService.getActiveOjt(userId),
+        taskService.getTasks(userId),
       ]);
+
+      tasks = realTasks.map((t) => ({
+        id: t.id,
+        title: t.title,
+        completed: t.completed,
+        priority: t.priority,
+      }));
 
       // 1. Attendance Today Status
       if (realToday) {
@@ -113,7 +102,7 @@ export const dashboardService = {
     return {
       progress: calculateOjtProgress(completedHours, requiredHours, estimatedCompletionDate),
       attendance: attendanceState,
-      tasks: INITIAL_TASKS,
+      tasks,
       recentJournal: {
         id: 'journal-1',
         date: 'Yesterday',

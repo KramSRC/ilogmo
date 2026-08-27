@@ -70,7 +70,7 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
           </Text>
           <Button
             title="Write Today's Journal"
-            onPress={() => router.push('/(app)/journal')}
+            onPress={() => router.push('/(app)/journal-entry')}
             variant="outline"
             size="sm"
             className="w-full"

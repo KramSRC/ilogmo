@@ -1,4 +1,7 @@
 /**
- * Journal Components
+ * iLogMo - Journal Components Export
  */
-export {};
+
+export * from './JournalCard';
+export * from './JournalEmptyState';
+export * from './JournalSkeleton';

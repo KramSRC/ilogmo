@@ -7,6 +7,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import { DashboardData } from '../types';
 import { dashboardService } from '../services/dashboardService';
+import { taskService } from '@/features/tasks/services/taskService';
 
 export function useDashboard() {
   const { user, profile } = useAuth();
@@ -59,15 +60,32 @@ export function useDashboard() {
     }
   }, [user]);
 
-  const toggleTask = useCallback(async (taskId: string) => {
-    setData((prev) => {
-      if (!prev) return prev;
-      const updatedTasks = prev.tasks.map((t) =>
-        t.id === taskId ? { ...t, completed: !t.completed } : t
-      );
-      return { ...prev, tasks: updatedTasks };
-    });
-  }, []);
+  const toggleTask = useCallback(
+    async (taskId: string) => {
+      let nextState = false;
+
+      setData((prev) => {
+        if (!prev) return prev;
+        const target = prev.tasks.find((t) => t.id === taskId);
+        if (target) {
+          nextState = !target.completed;
+        }
+        const updatedTasks = prev.tasks.map((t) =>
+          t.id === taskId ? { ...t, completed: !t.completed } : t
+        );
+        return { ...prev, tasks: updatedTasks };
+      });
+
+      if (user?.id) {
+        try {
+          await taskService.toggleTaskComplete(user.id, taskId, nextState);
+        } catch (err) {
+          console.warn('[useDashboard.toggleTask] Error toggling task:', err);
+        }
+      }
+    },
+    [user]
+  );
 
   // Derive first name greeting from profile or auth metadata
   const firstName = profile?.first_name || user?.user_metadata?.first_name || '';

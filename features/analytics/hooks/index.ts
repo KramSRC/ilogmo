@@ -1,4 +1,5 @@
 /**
- * Analytics Hooks
+ * iLogMo - Analytics Hooks Export
  */
-export {};
+
+export * from './useAnalytics';

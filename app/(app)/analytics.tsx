@@ -1,23 +1,96 @@
+/**
+ * iLogMo - Analytics Screen
+ * Comprehensive visual analytics dashboard tracking OJT progress, attendance rates,
+ * weekly distribution, monthly summaries, and completion forecasting.
+ */
+
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, RefreshControl } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BarChart3 } from 'lucide-react-native';
+import { useAnalytics } from '@/features/analytics';
+import {
+  OverallProgressCard,
+  AttendanceOverviewCard,
+  WeeklyHoursCard,
+  MonthlyProgressCard,
+  EstimatedCompletionCard,
+  InsightsCard,
+  AnalyticsSkeleton,
+} from '@/features/analytics/components';
+import { Button, ErrorMessage } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function AnalyticsScreen() {
+  const { data, isLoading, isRefreshing, error, refresh, goToPrevMonth, goToNextMonth } =
+    useAnalytics();
+
   return (
-    <SafeAreaView className="flex-1 bg-background-app items-center justify-center px-6">
-      <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
-        <View className="w-16 h-16 bg-blue-50 rounded-3xl items-center justify-center mb-4 border border-blue-100">
-          <BarChart3 size={32} color={colors.primary[600]} />
+    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refresh}
+            tintColor={colors.primary[600]}
+            colors={[colors.primary[600]]}
+          />
+        }
+        className="px-5 pt-3"
+      >
+        {/* 1. Header Section */}
+        <View className="pb-4">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            Analytics
+          </Text>
+          <Text className="text-xs font-sans text-neutral-500 mt-0.5">Track your OJT progress</Text>
         </View>
-        <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-1.5">
-          OJT Analytics
-        </Text>
-        <Text className="text-sm font-sans text-neutral-500 text-center leading-5">
-          Detailed completion breakdown, weekly hour distributions, and pace forecasts coming soon.
-        </Text>
-      </View>
+
+        {/* 2. Error Display */}
+        {error ? (
+          <View className="mb-4">
+            <ErrorMessage message={error} type="error" />
+            <Button
+              title="Try Again"
+              onPress={refresh}
+              variant="outline"
+              size="sm"
+              className="mt-2"
+            />
+          </View>
+        ) : null}
+
+        {/* 3. Loading Skeleton */}
+        {isLoading && !isRefreshing ? (
+          <AnalyticsSkeleton />
+        ) : data ? (
+          /* 4. Analytics Content */
+          <View>
+            {/* 1. Overall OJT Progress Card */}
+            <OverallProgressCard progress={data.overall} />
+
+            {/* 2. Attendance Overview Card (Present, Late, Absent, Day Off, Avg Hours) */}
+            <AttendanceOverviewCard overview={data.attendanceOverview} />
+
+            {/* 3. Weekly Hours Chart */}
+            <WeeklyHoursCard weekly={data.thisWeek} />
+
+            {/* 4. Monthly Progress & Weekly Breakdown */}
+            <MonthlyProgressCard
+              monthly={data.monthly}
+              onPrevMonth={goToPrevMonth}
+              onNextMonth={goToNextMonth}
+            />
+
+            {/* 5. Estimated Completion Forecast */}
+            <EstimatedCompletionCard estimate={data.estimate} />
+
+            {/* 6. Calculated Insights */}
+            <InsightsCard insights={data.insights} />
+          </View>
+        ) : null}
+      </ScrollView>
     </SafeAreaView>
   );
 }
