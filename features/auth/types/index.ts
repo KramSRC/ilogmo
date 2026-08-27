@@ -10,6 +10,10 @@ export interface UserProfile {
   last_name: string;
   student_id: string | null;
   email: string;
+  contact_number?: string | null;
+  username?: string | null;
+  avatar_path?: string | null;
+  avatar_url?: string | null;
   created_at: string;
   updated_at: string;
 }

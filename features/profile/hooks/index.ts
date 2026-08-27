@@ -1,4 +1,1 @@
-/**
- * Profile Hooks
- */
-export {};
+export * from './useProfile';

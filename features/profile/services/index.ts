@@ -1,4 +1,1 @@
-/**
- * Profile Services
- */
-export {};
+export * from './profileService';
