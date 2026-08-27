@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { ArrowLeft, Download } from 'lucide-react-native';
+import { Download } from 'lucide-react-native';
 import {
   useReports,
   ReportFilterTabs,
@@ -43,32 +43,13 @@ export default function ReportsScreen() {
     <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
       {/* 1. Header Bar */}
       <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
-        <View className="flex-row items-center flex-1 mr-2">
-          <TouchableOpacity
-            onPress={() => {
-              if (router.canGoBack()) {
-                router.back();
-              } else {
-                router.replace('/(app)');
-              }
-            }}
-            activeOpacity={0.7}
-            accessibilityRole="button"
-            accessibilityLabel="Go back"
-            style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
-          >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
-          </TouchableOpacity>
-
-          <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900 tracking-tight">
-              Reports
-            </Text>
-            <Text className="text-xs font-sans text-neutral-500">
-              View and export your OJT progress
-            </Text>
-          </View>
+        <View className="flex-1 mr-3">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            Reports
+          </Text>
+          <Text className="text-xs font-sans text-neutral-500">
+            View and export your OJT progress
+          </Text>
         </View>
 
         {/* Quick Export Header Button */}
