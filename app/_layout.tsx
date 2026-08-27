@@ -1,7 +1,7 @@
 import '../global.css';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Stack, useRouter, useSegments } from 'expo-router';
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import {
   useFonts,
@@ -23,11 +23,9 @@ import { colors } from '@/constants/colors';
 
 SplashScreen.preventAutoHideAsync();
 
-function RootLayoutNav() {
-  const router = useRouter();
-  const segments = useSegments();
-  const { setSession, setUser, setProfile, logout, isAuthenticated, isLoading } = useAuthStore();
-  const { hasCompletedSetup, setActiveOjt, clearOjt } = useOjtStore();
+export default function RootLayout() {
+  const { setSession, setUser, setProfile, logout } = useAuthStore();
+  const { setActiveOjt, clearOjt } = useOjtStore();
 
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -66,12 +64,10 @@ function RootLayoutNav() {
         logout();
         clearOjt();
       } else if (event === 'PASSWORD_RECOVERY') {
-        // Deep linked from reset password email
         if (currentSession?.user) {
           setSession(currentSession);
           setUser(currentSession.user);
         }
-        router.replace('/(auth)/reset-password');
       } else if (event === 'TOKEN_REFRESHED' && currentSession) {
         setSession(currentSession);
       }
@@ -80,7 +76,7 @@ function RootLayoutNav() {
     return () => {
       subscription.unsubscribe();
     };
-  }, [setSession, setUser, setProfile, setActiveOjt, logout, clearOjt, router]);
+  }, [setSession, setUser, setProfile, setActiveOjt, logout, clearOjt]);
 
   // 3. Handle incoming deep link recovery tokens
   useEffect(() => {
@@ -112,9 +108,6 @@ function RootLayoutNav() {
             if (!error && data.session) {
               setSession(data.session);
               setUser(data.session.user);
-              if (params.type === 'recovery' || url.includes('reset-password')) {
-                router.replace('/(auth)/reset-password');
-              }
             }
           }
         }
@@ -129,33 +122,7 @@ function RootLayoutNav() {
     return () => {
       sub.remove();
     };
-  }, [router, setSession, setUser]);
-
-  // 4. Global Route Guard: Protect (app) and enforce (onboarding)
-  useEffect(() => {
-    if (isLoading || !fontsLoaded) return;
-
-    const inAppGroup = segments[0] === '(app)';
-    const inOnboardingGroup = segments[0] === '(onboarding)';
-    const inAuthGroup = segments[0] === '(auth)';
-
-    if (!isAuthenticated) {
-      if (inAppGroup || inOnboardingGroup) {
-        router.replace('/(auth)/login');
-      }
-    } else {
-      // User is authenticated
-      if (!hasCompletedSetup) {
-        if (!inOnboardingGroup) {
-          router.replace('/(onboarding)/ojt-setup');
-        }
-      } else {
-        if (inOnboardingGroup || inAuthGroup) {
-          router.replace('/(app)');
-        }
-      }
-    }
-  }, [isAuthenticated, hasCompletedSetup, isLoading, segments, fontsLoaded, router]);
+  }, [setSession, setUser]);
 
   if (!fontsLoaded) {
     return (
@@ -173,28 +140,22 @@ function RootLayoutNav() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-        contentStyle: {
-          backgroundColor: colors.background.app,
-        },
-      }}
-    >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="(auth)" />
-      <Stack.Screen name="(onboarding)" />
-      <Stack.Screen name="(app)" />
-    </Stack>
-  );
-}
-
-export default function RootLayout() {
-  return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <StatusBar style="dark" />
-        <RootLayoutNav />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: {
+              backgroundColor: colors.background.app,
+            },
+          }}
+        >
+          <Stack.Screen name="index" />
+          <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(onboarding)" />
+          <Stack.Screen name="(app)" />
+        </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

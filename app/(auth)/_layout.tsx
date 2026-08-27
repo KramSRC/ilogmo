@@ -1,8 +1,20 @@
 import React from 'react';
-import { Stack } from 'expo-router';
+import { Stack, Redirect } from 'expo-router';
+import { useAuthStore } from '@/store/authStore';
+import { useOjtStore } from '@/store/ojtStore';
 import { colors } from '@/constants/colors';
 
 export default function AuthLayout() {
+  const { isAuthenticated, isLoading } = useAuthStore();
+  const { hasCompletedSetup } = useOjtStore();
+
+  if (!isLoading && isAuthenticated) {
+    if (!hasCompletedSetup) {
+      return <Redirect href="/(onboarding)/ojt-setup" />;
+    }
+    return <Redirect href="/(app)" />;
+  }
+
   return (
     <Stack
       screenOptions={{

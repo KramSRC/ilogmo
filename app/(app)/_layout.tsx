@@ -1,10 +1,23 @@
 import React from 'react';
-import { Tabs } from 'expo-router';
+import { Tabs, Redirect } from 'expo-router';
 import { Platform } from 'react-native';
 import { House, Clock, BookOpen, BarChart3, User } from 'lucide-react-native';
+import { useAuthStore } from '@/store/authStore';
+import { useOjtStore } from '@/store/ojtStore';
 import { colors } from '@/constants/colors';
 
 export default function AppLayout() {
+  const { isAuthenticated, isLoading } = useAuthStore();
+  const { hasCompletedSetup } = useOjtStore();
+
+  if (!isLoading) {
+    if (!isAuthenticated) {
+      return <Redirect href="/(auth)/login" />;
+    }
+    if (!hasCompletedSetup) {
+      return <Redirect href="/(onboarding)/ojt-setup" />;
+    }
+  }
   return (
     <Tabs
       screenOptions={{
