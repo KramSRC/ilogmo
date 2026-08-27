@@ -13,7 +13,6 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Clock,
-  Calendar,
   Building2,
   Briefcase,
   User,
@@ -24,7 +23,7 @@ import {
 import { ojtSetupSchema, OjtSetupFormData } from '@/features/ojt/validation';
 import { useOjt } from '@/features/ojt/hooks/useOjt';
 import { WorkingDay } from '@/features/ojt/types';
-import { Button, Input, ErrorMessage } from '@/components';
+import { Button, Input, DatePickerInput, TimePickerInput, ErrorMessage } from '@/components';
 import { getTodayDateString } from '@/features/attendance/utils/timeUtils';
 import { colors } from '@/constants/colors';
 
@@ -175,38 +174,34 @@ export default function OjtSetupScreen() {
               )}
             />
 
-            {/* Start Date */}
+            {/* Start Date Picker */}
             <Controller
               control={control}
               name="startDate"
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="OJT Start Date (YYYY-MM-DD) *"
-                  placeholder="2026-08-10"
+              render={({ field: { onChange, value } }) => (
+                <DatePickerInput
+                  label="OJT Start Date *"
                   value={value}
-                  onChangeText={onChange}
-                  onBlur={onBlur}
+                  onChangeDate={onChange}
                   error={errors.startDate?.message}
-                  leftIcon={<Calendar size={18} color={colors.neutral[400]} />}
                   containerClassName="mb-4"
                 />
               )}
             />
 
-            {/* Expected End Date */}
+            {/* Expected End Date Picker */}
             <Controller
               control={control}
               name="expectedEndDate"
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Expected End Date (YYYY-MM-DD)"
-                  placeholder="2026-12-15 (Optional)"
-                  value={value || ''}
-                  onChangeText={onChange}
-                  onBlur={onBlur}
+              render={({ field: { onChange, value } }) => (
+                <DatePickerInput
+                  label="Expected End Date"
+                  value={value}
+                  onChangeDate={onChange}
+                  placeholder="Select expected end date (Optional)"
+                  clearable
                   error={errors.expectedEndDate?.message}
-                  helperText="Optional. Leave blank if unsure."
-                  leftIcon={<Calendar size={18} color={colors.neutral[400]} />}
+                  helperText="Optional. Leave blank if flexible."
                 />
               )}
             />
@@ -379,21 +374,19 @@ export default function OjtSetupScreen() {
               }}
             />
 
-            {/* Expected Start Time & End Time */}
+            {/* Expected Start Time & End Time Pickers */}
             <View className="flex-row space-x-3">
               <View className="flex-1 mr-2">
                 <Controller
                   control={control}
                   name="expectedStartTime"
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <Input
+                  render={({ field: { onChange, value } }) => (
+                    <TimePickerInput
                       label="Start Time"
-                      placeholder="08:00 AM"
-                      value={value || ''}
-                      onChangeText={onChange}
-                      onBlur={onBlur}
+                      value={value}
+                      onChangeTime={onChange}
+                      clearable
                       error={errors.expectedStartTime?.message}
-                      leftIcon={<Clock size={16} color={colors.neutral[400]} />}
                     />
                   )}
                 />
@@ -403,15 +396,13 @@ export default function OjtSetupScreen() {
                 <Controller
                   control={control}
                   name="expectedEndTime"
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <Input
+                  render={({ field: { onChange, value } }) => (
+                    <TimePickerInput
                       label="End Time"
-                      placeholder="05:00 PM"
-                      value={value || ''}
-                      onChangeText={onChange}
-                      onBlur={onBlur}
+                      value={value}
+                      onChangeTime={onChange}
+                      clearable
                       error={errors.expectedEndTime?.message}
-                      leftIcon={<Clock size={16} color={colors.neutral[400]} />}
                     />
                   )}
                 />
