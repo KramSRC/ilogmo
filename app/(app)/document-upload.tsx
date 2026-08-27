@@ -3,7 +3,7 @@
  * Allows students to pick an OJT document, name it, categorize it, and upload to Supabase Storage.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import * as DocumentPicker from 'expo-document-picker';
 import { ArrowLeft, UploadCloud, FileText, CheckCircle2, X } from 'lucide-react-native';
 import {
@@ -45,6 +45,22 @@ export default function DocumentUploadScreen() {
   // UI / Error State
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
+
+  const resetForm = useCallback(() => {
+    setSelectedFile(null);
+    setDocumentName('');
+    setCategory('other');
+    setDescription('');
+    setErrors({});
+    setFormError(null);
+  }, []);
+
+  // Reset form whenever screen gains focus for a fresh upload
+  useFocusEffect(
+    useCallback(() => {
+      resetForm();
+    }, [resetForm])
+  );
 
   /**
    * Handle picking a document from the device filesystem.
@@ -154,6 +170,7 @@ export default function DocumentUploadScreen() {
     });
 
     if (result.success) {
+      resetForm();
       Alert.alert('Success', 'Document uploaded successfully.', [
         {
           text: 'OK',
