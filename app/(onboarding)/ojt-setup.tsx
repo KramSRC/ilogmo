@@ -337,19 +337,20 @@ export default function OjtSetupScreen() {
                             accessibilityRole="checkbox"
                             accessibilityState={{ checked: isSelected }}
                             accessibilityLabel={`${item.day} working day`}
-                            style={{ minWidth: 44, minHeight: 44 }}
-                            className={`items-center justify-center rounded-2xl border ${
+                            style={{ minHeight: 44 }}
+                            className={`flex-1 mx-0.5 items-center justify-center py-2 rounded-xl border ${
                               isSelected
                                 ? 'bg-primary-600 border-primary-600 shadow-soft-sm'
                                 : 'bg-neutral-50 border-neutral-200'
                             }`}
                           >
                             <Text
-                              className={`text-xs font-bold font-sans ${
+                              className={`text-[11px] font-bold font-sans ${
                                 isSelected ? 'text-white' : 'text-neutral-700'
                               }`}
+                              numberOfLines={1}
                             >
-                              {item.short}
+                              {item.label}
                             </Text>
                             {isSelected ? (
                               <Check
