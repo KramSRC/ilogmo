@@ -4,15 +4,20 @@
  */
 
 import { Platform } from 'react-native';
-import * as Notifications from 'expo-notifications';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 import { parseISO, subDays, isValid } from 'date-fns';
 import { NotificationSettings } from '../types';
 import { OjtRecord } from '@/features/ojt/types';
 import { Task } from '@/features/tasks/types';
 
-// Configure foreground notification behavior safely
-if (Platform.OS !== 'web') {
+// Expo Notifications was removed from Expo Go in SDK 53.
+// We must safely require it only if we're in a development build or production.
+const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+let Notifications: any = null;
+
+if (!isExpoGo && Platform.OS !== 'web') {
   try {
+    Notifications = require('expo-notifications');
     Notifications.setNotificationHandler({
       handleNotification: async () => ({
         shouldShowAlert: true,
@@ -32,7 +37,7 @@ export const reminderService = {
    * Check if notification permission is granted.
    */
   async getPermissionStatusAsync(): Promise<boolean> {
-    if (Platform.OS === 'web') return false;
+    if (Platform.OS === 'web' || !Notifications) return false;
 
     try {
       const { status } = await Notifications.getPermissionsAsync();
@@ -47,7 +52,7 @@ export const reminderService = {
    * Request permission from user to send notifications.
    */
   async requestPermissionsAsync(): Promise<boolean> {
-    if (Platform.OS === 'web') return false;
+    if (Platform.OS === 'web' || !Notifications) return false;
 
     try {
       const { status: existingStatus } = await Notifications.getPermissionsAsync();
@@ -65,7 +70,7 @@ export const reminderService = {
    * Cancel a scheduled notification by identifier.
    */
   async cancelReminder(identifier: string): Promise<void> {
-    if (Platform.OS === 'web' || !identifier) return;
+    if (Platform.OS === 'web' || !Notifications || !identifier) return;
 
     try {
       await Notifications.cancelScheduledNotificationAsync(identifier);
@@ -87,7 +92,7 @@ export const reminderService = {
    * Schedule task due date reminder (1 day before due date at 9:00 AM).
    */
   async scheduleTaskReminder(task: Task, settings: NotificationSettings): Promise<string | null> {
-    if (Platform.OS === 'web') return null;
+    if (Platform.OS === 'web' || !Notifications) return null;
     if (!settings.taskReminders || task.completed || !task.dueDate) return null;
 
     const identifier = `task-due-${task.id}`;
@@ -139,7 +144,7 @@ export const reminderService = {
     tasks: Task[],
     settings: NotificationSettings
   ): Promise<void> {
-    if (Platform.OS === 'web') return;
+    if (Platform.OS === 'web' || !Notifications) return;
 
     try {
       const hasPermission = await this.getPermissionStatusAsync();
@@ -187,7 +192,7 @@ export const reminderService = {
    * Default: 30 minutes before expected start time.
    */
   async scheduleAttendanceDailyReminder(ojt: OjtRecord): Promise<void> {
-    if (Platform.OS === 'web' || !ojt.expectedStartTime) return;
+    if (Platform.OS === 'web' || !Notifications || !ojt.expectedStartTime) return;
 
     const identifier = 'ojt-attendance-start-daily';
     await this.cancelReminder(identifier);
@@ -231,7 +236,7 @@ export const reminderService = {
    * Default: 15 minutes before expected end time.
    */
   async scheduleCheckoutDailyReminder(ojt: OjtRecord): Promise<void> {
-    if (Platform.OS === 'web' || !ojt.expectedEndTime) return;
+    if (Platform.OS === 'web' || !Notifications || !ojt.expectedEndTime) return;
 
     const identifier = 'ojt-attendance-checkout-daily';
     await this.cancelReminder(identifier);
@@ -275,7 +280,7 @@ export const reminderService = {
    * Default: 30 minutes after expected end time.
    */
   async scheduleJournalDailyReminder(ojt: OjtRecord): Promise<void> {
-    if (Platform.OS === 'web' || !ojt.expectedEndTime) return;
+    if (Platform.OS === 'web' || !Notifications || !ojt.expectedEndTime) return;
 
     const identifier = 'ojt-journal-daily';
     await this.cancelReminder(identifier);

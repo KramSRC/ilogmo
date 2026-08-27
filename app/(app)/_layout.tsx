@@ -162,6 +162,12 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="edit-ojt"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

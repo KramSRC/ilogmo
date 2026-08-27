@@ -185,7 +185,7 @@ export default function ProfileScreen() {
             {/* 4. OJT Information Card (Read-Only) */}
             <ProfileOjtCard
               ojtRecord={ojtRecord}
-              onViewDetails={() => router.push('/(onboarding)/ojt-setup' as any)}
+              onViewDetails={() => router.push('/(app)/edit-ojt')}
             />
 
             {/* 5. Account & Danger Zone Actions */}
