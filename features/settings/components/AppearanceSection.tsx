@@ -62,10 +62,20 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
               accessibilityRole="radio"
               accessibilityState={{ selected: isSelected }}
               accessibilityLabel={`Theme option ${opt.label}. ${opt.subtitle}`}
-              style={{ minHeight: 74 }}
-              className={`flex-1 mx-1 p-3 rounded-2xl items-center justify-center border transition-all ${
+              style={[
+                { minHeight: 74 },
+                isSelected && {
+                  backgroundColor: 'rgba(239, 246, 255, 0.7)', // primary-50 with 70% opacity
+                  shadowColor: '#000',
+                  shadowOffset: { width: 0, height: 1 },
+                  shadowOpacity: 0.04,
+                  shadowRadius: 2,
+                  elevation: 1,
+                },
+              ]}
+              className={`flex-1 mx-1 p-3 rounded-2xl items-center justify-center border ${
                 isSelected
-                  ? 'bg-primary-50/70 border-primary-500 shadow-soft-sm'
+                  ? 'border-primary-500'
                   : 'bg-neutral-50 border-neutral-200'
               }`}
             >
