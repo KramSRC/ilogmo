@@ -1,7 +1,7 @@
 /**
  * iLogMo - CustomBottomTabBar Component
- * Bottom navigation with 4 primary tabs (Home, Attendance, Journal, Tasks) and a far-right Menu button (☰ / ✕).
- * Seamlessly integrates with FloatingNavMenu, useRouter, and respects safe area insets and child route hiding.
+ * Unified bottom navigation bar with 5 tabs: Home, Attendance, Journal, Tasks, and More.
+ * Tapping More seamlessly toggles the floating navigation menu.
  */
 
 import React, { useState } from 'react';
@@ -61,6 +61,8 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
   const barHeight = (Platform.OS === 'ios' ? 56 : 60) + bottomInset;
 
   const isMenuDestinationActive = MENU_ROUTE_NAMES.includes(currentRoute.name);
+  const isMoreActive = isMenuOpen || isMenuDestinationActive;
+  const moreColor = isMoreActive ? colors.primary[600] : colors.neutral[400];
 
   const handleTabPress = (routeName: string) => {
     if (isMenuOpen) {
@@ -98,7 +100,7 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         bottomOffset={barHeight}
       />
 
-      {/* Primary Bottom Navigation Bar */}
+      {/* Unified Bottom Navigation Bar */}
       <View
         style={{
           backgroundColor: '#FFFFFF',
@@ -147,36 +149,32 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
           );
         })}
 
-        {/* 5th Item: Far-Right Menu Button (Icon Only, No Text Label) */}
+        {/* 5th Tab: More Menu (Unified styling with icon + "More" text) */}
         <TouchableOpacity
           onPress={() => setIsMenuOpen((prev) => !prev)}
           activeOpacity={0.7}
-          accessibilityRole="button"
-          accessibilityLabel={isMenuOpen ? 'Close menu' : 'Open menu'}
-          style={{ minHeight: 44, minWidth: 48 }}
+          accessibilityRole="tab"
+          accessibilityState={{ selected: isMoreActive }}
+          accessibilityLabel={isMenuOpen ? 'Close More menu' : 'Open More menu'}
+          style={{ minHeight: 44 }}
           className="flex-1 items-center justify-center py-1"
         >
-          <View
-            style={[
-              (isMenuOpen || isMenuDestinationActive) && {
-                backgroundColor: '#EFF6FF',
-                borderColor: colors.primary[200],
-              },
-            ]}
-            className={`w-9 h-9 rounded-xl items-center justify-center ${
-              isMenuOpen || isMenuDestinationActive ? 'border bg-primary-50' : ''
-            }`}
-          >
+          <View className="mb-0.5">
             {isMenuOpen ? (
-              <X size={21} color={colors.primary[600]} strokeWidth={2.4} />
+              <X size={21} color={colors.primary[600]} strokeWidth={2.2} />
             ) : (
-              <Menu
-                size={22}
-                color={isMenuDestinationActive ? colors.primary[600] : colors.neutral[700]}
-                strokeWidth={2.2}
-              />
+              <Menu size={21} color={moreColor} strokeWidth={2.2} />
             )}
           </View>
+          <Text
+            style={{
+              fontFamily: isMoreActive ? 'Inter_600SemiBold' : 'Inter_500Medium',
+              fontSize: 10.5,
+              color: moreColor,
+            }}
+          >
+            More
+          </Text>
         </TouchableOpacity>
       </View>
     </>
