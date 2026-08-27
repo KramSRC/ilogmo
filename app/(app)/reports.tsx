@@ -47,30 +47,13 @@ export default function ReportsScreen() {
           <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
             Reports
           </Text>
-          <Text className="text-xs font-sans text-neutral-500">
+          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
             View and export your OJT progress
           </Text>
         </View>
 
-        <View className="flex-row items-center">
-          {/* Quick Export Header Button */}
-          {report ? (
-            <TouchableOpacity
-              onPress={() => setIsExportModalVisible(true)}
-              activeOpacity={0.75}
-              accessibilityRole="button"
-              accessibilityLabel="Export OJT report"
-              style={{ minHeight: 44 }}
-              className="flex-row items-center bg-primary-50 border border-primary-200 px-3.5 py-2 rounded-xl mr-2"
-            >
-              <Download size={15} color={colors.primary[600]} strokeWidth={2.4} />
-              <Text className="text-xs font-bold font-sans text-primary-700 ml-1.5">Export</Text>
-            </TouchableOpacity>
-          ) : null}
-
-          {/* Notification Bell */}
-          <NotificationBellButton />
-        </View>
+        {/* Notification Bell */}
+        <NotificationBellButton />
       </View>
 
       <ScrollView
@@ -86,6 +69,19 @@ export default function ReportsScreen() {
         }
         className="px-5 pt-3"
       >
+        {/* Export Report Action Button */}
+        {report ? (
+          <TouchableOpacity
+            onPress={() => setIsExportModalVisible(true)}
+            activeOpacity={0.8}
+            accessibilityRole="button"
+            accessibilityLabel="Export OJT report"
+            className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+          >
+            <Download size={18} color="#FFFFFF" strokeWidth={2.4} />
+            <Text className="text-sm font-bold font-sans text-white ml-2">Export OJT Report</Text>
+          </TouchableOpacity>
+        ) : null}
         {/* Error Banner */}
         {error ? (
           <View className="mb-4">

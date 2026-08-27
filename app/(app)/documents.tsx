@@ -58,7 +58,7 @@ export default function DocumentsScreen() {
         className="px-5 pt-3"
       >
         {/* 1. Header Section */}
-        <View className="flex-row items-center justify-between pb-3">
+        <View className="flex-row items-center justify-between pb-4">
           <View className="flex-1 mr-3">
             <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
               Documents
@@ -68,23 +68,21 @@ export default function DocumentsScreen() {
             </Text>
           </View>
 
-          <View className="flex-row items-center">
-            {/* Top Action: Upload Document */}
-            <TouchableOpacity
-              onPress={handleUploadPress}
-              activeOpacity={0.8}
-              accessibilityRole="button"
-              accessibilityLabel="Upload document"
-              className="flex-row items-center bg-primary-600 px-3.5 py-2.5 rounded-xl shadow-soft-sm min-h-[44px] mr-2"
-            >
-              <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
-              <Text className="text-sm font-semibold font-sans text-white ml-1.5">Upload</Text>
-            </TouchableOpacity>
-
-            {/* Notification Bell */}
-            <NotificationBellButton />
-          </View>
+          {/* Notification Bell */}
+          <NotificationBellButton />
         </View>
+
+        {/* 2. Upload Document Action Button */}
+        <TouchableOpacity
+          onPress={handleUploadPress}
+          activeOpacity={0.8}
+          accessibilityRole="button"
+          accessibilityLabel="Upload document"
+          className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+        >
+          <Plus size={18} color="#FFFFFF" strokeWidth={2.5} />
+          <Text className="text-sm font-bold font-sans text-white ml-2">Upload Document</Text>
+        </TouchableOpacity>
 
         {/* 2. Category Filter Bar */}
         <DocumentCategoryFilter
