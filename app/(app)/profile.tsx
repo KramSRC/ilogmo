@@ -4,9 +4,10 @@
  */
 
 import React, { useState } from 'react';
-import { View, Text, ScrollView, RefreshControl, Alert } from 'react-native';
+import { View, Text, ScrollView, RefreshControl, Alert, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import { Settings } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import {
   useProfile,
@@ -122,13 +123,26 @@ export default function ProfileScreen() {
         className="px-5 pt-3"
       >
         {/* 1. Header */}
-        <View className="mb-4">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
-            Profile
-          </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
-            Manage your personal information
-          </Text>
+        <View className="mb-4 flex-row items-center justify-between">
+          <View className="flex-1">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+              Profile
+            </Text>
+            <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+              Manage your personal information
+            </Text>
+          </View>
+
+          {/* Settings Navigation Button */}
+          <TouchableOpacity
+            onPress={() => router.push('/(app)/settings')}
+            activeOpacity={0.7}
+            accessibilityRole="button"
+            accessibilityLabel="Open Settings"
+            className="w-10 h-10 rounded-full bg-white border border-neutral-200 items-center justify-center shadow-soft-sm"
+          >
+            <Settings size={19} color={colors.neutral[700]} />
+          </TouchableOpacity>
         </View>
 
         {/* Error State Banner */}
@@ -193,6 +207,7 @@ export default function ProfileScreen() {
               profile={profile}
               onChangePasswordPress={() => setIsPasswordModalOpen(true)}
               onNotificationSettingsPress={() => router.push('/(app)/notifications')}
+              onSettingsPress={() => router.push('/(app)/settings')}
               onSignOutPress={handleSignOut}
             />
           </>
