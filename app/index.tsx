@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, ActivityIndicator, Animated } from 'react-native';
 import { useRouter } from 'expo-router';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withSpring,
-  Easing,
-} from 'react-native-reanimated';
 import { BookOpen } from 'lucide-react-native';
 import { useAuthStore } from '@/store/authStore';
 import { useOjtStore } from '@/store/ojtStore';
@@ -19,19 +12,23 @@ export default function SplashScreen() {
   const router = useRouter();
   const { setSession, setUser, setProfile, setLoading } = useAuthStore();
 
-  const opacity = useSharedValue(0);
-  const translateY = useSharedValue(24);
+  const opacity = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(24)).current;
 
   useEffect(() => {
     // 1. Trigger subtle upward entrance animation
-    opacity.value = withTiming(1, {
-      duration: 600,
-      easing: Easing.out(Easing.ease),
-    });
-    translateY.value = withSpring(0, {
-      damping: 14,
-      stiffness: 100,
-    });
+    Animated.parallel([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 600,
+        useNativeDriver: true,
+      }),
+      Animated.spring(translateY, {
+        toValue: 0,
+        bounciness: 6,
+        useNativeDriver: true,
+      }),
+    ]).start();
 
     // 2. Check Supabase Auth Session
     let isMounted = true;
@@ -96,14 +93,15 @@ export default function SplashScreen() {
     };
   }, [opacity, translateY, router, setSession, setUser, setProfile, setLoading]);
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-    transform: [{ translateY: translateY.value }],
-  }));
-
   return (
     <View className="flex-1 bg-background-app items-center justify-center px-6">
-      <Animated.View style={animatedStyle} className="items-center justify-center">
+      <Animated.View
+        style={{
+          opacity,
+          transform: [{ translateY }],
+        }}
+        className="items-center justify-center"
+      >
         {/* Brand Icon Container */}
         <View className="w-20 h-20 rounded-3xl bg-primary-600 items-center justify-center shadow-card mb-5 border border-primary-500">
           <BookOpen size={38} color="#FFFFFF" strokeWidth={2.4} />

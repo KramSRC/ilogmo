@@ -1,32 +1,33 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withRepeat,
-  withTiming,
-  Easing,
-} from 'react-native-reanimated';
+import React, { useEffect, useRef } from 'react';
+import { View, Animated } from 'react-native';
 
 export function CalendarSkeleton() {
-  const opacity = useSharedValue(0.4);
+  const opacity = useRef(new Animated.Value(0.4)).current;
 
   useEffect(() => {
-    opacity.value = withRepeat(
-      withTiming(0.9, { duration: 800, easing: Easing.inOut(Easing.ease) }),
-      -1,
-      true
+    const animation = Animated.loop(
+      Animated.sequence([
+        Animated.timing(opacity, {
+          toValue: 0.9,
+          duration: 800,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacity, {
+          toValue: 0.4,
+          duration: 800,
+          useNativeDriver: true,
+        }),
+      ])
     );
-  }, [opacity]);
+    animation.start();
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-  }));
+    return () => animation.stop();
+  }, [opacity]);
 
   const dummyDays = Array.from({ length: 35 });
 
   return (
-    <Animated.View style={animatedStyle} className="w-full">
+    <Animated.View style={{ opacity }} className="w-full">
       {/* Month Navigator Skeleton */}
       <View className="flex-row justify-between items-center py-2 mb-2">
         <View className="w-11 h-11 bg-neutral-200 rounded-xl" />
