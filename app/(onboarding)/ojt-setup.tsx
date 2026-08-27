@@ -356,7 +356,7 @@ export default function OjtSetupScreen() {
                             style={{ minHeight: 44 }}
                             className={`flex-1 mx-0.5 items-center justify-center py-2 rounded-xl border ${
                               isSelected
-                                ? 'bg-primary-600 border-primary-600 shadow-soft-sm'
+                                ? 'bg-primary-600 border-primary-600'
                                 : 'bg-neutral-50 border-neutral-200'
                             }`}
                           >
