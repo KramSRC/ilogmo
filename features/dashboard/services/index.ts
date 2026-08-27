@@ -1,4 +1,2 @@
-/**
- * Dashboard Services
- */
-export {};
+export * from './dashboardService';
+export { default } from './dashboardService';

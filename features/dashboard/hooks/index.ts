@@ -1,4 +1,2 @@
-/**
- * Dashboard Hooks
- */
-export {};
+export * from './useDashboard';
+export { default } from './useDashboard';
