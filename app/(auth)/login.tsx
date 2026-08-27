@@ -45,7 +45,7 @@ export default function LoginScreen() {
     if (!result.success) {
       setServerError(result.error || 'Unable to sign in. Please try again.');
     } else {
-      router.replace('/(app)/index');
+      router.replace('/(app)');
     }
   };
 

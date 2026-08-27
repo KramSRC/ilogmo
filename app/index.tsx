@@ -53,7 +53,7 @@ export default function SplashScreen() {
           // Graceful transition delay
           setTimeout(() => {
             if (isMounted) {
-              router.replace('/(app)/index');
+              router.replace('/(app)');
             }
           }, 350);
         } else {

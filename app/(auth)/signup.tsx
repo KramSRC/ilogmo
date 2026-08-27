@@ -57,25 +57,25 @@ export default function SignUpScreen() {
     }
   };
 
-  // Success Confirmation Screen (for Email Confirmation or Direct Setup)
+  // Minimalistic Success Confirmation Screen
   if (isSuccess) {
     return (
       <SafeAreaView className="flex-1 bg-background-app justify-center items-center px-6">
-        <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
-          <View className="w-16 h-16 bg-emerald-50 rounded-3xl items-center justify-center mb-5 border border-emerald-100">
-            <CheckCircle2 size={32} color={colors.success.DEFAULT} />
+        <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200 w-full max-w-sm items-center">
+          <View className="w-14 h-14 bg-emerald-50 rounded-2xl items-center justify-center mb-4 border border-emerald-100">
+            <CheckCircle2 size={28} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
-          <Text className="text-2xl font-bold font-sans text-neutral-900 text-center mb-2">
-            Account Created!
+          <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-1.5">
+            Account Created
           </Text>
           <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-6">
-            Your iLogMo account has been registered successfully. If your email requires
-            confirmation, please verify it before logging in.
+            Your account is ready. You can now sign in to start tracking your OJT.
           </Text>
           <Button
-            title="Proceed to Sign In"
+            title="Sign In"
             onPress={() => router.replace('/(auth)/login')}
             variant="primary"
+            size="md"
             className="w-full"
           />
         </View>
