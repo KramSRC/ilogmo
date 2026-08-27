@@ -33,3 +33,21 @@ export function formatJournalDate(dateStr: string): string {
 export function getTodayJournalDate(): string {
   return format(new Date(), 'yyyy-MM-dd');
 }
+
+/**
+ * Formats an ISO timestamp or date into friendly time format (e.g. '04:30 PM' or '9:15 AM').
+ */
+export function formatJournalTime(dateStr?: string | null): string {
+  if (!dateStr) return '';
+  try {
+    const parsed = parseISO(dateStr);
+    if (isValid(parsed)) {
+      return format(parsed, 'h:mm a');
+    }
+    const d = new Date(dateStr);
+    return isValid(d) ? format(d, 'h:mm a') : '';
+  } catch {
+    return '';
+  }
+}
+

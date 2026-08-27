@@ -10,6 +10,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import {
   ArrowLeft,
   Calendar,
+  Clock,
   BookOpen,
   Lightbulb,
   AlertTriangle,
@@ -18,7 +19,7 @@ import {
   Trash2,
 } from 'lucide-react-native';
 import { useJournal, JournalEntry } from '@/features/journal';
-import { formatJournalDate } from '@/features/journal/utils/journalUtils';
+import { formatJournalDate, formatJournalTime } from '@/features/journal/utils/journalUtils';
 import { Button } from '@/components';
 import { colors } from '@/constants/colors';
 
@@ -152,18 +153,29 @@ export default function JournalDetailsScreen() {
         >
           {/* Date Summary Card */}
           <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-            <View className="flex-row items-center">
-              <View className="w-12 h-12 rounded-2xl bg-primary-50 items-center justify-center border border-primary-100 mr-3.5">
-                <Calendar size={22} color={colors.primary[600]} />
+            <View className="flex-row items-center justify-between">
+              <View className="flex-row items-center flex-1 mr-2">
+                <View className="w-12 h-12 rounded-2xl bg-primary-50 items-center justify-center border border-primary-100 mr-3.5">
+                  <Calendar size={22} color={colors.primary[600]} />
+                </View>
+                <View className="flex-1">
+                  <Text className="text-xs font-semibold font-sans text-neutral-400 uppercase tracking-wider">
+                    Journal Date
+                  </Text>
+                  <Text className="text-lg font-bold font-sans text-neutral-900">
+                    {formatJournalDate(entry.entryDate)}
+                  </Text>
+                </View>
               </View>
-              <View className="flex-1">
-                <Text className="text-xs font-semibold font-sans text-neutral-400 uppercase tracking-wider">
-                  Journal Date
-                </Text>
-                <Text className="text-lg font-bold font-sans text-neutral-900">
-                  {formatJournalDate(entry.entryDate)}
-                </Text>
-              </View>
+
+              {formatJournalTime(entry.createdAt) ? (
+                <View className="flex-row items-center bg-neutral-50 px-2.5 py-1.5 rounded-full border border-neutral-200">
+                  <Clock size={13} color={colors.neutral[500]} />
+                  <Text className="ml-1 text-xs font-semibold font-sans text-neutral-600">
+                    {formatJournalTime(entry.createdAt)}
+                  </Text>
+                </View>
+              ) : null}
             </View>
           </View>
 

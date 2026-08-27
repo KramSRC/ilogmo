@@ -5,9 +5,9 @@
 
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { ChevronRight, Calendar, BookOpen, Lightbulb } from 'lucide-react-native';
+import { ChevronRight, Calendar, Clock, BookOpen, Lightbulb } from 'lucide-react-native';
 import { JournalEntry } from '../types';
-import { formatJournalDate } from '../utils/journalUtils';
+import { formatJournalDate, formatJournalTime } from '../utils/journalUtils';
 import { colors } from '@/constants/colors';
 
 export interface JournalCardProps {
@@ -17,6 +17,7 @@ export interface JournalCardProps {
 
 export function JournalCard({ entry, onPress }: JournalCardProps) {
   const formattedDate = formatJournalDate(entry.entryDate);
+  const formattedTime = formatJournalTime(entry.createdAt);
 
   return (
     <TouchableOpacity
@@ -26,12 +27,21 @@ export function JournalCard({ entry, onPress }: JournalCardProps) {
       accessibilityLabel={`View journal entry for ${formattedDate}`}
       className="bg-white rounded-card p-5 mb-3.5 border border-neutral-200 shadow-card"
     >
-      {/* Date Header */}
+      {/* Date & Time Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
-        <View className="flex-row items-center">
+        <View className="flex-row items-center flex-1 mr-2">
           <Calendar size={16} color={colors.primary[600]} />
           <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">{formattedDate}</Text>
         </View>
+
+        {formattedTime ? (
+          <View className="flex-row items-center bg-neutral-50 px-2.5 py-1 rounded-full border border-neutral-200">
+            <Clock size={12} color={colors.neutral[500]} />
+            <Text className="ml-1 text-[11px] font-semibold font-sans text-neutral-600">
+              {formattedTime}
+            </Text>
+          </View>
+        ) : null}
       </View>
 
       {/* Today's Work Section */}
