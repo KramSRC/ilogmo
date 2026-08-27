@@ -29,4 +29,5 @@ export * from './authStore';
 export * from './ojtStore';
 export * from './journalStore';
 export * from './taskStore';
+export * from './documentStore';
 export default useAppStore;

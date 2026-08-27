@@ -26,7 +26,7 @@ export function QuickActionGrid() {
         />
       </View>
 
-      {/* Row 2: Calendar & Reports */}
+      {/* Row 2: Calendar & Documents */}
       <View className="flex-row space-x-3">
         <QuickActionCard
           id="qa-calendar"
@@ -37,11 +37,11 @@ export function QuickActionGrid() {
         />
         <View className="w-3" />
         <QuickActionCard
-          id="qa-reports"
-          title="Reports"
-          subtitle="View records"
-          icon="reports"
-          route="/(app)/reports"
+          id="qa-documents"
+          title="Documents"
+          subtitle="OJT files"
+          icon="documents"
+          route="/(app)/documents"
         />
       </View>
     </View>

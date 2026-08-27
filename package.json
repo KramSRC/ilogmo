@@ -22,6 +22,7 @@
     "expo": "56.0.20",
     "expo-asset": "~56.0.23",
     "expo-constants": "~56.0.24",
+    "expo-document-picker": "~56.0.4",
     "expo-font": "~56.0.7",
     "expo-linking": "~56.0.17",
     "expo-notifications": "~56.0.24",

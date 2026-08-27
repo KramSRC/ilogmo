@@ -138,6 +138,24 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="documents"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="document-upload"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="document-details"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }
