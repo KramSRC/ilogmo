@@ -101,6 +101,18 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="attendance-history"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="attendance-details"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

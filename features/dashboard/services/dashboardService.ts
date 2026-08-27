@@ -1,9 +1,15 @@
 /**
  * iLogMo - Dashboard Service
- * Manages calculations, initial/mock data, and data fetching boundaries for the Home screen.
+ * Connects Home/Dashboard state with real Attendance and feature modules.
  */
 
-import { DashboardData, OjtProgress, DashboardTask } from '../types';
+import { DashboardData, OjtProgress, DashboardTask, TodayAttendance } from '../types';
+import { attendanceService } from '@/features/attendance/services/attendanceService';
+import {
+  formatTimeDisplay,
+  formatHoursMinutes,
+  calculateElapsedMinutes,
+} from '@/features/attendance/utils/timeUtils';
 
 /**
  * Calculates OJT progress metrics with 0–100% clamping and safe non-negative remaining hours.
@@ -28,61 +34,78 @@ export function calculateOjtProgress(
   };
 }
 
-/**
- * Initial/Separated mock dataset representing an active student's OJT journey.
- * Readily replaceable by Supabase queries in subsequent steps.
- */
-const INITIAL_DASHBOARD_DATA: DashboardData = {
-  progress: calculateOjtProgress(185, 486, 'October 24, 2026'),
-  attendance: {
-    state: 'not_checked_in', // Can be 'not_checked_in' | 'working' | 'completed'
-    statusMessage: 'Start your OJT day by checking in.',
+const INITIAL_TASKS: DashboardTask[] = [
+  {
+    id: 'task-1',
+    title: 'Review project requirements',
+    completed: true,
+    priority: 'high',
   },
-  tasks: [
-    {
-      id: 'task-1',
-      title: 'Review project requirements',
-      completed: true,
-      priority: 'high',
-    },
-    {
-      id: 'task-2',
-      title: 'Complete assigned module',
-      completed: false,
-      priority: 'high',
-    },
-    {
-      id: 'task-3',
-      title: 'Update documentation',
-      completed: false,
-      priority: 'medium',
-    },
-  ],
-  recentJournal: {
-    id: 'journal-1',
-    date: 'Yesterday',
-    preview:
-      'Worked on the attendance module and learned how to properly structure database queries.',
-    mood: 'productive',
-    createdAt: '2026-08-27T17:00:00.000Z',
+  {
+    id: 'task-2',
+    title: 'Complete assigned module',
+    completed: false,
+    priority: 'high',
   },
-  reminder: {
-    id: 'rem-1',
-    timing: 'Tomorrow',
-    title: 'Submit weekly OJT report',
-    description: 'Prepare your 4th weekly logbook submission for supervisor sign-off.',
-    icon: 'file',
+  {
+    id: 'task-3',
+    title: 'Update documentation',
+    completed: false,
+    priority: 'medium',
   },
-};
+];
 
 export const dashboardService = {
   /**
    * Fetch dashboard summary for the authenticated user.
    */
-  async getDashboardData(_userId?: string): Promise<DashboardData> {
-    // Simulate brief network latency in development for smooth transitions
-    await new Promise((resolve) => setTimeout(resolve, 200));
-    return JSON.parse(JSON.stringify(INITIAL_DASHBOARD_DATA));
+  async getDashboardData(userId?: string): Promise<DashboardData> {
+    let attendanceState: TodayAttendance = {
+      state: 'not_checked_in',
+      statusMessage: 'Start your OJT day by checking in.',
+    };
+
+    if (userId) {
+      const realToday = await attendanceService.getTodayAttendance(userId);
+      if (realToday) {
+        if (realToday.status === 'working') {
+          const elapsed = calculateElapsedMinutes(realToday.checkIn, null, realToday.breakMinutes);
+          attendanceState = {
+            state: 'working',
+            checkInTime: formatTimeDisplay(realToday.checkIn),
+            workingDuration: formatHoursMinutes(elapsed),
+          };
+        } else if (realToday.status === 'completed') {
+          attendanceState = {
+            state: 'completed',
+            checkInTime: formatTimeDisplay(realToday.checkIn),
+            checkOutTime: formatTimeDisplay(realToday.checkOut),
+            totalHours: formatHoursMinutes(realToday.totalMinutes ?? 0),
+          };
+        }
+      }
+    }
+
+    return {
+      progress: calculateOjtProgress(185, 486, 'October 24, 2026'),
+      attendance: attendanceState,
+      tasks: INITIAL_TASKS,
+      recentJournal: {
+        id: 'journal-1',
+        date: 'Yesterday',
+        preview:
+          'Worked on the attendance module and learned how to properly structure database queries.',
+        mood: 'productive',
+        createdAt: '2026-08-27T17:00:00.000Z',
+      },
+      reminder: {
+        id: 'rem-1',
+        timing: 'Tomorrow',
+        title: 'Submit weekly OJT report',
+        description: 'Prepare your 4th weekly logbook submission for supervisor sign-off.',
+        icon: 'file',
+      },
+    };
   },
 
   /**

@@ -1,4 +1,2 @@
-/**
- * Attendance Services
- */
-export {};
+export * from './attendanceService';
+export { default } from './attendanceService';

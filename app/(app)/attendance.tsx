@@ -1,23 +1,110 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, RefreshControl, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Clock } from 'lucide-react-native';
+import { useAttendance } from '@/features/attendance/hooks/useAttendance';
+import {
+  AttendanceHeader,
+  TodayAttendanceCard,
+  AttendanceConfirmationSheet,
+  WeeklyOverviewCard,
+  AttendanceHistory,
+  AttendanceCalendarPreview,
+  AttendanceSkeleton,
+} from '@/features/attendance/components';
+import { ErrorMessage, Button } from '@/components';
 import { colors } from '@/constants/colors';
 
 export default function AttendanceScreen() {
+  const {
+    todayRecord,
+    weeklyStats,
+    recentHistory,
+    monthlyDays,
+    workingDuration,
+    isLoading,
+    isRefreshing,
+    isSubmitting,
+    error,
+    confirmationType,
+    openCheckInConfirmation,
+    openCheckOutConfirmation,
+    closeConfirmation,
+    confirmCheckIn,
+    confirmCheckOut,
+    refresh,
+  } = useAttendance();
+
+  if (isLoading && !isRefreshing) {
+    return (
+      <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+        <AttendanceSkeleton />
+      </SafeAreaView>
+    );
+  }
+
   return (
-    <SafeAreaView className="flex-1 bg-background-app items-center justify-center px-6">
-      <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
-        <View className="w-16 h-16 bg-blue-50 rounded-3xl items-center justify-center mb-4 border border-blue-100">
-          <Clock size={32} color={colors.primary[600]} />
-        </View>
-        <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-1.5">
-          Attendance
-        </Text>
-        <Text className="text-sm font-sans text-neutral-500 text-center leading-5">
-          Check-in/out tracking and history features will be built in the Attendance step.
-        </Text>
-      </View>
+    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 24 }}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refresh}
+            tintColor={colors.primary[600]}
+            colors={[colors.primary[600]]}
+          />
+        }
+        className="px-5 pt-3"
+      >
+        {/* 1. Header */}
+        <AttendanceHeader />
+
+        {/* Error Alert */}
+        {error ? (
+          <View className="mb-5">
+            <ErrorMessage message={error} type="error" />
+            <Button
+              title="Try Again"
+              onPress={refresh}
+              variant="outline"
+              size="sm"
+              className="mt-2"
+            />
+          </View>
+        ) : null}
+
+        {/* 2. Today's Attendance Card */}
+        <TodayAttendanceCard
+          todayRecord={todayRecord}
+          workingDuration={workingDuration}
+          onPressCheckIn={openCheckInConfirmation}
+          onPressCheckOut={openCheckOutConfirmation}
+          isSubmitting={isSubmitting}
+        />
+
+        {/* 3. This Week Overview */}
+        <WeeklyOverviewCard stats={weeklyStats} />
+
+        {/* 4. Attendance History */}
+        <AttendanceHistory records={recentHistory} />
+
+        {/* 5. Monthly Calendar Preview */}
+        <AttendanceCalendarPreview days={monthlyDays} />
+      </ScrollView>
+
+      {/* Check In / Check Out Confirmation Bottom Sheet / Dialog */}
+      <AttendanceConfirmationSheet
+        visible={confirmationType !== null}
+        type={confirmationType}
+        checkInTime={todayRecord?.checkIn}
+        currentDuration={workingDuration}
+        isSubmitting={isSubmitting}
+        onConfirm={
+          confirmationType === 'check_in' ? () => confirmCheckIn() : () => confirmCheckOut()
+        }
+        onCancel={closeConfirmation}
+      />
     </SafeAreaView>
   );
 }
