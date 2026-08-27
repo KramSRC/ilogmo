@@ -6,7 +6,6 @@ import {
   DashboardHeader,
   ProgressCard,
   AttendanceSummaryCard,
-  QuickActionGrid,
   TodayTasks,
   RecentJournalCard,
   ReminderCard,
@@ -66,10 +65,7 @@ export default function HomeScreen() {
             {/* 3. Today's Attendance Card */}
             <AttendanceSummaryCard attendance={data.attendance} />
 
-            {/* 4. Quick Actions */}
-            <QuickActionGrid />
-
-            {/* 5. Today's Tasks */}
+            {/* 4. Today's Tasks */}
             <TodayTasks tasks={data.tasks} onToggleTask={toggleTask} />
 
             {/* 6. Recent Journal */}
