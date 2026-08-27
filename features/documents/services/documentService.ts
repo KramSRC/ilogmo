@@ -34,6 +34,24 @@ function sanitizeFileName(fileName: string): string {
   return fileName.replace(/[^a-zA-Z0-9._-]/g, '_').replace(/_+/g, '_');
 }
 
+/**
+ * Safe client-side UUID generator compatible with React Native and Web.
+ */
+function generateUUID(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    try {
+      return crypto.randomUUID();
+    } catch {
+      // Fall through to fallback
+    }
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 export const documentService = {
   /**
    * Fetch all documents for a user, with optional category filtering.
@@ -136,23 +154,20 @@ export const documentService = {
       }
 
       // 2. Generate a client-side UUID for storage isolation
-      const documentId =
-        typeof crypto !== 'undefined' && crypto.randomUUID
-          ? crypto.randomUUID()
-          : `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+      const documentId = generateUUID();
 
       const originalFileName = formData.file.name || 'document.pdf';
       const safeFileName = sanitizeFileName(originalFileName);
       const storagePath = `${userId}/${documentId}/${safeFileName}`;
 
-      // 3. Prepare File Binary (Blob / ArrayBuffer)
+      // 3. Prepare File Binary as ArrayBuffer (React Native compatible)
       const fileResponse = await fetch(formData.file.uri);
-      const fileBlob = await fileResponse.blob();
+      const fileBuffer = await fileResponse.arrayBuffer();
 
       // 4. Upload to Supabase Storage
       const { error: storageError } = await supabase.storage
         .from('documents')
-        .upload(storagePath, fileBlob, {
+        .upload(storagePath, fileBuffer, {
           contentType: formData.file.mimeType || 'application/octet-stream',
           upsert: true,
         });
