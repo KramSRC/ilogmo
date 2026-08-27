@@ -1,13 +1,15 @@
 /**
  * iLogMo - Dashboard Service
- * Connects Home/Dashboard state with real Attendance and feature modules.
+ * Connects Home/Dashboard state with real Attendance, active OJT records, and feature modules.
  */
 
 import { DashboardData, OjtProgress, DashboardTask, TodayAttendance } from '../types';
 import { attendanceService } from '@/features/attendance/services/attendanceService';
+import { ojtService } from '@/features/ojt/services/ojtService';
 import {
   formatTimeDisplay,
   formatHoursMinutes,
+  formatDateDisplay,
   calculateElapsedMinutes,
 } from '@/features/attendance/utils/timeUtils';
 
@@ -30,7 +32,7 @@ export function calculateOjtProgress(
     completedHours: safeCompleted,
     remainingHours: remaining,
     progressPercentage: clampedPercentage,
-    estimatedCompletionDate: estimatedDate || 'October 24, 2026',
+    estimatedCompletionDate: estimatedDate || 'Flexible Schedule',
   };
 }
 
@@ -65,8 +67,18 @@ export const dashboardService = {
       statusMessage: 'Start your OJT day by checking in.',
     };
 
+    let requiredHours = 486;
+    let completedHours = 0;
+    let estimatedCompletionDate: string | undefined = undefined;
+
     if (userId) {
-      const realToday = await attendanceService.getTodayAttendance(userId);
+      const [realToday, history, activeOjt] = await Promise.all([
+        attendanceService.getTodayAttendance(userId),
+        attendanceService.getAttendanceHistory(userId, 365),
+        ojtService.getActiveOjt(userId),
+      ]);
+
+      // 1. Attendance Today Status
       if (realToday) {
         if (realToday.status === 'working') {
           const elapsed = calculateElapsedMinutes(realToday.checkIn, null, realToday.breakMinutes);
@@ -84,10 +96,22 @@ export const dashboardService = {
           };
         }
       }
+
+      // 2. Compute completed hours from real attendance history
+      const totalMinutes = history.reduce((acc, curr) => acc + (curr.totalMinutes || 0), 0);
+      completedHours = Math.floor(totalMinutes / 60);
+
+      // 3. Dynamic OJT Configuration
+      if (activeOjt) {
+        requiredHours = activeOjt.requiredHours;
+        if (activeOjt.expectedEndDate) {
+          estimatedCompletionDate = formatDateDisplay(activeOjt.expectedEndDate);
+        }
+      }
     }
 
     return {
-      progress: calculateOjtProgress(185, 486, 'October 24, 2026'),
+      progress: calculateOjtProgress(completedHours, requiredHours, estimatedCompletionDate),
       attendance: attendanceState,
       tasks: INITIAL_TASKS,
       recentJournal: {

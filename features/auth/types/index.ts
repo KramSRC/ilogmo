@@ -39,7 +39,7 @@ export interface ResetPasswordCredentials {
   password: string;
 }
 
-export interface AuthActionResult<T = void> {
+export interface AuthActionResult<T = any> {
   success: boolean;
   data?: T;
   error?: string;

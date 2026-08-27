@@ -16,7 +16,9 @@ import { ActivityIndicator, View, Platform, StatusBar as RNStatusBar } from 'rea
 import * as Linking from 'expo-linking';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/store/authStore';
+import { useOjtStore } from '@/store/ojtStore';
 import { authService } from '@/features/auth/services/authService';
+import { ojtService } from '@/features/ojt/services/ojtService';
 import { colors } from '@/constants/colors';
 
 SplashScreen.preventAutoHideAsync();
@@ -25,6 +27,7 @@ export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
   const { setSession, setUser, setProfile, logout, isAuthenticated, isLoading } = useAuthStore();
+  const { hasCompletedSetup, setActiveOjt, clearOjt } = useOjtStore();
 
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -57,8 +60,11 @@ export default function RootLayout() {
         if (profile) {
           setProfile(profile);
         }
+        const ojt = await ojtService.getActiveOjt(currentSession.user.id);
+        setActiveOjt(ojt);
       } else if (event === 'SIGNED_OUT') {
         logout();
+        clearOjt();
       } else if (event === 'PASSWORD_RECOVERY') {
         // Deep linked from reset password email
         if (currentSession?.user) {
@@ -74,7 +80,7 @@ export default function RootLayout() {
     return () => {
       subscription.unsubscribe();
     };
-  }, [setSession, setUser, setProfile, logout, router]);
+  }, [setSession, setUser, setProfile, setActiveOjt, logout, clearOjt, router]);
 
   // 3. Handle incoming deep link recovery tokens
   useEffect(() => {
@@ -125,17 +131,31 @@ export default function RootLayout() {
     };
   }, [router, setSession, setUser]);
 
-  // 3. Global Route Guard: Protect (app) from unauthenticated access
+  // 4. Global Route Guard: Protect (app) and enforce (onboarding)
   useEffect(() => {
     if (isLoading || !fontsLoaded) return;
 
     const inAppGroup = segments[0] === '(app)';
+    const inOnboardingGroup = segments[0] === '(onboarding)';
+    const inAuthGroup = segments[0] === '(auth)';
 
-    if (!isAuthenticated && inAppGroup) {
-      // Redirect to login if user is not authenticated and trying to view (app)
-      router.replace('/(auth)/login');
+    if (!isAuthenticated) {
+      if (inAppGroup || inOnboardingGroup) {
+        router.replace('/(auth)/login');
+      }
+    } else {
+      // User is authenticated
+      if (!hasCompletedSetup) {
+        if (!inOnboardingGroup) {
+          router.replace('/(onboarding)/ojt-setup');
+        }
+      } else {
+        if (inOnboardingGroup || inAuthGroup) {
+          router.replace('/(app)');
+        }
+      }
     }
-  }, [isAuthenticated, isLoading, segments, fontsLoaded, router]);
+  }, [isAuthenticated, hasCompletedSetup, isLoading, segments, fontsLoaded, router]);
 
   if (!fontsLoaded) {
     return (
@@ -166,6 +186,7 @@ export default function RootLayout() {
         >
           <Stack.Screen name="index" />
           <Stack.Screen name="(auth)" />
+          <Stack.Screen name="(onboarding)" />
           <Stack.Screen name="(app)" />
         </Stack>
       </SafeAreaProvider>

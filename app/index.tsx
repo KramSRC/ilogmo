@@ -10,7 +10,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import { BookOpen } from 'lucide-react-native';
 import { useAuthStore } from '@/store/authStore';
+import { useOjtStore } from '@/store/ojtStore';
 import { authService } from '@/features/auth/services/authService';
+import { ojtService } from '@/features/ojt/services/ojtService';
 import { colors } from '@/constants/colors';
 
 export default function SplashScreen() {
@@ -42,18 +44,28 @@ export default function SplashScreen() {
           setSession(session);
           setUser(session.user);
 
-          // Fetch profile asynchronously
-          const profile = await authService.fetchProfile(session.user.id);
+          // Fetch profile & active OJT asynchronously
+          const [profile, ojt] = await Promise.all([
+            authService.fetchProfile(session.user.id),
+            ojtService.getActiveOjt(session.user.id),
+          ]);
+
           if (profile) {
             setProfile(profile);
           }
+
+          useOjtStore.getState().setActiveOjt(ojt);
 
           setLoading(false);
 
           // Graceful transition delay
           setTimeout(() => {
             if (isMounted) {
-              router.replace('/(app)');
+              if (ojt) {
+                router.replace('/(app)');
+              } else {
+                router.replace('/(onboarding)/ojt-setup');
+              }
             }
           }, 350);
         } else {

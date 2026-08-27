@@ -54,6 +54,7 @@ export function useAuth() {
         }
         return {
           success: result.success,
+          data: result.data,
           error: result.error,
         };
       } finally {
@@ -82,6 +83,7 @@ export function useAuth() {
         }
         return {
           success: result.success,
+          data: result.data,
           error: result.error,
         };
       } finally {

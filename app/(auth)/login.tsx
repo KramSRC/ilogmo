@@ -14,6 +14,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail } from 'lucide-react-native';
 import { loginSchema, LoginFormData } from '@/features/auth/validation';
 import { useAuth } from '@/features/auth/hooks/useAuth';
+import { useAuthStore } from '@/store/authStore';
+import { ojtService } from '@/features/ojt/services/ojtService';
+import { useOjtStore } from '@/store/ojtStore';
 import { Button, Input, PasswordInput, Logo, ErrorMessage } from '@/components';
 import { colors } from '@/constants/colors';
 
@@ -45,7 +48,15 @@ export default function LoginScreen() {
     if (!result.success) {
       setServerError(result.error || 'Unable to sign in. Please try again.');
     } else {
-      router.replace('/(app)');
+      const loggedUser = result.data?.user || useAuthStore.getState().user;
+      const ojt = loggedUser ? await ojtService.getActiveOjt(loggedUser.id) : null;
+      useOjtStore.getState().setActiveOjt(ojt);
+
+      if (ojt) {
+        router.replace('/(app)');
+      } else {
+        router.replace('/(onboarding)/ojt-setup');
+      }
     }
   };
 
