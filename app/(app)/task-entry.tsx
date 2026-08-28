@@ -20,11 +20,13 @@ import { ArrowLeft } from 'lucide-react-native';
 import { useTasks, TaskPriority } from '@/features/tasks';
 import { Button, DatePickerInput, ErrorMessage } from '@/components';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function TaskEntryScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const isEditing = Boolean(id);
+  const isDark = useThemeStore((state) => state.isDark);
 
   const { createTask, updateTask, getTaskById, isSaving } = useTasks();
 
@@ -183,7 +185,7 @@ export default function TaskEntryScreen() {
             style={{ minHeight: 44, minWidth: 44 }}
             className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
+            <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">

@@ -21,11 +21,13 @@ import { getTaskDueStatus } from '@/features/tasks/utils/taskUtils';
 import { formatJournalDate } from '@/features/journal/utils/journalUtils';
 import { Button } from '@/components';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function TaskDetailsScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { getTaskById, toggleTask, deleteTask, isDeleting } = useTasks();
+  const isDark = useThemeStore((state) => state.isDark);
 
   const [task, setTask] = useState<Task | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -159,24 +161,13 @@ export default function TaskDetailsScreen() {
             style={{ minHeight: 44, minWidth: 44 }}
             className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
+            <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
             <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Task Details</Text>
           </View>
         </View>
-
-        {/* Quick Edit in header */}
-        {task && !isLoading ? (
-          <TouchableOpacity
-            onPress={handleEdit}
-            activeOpacity={0.7}
-            className="w-10 h-10 rounded-full bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50"
-          >
-            <Edit2 size={18} color={colors.primary[600]} />
-          </TouchableOpacity>
-        ) : null}
       </View>
 
       {isLoading ? (
@@ -297,7 +288,7 @@ export default function TaskDetailsScreen() {
               loadingText="Updating..."
               leftIcon={
                 task.completed ? (
-                  <RotateCcw size={18} color={colors.neutral[800]} />
+                  <RotateCcw size={18} color={isDark ? colors.neutral[100] : colors.neutral[800]} />
                 ) : (
                   <Check size={18} color="#FFFFFF" strokeWidth={3} />
                 )
@@ -312,7 +303,7 @@ export default function TaskDetailsScreen() {
                   onPress={handleEdit}
                   variant="outline"
                   size="md"
-                  leftIcon={<Edit2 size={16} color={colors.neutral[800]} />}
+                  leftIcon={<Edit2 size={16} color={isDark ? colors.neutral[100] : colors.neutral[800]} />}
                 />
               </View>
 
