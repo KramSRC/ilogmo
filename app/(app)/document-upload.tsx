@@ -189,9 +189,9 @@ export default function DocumentUploadScreen() {
     : null;
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -205,13 +205,13 @@ export default function DocumentUploadScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Upload Document</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Upload Document</Text>
           </View>
         </View>
       </View>
@@ -234,7 +234,7 @@ export default function DocumentUploadScreen() {
 
           {/* 1. File Selection Area */}
           <View className="mb-5">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">File *</Text>
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">File *</Text>
 
             {!selectedFile ? (
               <TouchableOpacity
@@ -242,16 +242,16 @@ export default function DocumentUploadScreen() {
                 activeOpacity={0.8}
                 accessibilityRole="button"
                 accessibilityLabel="Select file to upload"
-                className="bg-white rounded-2xl p-6 border-2 border-dashed border-neutral-300 items-center justify-center"
+                className="bg-white dark:bg-neutral-900 rounded-2xl p-6 border-2 border-dashed border-neutral-300 dark:border-neutral-700 items-center justify-center"
                 style={errors.file ? styles.dashedBorderError : undefined}
               >
                 <View className="w-14 h-14 rounded-2xl bg-primary-50 items-center justify-center mb-3">
                   <UploadCloud size={28} color={colors.primary[600]} />
                 </View>
-                <Text className="text-base font-bold font-sans text-neutral-900 mb-1">
+                <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
                   Choose a file
                 </Text>
-                <Text className="text-xs font-sans text-neutral-500 text-center mb-3">
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center mb-3">
                   PDF, DOCX, XLSX, PPTX, TXT, Images
                 </Text>
                 <View className="bg-primary-50 px-3.5 py-1.5 rounded-lg border border-primary-100">
@@ -262,7 +262,7 @@ export default function DocumentUploadScreen() {
               </TouchableOpacity>
             ) : (
               /* Selected File Card */
-              <View className="bg-white rounded-2xl p-4 border border-neutral-200 shadow-soft-sm">
+              <View className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm">
                 <View className="flex-row items-center justify-between mb-3">
                   <View className="flex-row items-center flex-1 mr-2">
                     <View
@@ -272,12 +272,12 @@ export default function DocumentUploadScreen() {
                     </View>
                     <View className="flex-1">
                       <Text
-                        className="text-sm font-bold font-sans text-neutral-900"
+                        className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100"
                         numberOfLines={1}
                       >
                         {selectedFile.name}
                       </Text>
-                      <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+                      <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
                         {fileDetails?.badge} · {formatFileSize(selectedFile.size)}
                       </Text>
                     </View>
@@ -296,7 +296,7 @@ export default function DocumentUploadScreen() {
                 <TouchableOpacity
                   onPress={handlePickDocument}
                   activeOpacity={0.7}
-                  className="bg-neutral-50 py-2 rounded-xl border border-neutral-200 items-center"
+                  className="bg-neutral-50 dark:bg-neutral-900 py-2 rounded-xl border border-neutral-200 dark:border-neutral-800 items-center"
                 >
                   <Text className="text-xs font-semibold font-sans text-primary-600">
                     Change File
@@ -312,11 +312,11 @@ export default function DocumentUploadScreen() {
 
           {/* 2. Document Name */}
           <View className="mb-5">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Document Name *
             </Text>
             <View
-              className="bg-white rounded-xl px-3.5 py-3 border"
+              className="bg-white dark:bg-neutral-900 rounded-xl px-3.5 py-3 border"
               style={[
                 styles.inputWrapper,
                 errors.documentName ? styles.inputError : styles.inputNormal,
@@ -332,7 +332,7 @@ export default function DocumentUploadScreen() {
                 }}
                 maxLength={150}
                 editable={!isUploading}
-                className="text-base font-sans text-neutral-900"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100"
               />
             </View>
             {errors.documentName ? (
@@ -346,7 +346,7 @@ export default function DocumentUploadScreen() {
 
           {/* 3. Category Selector */}
           <View className="mb-5">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-2">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-2">
               Category *
             </Text>
             <View className="flex-row flex-wrap">
@@ -363,7 +363,7 @@ export default function DocumentUploadScreen() {
                     className={`mr-2 mb-2.5 px-3.5 py-2 rounded-xl flex-row items-center border ${
                       isSelected
                         ? 'bg-primary-50 border-primary-600'
-                        : 'bg-white border-neutral-200'
+                        : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
                     }`}
                   >
                     {isSelected ? (
@@ -375,7 +375,7 @@ export default function DocumentUploadScreen() {
                     ) : null}
                     <Text
                       className={`text-xs font-semibold font-sans ${
-                        isSelected ? 'text-primary-700' : 'text-neutral-700'
+                        isSelected ? 'text-primary-700' : 'text-neutral-700 dark:text-neutral-300'
                       }`}
                     >
                       {opt.label}
@@ -391,10 +391,10 @@ export default function DocumentUploadScreen() {
 
           {/* 4. Description (Optional) */}
           <View className="mb-6">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Description <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white rounded-2xl p-3.5 border border-neutral-200">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
               <TextInput
                 multiline
                 numberOfLines={3}
@@ -405,7 +405,7 @@ export default function DocumentUploadScreen() {
                 onChangeText={setDescription}
                 maxLength={1000}
                 editable={!isUploading}
-                className="text-base font-sans text-neutral-900 min-h-[80px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[80px]"
               />
             </View>
             {errors.description ? (

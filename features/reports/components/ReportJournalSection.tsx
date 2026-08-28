@@ -20,16 +20,16 @@ export function ReportJournalSection({ journal, documentsCount }: ReportJournalS
   const hasEntries = journal.totalEntries > 0;
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
           <View className="w-8 h-8 rounded-xl bg-purple-50 border border-purple-100 items-center justify-center mr-2.5">
             <BookOpen size={16} color="#8B5CF6" />
           </View>
           <View className="flex-1">
-            <Text className="text-base font-bold font-sans text-neutral-900">Journal Summary</Text>
-            <Text className="text-xs font-sans text-neutral-500">Reflective logs & records</Text>
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Journal Summary</Text>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Reflective logs & records</Text>
           </View>
         </View>
 
@@ -48,7 +48,7 @@ export function ReportJournalSection({ journal, documentsCount }: ReportJournalS
 
       {!hasEntries ? (
         <View className="py-4 items-center justify-center">
-          <Text className="text-xs font-sans text-neutral-500 text-center">
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center">
             No journal entries yet.
           </Text>
         </View>
@@ -56,38 +56,38 @@ export function ReportJournalSection({ journal, documentsCount }: ReportJournalS
         <>
           {/* 3 Metrics Row */}
           <View className="flex-row justify-between mb-3">
-            <View className="flex-1 mr-1.5 bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+            <View className="flex-1 mr-1.5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                 Total Logs
               </Text>
-              <Text className="text-base font-bold font-sans text-neutral-900 mt-0.5">
+              <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                 {journal.totalEntries}
               </Text>
             </View>
 
-            <View className="flex-1 mx-0.5 bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+            <View className="flex-1 mx-0.5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                 This Week
               </Text>
-              <Text className="text-base font-bold font-sans text-neutral-900 mt-0.5">
+              <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                 {journal.entriesThisWeek}
               </Text>
             </View>
 
-            <View className="flex-1 ml-1.5 bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+            <View className="flex-1 ml-1.5 bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+              <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                 This Month
               </Text>
-              <Text className="text-base font-bold font-sans text-neutral-900 mt-0.5">
+              <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                 {journal.entriesThisMonth}
               </Text>
             </View>
           </View>
 
           {/* Latest Entry Row */}
-          <View className="bg-neutral-50 border border-neutral-100 rounded-xl p-3 flex-row items-center justify-between mb-2">
-            <Text className="text-xs font-sans text-neutral-500">Latest Journal Entry</Text>
-            <Text className="text-xs font-semibold font-sans text-neutral-900">
+          <View className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-3 flex-row items-center justify-between mb-2">
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Latest Journal Entry</Text>
+            <Text className="text-xs font-semibold font-sans text-neutral-900 dark:text-neutral-100">
               {journal.latestEntryDateFormatted || 'None'}
             </Text>
           </View>
@@ -98,14 +98,14 @@ export function ReportJournalSection({ journal, documentsCount }: ReportJournalS
       <TouchableOpacity
         onPress={() => router.push('/(app)/documents')}
         activeOpacity={0.7}
-        className="flex-row items-center justify-between pt-2.5 mt-1 border-t border-neutral-100"
+        className="flex-row items-center justify-between pt-2.5 mt-1 border-t border-neutral-100 dark:border-neutral-800"
       >
         <View className="flex-row items-center">
           <FileText size={14} color={colors.neutral[400]} />
-          <Text className="text-xs font-sans text-neutral-500 ml-1.5">Documents Uploaded</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 ml-1.5">Documents Uploaded</Text>
         </View>
         <View className="flex-row items-center">
-          <Text className="text-xs font-bold font-sans text-neutral-800 mr-1">
+          <Text className="text-xs font-bold font-sans text-neutral-800 dark:text-neutral-200 mr-1">
             {documentsCount} file{documentsCount === 1 ? '' : 's'}
           </Text>
           <ChevronRight size={13} color={colors.neutral[400]} />

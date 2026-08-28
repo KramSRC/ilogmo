@@ -11,10 +11,10 @@ export function JournalSkeleton() {
       {[1, 2, 3].map((key) => (
         <View
           key={key}
-          className="bg-white rounded-card p-5 mb-3.5 border border-neutral-200 shadow-card"
+          className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-3.5 border border-neutral-200 dark:border-neutral-800 shadow-card"
         >
           {/* Date skeleton */}
-          <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+          <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
             <View className="w-36 h-4 bg-neutral-200 rounded-md" />
           </View>
 

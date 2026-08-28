@@ -58,7 +58,7 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
       activeOpacity={0.8}
       accessibilityRole="button"
       accessibilityLabel={`${document.name}, ${fileDetails.extension}, ${formattedSize}, ${categoryLabel} category. Uploaded ${formattedDate}`}
-      className="bg-white rounded-card p-4 mb-3 shadow-card border border-neutral-200"
+      className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 shadow-card border border-neutral-200 dark:border-neutral-800"
     >
       <View className="flex-row items-start justify-between">
         {/* Left: File Icon + Details */}
@@ -74,7 +74,7 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
           <View className="flex-1">
             {/* Document Title */}
             <Text
-              className="text-base font-bold font-sans text-neutral-900 leading-snug mb-1"
+              className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 leading-snug mb-1"
               numberOfLines={2}
             >
               {document.name}
@@ -90,7 +90,7 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
             </View>
 
             {/* File Meta: Type · Size */}
-            <Text className="text-xs font-medium font-sans text-neutral-500 mb-0.5">
+            <Text className="text-xs font-medium font-sans text-neutral-500 dark:text-neutral-400 mb-0.5">
               {fileDetails.badge} · {formattedSize}
             </Text>
 
@@ -112,7 +112,7 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
               <MoreVertical size={18} color={colors.neutral[400]} />
             </TouchableOpacity>
           ) : (
-            <View className="w-8 h-8 rounded-full bg-neutral-50 items-center justify-center border border-neutral-100">
+            <View className="w-8 h-8 rounded-full bg-neutral-50 dark:bg-neutral-900 items-center justify-center border border-neutral-100 dark:border-neutral-800">
               <ChevronRight size={16} color={colors.neutral[400]} />
             </View>
           )}

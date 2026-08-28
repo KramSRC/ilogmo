@@ -165,9 +165,9 @@ export default function TaskEntryScreen() {
   ];
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -181,13 +181,13 @@ export default function TaskEntryScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
               {isEditing ? 'Edit Task' : 'New Task'}
             </Text>
           </View>
@@ -212,12 +212,12 @@ export default function TaskEntryScreen() {
 
           {/* 1. Task Title */}
           <View className="mb-4">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Task Title *
             </Text>
             <View
-              className={`bg-white rounded-2xl p-3.5 border ${
-                errors.title ? 'border-red-500' : 'border-neutral-200'
+              className={`bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border ${
+                errors.title ? 'border-red-500' : 'border-neutral-200 dark:border-neutral-800'
               }`}
             >
               <TextInput
@@ -230,7 +230,7 @@ export default function TaskEntryScreen() {
                 }}
                 maxLength={150}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100"
               />
             </View>
             {errors.title ? (
@@ -240,10 +240,10 @@ export default function TaskEntryScreen() {
 
           {/* 2. Priority Selection */}
           <View className="mb-4">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Priority *
             </Text>
-            <View className="flex-row bg-neutral-100 p-1 rounded-2xl border border-neutral-200">
+            <View className="flex-row bg-neutral-100 p-1 rounded-2xl border border-neutral-200 dark:border-neutral-800">
               {priorities.map((item) => {
                 const isSelected = priority === item.id;
                 return (
@@ -254,7 +254,7 @@ export default function TaskEntryScreen() {
                     accessibilityRole="radio"
                     accessibilityState={{ selected: isSelected }}
                     className={`flex-1 py-2.5 rounded-xl items-center justify-center flex-row ${
-                      isSelected ? 'bg-white shadow-soft-sm' : 'bg-transparent'
+                      isSelected ? 'bg-white dark:bg-neutral-900 shadow-soft-sm' : 'bg-transparent'
                     }`}
                   >
                     <Text
@@ -264,7 +264,7 @@ export default function TaskEntryScreen() {
                             ? 'text-red-600'
                             : item.id === 'medium'
                               ? 'text-amber-600'
-                              : 'text-neutral-600'
+                              : 'text-neutral-600 dark:text-neutral-400'
                           : 'text-neutral-400'
                       }`}
                     >
@@ -272,7 +272,7 @@ export default function TaskEntryScreen() {
                     </Text>
                     <Text
                       className={`text-xs font-sans ${
-                        isSelected ? 'font-bold text-neutral-900' : 'font-medium text-neutral-500'
+                        isSelected ? 'font-bold text-neutral-900 dark:text-neutral-100' : 'font-medium text-neutral-500 dark:text-neutral-400'
                       }`}
                     >
                       {item.label}
@@ -297,10 +297,10 @@ export default function TaskEntryScreen() {
 
           {/* 4. Description */}
           <View className="mb-6">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Description <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white rounded-2xl p-3.5 border border-neutral-200">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
               <TextInput
                 multiline
                 numberOfLines={4}
@@ -311,7 +311,7 @@ export default function TaskEntryScreen() {
                 onChangeText={setDescription}
                 maxLength={5000}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900 min-h-[100px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[100px]"
               />
             </View>
             {errors.description ? (

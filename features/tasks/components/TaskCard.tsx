@@ -43,9 +43,9 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
         );
       case 'low':
         return (
-          <View className="flex-row items-center bg-neutral-100 px-2 py-0.5 rounded-md border border-neutral-200 mr-2">
-            <Text className="text-xs font-bold text-neutral-500 mr-1">↓</Text>
-            <Text className="text-[10px] font-bold font-sans text-neutral-600 uppercase tracking-wider">
+          <View className="flex-row items-center bg-neutral-100 px-2 py-0.5 rounded-md border border-neutral-200 dark:border-neutral-800 mr-2">
+            <Text className="text-xs font-bold text-neutral-500 dark:text-neutral-400 mr-1">↓</Text>
+            <Text className="text-[10px] font-bold font-sans text-neutral-600 dark:text-neutral-400 uppercase tracking-wider">
               Low
             </Text>
           </View>
@@ -109,7 +109,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
     return (
       <View className="flex-row items-center">
         <Calendar size={12} color={colors.neutral[500]} />
-        <Text className="ml-1 text-[11px] font-sans text-neutral-600">{dueStatus.badgeLabel}</Text>
+        <Text className="ml-1 text-[11px] font-sans text-neutral-600 dark:text-neutral-400">{dueStatus.badgeLabel}</Text>
       </View>
     );
   };
@@ -119,7 +119,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
   }.`;
 
   return (
-    <View className="bg-white rounded-card p-4 mb-3 border border-neutral-200 shadow-card">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-neutral-800 shadow-card">
       <View className="flex-row items-start">
         {/* Checkbox Trigger */}
         <TouchableOpacity
@@ -136,7 +136,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
           ) : (
             <View
               className={`w-6 h-6 rounded-lg items-center justify-center border ${
-                task.completed ? 'bg-primary-600 border-primary-600' : 'bg-white border-neutral-300'
+                task.completed ? 'bg-primary-600 border-primary-600' : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700'
               }`}
             >
               {task.completed ? <Check size={14} color="#FFFFFF" strokeWidth={3} /> : null}
@@ -155,7 +155,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
           {/* Title */}
           <Text
             className={`text-base font-sans font-semibold mb-1 leading-5 ${
-              task.completed ? 'text-neutral-400 line-through' : 'text-neutral-900'
+              task.completed ? 'text-neutral-400 line-through' : 'text-neutral-900 dark:text-neutral-100'
             }`}
             numberOfLines={2}
           >
@@ -164,7 +164,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
 
           {/* Description Snippet if present */}
           {task.description ? (
-            <Text className="text-xs font-sans text-neutral-500 mb-2 leading-4" numberOfLines={2}>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-2 leading-4" numberOfLines={2}>
               {task.description}
             </Text>
           ) : null}

@@ -57,7 +57,7 @@ export function NotificationCard({ notification, onPress, onDelete }: Notificati
         notification.isRead ? 'Read' : 'Unread'
       }`}
       className={`rounded-card p-4 mb-3 shadow-card border ${
-        notification.isRead ? 'bg-white border-neutral-200' : 'bg-primary-50/40 border-primary-200'
+        notification.isRead ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-primary-50/40 border-primary-200'
       }`}
     >
       <View className="flex-row items-start justify-between">
@@ -76,8 +76,8 @@ export function NotificationCard({ notification, onPress, onDelete }: Notificati
               <Text
                 className={`text-sm font-sans flex-1 mr-2 ${
                   notification.isRead
-                    ? 'font-semibold text-neutral-800'
-                    : 'font-bold text-neutral-900'
+                    ? 'font-semibold text-neutral-800 dark:text-neutral-200'
+                    : 'font-bold text-neutral-900 dark:text-neutral-100'
                 }`}
                 numberOfLines={1}
               >
@@ -91,7 +91,7 @@ export function NotificationCard({ notification, onPress, onDelete }: Notificati
             {/* Message Body */}
             <Text
               className={`text-xs font-sans leading-relaxed ${
-                notification.isRead ? 'text-neutral-500' : 'text-neutral-700'
+                notification.isRead ? 'text-neutral-500 dark:text-neutral-400' : 'text-neutral-700 dark:text-neutral-300'
               }`}
             >
               {notification.message}

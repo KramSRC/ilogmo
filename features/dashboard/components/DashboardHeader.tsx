@@ -35,12 +35,12 @@ export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: Das
       {/* Greeting and Subtitle */}
       <View className="flex-1 mr-4">
         <Text
-          className="text-2xl font-bold font-sans text-neutral-900 tracking-tight"
+          className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight"
           numberOfLines={1}
         >
           {greeting}
         </Text>
-        <Text className="text-sm font-sans text-neutral-500 mt-0.5">
+        <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
           Ready for another productive OJT day?
         </Text>
       </View>
@@ -52,7 +52,7 @@ export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: Das
         accessibilityRole="button"
         accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
         style={{ minHeight: 44, minWidth: 44 }}
-        className="w-11 h-11 rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative"
+        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
         {hasUnread ? (

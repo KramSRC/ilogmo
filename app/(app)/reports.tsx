@@ -40,14 +40,14 @@ export default function ReportsScreen() {
   const [isExportModalVisible, setIsExportModalVisible] = useState<boolean>(false);
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* 1. Header Bar */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-1 mr-3">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
             Reports
           </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
             View and export your OJT progress
           </Text>
         </View>
@@ -123,11 +123,11 @@ export default function ReportsScreen() {
             />
 
             {/* 8. Export Action Banner */}
-            <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mt-1 mb-3 items-center">
-              <Text className="text-sm font-bold font-sans text-neutral-900 mb-1">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mt-1 mb-3 items-center">
+              <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
                 Formal Progress Report
               </Text>
-              <Text className="text-xs font-sans text-neutral-500 text-center mb-4 leading-4 px-2">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center mb-4 leading-4 px-2">
                 Generate an official PDF copy with verification signature blocks or download structured JSON records.
               </Text>
 

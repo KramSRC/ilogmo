@@ -25,7 +25,7 @@ export default function AnalyticsScreen() {
     useAnalytics();
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
@@ -42,10 +42,10 @@ export default function AnalyticsScreen() {
         {/* 1. Header Section */}
         <View className="flex-row items-center justify-between pb-4">
           <View className="flex-1 mr-3">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               Analytics
             </Text>
-            <Text className="text-xs font-sans text-neutral-500 mt-0.5">Track your OJT progress</Text>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">Track your OJT progress</Text>
           </View>
 
           {/* Notification Bell */}

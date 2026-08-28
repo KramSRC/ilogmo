@@ -27,7 +27,7 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Go back to previous screen"
-          className="w-11 h-11 rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+          className="w-11 h-11 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           style={{ elevation: 1 }}
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
@@ -35,10 +35,10 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
 
         {/* Title & Subtitle */}
         <View className="flex-1">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
             Calendar
           </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
             Track your OJT attendance
           </Text>
         </View>

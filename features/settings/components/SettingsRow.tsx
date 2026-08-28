@@ -26,8 +26,8 @@ export interface SettingsRowProps {
 
 export function SettingsRow({
   icon,
-  iconBgColor = 'bg-neutral-50',
-  iconBorderColor = 'border-neutral-100',
+  iconBgColor = 'bg-neutral-50 dark:bg-neutral-900',
+  iconBorderColor = 'border-neutral-100 dark:border-neutral-800',
   title,
   subtitle,
   value,
@@ -44,14 +44,14 @@ export function SettingsRow({
   const content = (
     <View
       className={`flex-row items-center justify-between px-4 py-3.5 min-h-[52px] ${
-        !isLast ? 'border-b border-neutral-100' : ''
+        !isLast ? 'border-b border-neutral-100 dark:border-neutral-800' : ''
       }`}
     >
       {/* Left: Icon + Label/Subtitle */}
       <View className="flex-row items-center flex-1 mr-3">
         {icon ? (
           <View
-            className={`w-9 h-9 rounded-xl ${iconBgColor} items-center justify-center mr-3.5 border ${iconBorderColor}`}
+            className={`w-9 h-9 rounded-xl ${iconBgColor} dark:bg-opacity-20 items-center justify-center mr-3.5 border ${iconBorderColor} dark:border-opacity-30`}
           >
             {icon}
           </View>
@@ -60,14 +60,14 @@ export function SettingsRow({
         <View className="flex-1">
           <Text
             className={`text-sm font-semibold font-sans ${
-              isDestructive ? 'text-red-600' : 'text-neutral-800'
+              isDestructive ? 'text-red-600 dark:text-red-400' : 'text-neutral-800 dark:text-neutral-200'
             }`}
             numberOfLines={1}
           >
             {title}
           </Text>
           {subtitle ? (
-            <Text className="text-xs font-sans text-neutral-400 mt-0.5" numberOfLines={2}>
+            <Text className="text-xs font-sans text-neutral-400 dark:text-neutral-500 dark:text-neutral-400 mt-0.5" numberOfLines={2}>
               {subtitle}
             </Text>
           ) : null}
@@ -77,7 +77,7 @@ export function SettingsRow({
       {/* Right: Value or Custom Element or Chevron */}
       <View className="flex-row items-center">
         {value ? (
-          <Text className="text-xs font-medium font-sans text-neutral-500 mr-1.5" numberOfLines={1}>
+          <Text className="text-xs font-medium font-sans text-neutral-500 dark:text-neutral-400 mr-1.5" numberOfLines={1}>
             {value}
           </Text>
         ) : null}

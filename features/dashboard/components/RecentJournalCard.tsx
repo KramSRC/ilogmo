@@ -17,7 +17,7 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
     <View className="mb-6">
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-3">
-        <Text className="text-base font-bold font-sans text-neutral-900">Recent Journal</Text>
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Recent Journal</Text>
         <TouchableOpacity
           onPress={() => router.push('/(app)/journal')}
           activeOpacity={0.7}
@@ -34,14 +34,14 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
         <TouchableOpacity
           onPress={() => router.push('/(app)/journal')}
           activeOpacity={0.85}
-          className="bg-white rounded-card p-5 shadow-card border border-neutral-200"
+          className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800"
         >
           <View className="flex-row items-center justify-between mb-2.5">
             <View className="flex-row items-center">
               <View className="w-7 h-7 rounded-lg bg-indigo-50 items-center justify-center mr-2 border border-indigo-100">
                 <BookOpen size={14} color="#4F46E5" />
               </View>
-              <Text className="text-xs font-bold font-sans text-neutral-700">{journal.date}</Text>
+              <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">{journal.date}</Text>
             </View>
             {journal.mood ? (
               <View className="bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100 flex-row items-center">
@@ -53,19 +53,19 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
             ) : null}
           </View>
 
-          <Text className="text-sm font-sans text-neutral-600 leading-5" numberOfLines={2}>
+          <Text className="text-sm font-sans text-neutral-600 dark:text-neutral-400 leading-5" numberOfLines={2}>
             "{journal.preview}"
           </Text>
         </TouchableOpacity>
       ) : (
-        <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200 items-center text-center">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 items-center text-center">
           <View className="w-12 h-12 rounded-2xl bg-neutral-100 items-center justify-center mb-3">
             <PenLine size={22} color={colors.neutral[500]} />
           </View>
-          <Text className="text-sm font-bold font-sans text-neutral-900 mb-1">
+          <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
             No journal entries yet
           </Text>
-          <Text className="text-xs font-sans text-neutral-500 mb-4 text-center">
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-4 text-center">
             Record your daily learnings and reflections.
           </Text>
           <Button

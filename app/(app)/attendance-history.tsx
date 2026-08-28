@@ -71,7 +71,7 @@ export default function AttendanceHistoryScreen() {
   }, [user]);
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Top Header */}
       <View className="px-5 pt-3 pb-3 flex-row items-center">
         <TouchableOpacity
@@ -86,14 +86,14 @@ export default function AttendanceHistoryScreen() {
           accessibilityRole="button"
           accessibilityLabel="Go back"
           style={{ minHeight: 44, minWidth: 44 }}
-          className="rounded-full bg-white items-center justify-center border border-neutral-200 shadow-soft-sm mr-3"
+          className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm mr-3"
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
         </TouchableOpacity>
 
         <View className="flex-1">
-          <Text className="text-xl font-bold font-sans text-neutral-900">Attendance History</Text>
-          <Text className="text-xs font-sans text-neutral-500">
+          <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Attendance History</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
             Full record of your OJT attendance
           </Text>
         </View>
@@ -126,13 +126,13 @@ export default function AttendanceHistoryScreen() {
         ) : null}
 
         {/* History List Card */}
-        <View className="bg-white rounded-card px-4 py-2 shadow-card border border-neutral-200">
+        <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card border border-neutral-200 dark:border-neutral-800">
           {history.length === 0 && !isLoading ? (
             <View className="items-center py-12">
               <View className="w-12 h-12 rounded-2xl bg-neutral-100 items-center justify-center mb-3">
                 <CalendarOff size={24} color={colors.neutral[400]} />
               </View>
-              <Text className="text-base font-bold font-sans text-neutral-800">
+              <Text className="text-base font-bold font-sans text-neutral-800 dark:text-neutral-200">
                 No attendance records
               </Text>
               <Text className="text-xs font-sans text-neutral-400 mt-1 text-center">

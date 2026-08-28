@@ -94,7 +94,7 @@ export default function SplashScreen() {
   }, [opacity, translateY, router, setSession, setUser, setProfile, setLoading]);
 
   return (
-    <View className="flex-1 bg-background-app items-center justify-center px-6">
+    <View className="flex-1 bg-background-app dark:bg-neutral-950 items-center justify-center px-6">
       <Animated.View
         style={{
           opacity,
@@ -108,12 +108,12 @@ export default function SplashScreen() {
         </View>
 
         {/* Brand Title */}
-        <Text className="text-3xl font-bold font-sans text-neutral-900 tracking-tight text-center">
+        <Text className="text-3xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight text-center">
           iLog<Text className="text-primary-600">Mo</Text>
         </Text>
 
         {/* Subtitle */}
-        <Text className="mt-2 text-base font-sans text-neutral-500 text-center">
+        <Text className="mt-2 text-base font-sans text-neutral-500 dark:text-neutral-400 text-center">
           OJT made simple.
         </Text>
 

@@ -26,7 +26,7 @@ export function ProgressCard({ progress }: ProgressCardProps) {
       activeOpacity={0.85}
       accessibilityRole="button"
       accessibilityLabel="View OJT Analytics"
-      className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5"
+      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5"
     >
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-4">
@@ -34,7 +34,7 @@ export function ProgressCard({ progress }: ProgressCardProps) {
           <View className="w-8 h-8 rounded-xl bg-primary-50 items-center justify-center mr-2.5 border border-primary-100">
             <TrendingUp size={16} color={colors.primary[600]} />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">OJT Progress</Text>
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">OJT Progress</Text>
         </View>
         <ChevronRight size={18} color={colors.neutral[400]} />
       </View>
@@ -44,10 +44,10 @@ export function ProgressCard({ progress }: ProgressCardProps) {
         {/* Left Stats */}
         <View className="flex-1 pr-2">
           <View className="flex-row items-baseline">
-            <Text className="text-3xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-3xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               {progress.completedHours}
             </Text>
-            <Text className="ml-1 text-sm font-semibold font-sans text-neutral-500">hrs</Text>
+            <Text className="ml-1 text-sm font-semibold font-sans text-neutral-500 dark:text-neutral-400">hrs</Text>
             <Text className="ml-1 text-sm font-sans text-neutral-400">
               / {progress.requiredHours} hrs
             </Text>
@@ -91,7 +91,7 @@ export function ProgressCard({ progress }: ProgressCardProps) {
           </Svg>
           {/* Centered Percentage */}
           <View className="absolute inset-0 items-center justify-center">
-            <Text className="text-xl font-bold font-sans text-neutral-900">
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
               {progress.progressPercentage}%
             </Text>
           </View>
@@ -99,12 +99,12 @@ export function ProgressCard({ progress }: ProgressCardProps) {
       </View>
 
       {/* Estimated Completion Footer */}
-      <View className="pt-3 border-t border-neutral-100 flex-row items-center justify-between">
+      <View className="pt-3 border-t border-neutral-100 dark:border-neutral-800 flex-row items-center justify-between">
         <View className="flex-row items-center">
           <Calendar size={13} color={colors.neutral[400]} />
-          <Text className="ml-1.5 text-xs font-sans text-neutral-500">Estimated completion</Text>
+          <Text className="ml-1.5 text-xs font-sans text-neutral-500 dark:text-neutral-400">Estimated completion</Text>
         </View>
-        <Text className="text-xs font-semibold font-sans text-neutral-700">
+        <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300">
           {progress.estimatedCompletionDate}
         </Text>
       </View>

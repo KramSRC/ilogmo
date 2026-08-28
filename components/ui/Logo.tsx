@@ -41,11 +41,11 @@ export function Logo({
           <BookOpen size={iconSize} color="#FFFFFF" strokeWidth={2.4} />
         </View>
         <View>
-          <Text className={`font-bold font-sans text-neutral-900 ${titleSize}`}>
+          <Text className={`font-bold font-sans text-neutral-900 dark:text-neutral-100 ${titleSize}`}>
             iLog<Text className="text-primary-600">Mo</Text>
           </Text>
           {showSubtitle ? (
-            <Text className={`font-sans text-neutral-500 ${subSize}`}>{subtitle}</Text>
+            <Text className={`font-sans text-neutral-500 dark:text-neutral-400 ${subSize}`}>{subtitle}</Text>
           ) : null}
         </View>
       </View>
@@ -59,11 +59,11 @@ export function Logo({
       >
         <BookOpen size={iconSize} color="#FFFFFF" strokeWidth={2.4} />
       </View>
-      <Text className={`font-bold font-sans text-neutral-900 tracking-tight ${titleSize}`}>
+      <Text className={`font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight ${titleSize}`}>
         iLog<Text className="text-primary-600">Mo</Text>
       </Text>
       {showSubtitle ? (
-        <Text className={`mt-1 font-sans text-neutral-500 ${subSize}`}>{subtitle}</Text>
+        <Text className={`mt-1 font-sans text-neutral-500 dark:text-neutral-400 ${subSize}`}>{subtitle}</Text>
       ) : null}
     </View>
   );

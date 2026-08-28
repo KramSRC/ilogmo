@@ -29,7 +29,7 @@ export default function JournalScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
@@ -46,10 +46,10 @@ export default function JournalScreen() {
         {/* 1. Header Section */}
         <View className="flex-row items-center justify-between pb-4">
           <View className="flex-1 mr-3">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               Journal
             </Text>
-            <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
               Record your OJT experience
             </Text>
           </View>
@@ -94,7 +94,7 @@ export default function JournalScreen() {
           /* 5. Recent Entries List */
           <View className="mt-1">
             <View className="flex-row items-center justify-between mb-3">
-              <Text className="text-base font-bold font-sans text-neutral-900">Recent Entries</Text>
+              <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Recent Entries</Text>
               <Text className="text-xs font-medium font-sans text-neutral-400">
                 {entries.length} {entries.length === 1 ? 'entry' : 'entries'}
               </Text>

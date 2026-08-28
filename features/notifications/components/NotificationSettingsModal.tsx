@@ -36,14 +36,14 @@ export function NotificationSettingsModal({
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white rounded-t-3xl p-6 max-h-[85%] border-t border-neutral-200">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 max-h-[85%] border-t border-neutral-200 dark:border-neutral-800">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-4 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-1 mr-2">
-              <Text className="text-lg font-bold font-sans text-neutral-900">
+              <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 Reminder Settings
               </Text>
-              <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
                 Customize your OJT notification preferences
               </Text>
             </View>
@@ -60,13 +60,13 @@ export function NotificationSettingsModal({
 
           <ScrollView showsVerticalScrollIndicator={false} className="space-y-4 mb-4">
             {/* 1. Attendance Reminder */}
-            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100">
+            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
                 <View className="w-9 h-9 rounded-xl bg-sky-50 border border-sky-100 items-center justify-center mr-3">
                   <Clock size={18} color="#0284C7" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-sm font-semibold font-sans text-neutral-900">
+                  <Text className="text-sm font-semibold font-sans text-neutral-900 dark:text-neutral-100">
                     Attendance Reminders
                   </Text>
                   <Text className="text-xs font-sans text-neutral-400">
@@ -83,13 +83,13 @@ export function NotificationSettingsModal({
             </View>
 
             {/* 2. Check-Out Reminder */}
-            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100">
+            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
                 <View className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-100 items-center justify-center mr-3">
                   <LogOut size={18} color="#D97706" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-sm font-semibold font-sans text-neutral-900">
+                  <Text className="text-sm font-semibold font-sans text-neutral-900 dark:text-neutral-100">
                     Check-Out Reminders
                   </Text>
                   <Text className="text-xs font-sans text-neutral-400">
@@ -106,13 +106,13 @@ export function NotificationSettingsModal({
             </View>
 
             {/* 3. Task Reminders */}
-            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100">
+            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
                 <View className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 items-center justify-center mr-3">
                   <CheckSquare size={18} color="#4F46E5" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-sm font-semibold font-sans text-neutral-900">
+                  <Text className="text-sm font-semibold font-sans text-neutral-900 dark:text-neutral-100">
                     Task Reminders
                   </Text>
                   <Text className="text-xs font-sans text-neutral-400">
@@ -129,13 +129,13 @@ export function NotificationSettingsModal({
             </View>
 
             {/* 4. Journal Reminders */}
-            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100">
+            <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
                 <View className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 items-center justify-center mr-3">
                   <BookOpen size={18} color="#16A34A" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-sm font-semibold font-sans text-neutral-900">
+                  <Text className="text-sm font-semibold font-sans text-neutral-900 dark:text-neutral-100">
                     Journal Reminders
                   </Text>
                   <Text className="text-xs font-sans text-neutral-400">
@@ -158,7 +158,7 @@ export function NotificationSettingsModal({
                   <Award size={18} color="#9333EA" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-sm font-semibold font-sans text-neutral-900">
+                  <Text className="text-sm font-semibold font-sans text-neutral-900 dark:text-neutral-100">
                     OJT Reminders
                   </Text>
                   <Text className="text-xs font-sans text-neutral-400">

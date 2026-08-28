@@ -33,18 +33,18 @@ export function TodayAttendanceCard({
   const isNotCheckedIn = !todayRecord;
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
       {/* Top Date & Working Day Status Row */}
       <View className="flex-row items-center justify-between mb-4">
-        <Text className="text-xs font-semibold font-sans text-neutral-500">{todayFormatted}</Text>
+        <Text className="text-xs font-semibold font-sans text-neutral-500 dark:text-neutral-400">{todayFormatted}</Text>
         <View
           className={`px-2.5 py-0.5 rounded-full border ${
-            isWeekend ? 'bg-neutral-100 border-neutral-200' : 'bg-emerald-50 border-emerald-200'
+            isWeekend ? 'bg-neutral-100 border-neutral-200 dark:border-neutral-800' : 'bg-emerald-50 border-emerald-200'
           }`}
         >
           <Text
             className={`text-[11px] font-semibold font-sans ${
-              isWeekend ? 'text-neutral-600' : 'text-emerald-700'
+              isWeekend ? 'text-neutral-600 dark:text-neutral-400' : 'text-emerald-700'
             }`}
           >
             {isWeekend ? 'Day Off' : 'Working Day'}
@@ -53,7 +53,7 @@ export function TodayAttendanceCard({
       </View>
 
       {/* Check In / Check Out Timestamps Box */}
-      <View className="bg-neutral-50 rounded-2xl p-4 border border-neutral-100 mb-4">
+      <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-800 mb-4">
         <View className="flex-row items-center justify-between">
           {/* Check In Column */}
           <View className="flex-1">
@@ -66,12 +66,12 @@ export function TodayAttendanceCard({
                 {todayRecord ? (
                   <CheckCircle2 size={10} color="#FFFFFF" />
                 ) : (
-                  <View className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <View className="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900" />
                 )}
               </View>
-              <Text className="text-xs font-sans text-neutral-500">Check In</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Check In</Text>
             </View>
-            <Text className="text-base font-bold font-sans text-neutral-900 ml-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 ml-5">
               {todayRecord ? formatTimeDisplay(todayRecord.checkIn) : '--:--'}
             </Text>
           </View>
@@ -90,12 +90,12 @@ export function TodayAttendanceCard({
                 {isCompleted ? (
                   <CheckCircle2 size={10} color="#FFFFFF" />
                 ) : (
-                  <View className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <View className="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900" />
                 )}
               </View>
-              <Text className="text-xs font-sans text-neutral-500">Check Out</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Check Out</Text>
             </View>
-            <Text className="text-base font-bold font-sans text-neutral-900 mr-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mr-5">
               {isCompleted && todayRecord?.checkOut
                 ? formatTimeDisplay(todayRecord.checkOut)
                 : '--:--'}
@@ -106,7 +106,7 @@ export function TodayAttendanceCard({
 
       {/* Working Duration Display (Centered Big Stat) */}
       <View className="items-center py-2 mb-4">
-        <Text className="text-4xl font-bold font-sans text-neutral-900 tracking-tight">
+        <Text className="text-4xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
           {workingDuration}
         </Text>
         <Text className="text-xs font-semibold font-sans text-neutral-400 mt-1 uppercase tracking-wider">

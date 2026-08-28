@@ -14,22 +14,22 @@ export interface WeeklyHoursCardProps {
 
 export function WeeklyHoursCard({ weekly }: WeeklyHoursCardProps) {
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-indigo-50 items-center justify-center mr-2.5 border border-indigo-100">
             <BarChart2 size={16} color="#4F46E5" />
           </View>
           <View>
-            <Text className="text-base font-bold font-sans text-neutral-900">This Week</Text>
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">This Week</Text>
             <Text className="text-xs font-sans text-neutral-400">Daily hours distribution</Text>
           </View>
         </View>
 
         <View className="items-end">
           <Text className="text-xs font-sans text-neutral-400">Total</Text>
-          <Text className="text-sm font-bold font-sans text-neutral-900">
+          <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {weekly.totalHoursFormatted}
           </Text>
         </View>
@@ -55,7 +55,7 @@ export function WeeklyHoursCard({ weekly }: WeeklyHoursCardProps) {
                   hasHours
                     ? isHighlight
                       ? 'text-primary-600'
-                      : 'text-neutral-700'
+                      : 'text-neutral-700 dark:text-neutral-300'
                     : 'text-neutral-300'
                 }`}
                 numberOfLines={1}
@@ -80,7 +80,7 @@ export function WeeklyHoursCard({ weekly }: WeeklyHoursCardProps) {
                     isHighlight
                       ? 'font-bold text-primary-600'
                       : day.isWorkingDay
-                        ? 'font-medium text-neutral-700'
+                        ? 'font-medium text-neutral-700 dark:text-neutral-300'
                         : 'text-neutral-400'
                   }`}
                 >

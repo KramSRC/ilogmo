@@ -19,16 +19,16 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
   const hasAttendance = attendance.presentCount > 0 || attendance.totalWorkedMinutes > 0;
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
           <View className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 items-center justify-center mr-2.5">
             <Clock size={16} color={colors.success.DEFAULT} />
           </View>
           <View className="flex-1">
-            <Text className="text-base font-bold font-sans text-neutral-900">Attendance Summary</Text>
-            <Text className="text-xs font-sans text-neutral-500">Rendered hours and daily pace</Text>
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Attendance Summary</Text>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Rendered hours and daily pace</Text>
           </View>
         </View>
 
@@ -47,7 +47,7 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
       {!hasAttendance ? (
         <View className="py-4 items-center justify-center">
-          <Text className="text-xs font-sans text-neutral-500 text-center">
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center">
             Attendance data will appear here once you start your OJT.
           </Text>
         </View>
@@ -67,11 +67,11 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
           <View className="flex-row flex-wrap justify-between -mx-1">
             {/* 1. Working Days */}
             <View className="w-1/3 px-1 mb-3">
-              <View className="bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+              <View className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                   Working Days
                 </Text>
-                <Text className="text-base font-bold font-sans text-neutral-900 mt-0.5">
+                <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                   {attendance.workingDaysCount} / wk
                 </Text>
               </View>
@@ -91,11 +91,11 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 3. Absent */}
             <View className="w-1/3 px-1 mb-3">
-              <View className="bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+              <View className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                   Absent
                 </Text>
-                <Text className="text-base font-bold font-sans text-neutral-700 mt-0.5">
+                <Text className="text-base font-bold font-sans text-neutral-700 dark:text-neutral-300 mt-0.5">
                   {attendance.absentCount}
                 </Text>
               </View>
@@ -103,13 +103,13 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 4. Missing Check-Out */}
             <View className="w-1/3 px-1">
-              <View className="bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-                <Text className="text-[10px] font-semibold font-sans text-neutral-500 uppercase text-center" numberOfLines={1}>
+              <View className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+                <Text className="text-[10px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase text-center" numberOfLines={1}>
                   Missed Checkout
                 </Text>
                 <Text
                   className={`text-base font-bold font-sans mt-0.5 ${
-                    attendance.missingCheckOutCount > 0 ? 'text-amber-600' : 'text-neutral-700'
+                    attendance.missingCheckOutCount > 0 ? 'text-amber-600' : 'text-neutral-700 dark:text-neutral-300'
                   }`}
                 >
                   {attendance.missingCheckOutCount}
@@ -131,11 +131,11 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 6. Average Per Day */}
             <View className="w-1/3 px-1">
-              <View className="bg-neutral-50 border border-neutral-100 rounded-xl p-2.5 items-center">
-                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 uppercase">
+              <View className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-xl p-2.5 items-center">
+                <Text className="text-[10.5px] font-semibold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
                   Avg Daily
                 </Text>
-                <Text className="text-base font-bold font-sans text-neutral-900 mt-0.5" numberOfLines={1}>
+                <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5" numberOfLines={1}>
                   {attendance.averageHoursFormatted}
                 </Text>
               </View>

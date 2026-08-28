@@ -41,12 +41,12 @@ export function DocumentCategoryFilter({
               className={`mr-2.5 px-3.5 py-2 rounded-xl flex-row items-center border ${
                 isSelected
                   ? 'bg-primary-600 border-primary-600 shadow-soft-sm'
-                  : 'bg-white border-neutral-200'
+                  : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
               }`}
             >
               <Text
                 className={`text-xs font-semibold font-sans ${
-                  isSelected ? 'text-white' : 'text-neutral-600'
+                  isSelected ? 'text-white' : 'text-neutral-600 dark:text-neutral-400'
                 }`}
               >
                 {option.label}
@@ -54,12 +54,12 @@ export function DocumentCategoryFilter({
               {typeof count === 'number' && count > 0 ? (
                 <View
                   className={`ml-1.5 px-1.5 py-0.2 rounded-full ${
-                    isSelected ? 'bg-white/25' : 'bg-neutral-100'
+                    isSelected ? 'bg-white dark:bg-neutral-900/25' : 'bg-neutral-100'
                   }`}
                 >
                   <Text
                     className={`text-[10px] font-bold font-sans ${
-                      isSelected ? 'text-white' : 'text-neutral-600'
+                      isSelected ? 'text-white' : 'text-neutral-600 dark:text-neutral-400'
                     }`}
                   >
                     {count}

@@ -12,7 +12,7 @@ export function DocumentSkeleton() {
       {[1, 2, 3, 4].map((key) => (
         <View
           key={key}
-          className="bg-white rounded-card p-4 mb-3 shadow-card border border-neutral-200"
+          className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 shadow-card border border-neutral-200 dark:border-neutral-800"
         >
           <View className="flex-row items-start">
             {/* Icon Skeleton */}

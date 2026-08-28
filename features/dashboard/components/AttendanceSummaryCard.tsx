@@ -20,13 +20,13 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
   // State B: Currently Working
   if (attendance.state === 'working') {
     return (
-      <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
             <View className="w-8 h-8 rounded-xl bg-emerald-50 items-center justify-center mr-2.5 border border-emerald-100">
               <Clock size={16} color={colors.success.DEFAULT} />
             </View>
-            <Text className="text-base font-bold font-sans text-neutral-900">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
               Today's Attendance
             </Text>
           </View>
@@ -36,16 +36,16 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
           </View>
         </View>
 
-        <View className="bg-neutral-50 rounded-2xl p-4 border border-neutral-100 mb-4">
+        <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-800 mb-4">
           <View className="flex-row justify-between items-center">
             <View>
-              <Text className="text-xs font-sans text-neutral-500">Checked in at</Text>
-              <Text className="text-lg font-bold font-sans text-neutral-900 mt-0.5">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Checked in at</Text>
+              <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                 {attendance.checkInTime || '8:01 AM'}
               </Text>
             </View>
             <View className="items-end">
-              <Text className="text-xs font-sans text-neutral-500">Working duration</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Working duration</Text>
               <Text className="text-lg font-bold font-sans text-emerald-600 mt-0.5">
                 {attendance.workingDuration || '3h 42m'}
               </Text>
@@ -67,13 +67,13 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
   // State C: Completed
   if (attendance.state === 'completed') {
     return (
-      <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
             <View className="w-8 h-8 rounded-xl bg-blue-50 items-center justify-center mr-2.5 border border-blue-100">
               <CheckCircle2 size={16} color={colors.primary[600]} />
             </View>
-            <Text className="text-base font-bold font-sans text-neutral-900">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
               Today's Attendance
             </Text>
           </View>
@@ -82,22 +82,22 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
           </View>
         </View>
 
-        <View className="bg-neutral-50 rounded-2xl p-4 border border-neutral-100 mb-4">
+        <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-800 mb-4">
           <View className="flex-row justify-between items-center">
             <View>
-              <Text className="text-xs font-sans text-neutral-500">Hours Recorded</Text>
-              <Text className="text-sm font-semibold font-sans text-neutral-800 mt-0.5">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Hours Recorded</Text>
+              <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mt-0.5">
                 {attendance.checkInTime || '8:01 AM'} — {attendance.checkOutTime || '5:02 PM'}
               </Text>
             </View>
             <View className="items-end">
-              <Text className="text-xs font-sans text-neutral-500">Total Hours</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Total Hours</Text>
               <Text className="text-base font-bold font-sans text-primary-700 mt-0.5">
                 {attendance.totalHours || '8h 57m'}
               </Text>
             </View>
           </View>
-          <Text className="text-xs font-sans text-neutral-500 mt-2">Today's OJT completed</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-2">Today's OJT completed</Text>
         </View>
 
         <Button
@@ -114,20 +114,20 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
 
   // State A: Not checked in (Default)
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
       <View className="flex-row items-center justify-between mb-3">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-amber-50 items-center justify-center mr-2.5 border border-amber-100">
             <Clock size={16} color={colors.warning.DEFAULT} />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">Today's Attendance</Text>
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Today's Attendance</Text>
         </View>
         <View className="bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
           <Text className="text-xs font-semibold font-sans text-amber-700">Not checked in</Text>
         </View>
       </View>
 
-      <Text className="text-sm font-sans text-neutral-500 mb-4">
+      <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 mb-4">
         Start your OJT day by checking in.
       </Text>
 

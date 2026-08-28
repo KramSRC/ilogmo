@@ -80,18 +80,18 @@ export function ChangePasswordModal({ visible, onClose, onSubmit }: ChangePasswo
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         className="flex-1 bg-black/50 justify-end"
       >
-        <View className="bg-white rounded-t-3xl p-6 border-t border-neutral-200">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-4 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
               <View className="w-10 h-10 rounded-xl bg-indigo-50 items-center justify-center mr-3 border border-indigo-100">
                 <KeyRound size={20} color="#4F46E5" />
               </View>
               <View className="flex-1">
-                <Text className="text-lg font-bold font-sans text-neutral-900">
+                <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   Change Password
                 </Text>
-                <Text className="text-xs font-sans text-neutral-500">
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
                   Enter your new account password
                 </Text>
               </View>

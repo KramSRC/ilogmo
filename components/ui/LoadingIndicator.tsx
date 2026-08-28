@@ -18,13 +18,13 @@ export function LoadingIndicator({
   const content = (
     <View className="items-center justify-center py-6">
       <ActivityIndicator size={size} color={color} />
-      {message ? <Text className="mt-3 text-sm font-sans text-neutral-500">{message}</Text> : null}
+      {message ? <Text className="mt-3 text-sm font-sans text-neutral-500 dark:text-neutral-400">{message}</Text> : null}
     </View>
   );
 
   if (fullScreen) {
     return (
-      <View className="flex-1 items-center justify-center bg-background-app px-6">{content}</View>
+      <View className="flex-1 items-center justify-center bg-background-app dark:bg-neutral-950 px-6">{content}</View>
     );
   }
 

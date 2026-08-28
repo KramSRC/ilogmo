@@ -21,15 +21,15 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
     <View
       accessibilityRole="summary"
       accessibilityLabel={`OJT progress: ${hours.progressPercentage} percent, ${hours.completedHoursFormatted} of ${hours.requiredHours} hours completed. ${hours.remainingHoursFormatted} remaining.`}
-      className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4"
+      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4"
     >
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3">
         <View>
-          <Text className="text-base font-bold font-sans text-neutral-900 tracking-tight">
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
             OJT Progress
           </Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">{dateRangeDisplay}</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">{dateRangeDisplay}</Text>
         </View>
 
         <View
@@ -37,7 +37,7 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
             { paddingHorizontal: 10, paddingVertical: 4 },
             isCompleted ? { backgroundColor: '#ECFDF5' } : { backgroundColor: '#EFF6FF' },
           ]}
-          className="rounded-full border border-neutral-200 flex-row items-center"
+          className="rounded-full border border-neutral-200 dark:border-neutral-800 flex-row items-center"
         >
           {isCompleted ? (
             <Sparkles size={12} color={colors.success.DEFAULT} />
@@ -57,15 +57,15 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
       {/* Primary Numbers */}
       <View className="flex-row items-baseline justify-between mb-2">
         <View className="flex-row items-baseline">
-          <Text className="text-2xl font-bold font-sans text-neutral-900">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {hours.completedHoursFormatted}
           </Text>
-          <Text className="text-sm font-sans text-neutral-500 ml-1.5">
+          <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 ml-1.5">
             / {hours.requiredHours}h required
           </Text>
         </View>
 
-        <Text className="text-xs font-semibold font-sans text-neutral-600">
+        <Text className="text-xs font-semibold font-sans text-neutral-600 dark:text-neutral-400">
           {hours.remainingHoursFormatted} left
         </Text>
       </View>
@@ -81,20 +81,20 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
       </View>
 
       {/* Bottom Mini Breakdown */}
-      <View className="flex-row items-center justify-between pt-2.5 border-t border-neutral-100">
+      <View className="flex-row items-center justify-between pt-2.5 border-t border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <Clock size={13} color={colors.neutral[400]} />
-          <Text className="text-[11px] font-sans text-neutral-500 ml-1.5">
+          <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 ml-1.5">
             Completed:{' '}
-            <Text className="font-semibold text-neutral-800">
+            <Text className="font-semibold text-neutral-800 dark:text-neutral-200">
               {hours.completedHoursDecimal} hrs
             </Text>
           </Text>
         </View>
 
-        <Text className="text-[11px] font-sans text-neutral-500">
+        <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">
           Remaining:{' '}
-          <Text className="font-semibold text-neutral-800">
+          <Text className="font-semibold text-neutral-800 dark:text-neutral-200">
             {hours.remainingHoursDecimal} hrs
           </Text>
         </Text>

@@ -129,15 +129,15 @@ export default function EditOjtScreen() {
 
   if (isSuccess) {
     return (
-      <SafeAreaView className="flex-1 bg-background-app justify-center items-center px-6">
-        <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
+      <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
           <View className="w-16 h-16 bg-emerald-50 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
-          <Text className="text-2xl font-bold font-sans text-neutral-900 text-center mb-1.5">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-1.5">
             Updated! 🎉
           </Text>
-          <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-2">
+          <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-2">
             Your OJT information has been updated.
           </Text>
         </View>
@@ -146,13 +146,13 @@ export default function EditOjtScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
-        <View className="flex-row items-center px-4 py-3 border-b border-neutral-200 bg-white">
+        <View className="flex-row items-center px-4 py-3 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
           <TouchableOpacity
             onPress={() => {
               if (router.canGoBack()) {
@@ -166,7 +166,7 @@ export default function EditOjtScreen() {
           >
             <ArrowLeft size={24} color={colors.neutral[800]} />
           </TouchableOpacity>
-          <Text className="flex-1 text-lg font-bold font-sans text-neutral-900 ml-2">
+          <Text className="flex-1 text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100 ml-2">
             Edit OJT Details
           </Text>
         </View>
@@ -186,8 +186,8 @@ export default function EditOjtScreen() {
           ) : null}
 
           {/* SECTION 1: OJT Requirements */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Requirements
             </Text>
 
@@ -240,8 +240,8 @@ export default function EditOjtScreen() {
           </View>
 
           {/* SECTION 2: Internship Details */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               Internship Details
             </Text>
 
@@ -316,8 +316,8 @@ export default function EditOjtScreen() {
           </View>
 
           {/* SECTION 3: OJT Schedule */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-6">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Schedule
             </Text>
 
@@ -347,7 +347,7 @@ export default function EditOjtScreen() {
                 };
                 return (
                   <View className="mb-4">
-                    <Text className="text-xs font-semibold font-sans text-neutral-700 mb-2">
+                    <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300 mb-2">
                       Working Days *
                     </Text>
                     <View className="flex-row justify-between">
@@ -360,10 +360,10 @@ export default function EditOjtScreen() {
                             activeOpacity={0.75}
                             style={{ minHeight: 44 }}
                             className={`flex-1 mx-0.5 items-center justify-center py-2 rounded-xl border ${
-                              isSelected ? 'bg-primary-600 border-primary-600' : 'bg-neutral-50 border-neutral-200'
+                              isSelected ? 'bg-primary-600 border-primary-600' : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
                             }`}
                           >
-                            <Text className={`text-[11px] font-bold font-sans ${isSelected ? 'text-white' : 'text-neutral-700'}`} numberOfLines={1}>
+                            <Text className={`text-[11px] font-bold font-sans ${isSelected ? 'text-white' : 'text-neutral-700 dark:text-neutral-300'}`} numberOfLines={1}>
                               {item.label}
                             </Text>
                             {isSelected ? <Check size={10} color="#FFFFFF" strokeWidth={3} style={{ marginTop: 2 }} /> : null}

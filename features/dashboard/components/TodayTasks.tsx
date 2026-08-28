@@ -19,7 +19,7 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
     <View className="mb-6">
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-3">
-        <Text className="text-base font-bold font-sans text-neutral-900">Today's Tasks</Text>
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Today's Tasks</Text>
         <TouchableOpacity
           onPress={() => router.push('/(app)/tasks')}
           activeOpacity={0.7}
@@ -32,7 +32,7 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
       </View>
 
       {/* Task List Container */}
-      <View className="bg-white rounded-card p-4 shadow-card border border-neutral-200">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card border border-neutral-200 dark:border-neutral-800">
         {displayTasks.length === 0 ? (
           <Text className="text-sm font-sans text-neutral-400 py-3 text-center">
             No tasks scheduled for today.
@@ -47,14 +47,14 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
                 activeOpacity={0.75}
                 accessibilityRole="checkbox"
                 accessibilityState={{ checked: task.completed }}
-                className={`flex-row items-center py-3 ${isLast ? '' : 'border-b border-neutral-100'}`}
+                className={`flex-row items-center py-3 ${isLast ? '' : 'border-b border-neutral-100 dark:border-neutral-800'}`}
               >
                 {/* Custom Checkbox */}
                 <View
                   className={`w-5 h-5 rounded-md items-center justify-center mr-3 border ${
                     task.completed
                       ? 'bg-primary-600 border-primary-600'
-                      : 'bg-white border-neutral-300'
+                      : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700'
                   }`}
                 >
                   {task.completed ? <Check size={13} color="#FFFFFF" strokeWidth={3} /> : null}
@@ -65,7 +65,7 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
                   className={`flex-1 text-sm font-sans mr-2 ${
                     task.completed
                       ? 'text-neutral-400 line-through'
-                      : 'text-neutral-800 font-medium'
+                      : 'text-neutral-800 dark:text-neutral-200 font-medium'
                   }`}
                   numberOfLines={1}
                 >

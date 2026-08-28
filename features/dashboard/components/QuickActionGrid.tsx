@@ -5,7 +5,7 @@ import { QuickActionCard } from './QuickActionCard';
 export function QuickActionGrid() {
   return (
     <View className="mb-6">
-      <Text className="text-base font-bold font-sans text-neutral-900 mb-3">Quick Actions</Text>
+      <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-3">Quick Actions</Text>
 
       {/* Row 1: Attendance & Daily Journal */}
       <View className="flex-row space-x-3 mb-3">

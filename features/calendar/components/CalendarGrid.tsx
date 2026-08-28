@@ -12,9 +12,9 @@ const WEEK_DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
   return (
-    <View className="bg-white rounded-card p-4 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Weekday Header Row */}
-      <View className="flex-row justify-between mb-3 pb-2 border-b border-neutral-100">
+      <View className="flex-row justify-between mb-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
         {WEEK_DAYS.map((dayName) => (
           <View key={dayName} className="flex-1 items-center">
             <Text className="text-[11px] font-bold font-sans text-neutral-400">{dayName}</Text>
@@ -46,7 +46,7 @@ export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
           const isCurrentMonth = dayItem.isCurrentMonth;
 
           let cellBg = 'bg-transparent';
-          let textColor = isCurrentMonth ? 'text-neutral-800' : 'text-neutral-300';
+          let textColor = isCurrentMonth ? 'text-neutral-800 dark:text-neutral-200' : 'text-neutral-300';
           let fontWeight = 'font-normal';
           let borderColor = 'border-transparent';
 

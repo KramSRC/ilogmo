@@ -36,14 +36,14 @@ export default function AttendanceScreen() {
 
   if (isLoading && !isRefreshing) {
     return (
-      <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+      <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
         <AttendanceSkeleton />
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}

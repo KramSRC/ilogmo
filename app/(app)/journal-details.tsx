@@ -89,9 +89,9 @@ export default function JournalDetailsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -105,13 +105,13 @@ export default function JournalDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Journal Details</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Journal Details</Text>
           </View>
         </View>
 
@@ -133,8 +133,8 @@ export default function JournalDetailsScreen() {
         </View>
       ) : !entry ? (
         <View className="flex-1 items-center justify-center px-6">
-          <Text className="text-base font-bold font-sans text-neutral-800">Entry Not Found</Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-1 text-center">
+          <Text className="text-base font-bold font-sans text-neutral-800 dark:text-neutral-200">Entry Not Found</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-1 text-center">
             The requested journal entry could not be located.
           </Text>
           <Button
@@ -152,7 +152,7 @@ export default function JournalDetailsScreen() {
           className="px-5 pt-4"
         >
           {/* Date Summary Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
             <View className="flex-row items-center justify-between">
               <View className="flex-row items-center flex-1 mr-2">
                 <View className="w-12 h-12 rounded-2xl bg-primary-50 items-center justify-center border border-primary-100 mr-3.5">
@@ -162,16 +162,16 @@ export default function JournalDetailsScreen() {
                   <Text className="text-xs font-semibold font-sans text-neutral-400 uppercase tracking-wider">
                     Journal Date
                   </Text>
-                  <Text className="text-lg font-bold font-sans text-neutral-900">
+                  <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">
                     {formatJournalDate(entry.entryDate)}
                   </Text>
                 </View>
               </View>
 
               {formatJournalTime(entry.createdAt) ? (
-                <View className="flex-row items-center bg-neutral-50 px-2.5 py-1.5 rounded-full border border-neutral-200">
+                <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-900 px-2.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800">
                   <Clock size={13} color={colors.neutral[500]} />
-                  <Text className="ml-1 text-xs font-semibold font-sans text-neutral-600">
+                  <Text className="ml-1 text-xs font-semibold font-sans text-neutral-600 dark:text-neutral-400">
                     {formatJournalTime(entry.createdAt)}
                   </Text>
                 </View>
@@ -180,41 +180,41 @@ export default function JournalDetailsScreen() {
           </View>
 
           {/* Today's Work Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <BookOpen size={16} color={colors.primary[600]} />
-              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">
+              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 Today&apos;s Work
               </Text>
             </View>
-            <Text className="text-base font-sans text-neutral-800 leading-6 whitespace-pre-wrap">
+            <Text className="text-base font-sans text-neutral-800 dark:text-neutral-200 leading-6 whitespace-pre-wrap">
               {entry.workDescription}
             </Text>
           </View>
 
           {/* What I Learned Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <Lightbulb size={16} color={colors.warning.DEFAULT} />
-              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">
+              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 What I Learned
               </Text>
             </View>
-            <Text className="text-base font-sans text-neutral-800 leading-6 whitespace-pre-wrap">
+            <Text className="text-base font-sans text-neutral-800 dark:text-neutral-200 leading-6 whitespace-pre-wrap">
               {entry.learningDescription}
             </Text>
           </View>
 
           {/* Challenges Card (if any) */}
           {entry.challenges ? (
-            <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-              <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+              <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
                 <AlertTriangle size={16} color={colors.error.DEFAULT} />
-                <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">
+                <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   Challenges
                 </Text>
               </View>
-              <Text className="text-base font-sans text-neutral-800 leading-6 whitespace-pre-wrap">
+              <Text className="text-base font-sans text-neutral-800 dark:text-neutral-200 leading-6 whitespace-pre-wrap">
                 {entry.challenges}
               </Text>
             </View>
@@ -222,14 +222,14 @@ export default function JournalDetailsScreen() {
 
           {/* Additional Notes Card (if any) */}
           {entry.notes ? (
-            <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-              <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+              <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
                 <FileText size={16} color={colors.neutral[600]} />
-                <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">
+                <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   Additional Notes
                 </Text>
               </View>
-              <Text className="text-base font-sans text-neutral-800 leading-6 whitespace-pre-wrap">
+              <Text className="text-base font-sans text-neutral-800 dark:text-neutral-200 leading-6 whitespace-pre-wrap">
                 {entry.notes}
               </Text>
             </View>

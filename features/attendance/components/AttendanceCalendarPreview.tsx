@@ -17,12 +17,12 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
   const currentMonthName = format(new Date(), 'MMMM yyyy');
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-8">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-8">
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-4">
         <View>
-          <Text className="text-base font-bold font-sans text-neutral-900">Monthly Calendar</Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-0.5">{currentMonthName}</Text>
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Monthly Calendar</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">{currentMonthName}</Text>
         </View>
 
         <TouchableOpacity
@@ -39,7 +39,7 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
       </View>
 
       {/* Weekday Header Row */}
-      <View className="flex-row justify-between mb-2 pb-1 border-b border-neutral-100">
+      <View className="flex-row justify-between mb-2 pb-1 border-b border-neutral-100 dark:border-neutral-800">
         {WEEK_DAYS.map((dayName) => (
           <View key={dayName} className="flex-1 items-center">
             <Text className="text-[10px] font-bold font-sans text-neutral-400">{dayName}</Text>
@@ -91,7 +91,7 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
                     dayItem.isToday
                       ? 'text-white font-bold'
                       : dayItem.isCurrentMonth
-                        ? 'text-neutral-800 font-medium'
+                        ? 'text-neutral-800 dark:text-neutral-200 font-medium'
                         : 'text-neutral-300'
                   }`}
                 >
@@ -109,22 +109,22 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
       </View>
 
       {/* Legend Footer */}
-      <View className="flex-row justify-between items-center pt-3 mt-3 border-t border-neutral-100">
+      <View className="flex-row justify-between items-center pt-3 mt-3 border-t border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5" />
-          <Text className="text-[11px] font-sans text-neutral-500">Present</Text>
+          <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Present</Text>
         </View>
         <View className="flex-row items-center">
           <View className="w-2 h-2 rounded-full bg-amber-500 mr-1.5" />
-          <Text className="text-[11px] font-sans text-neutral-500">Late</Text>
+          <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Late</Text>
         </View>
         <View className="flex-row items-center">
           <View className="w-2 h-2 rounded-full bg-red-500 mr-1.5" />
-          <Text className="text-[11px] font-sans text-neutral-500">Absent</Text>
+          <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Absent</Text>
         </View>
         <View className="flex-row items-center">
           <View className="w-2 h-2 rounded-full bg-neutral-300 mr-1.5" />
-          <Text className="text-[11px] font-sans text-neutral-500">Day Off</Text>
+          <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Day Off</Text>
         </View>
       </View>
     </View>

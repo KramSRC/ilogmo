@@ -21,16 +21,16 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white rounded-t-3xl p-6 border-t border-neutral-200 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
               <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
                 <Info size={20} color={colors.primary[600]} />
               </View>
               <View className="flex-1">
-                <Text className="text-lg font-bold font-sans text-neutral-900">About iLogMo</Text>
-                <Text className="text-xs font-sans text-neutral-500">
+                <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">About iLogMo</Text>
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
                   OJT Hours & Experience Tracker
                 </Text>
               </View>
@@ -49,10 +49,10 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
 
           <ScrollView showsVerticalScrollIndicator={false} className="mb-4">
             {/* App Brand Summary */}
-            <View className="items-center py-4 bg-neutral-50 rounded-2xl border border-neutral-200 mb-4">
+            <View className="items-center py-4 bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 mb-4">
               <Logo size="md" />
-              <Text className="text-lg font-bold font-sans text-neutral-900 mt-2">iLogMo</Text>
-              <Text className="text-xs font-sans text-neutral-500 text-center px-4 mt-1">
+              <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-2">iLogMo</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center px-4 mt-1">
                 A mobile application designed to help students manage and track their OJT experience.
               </Text>
               <View className="bg-primary-50 px-3 py-1 rounded-full border border-primary-200 mt-2">
@@ -63,7 +63,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
             </View>
 
             {/* Information Sections */}
-            <View className="bg-white rounded-2xl border border-neutral-200 divide-y divide-neutral-100 mb-4">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 divide-y divide-neutral-100 mb-4">
               {/* Developer */}
               <View className="flex-row items-center p-3.5">
                 <View className="w-8 h-8 rounded-lg bg-sky-50 items-center justify-center mr-3 border border-sky-100">
@@ -71,7 +71,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Developer</Text>
-                  <Text className="text-sm font-semibold font-sans text-neutral-800">
+                  <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
                     iLogMo Development Team
                   </Text>
                 </View>
@@ -84,7 +84,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Technology</Text>
-                  <Text className="text-sm font-semibold font-sans text-neutral-800">
+                  <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
                     React Native · Expo · Supabase · NativeWind
                   </Text>
                 </View>
@@ -97,7 +97,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Open Source Licenses</Text>
-                  <Text className="text-sm font-semibold font-sans text-neutral-800">
+                  <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
                     MIT & Apache 2.0 Libraries
                   </Text>
                 </View>
@@ -107,7 +107,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
             {/* Footer note */}
             <View className="flex-row items-center justify-center py-2">
               <Heart size={14} color={colors.primary[500]} />
-              <Text className="text-xs font-sans text-neutral-500 ml-1.5">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 ml-1.5">
                 Built to empower trainees throughout their internship.
               </Text>
             </View>

@@ -23,14 +23,14 @@ export function OverallProgressCard({ progress }: OverallProgressCardProps) {
   const strokeDashoffset = circumference - (progress.progressPercentage / 100) * circumference;
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-primary-50 items-center justify-center mr-2.5 border border-primary-100">
             <TrendingUp size={16} color={colors.primary[600]} />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">Overall Progress</Text>
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Overall Progress</Text>
         </View>
 
         <View className="bg-primary-50 px-2.5 py-1 rounded-full border border-primary-100">
@@ -48,11 +48,11 @@ export function OverallProgressCard({ progress }: OverallProgressCardProps) {
           <View className="mb-2.5">
             <View className="flex-row items-center mb-0.5">
               <CheckCircle2 size={13} color={colors.success.DEFAULT} />
-              <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 uppercase tracking-wider">
+              <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
                 Completed
               </Text>
             </View>
-            <Text className="text-xl font-bold font-sans text-neutral-900">
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
               {progress.completedHoursFormatted}
             </Text>
           </View>
@@ -61,11 +61,11 @@ export function OverallProgressCard({ progress }: OverallProgressCardProps) {
           <View>
             <View className="flex-row items-center mb-0.5">
               <Clock size={13} color={colors.neutral[400]} />
-              <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 uppercase tracking-wider">
+              <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
                 Remaining
               </Text>
             </View>
-            <Text className="text-base font-semibold font-sans text-neutral-700">
+            <Text className="text-base font-semibold font-sans text-neutral-700 dark:text-neutral-300">
               {progress.remainingHoursFormatted}
             </Text>
           </View>
@@ -99,7 +99,7 @@ export function OverallProgressCard({ progress }: OverallProgressCardProps) {
           </Svg>
           {/* Centered Percentage */}
           <View className="absolute inset-0 items-center justify-center">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               {progress.progressPercentage}%
             </Text>
           </View>

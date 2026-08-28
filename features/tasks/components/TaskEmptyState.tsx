@@ -37,21 +37,21 @@ export function TaskEmptyState({ filter, onCreateTask }: TaskEmptyStateProps) {
     Icon = CheckCircle2;
     iconColor = colors.neutral[400];
     iconBg = 'bg-neutral-100';
-    iconBorder = 'border-neutral-200';
+    iconBorder = 'border-neutral-200 dark:border-neutral-800';
     showButton = false;
   }
 
   return (
-    <View className="bg-white rounded-card p-8 border border-neutral-200 shadow-card items-center my-6">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 border border-neutral-200 dark:border-neutral-800 shadow-card items-center my-6">
       <View
         className={`w-16 h-16 ${iconBg} rounded-3xl items-center justify-center mb-4 border ${iconBorder}`}
       >
         <Icon size={30} color={iconColor} />
       </View>
 
-      <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-2">{title}</Text>
+      <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-2">{title}</Text>
 
-      <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-6 max-w-xs">
+      <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-6 max-w-xs">
         {description}
       </Text>
 

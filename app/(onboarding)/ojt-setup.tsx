@@ -104,15 +104,15 @@ export default function OjtSetupScreen() {
 
   if (isSuccess) {
     return (
-      <SafeAreaView className="flex-1 bg-background-app justify-center items-center px-6">
-        <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
+      <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
           <View className="w-16 h-16 bg-emerald-50 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
-          <Text className="text-2xl font-bold font-sans text-neutral-900 text-center mb-1.5">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-1.5">
             You're all set! 🎉
           </Text>
-          <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-2">
+          <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-2">
             Your OJT configuration has been saved.
           </Text>
           <Text className="text-xs font-sans text-primary-600 text-center font-medium">
@@ -124,7 +124,7 @@ export default function OjtSetupScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right', 'bottom']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right', 'bottom']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
@@ -138,10 +138,10 @@ export default function OjtSetupScreen() {
         >
           {/* Header */}
           <View className="mb-6">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               Set up your OJT
             </Text>
-            <Text className="mt-1 text-sm font-sans text-neutral-500 leading-5">
+            <Text className="mt-1 text-sm font-sans text-neutral-500 dark:text-neutral-400 leading-5">
               Tell us about your internship so iLogMo can track your progress accurately.
             </Text>
           </View>
@@ -159,8 +159,8 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 1: OJT Requirements */}
           {/* ========================================================================= */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Requirements
             </Text>
 
@@ -220,8 +220,8 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 2: Internship Details */}
           {/* ========================================================================= */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               Internship Details
             </Text>
 
@@ -302,8 +302,8 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 3: OJT Schedule */}
           {/* ========================================================================= */}
-          <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-6">
-            <Text className="text-base font-bold font-sans text-neutral-900 mb-4 pb-2 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+            <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Schedule
             </Text>
 
@@ -344,10 +344,10 @@ export default function OjtSetupScreen() {
 
                 return (
                   <View className="mb-4">
-                    <Text className="text-xs font-semibold font-sans text-neutral-700 mb-2">
+                    <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300 mb-2">
                       Working Days *
                     </Text>
-                    <Text className="text-xs font-sans text-neutral-500 mb-3">
+                    <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-3">
                       Select your regular scheduled internship days:
                     </Text>
 
@@ -367,12 +367,12 @@ export default function OjtSetupScreen() {
                             className={`flex-1 mx-0.5 items-center justify-center py-2 rounded-xl border ${
                               isSelected
                                 ? 'bg-primary-600 border-primary-600'
-                                : 'bg-neutral-50 border-neutral-200'
+                                : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
                             }`}
                           >
                             <Text
                               className={`text-[11px] font-bold font-sans ${
-                                isSelected ? 'text-white' : 'text-neutral-700'
+                                isSelected ? 'text-white' : 'text-neutral-700 dark:text-neutral-300'
                               }`}
                               numberOfLines={1}
                             >

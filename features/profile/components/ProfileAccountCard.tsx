@@ -26,10 +26,10 @@ export function ProfileAccountCard({
   const memberSince = formatAccountDate(profile?.createdAt);
 
   return (
-    <View className="bg-white rounded-card p-5 mb-6 shadow-card border border-neutral-200">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-6 shadow-card border border-neutral-200 dark:border-neutral-800">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
-        <Text className="text-base font-bold font-sans text-neutral-900">Account</Text>
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Account</Text>
         <View className="flex-row items-center">
           <ShieldCheck size={14} color={colors.success.DEFAULT} />
           <Text className="text-[11px] font-semibold font-sans text-emerald-600 ml-1">
@@ -39,14 +39,14 @@ export function ProfileAccountCard({
       </View>
 
       {/* Account Info Summary */}
-      <View className="bg-neutral-50 rounded-xl p-3 border border-neutral-100 mb-4">
+      <View className="bg-neutral-50 dark:bg-neutral-900 rounded-xl p-3 border border-neutral-100 dark:border-neutral-800 mb-4">
         <View className="flex-row items-center justify-between mb-1.5">
           <Text className="text-xs font-sans text-neutral-400">Account Status</Text>
-          <Text className="text-xs font-semibold font-sans text-neutral-800">Active Trainee</Text>
+          <Text className="text-xs font-semibold font-sans text-neutral-800 dark:text-neutral-200">Active Trainee</Text>
         </View>
         <View className="flex-row items-center justify-between">
           <Text className="text-xs font-sans text-neutral-400">Member Since</Text>
-          <Text className="text-xs font-semibold font-sans text-neutral-800">{memberSince}</Text>
+          <Text className="text-xs font-semibold font-sans text-neutral-800 dark:text-neutral-200">{memberSince}</Text>
         </View>
       </View>
 
@@ -58,13 +58,13 @@ export function ProfileAccountCard({
           activeOpacity={0.75}
           accessibilityRole="button"
           accessibilityLabel="Change password"
-          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white"
+          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900"
         >
           <View className="flex-row items-center flex-1">
             <View className="w-8 h-8 rounded-lg bg-indigo-50 items-center justify-center mr-3 border border-indigo-100">
               <KeyRound size={15} color="#4F46E5" />
             </View>
-            <Text className="text-sm font-semibold font-sans text-neutral-800">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
               Change Password
             </Text>
           </View>
@@ -76,13 +76,13 @@ export function ProfileAccountCard({
           activeOpacity={0.75}
           accessibilityRole="button"
           accessibilityLabel="Notification settings"
-          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 bg-white mt-2"
+          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 mt-2"
         >
           <View className="flex-row items-center flex-1">
             <View className="w-8 h-8 rounded-lg bg-sky-50 items-center justify-center mr-3 border border-sky-100">
               <Bell size={15} color="#0284C7" />
             </View>
-            <Text className="text-sm font-semibold font-sans text-neutral-800">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
               Notification Settings
             </Text>
           </View>

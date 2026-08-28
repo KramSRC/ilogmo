@@ -9,8 +9,8 @@ export function AnalyticsSkeleton() {
   return (
     <View className="space-y-4">
       {/* 1. Overall Progress Skeleton */}
-      <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
           <View className="w-36 h-4 bg-neutral-200 rounded-md" />
           <View className="w-24 h-5 bg-neutral-100 rounded-full" />
         </View>
@@ -26,8 +26,8 @@ export function AnalyticsSkeleton() {
       </View>
 
       {/* 2. Attendance Overview Skeleton */}
-      <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
           <View className="w-40 h-4 bg-neutral-200 rounded-md" />
           <View className="w-16 h-5 bg-neutral-100 rounded-full" />
         </View>
@@ -42,12 +42,12 @@ export function AnalyticsSkeleton() {
       </View>
 
       {/* 3. Weekly Hours Chart Skeleton */}
-      <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+        <View className="flex-row justify-between items-center pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
           <View className="w-32 h-4 bg-neutral-200 rounded-md" />
           <View className="w-14 h-4 bg-neutral-100 rounded-md" />
         </View>
-        <View className="h-32 bg-neutral-50 rounded-xl" />
+        <View className="h-32 bg-neutral-50 dark:bg-neutral-900 rounded-xl" />
       </View>
     </View>
   );

@@ -22,8 +22,8 @@ export interface SelectedDateCardProps {
  * Status Badge for Calendar Selected Date view
  */
 function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
-  let bg = 'bg-neutral-100 border-neutral-200';
-  let textColor = 'text-neutral-700';
+  let bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+  let textColor = 'text-neutral-700 dark:text-neutral-300';
   let label = 'No Record';
   let icon = <Info size={12} color={colors.neutral[500]} />;
 
@@ -54,8 +54,8 @@ function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
       icon = <AlertCircle size={12} color={colors.error.DEFAULT} />;
       break;
     case 'day_off':
-      bg = 'bg-neutral-100 border-neutral-200';
-      textColor = 'text-neutral-600';
+      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      textColor = 'text-neutral-600 dark:text-neutral-400';
       label = 'Day Off';
       icon = <CalendarIcon size={12} color={colors.neutral[500]} />;
       break;
@@ -66,14 +66,14 @@ function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
       icon = <CalendarIcon size={12} color={colors.primary[600]} />;
       break;
     case 'before_ojt':
-      bg = 'bg-neutral-100 border-neutral-200';
-      textColor = 'text-neutral-500';
+      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'Before OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
       break;
     case 'after_ojt':
-      bg = 'bg-neutral-100 border-neutral-200';
-      textColor = 'text-neutral-500';
+      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'After OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
       break;
@@ -92,8 +92,8 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
 
   if (!details) {
     return (
-      <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5 items-center">
-        <Text className="text-sm font-sans text-neutral-500">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5 items-center">
+        <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400">
           Tap a date on the calendar to view its details.
         </Text>
       </View>
@@ -113,14 +113,14 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
   };
 
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
       {/* Section Header */}
-      <View className="flex-row justify-between items-start pb-3 mb-3 border-b border-neutral-100">
+      <View className="flex-row justify-between items-start pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-1 mr-2">
           <Text className="text-xs font-semibold font-sans text-primary-600 uppercase tracking-wider">
             {details.dayOfWeek}
           </Text>
-          <Text className="text-lg font-bold font-sans text-neutral-900 mt-0.5">
+          <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
             {details.formattedDate}
           </Text>
         </View>
@@ -131,16 +131,16 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
       {hasRecord ? (
         <View>
           {/* Big Total Worked Time Display */}
-          <View className="bg-neutral-50 rounded-2xl p-4 mb-4 border border-neutral-100 flex-row items-center justify-between">
+          <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 mb-4 border border-neutral-100 dark:border-neutral-800 flex-row items-center justify-between">
             <View className="flex-row items-center">
               <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
                 <Timer size={20} color={colors.primary[600]} />
               </View>
               <View>
-                <Text className="text-xs font-sans text-neutral-500">
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
                   {isWorking ? 'Current Duration' : 'Total Worked Time'}
                 </Text>
-                <Text className="text-2xl font-bold font-sans text-neutral-900 mt-0.5">
+                <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-0.5">
                   {details.totalHoursFormatted || '0h 00m'}
                 </Text>
               </View>
@@ -159,9 +159,9 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
             <View className="flex-row justify-between items-center py-1">
               <View className="flex-row items-center">
                 <Clock size={15} color={colors.neutral[400]} />
-                <Text className="text-xs font-sans text-neutral-600 ml-2">Check In</Text>
+                <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 ml-2">Check In</Text>
               </View>
-              <Text className="text-sm font-bold font-sans text-neutral-900">
+              <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 {details.checkInFormatted || '--:--'}
               </Text>
             </View>
@@ -170,9 +170,9 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
             <View className="flex-row justify-between items-center py-1">
               <View className="flex-row items-center">
                 <Clock size={15} color={colors.neutral[400]} />
-                <Text className="text-xs font-sans text-neutral-600 ml-2">Check Out</Text>
+                <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 ml-2">Check Out</Text>
               </View>
-              <Text className="text-sm font-bold font-sans text-neutral-900">
+              <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 {details.checkOutFormatted || (isWorking ? 'In progress' : '--:--')}
               </Text>
             </View>
@@ -195,9 +195,9 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
               <View className="flex-row justify-between items-center py-1">
                 <View className="flex-row items-center">
                   <Coffee size={15} color={colors.neutral[400]} />
-                  <Text className="text-xs font-sans text-neutral-600 ml-2">Break Time</Text>
+                  <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 ml-2">Break Time</Text>
                 </View>
-                <Text className="text-sm font-bold font-sans text-neutral-900">
+                <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   {details.breakTimeFormatted}
                 </Text>
               </View>
@@ -219,7 +219,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
       ) : (
         /* Empty / Absent / Day Off / Upcoming States */
         <View className="py-2">
-          <Text className="text-sm font-sans text-neutral-600 leading-5 mb-3">
+          <Text className="text-sm font-sans text-neutral-600 dark:text-neutral-400 leading-5 mb-3">
             {details.statusDescription}
           </Text>
 

@@ -36,7 +36,7 @@ export default function CalendarScreen() {
   const isCurrentMonth = isSameMonth(selectedMonth, new Date());
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 32 }}
         showsVerticalScrollIndicator={false}

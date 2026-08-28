@@ -57,16 +57,16 @@ export function DeleteAccountModal({
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         className="flex-1 bg-black/60 justify-end"
       >
-        <View className="bg-white rounded-t-3xl p-6 border-t border-red-200 max-h-[90%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-red-200 max-h-[90%]">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
               <View className="w-10 h-10 rounded-xl bg-red-50 items-center justify-center mr-3 border border-red-100">
                 <AlertTriangle size={22} color="#DC2626" />
               </View>
               <View className="flex-1">
                 <Text className="text-lg font-bold font-sans text-red-600">Delete Account?</Text>
-                <Text className="text-xs font-sans text-neutral-500">
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
                   This action is permanent and irreversible
                 </Text>
               </View>
@@ -111,7 +111,7 @@ export function DeleteAccountModal({
 
             {/* Type confirmation instruction */}
             <View className="mb-4">
-              <Text className="text-xs font-bold font-sans text-neutral-700 mb-1.5">
+              <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300 mb-1.5">
                 Type <Text className="font-bold text-red-600">DELETE</Text> to confirm:
               </Text>
 
@@ -130,7 +130,7 @@ export function DeleteAccountModal({
           </ScrollView>
 
           {/* Action Buttons */}
-          <View className="flex-row space-x-3 pt-2 border-t border-neutral-100">
+          <View className="flex-row space-x-3 pt-2 border-t border-neutral-100 dark:border-neutral-800">
             <Button
               title="Cancel"
               onPress={handleClose}

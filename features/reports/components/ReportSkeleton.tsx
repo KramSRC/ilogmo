@@ -37,7 +37,7 @@ export function ReportSkeleton() {
       {/* 2. Progress card skeleton */}
       <Animated.View
         style={{ opacity }}
-        className="bg-white rounded-card p-5 border border-neutral-200 mb-4 h-40 justify-between"
+        className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 mb-4 h-40 justify-between"
       >
         <View className="flex-row justify-between items-center">
           <View className="w-28 h-5 bg-neutral-200 rounded-md" />
@@ -50,7 +50,7 @@ export function ReportSkeleton() {
       {/* 3. OJT Summary card skeleton */}
       <Animated.View
         style={{ opacity }}
-        className="bg-white rounded-card p-5 border border-neutral-200 mb-4 h-52 justify-between"
+        className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 mb-4 h-52 justify-between"
       >
         <View className="w-32 h-5 bg-neutral-200 rounded-md" />
         <View className="w-full h-4 bg-neutral-100 rounded-md" />
@@ -62,7 +62,7 @@ export function ReportSkeleton() {
       {/* 4. Attendance Summary card skeleton */}
       <Animated.View
         style={{ opacity }}
-        className="bg-white rounded-card p-5 border border-neutral-200 mb-4 h-48 justify-between"
+        className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 mb-4 h-48 justify-between"
       >
         <View className="w-36 h-5 bg-neutral-200 rounded-md" />
         <View className="flex-row justify-between">

@@ -84,7 +84,7 @@ export function TimePickerInput({
   return (
     <View className={`w-full ${containerClassName}`}>
       {label ? (
-        <Text className="text-xs font-semibold font-sans text-neutral-700 mb-1.5">{label}</Text>
+        <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300 mb-1.5">{label}</Text>
       ) : null}
 
       <TouchableOpacity
@@ -95,7 +95,7 @@ export function TimePickerInput({
         accessibilityRole="button"
         accessibilityLabel={label || 'Select time'}
         disabled={disabled}
-        className="w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white"
+        className="w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white dark:bg-neutral-900"
         style={[
           styles.container,
           error ? styles.errorBorder : styles.normalBorder,
@@ -106,7 +106,7 @@ export function TimePickerInput({
           <Clock size={16} color={colors.neutral[400]} />
           <Text
             className={`ml-2.5 text-sm font-sans flex-1 ${
-              displayFormatted ? 'text-neutral-900 font-medium' : 'text-neutral-400'
+              displayFormatted ? 'text-neutral-900 dark:text-neutral-100 font-medium' : 'text-neutral-400'
             }`}
             numberOfLines={1}
           >
@@ -128,7 +128,7 @@ export function TimePickerInput({
       {error ? (
         <Text className="text-xs text-error font-sans mt-1">{error}</Text>
       ) : helperText ? (
-        <Text className="text-xs text-neutral-500 font-sans mt-1">{helperText}</Text>
+        <Text className="text-xs text-neutral-500 dark:text-neutral-400 font-sans mt-1">{helperText}</Text>
       ) : null}
 
       {/* Android Time Picker */}
@@ -152,9 +152,9 @@ export function TimePickerInput({
           onRequestClose={() => setShowPicker(false)}
         >
           <View className="flex-1 bg-black/40 justify-end">
-            <View className="bg-white rounded-t-3xl p-5 pb-8 shadow-card border-t border-neutral-200">
-              <View className="flex-row justify-between items-center mb-4 pb-3 border-b border-neutral-100">
-                <Text className="text-base font-bold font-sans text-neutral-900">
+            <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-5 pb-8 shadow-card border-t border-neutral-200 dark:border-neutral-800">
+              <View className="flex-row justify-between items-center mb-4 pb-3 border-b border-neutral-100 dark:border-neutral-800">
+                <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   {label || 'Select Time'}
                 </Text>
                 <TouchableOpacity

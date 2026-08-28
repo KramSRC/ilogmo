@@ -10,10 +10,10 @@ export interface MonthlySummaryCardProps {
 
 export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-8">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-8">
       {/* Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100">
-        <Text className="text-base font-bold font-sans text-neutral-900">Monthly Summary</Text>
+      <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100 dark:border-neutral-800">
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Monthly Summary</Text>
       </View>
 
       {/* 2-Column Metrics Cards: Total Hours & Attendance Rate */}
@@ -26,7 +26,7 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
               Total Hours
             </Text>
           </View>
-          <Text className="text-xl font-bold font-sans text-neutral-900">
+          <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.totalWorkedHoursFormatted}
           </Text>
           <Text className="text-[11px] font-sans text-primary-600/80 mt-0.5">
@@ -42,7 +42,7 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
               Attendance
             </Text>
           </View>
-          <Text className="text-xl font-bold font-sans text-neutral-900">
+          <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.attendanceRateFormatted}
           </Text>
           <Text className="text-[11px] font-sans text-emerald-600/80 mt-0.5">
@@ -52,7 +52,7 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
       </View>
 
       {/* Days Breakdown Table */}
-      <View className="space-y-3 pt-1 border-t border-neutral-100">
+      <View className="space-y-3 pt-1 border-t border-neutral-100 dark:border-neutral-800">
         {/* Present Days */}
         <View className="flex-row justify-between items-center py-1">
           <View className="flex-row items-center">
@@ -65,9 +65,9 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
                 marginRight: 10,
               }}
             />
-            <Text className="text-xs font-sans text-neutral-700">Present</Text>
+            <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300">Present</Text>
           </View>
-          <Text className="text-xs font-bold font-sans text-neutral-900">
+          <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.presentCount} {summary.presentCount === 1 ? 'day' : 'days'}
           </Text>
         </View>
@@ -84,9 +84,9 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
                 marginRight: 10,
               }}
             />
-            <Text className="text-xs font-sans text-neutral-700">Late</Text>
+            <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300">Late</Text>
           </View>
-          <Text className="text-xs font-bold font-sans text-neutral-900">
+          <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.lateCount} {summary.lateCount === 1 ? 'day' : 'days'}
           </Text>
         </View>
@@ -103,9 +103,9 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
                 marginRight: 10,
               }}
             />
-            <Text className="text-xs font-sans text-neutral-700">Absent</Text>
+            <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300">Absent</Text>
           </View>
-          <Text className="text-xs font-bold font-sans text-neutral-900">
+          <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.absentCount} {summary.absentCount === 1 ? 'day' : 'days'}
           </Text>
         </View>
@@ -122,23 +122,23 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
                 marginRight: 10,
               }}
             />
-            <Text className="text-xs font-sans text-neutral-700">Day Off</Text>
+            <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300">Day Off</Text>
           </View>
-          <Text className="text-xs font-bold font-sans text-neutral-900">
+          <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {summary.dayOffCount} {summary.dayOffCount === 1 ? 'day' : 'days'}
           </Text>
         </View>
       </View>
 
       {/* Overall OJT Hours Footer */}
-      <View className="mt-4 pt-3 border-t border-neutral-100 flex-row justify-between items-center bg-neutral-50 rounded-xl px-3.5 py-2.5">
+      <View className="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 flex-row justify-between items-center bg-neutral-50 dark:bg-neutral-900 rounded-xl px-3.5 py-2.5">
         <View className="flex-row items-center">
           <Award size={15} color={colors.primary[600]} />
-          <Text className="text-xs font-medium font-sans text-neutral-600 ml-2">
+          <Text className="text-xs font-medium font-sans text-neutral-600 dark:text-neutral-400 ml-2">
             Overall OJT Progress
           </Text>
         </View>
-        <Text className="text-xs font-bold font-sans text-neutral-900">
+        <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
           {summary.completedOjtHours}h / {summary.requiredOjtHours}h
         </Text>
       </View>

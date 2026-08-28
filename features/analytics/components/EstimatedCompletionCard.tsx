@@ -15,14 +15,14 @@ export interface EstimatedCompletionCardProps {
 
 export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardProps) {
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-purple-50 items-center justify-center mr-2.5 border border-purple-100">
             <Sparkles size={16} color="#9333EA" />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
             Estimated Completion
           </Text>
         </View>
@@ -40,7 +40,7 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
               <Text className="text-xs font-semibold font-sans text-neutral-400 uppercase tracking-wider">
                 Projected Finish Date
               </Text>
-              <Text className="text-lg font-bold font-sans text-neutral-900">
+              <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 {estimate.estimatedCompletionDate}
               </Text>
             </View>
@@ -72,7 +72,7 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
       ) : (
         /* Insufficient Data State */
         <View className="py-2 items-center">
-          <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-1">
+          <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-1">
             {estimate.message}
           </Text>
           {estimate.expectedEndDate ? (

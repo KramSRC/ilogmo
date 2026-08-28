@@ -21,14 +21,14 @@ export function MonthlyProgressCard({
   onNextMonth,
 }: MonthlyProgressCardProps) {
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Month Navigator Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-primary-50 items-center justify-center mr-2.5 border border-primary-100">
             <Calendar size={16} color={colors.primary[600]} />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {monthly.monthFormatted}
           </Text>
         </View>
@@ -40,7 +40,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Previous month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200"
+            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200 dark:border-neutral-800"
           >
             <ChevronLeft size={16} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -50,7 +50,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Next month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200 ml-1.5"
+            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200 dark:border-neutral-800 ml-1.5"
           >
             <ChevronRight size={16} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -58,16 +58,16 @@ export function MonthlyProgressCard({
       </View>
 
       {/* Monthly Highlight Stats Banner */}
-      <View className="flex-row items-center bg-neutral-50 rounded-2xl p-4 border border-neutral-100 mb-4">
+      <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-800 mb-4">
         {/* Total Month Hours */}
         <View className="flex-1">
           <View className="flex-row items-center mb-0.5">
             <Clock size={13} color={colors.neutral[400]} />
-            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 uppercase tracking-wider">
+            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               Total Hours
             </Text>
           </View>
-          <Text className="text-xl font-bold font-sans text-neutral-900">
+          <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {monthly.totalHoursFormatted}
           </Text>
         </View>
@@ -78,11 +78,11 @@ export function MonthlyProgressCard({
         <View className="flex-1 pl-2">
           <View className="flex-row items-center mb-0.5">
             <Award size={13} color={colors.neutral[400]} />
-            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 uppercase tracking-wider">
+            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               Month Rate
             </Text>
           </View>
-          <Text className="text-xl font-bold font-sans text-neutral-900">
+          <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {monthly.attendanceRateFormatted}
           </Text>
         </View>
@@ -90,7 +90,7 @@ export function MonthlyProgressCard({
 
       {/* Weekly Breakdown Section */}
       <View>
-        <Text className="text-xs font-bold font-sans text-neutral-500 uppercase tracking-wider mb-2.5">
+        <Text className="text-xs font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2.5">
           Weekly Breakdown
         </Text>
 
@@ -104,10 +104,10 @@ export function MonthlyProgressCard({
               return (
                 <View key={week.weekLabel} className="mb-2">
                   <View className="flex-row justify-between items-center mb-1">
-                    <Text className="text-xs font-semibold font-sans text-neutral-700">
+                    <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300">
                       {week.weekLabel}
                     </Text>
-                    <Text className="text-xs font-bold font-sans text-neutral-900">
+                    <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
                       {week.totalHoursFormatted}
                     </Text>
                   </View>

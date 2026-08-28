@@ -134,9 +134,9 @@ export default function EditProfileScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -150,13 +150,13 @@ export default function EditProfileScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Edit Profile</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Edit Profile</Text>
           </View>
         </View>
       </View>
@@ -193,7 +193,7 @@ export default function EditProfileScreen() {
               onPress={handleChangePhoto}
               activeOpacity={0.7}
               disabled={isUploadingAvatar}
-              className="mt-2.5 bg-neutral-100 px-3.5 py-1.5 rounded-full border border-neutral-200"
+              className="mt-2.5 bg-neutral-100 px-3.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800"
             >
               <Text className="text-xs font-semibold font-sans text-primary-600">
                 {isUploadingAvatar ? 'Uploading...' : 'Change Photo'}
@@ -259,7 +259,7 @@ export default function EditProfileScreen() {
             {/* Read-Only Email Field */}
             <View>
               <View className="flex-row items-center justify-between mb-1.5">
-                <Text className="text-sm font-semibold font-sans text-neutral-800">
+                <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
                   Email Address
                 </Text>
                 <View className="flex-row items-center">
@@ -267,8 +267,8 @@ export default function EditProfileScreen() {
                   <Text className="text-[11px] font-sans text-neutral-400 ml-1">Read-only</Text>
                 </View>
               </View>
-              <View className="bg-neutral-100 rounded-xl px-3.5 py-3 border border-neutral-200">
-                <Text className="text-base font-sans text-neutral-500">
+              <View className="bg-neutral-100 rounded-xl px-3.5 py-3 border border-neutral-200 dark:border-neutral-800">
+                <Text className="text-base font-sans text-neutral-500 dark:text-neutral-400">
                   {profile?.email || 'N/A'}
                 </Text>
               </View>

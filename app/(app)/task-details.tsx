@@ -128,9 +128,9 @@ export default function TaskDetailsScreen() {
         );
       case 'low':
         return (
-          <View className="flex-row items-center bg-neutral-100 px-2.5 py-1 rounded-xl border border-neutral-200">
-            <Text className="text-xs font-bold text-neutral-500 mr-1.5">↓</Text>
-            <Text className="text-xs font-bold font-sans text-neutral-700 uppercase tracking-wider">
+          <View className="flex-row items-center bg-neutral-100 px-2.5 py-1 rounded-xl border border-neutral-200 dark:border-neutral-800">
+            <Text className="text-xs font-bold text-neutral-500 dark:text-neutral-400 mr-1.5">↓</Text>
+            <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">
               Low Priority
             </Text>
           </View>
@@ -141,9 +141,9 @@ export default function TaskDetailsScreen() {
   const dueStatus = task ? getTaskDueStatus(task.dueDate, task.completed) : null;
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -157,13 +157,13 @@ export default function TaskDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Task Details</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Task Details</Text>
           </View>
         </View>
 
@@ -185,8 +185,8 @@ export default function TaskDetailsScreen() {
         </View>
       ) : !task ? (
         <View className="flex-1 items-center justify-center px-6">
-          <Text className="text-base font-bold font-sans text-neutral-800">Task Not Found</Text>
-          <Text className="text-xs font-sans text-neutral-500 mt-1 text-center">
+          <Text className="text-base font-bold font-sans text-neutral-800 dark:text-neutral-200">Task Not Found</Text>
+          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-1 text-center">
             The requested task could not be located.
           </Text>
           <Button
@@ -204,7 +204,7 @@ export default function TaskDetailsScreen() {
           className="px-5 pt-4"
         >
           {/* Main Title & Status Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
             <View className="flex-row items-center justify-between mb-3">
               {renderPriorityBadge(task.priority)}
 
@@ -226,7 +226,7 @@ export default function TaskDetailsScreen() {
 
             <Text
               className={`text-xl font-bold font-sans leading-7 ${
-                task.completed ? 'text-neutral-500 line-through' : 'text-neutral-900'
+                task.completed ? 'text-neutral-500 dark:text-neutral-400 line-through' : 'text-neutral-900 dark:text-neutral-100'
               }`}
             >
               {task.title}
@@ -234,20 +234,20 @@ export default function TaskDetailsScreen() {
           </View>
 
           {/* Due Date & Timeline Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-4">
-            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <Calendar size={16} color={colors.primary[600]} />
-              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">
+              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
                 Timeline & Deadline
               </Text>
             </View>
 
             {/* Due Date */}
             <View className="flex-row items-center justify-between py-1.5">
-              <Text className="text-xs font-sans text-neutral-500">Due Date</Text>
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Due Date</Text>
               <Text
                 className={`text-xs font-bold font-sans ${
-                  dueStatus?.isOverdue && !task.completed ? 'text-red-600' : 'text-neutral-900'
+                  dueStatus?.isOverdue && !task.completed ? 'text-red-600' : 'text-neutral-900 dark:text-neutral-100'
                 }`}
               >
                 {dueStatus?.formattedDate}
@@ -256,8 +256,8 @@ export default function TaskDetailsScreen() {
 
             {/* Created At */}
             <View className="flex-row items-center justify-between py-1.5">
-              <Text className="text-xs font-sans text-neutral-500">Created</Text>
-              <Text className="text-xs font-semibold font-sans text-neutral-700">
+              <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Created</Text>
+              <Text className="text-xs font-semibold font-sans text-neutral-700 dark:text-neutral-300">
                 {formatJournalDate(task.createdAt.slice(0, 10))}
               </Text>
             </View>
@@ -265,7 +265,7 @@ export default function TaskDetailsScreen() {
             {/* Completed At if any */}
             {task.completed && task.completedAt ? (
               <View className="flex-row items-center justify-between py-1.5">
-                <Text className="text-xs font-sans text-neutral-500">Completed On</Text>
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Completed On</Text>
                 <Text className="text-xs font-semibold font-sans text-emerald-700">
                   {formatJournalDate(task.completedAt.slice(0, 10))}
                 </Text>
@@ -274,13 +274,13 @@ export default function TaskDetailsScreen() {
           </View>
 
           {/* Description Card */}
-          <View className="bg-white rounded-card p-5 border border-neutral-200 shadow-card mb-5">
-            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-5">
+            <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <FileText size={16} color={colors.primary[600]} />
-              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900">Description</Text>
+              <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">Description</Text>
             </View>
 
-            <Text className="text-sm font-sans text-neutral-800 leading-6 whitespace-pre-wrap">
+            <Text className="text-sm font-sans text-neutral-800 dark:text-neutral-200 leading-6 whitespace-pre-wrap">
               {task.description || 'No detailed description provided for this task.'}
             </Text>
           </View>

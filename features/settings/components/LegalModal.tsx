@@ -27,9 +27,9 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white rounded-t-3xl p-6 border-t border-neutral-200 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
               <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
                 {isPrivacy ? (
@@ -39,8 +39,8 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
                 )}
               </View>
               <View className="flex-1">
-                <Text className="text-lg font-bold font-sans text-neutral-900">{title}</Text>
-                <Text className="text-xs font-sans text-neutral-500">{subtitle}</Text>
+                <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">{title}</Text>
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">{subtitle}</Text>
               </View>
             </View>
 
@@ -56,11 +56,11 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
           </View>
 
           <ScrollView showsVerticalScrollIndicator={false} className="mb-4">
-            <View className="bg-neutral-50 rounded-2xl p-5 border border-neutral-200 mb-3">
-              <Text className="text-sm font-semibold font-sans text-neutral-800 mb-2">
+            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-800 mb-3">
+              <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-2">
                 Document Notice
               </Text>
-              <Text className="text-xs font-sans text-neutral-600 leading-5 mb-3">
+              <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 leading-5 mb-3">
                 {isPrivacy
                   ? 'This privacy policy is currently being prepared by the iLogMo administration. Your personal data, attendance logs, and journals are stored securely using industry-standard Row-Level Security.'
                   : 'These terms of service are currently being prepared. By using the iLogMo platform during your on-the-job training, you agree to log accurate internship hours and maintain professional reflection journals.'}

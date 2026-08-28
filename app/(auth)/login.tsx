@@ -61,7 +61,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right', 'bottom']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right', 'bottom']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
@@ -76,16 +76,16 @@ export default function LoginScreen() {
           {/* Brand Header */}
           <View className="items-center mb-8">
             <Logo size="md" showSubtitle={false} />
-            <Text className="mt-6 text-2xl font-bold font-sans text-neutral-900 tracking-tight text-center">
+            <Text className="mt-6 text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight text-center">
               Welcome back
             </Text>
-            <Text className="mt-1.5 text-sm font-sans text-neutral-500 text-center">
+            <Text className="mt-1.5 text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center">
               Sign in to continue tracking your OJT.
             </Text>
           </View>
 
           {/* Form Card */}
-          <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800">
             {/* Server Error Alert */}
             {serverError ? (
               <ErrorMessage
@@ -168,7 +168,7 @@ export default function LoginScreen() {
 
           {/* Bottom Footer: Create Account Link */}
           <View className="flex-row items-center justify-center mt-8">
-            <Text className="text-sm font-sans text-neutral-500">Don't have an account? </Text>
+            <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400">Don't have an account? </Text>
             <TouchableOpacity
               onPress={() => router.push('/(auth)/signup')}
               activeOpacity={0.7}

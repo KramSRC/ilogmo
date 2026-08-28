@@ -22,10 +22,10 @@ export function ProfileInfoCard({ profile, onEditPress }: ProfileInfoCardProps) 
   const username = profile?.username ? `@${profile.username}` : 'Not set';
 
   return (
-    <View className="bg-white rounded-card p-5 mb-4 shadow-card border border-neutral-200">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card border border-neutral-200 dark:border-neutral-800">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
-        <Text className="text-base font-bold font-sans text-neutral-900">Personal Information</Text>
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Personal Information</Text>
         <TouchableOpacity
           onPress={onEditPress}
           activeOpacity={0.7}
@@ -41,46 +41,46 @@ export function ProfileInfoCard({ profile, onEditPress }: ProfileInfoCardProps) 
       {/* Fields */}
       <View className="space-y-3">
         {/* Full Name */}
-        <View className="flex-row items-center py-1 border-b border-neutral-100">
-          <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+        <View className="flex-row items-center py-1 border-b border-neutral-100 dark:border-neutral-800">
+          <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
             <User size={15} color={colors.neutral[500]} />
           </View>
           <View className="flex-1">
             <Text className="text-[11px] font-sans text-neutral-400">Full Name</Text>
-            <Text className="text-sm font-medium font-sans text-neutral-800">{fullName}</Text>
+            <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">{fullName}</Text>
           </View>
         </View>
 
         {/* Contact Number */}
-        <View className="flex-row items-center py-1 border-b border-neutral-100">
-          <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+        <View className="flex-row items-center py-1 border-b border-neutral-100 dark:border-neutral-800">
+          <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
             <Phone size={15} color={colors.neutral[500]} />
           </View>
           <View className="flex-1">
             <Text className="text-[11px] font-sans text-neutral-400">Contact Number</Text>
-            <Text className="text-sm font-medium font-sans text-neutral-800">{contactNumber}</Text>
+            <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">{contactNumber}</Text>
           </View>
         </View>
 
         {/* Email */}
-        <View className="flex-row items-center py-1 border-b border-neutral-100">
-          <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+        <View className="flex-row items-center py-1 border-b border-neutral-100 dark:border-neutral-800">
+          <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
             <Mail size={15} color={colors.neutral[500]} />
           </View>
           <View className="flex-1">
             <Text className="text-[11px] font-sans text-neutral-400">Email Address</Text>
-            <Text className="text-sm font-medium font-sans text-neutral-800">{email}</Text>
+            <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">{email}</Text>
           </View>
         </View>
 
         {/* Username */}
         <View className="flex-row items-center pt-1">
-          <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+          <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
             <AtSign size={15} color={colors.neutral[500]} />
           </View>
           <View className="flex-1">
             <Text className="text-[11px] font-sans text-neutral-400">Username</Text>
-            <Text className="text-sm font-medium font-sans text-neutral-800">{username}</Text>
+            <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">{username}</Text>
           </View>
         </View>
       </View>

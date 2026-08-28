@@ -23,22 +23,22 @@ export interface AttendanceOverviewCardProps {
 
 export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps) {
   return (
-    <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4">
       {/* Header */}
-      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100">
+      <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-emerald-50 items-center justify-center mr-2.5 border border-emerald-100">
             <UserCheck size={16} color={colors.success.DEFAULT} />
           </View>
-          <Text className="text-base font-bold font-sans text-neutral-900">
+          <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
             Attendance Overview
           </Text>
         </View>
 
         {/* Attendance Rate Badge */}
-        <View className="flex-row items-center bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200">
-          <Text className="text-xs font-sans text-neutral-600 mr-1">Rate:</Text>
-          <Text className="text-xs font-bold font-sans text-neutral-900">
+        <View className="flex-row items-center bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">
+          <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 mr-1">Rate:</Text>
+          <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {overview.attendanceRateFormatted}
           </Text>
         </View>
@@ -83,24 +83,24 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
         </View>
 
         {/* Day Off */}
-        <View className="flex-1 bg-neutral-50 rounded-2xl p-3.5 ml-2 border border-neutral-200">
+        <View className="flex-1 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-3.5 ml-2 border border-neutral-200 dark:border-neutral-800">
           <View className="flex-row items-center mb-1">
             <Coffee size={14} color={colors.neutral[500]} />
-            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-700">Day Off</Text>
+            <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">Day Off</Text>
           </View>
-          <Text className="text-lg font-bold font-sans text-neutral-900">
-            {overview.dayOffDays} <Text className="text-xs font-normal text-neutral-500">days</Text>
+          <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">
+            {overview.dayOffDays} <Text className="text-xs font-normal text-neutral-500 dark:text-neutral-400">days</Text>
           </Text>
         </View>
       </View>
 
       {/* Footer Metrics (Days Attended & Average Hours) */}
-      <View className="pt-3 border-t border-neutral-100 flex-row items-center justify-between">
+      <View className="pt-3 border-t border-neutral-100 dark:border-neutral-800 flex-row items-center justify-between">
         <View className="flex-1 flex-row items-center">
           <CalendarDays size={14} color={colors.neutral[400]} />
           <View className="ml-2">
             <Text className="text-xs font-sans text-neutral-400">Days Attended</Text>
-            <Text className="text-xs font-bold font-sans text-neutral-800">
+            <Text className="text-xs font-bold font-sans text-neutral-800 dark:text-neutral-200">
               {overview.totalAttendedDays} {overview.totalAttendedDays === 1 ? 'day' : 'days'}
             </Text>
           </View>
@@ -112,7 +112,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
           <Clock size={14} color={colors.neutral[400]} />
           <View className="ml-2">
             <Text className="text-xs font-sans text-neutral-400">Avg Hours / Day</Text>
-            <Text className="text-xs font-bold font-sans text-neutral-800">
+            <Text className="text-xs font-bold font-sans text-neutral-800 dark:text-neutral-200">
               {overview.averageHoursFormatted}
             </Text>
           </View>

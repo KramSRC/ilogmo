@@ -46,16 +46,16 @@ export function ExportDataModal({
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={handleClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white rounded-t-3xl p-6 border-t border-neutral-200 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
           {/* Header */}
-          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 mb-4">
+          <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
               <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
                 <Download size={20} color={colors.primary[600]} />
               </View>
               <View className="flex-1">
-                <Text className="text-lg font-bold font-sans text-neutral-900">Export My Data</Text>
-                <Text className="text-xs font-sans text-neutral-500">
+                <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100">Export My Data</Text>
+                <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">
                   Create a copy of your iLogMo data
                 </Text>
               </View>
@@ -95,51 +95,51 @@ export function ExportDataModal({
             ) : null}
 
             {/* Explanation card */}
-            <View className="bg-neutral-50 rounded-2xl p-4 border border-neutral-200 mb-4">
-              <Text className="text-xs font-bold font-sans text-neutral-700 mb-2 uppercase tracking-wide">
+            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 mb-4">
+              <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300 mb-2 uppercase tracking-wide">
                 What is included in your export:
               </Text>
 
               <View className="space-y-2">
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Profile & Student information
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • OJT Program configuration & hours
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Attendance logs & time records
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Journal entries & learning reflections
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Tasks & completion history
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Documents metadata (file names, sizes, dates)
                   </Text>
                 </View>
                 <View className="flex-row items-center">
                   <FileSpreadsheet size={15} color={colors.primary[600]} className="mr-2" />
-                  <Text className="text-xs font-sans text-neutral-700 ml-2">
+                  <Text className="text-xs font-sans text-neutral-700 dark:text-neutral-300 ml-2">
                     • Notifications & reminder settings
                   </Text>
                 </View>
@@ -157,7 +157,7 @@ export function ExportDataModal({
           </ScrollView>
 
           {/* Action Buttons */}
-          <View className="flex-row space-x-3 pt-2 border-t border-neutral-100">
+          <View className="flex-row space-x-3 pt-2 border-t border-neutral-100 dark:border-neutral-800">
             <Button
               title="Close"
               onPress={handleClose}

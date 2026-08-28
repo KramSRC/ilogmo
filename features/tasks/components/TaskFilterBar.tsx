@@ -38,7 +38,7 @@ export function TaskFilterBar({
   return (
     <View className="mb-4">
       {/* 1. Main Status Segmented Control */}
-      <View className="flex-row bg-neutral-100 p-1 rounded-2xl mb-3 border border-neutral-200">
+      <View className="flex-row bg-neutral-100 p-1 rounded-2xl mb-3 border border-neutral-200 dark:border-neutral-800">
         {statusTabs.map((tab) => {
           const isActive = statusFilter === tab.id;
           return (
@@ -50,12 +50,12 @@ export function TaskFilterBar({
               accessibilityState={{ selected: isActive }}
               accessibilityLabel={`${tab.label} tasks, ${tab.count} items`}
               className={`flex-1 flex-row items-center justify-center py-2.5 rounded-xl ${
-                isActive ? 'bg-white shadow-soft-sm' : 'bg-transparent'
+                isActive ? 'bg-white dark:bg-neutral-900 shadow-soft-sm' : 'bg-transparent'
               }`}
             >
               <Text
                 className={`text-xs font-sans ${
-                  isActive ? 'font-bold text-neutral-900' : 'font-medium text-neutral-500'
+                  isActive ? 'font-bold text-neutral-900 dark:text-neutral-100' : 'font-medium text-neutral-500 dark:text-neutral-400'
                 }`}
               >
                 {tab.label}
@@ -67,7 +67,7 @@ export function TaskFilterBar({
               >
                 <Text
                   className={`text-[10px] font-bold font-sans ${
-                    isActive ? 'text-primary-700' : 'text-neutral-600'
+                    isActive ? 'text-primary-700' : 'text-neutral-600 dark:text-neutral-400'
                   }`}
                 >
                   {tab.count}
@@ -96,12 +96,12 @@ export function TaskFilterBar({
               accessibilityState={{ selected: isSelected }}
               accessibilityLabel={`Filter by ${pill.label}`}
               className={`px-3 py-1.5 rounded-full mr-2 border min-h-[32px] items-center justify-center ${
-                isSelected ? 'bg-neutral-900 border-neutral-900' : 'bg-white border-neutral-200'
+                isSelected ? 'bg-neutral-900 border-neutral-900' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
               }`}
             >
               <Text
                 className={`text-xs font-sans ${
-                  isSelected ? 'font-semibold text-white' : 'font-medium text-neutral-600'
+                  isSelected ? 'font-semibold text-white' : 'font-medium text-neutral-600 dark:text-neutral-400'
                 }`}
               >
                 {pill.label}

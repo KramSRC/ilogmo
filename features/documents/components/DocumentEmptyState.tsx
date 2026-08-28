@@ -21,7 +21,7 @@ export function DocumentEmptyState({
   onClearFilter,
 }: DocumentEmptyStateProps) {
   return (
-    <View className="bg-white rounded-card p-7 shadow-card border border-neutral-200 items-center text-center my-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-7 shadow-card border border-neutral-200 dark:border-neutral-800 items-center text-center my-4">
       {/* Icon Circle */}
       <View className="w-14 h-14 rounded-2xl bg-primary-50 border border-primary-100 items-center justify-center mb-4">
         {hasFilter ? (
@@ -32,12 +32,12 @@ export function DocumentEmptyState({
       </View>
 
       {/* Title */}
-      <Text className="text-base font-bold font-sans text-neutral-900 mb-1.5 text-center">
+      <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1.5 text-center">
         {hasFilter ? 'No documents in this category' : 'Your documents will appear here.'}
       </Text>
 
       {/* Description */}
-      <Text className="text-xs font-sans text-neutral-500 text-center leading-5 mb-5 px-3">
+      <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-5 px-3">
         {hasFilter
           ? 'There are currently no files under this category. Upload a document or select another category.'
           : 'Upload important OJT files so you can access them anytime.'}

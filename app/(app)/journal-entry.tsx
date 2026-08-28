@@ -231,9 +231,9 @@ export default function JournalEntryScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -247,13 +247,13 @@ export default function JournalEntryScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">
               {isEditing ? 'Edit Journal Entry' : 'New Journal Entry'}
             </Text>
           </View>
@@ -335,11 +335,11 @@ export default function JournalEntryScreen() {
 
           {/* 2. Today's Work */}
           <View className="mb-4">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               What did you work on? *
             </Text>
             <View
-              className="bg-white rounded-2xl p-3.5 border"
+              className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
               style={[
                 styles.inputWrapper,
                 errors.workDescription ? styles.inputError : styles.inputNormal,
@@ -357,7 +357,7 @@ export default function JournalEntryScreen() {
                   setErrors((prev) => ({ ...prev, workDescription: '' }));
                 }}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900 min-h-[100px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[100px]"
               />
             </View>
             {errors.workDescription ? (
@@ -367,11 +367,11 @@ export default function JournalEntryScreen() {
 
           {/* 3. What I Learned */}
           <View className="mb-4">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               What did you learn? *
             </Text>
             <View
-              className="bg-white rounded-2xl p-3.5 border"
+              className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
               style={[
                 styles.inputWrapper,
                 errors.learningDescription ? styles.inputError : styles.inputNormal,
@@ -389,7 +389,7 @@ export default function JournalEntryScreen() {
                   setErrors((prev) => ({ ...prev, learningDescription: '' }));
                 }}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900 min-h-[100px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[100px]"
               />
             </View>
             {errors.learningDescription ? (
@@ -401,10 +401,10 @@ export default function JournalEntryScreen() {
 
           {/* 4. Challenges */}
           <View className="mb-4">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Challenges <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white rounded-2xl p-3.5 border border-neutral-200">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
               <TextInput
                 multiline
                 numberOfLines={3}
@@ -414,17 +414,17 @@ export default function JournalEntryScreen() {
                 value={challenges}
                 onChangeText={setChallenges}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900 min-h-[80px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[80px]"
               />
             </View>
           </View>
 
           {/* 5. Additional Notes */}
           <View className="mb-6">
-            <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1.5">
+            <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Additional Notes <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white rounded-2xl p-3.5 border border-neutral-200">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
               <TextInput
                 multiline
                 numberOfLines={3}
@@ -434,7 +434,7 @@ export default function JournalEntryScreen() {
                 value={notes}
                 onChangeText={setNotes}
                 editable={!isSaving && !isLoadingInitial}
-                className="text-base font-sans text-neutral-900 min-h-[80px]"
+                className="text-base font-sans text-neutral-900 dark:text-neutral-100 min-h-[80px]"
               />
             </View>
           </View>

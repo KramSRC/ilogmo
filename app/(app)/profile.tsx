@@ -111,7 +111,7 @@ export default function ProfileScreen() {
     : profile?.email || '';
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
@@ -128,10 +128,10 @@ export default function ProfileScreen() {
         {/* 1. Header */}
         <View className="mb-4 flex-row items-center justify-between">
           <View className="flex-1 mr-3">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               Profile
             </Text>
-            <Text className="text-xs font-sans text-neutral-500 mt-0.5">
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
               Manage your personal information
             </Text>
           </View>
@@ -159,7 +159,7 @@ export default function ProfileScreen() {
         ) : (
           <>
             {/* 2. Top Profile Avatar & Name Card */}
-            <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200 mb-4 items-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
               <ProfileAvatar
                 firstName={profile?.firstName}
                 lastName={profile?.lastName}
@@ -171,14 +171,14 @@ export default function ProfileScreen() {
               />
 
               <Text
-                className="text-xl font-bold font-sans text-neutral-900 mt-3.5 text-center"
+                className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-3.5 text-center"
                 numberOfLines={1}
               >
                 {fullName}
               </Text>
 
               <Text
-                className="text-xs font-sans text-neutral-500 mt-0.5 text-center"
+                className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5 text-center"
                 numberOfLines={1}
               >
                 {userSubtitle}

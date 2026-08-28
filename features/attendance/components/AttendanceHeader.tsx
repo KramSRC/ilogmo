@@ -22,10 +22,10 @@ export function AttendanceHeader({
   return (
     <View className="flex-row items-center justify-between mb-5">
       <View className="flex-1 mr-4">
-        <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+        <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
           Attendance
         </Text>
-        <Text className="text-sm font-sans text-neutral-500 mt-0.5">
+        <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
           Track your work hours and attendance
         </Text>
       </View>
@@ -35,7 +35,7 @@ export function AttendanceHeader({
         activeOpacity={0.7}
         accessibilityRole="button"
         accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
-        className="w-11 h-11 rounded-2xl bg-white border border-neutral-200 shadow-soft-sm items-center justify-center relative"
+        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
         {hasUnread ? (

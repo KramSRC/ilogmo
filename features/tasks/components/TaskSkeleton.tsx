@@ -11,7 +11,7 @@ export function TaskSkeleton() {
       {[1, 2, 3, 4].map((key) => (
         <View
           key={key}
-          className="bg-white rounded-card p-4 mb-3 border border-neutral-200 shadow-card flex-row items-start"
+          className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-neutral-800 shadow-card flex-row items-start"
         >
           {/* Checkbox skeleton */}
           <View className="w-6 h-6 rounded-lg bg-neutral-200 mr-3" />

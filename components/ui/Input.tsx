@@ -32,8 +32,8 @@ export const Input = forwardRef<TextInput, InputProps>(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
 
-    let borderColor = 'border-neutral-200';
-    let bgColor = editable ? 'bg-white' : 'bg-neutral-100';
+    let borderColor = 'border-neutral-200 dark:border-neutral-800';
+    let bgColor = editable ? 'bg-white dark:bg-neutral-900' : 'bg-neutral-100';
 
     if (error) {
       borderColor = 'border-red-500';
@@ -44,7 +44,7 @@ export const Input = forwardRef<TextInput, InputProps>(
     return (
       <View className={`w-full ${containerClassName}`}>
         {label ? (
-          <Text className="mb-1.5 text-sm font-medium font-sans text-neutral-800">{label}</Text>
+          <Text className="mb-1.5 text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">{label}</Text>
         ) : null}
 
         <View
@@ -64,7 +64,7 @@ export const Input = forwardRef<TextInput, InputProps>(
               setIsFocused(false);
               onBlur?.(e);
             }}
-            className={`flex-1 py-3 text-base font-sans text-neutral-900 ${className}`}
+            className={`flex-1 py-3 text-base font-sans text-neutral-900 dark:text-neutral-100 ${className}`}
             {...props}
           />
 
@@ -87,7 +87,7 @@ export const Input = forwardRef<TextInput, InputProps>(
         {error ? (
           <Text className="mt-1.5 text-xs font-sans text-red-500">{error}</Text>
         ) : helperText ? (
-          <Text className="mt-1.5 text-xs font-sans text-neutral-500">{helperText}</Text>
+          <Text className="mt-1.5 text-xs font-sans text-neutral-500 dark:text-neutral-400">{helperText}</Text>
         ) : null}
       </View>
     );

@@ -49,7 +49,7 @@ export function ReportFilterTabs({ selectedFilter, onSelectFilter }: ReportFilte
           >
             <Text
               className={`text-xs font-sans font-semibold ${
-                isSelected ? 'text-neutral-900 font-bold' : 'text-neutral-600'
+                isSelected ? 'text-neutral-900 dark:text-neutral-100 font-bold' : 'text-neutral-600 dark:text-neutral-400'
               }`}
             >
               {tab.label}

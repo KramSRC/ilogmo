@@ -49,17 +49,17 @@ export default function ForgotPasswordScreen() {
   // Success Confirmation Card
   if (isEmailSent) {
     return (
-      <SafeAreaView className="flex-1 bg-background-app justify-center items-center px-6">
-        <View className="bg-white rounded-card p-8 shadow-card border border-neutral-200 w-full max-w-sm items-center">
+      <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
           <View className="w-16 h-16 bg-blue-50 rounded-3xl items-center justify-center mb-5 border border-blue-100">
             <MailCheck size={32} color={colors.primary[600]} />
           </View>
 
-          <Text className="text-2xl font-bold font-sans text-neutral-900 text-center mb-2">
+          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-2">
             Check your email
           </Text>
 
-          <Text className="text-sm font-sans text-neutral-500 text-center leading-5 mb-6">
+          <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 text-center leading-5 mb-6">
             We sent a password reset link to your email address. Please check your inbox and spam
             folder.
           </Text>
@@ -76,7 +76,7 @@ export default function ForgotPasswordScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right', 'bottom']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right', 'bottom']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
@@ -95,7 +95,7 @@ export default function ForgotPasswordScreen() {
               accessibilityRole="button"
               accessibilityLabel="Back to Sign In"
               hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
-              className="w-10 h-10 rounded-full bg-white items-center justify-center border border-neutral-200 shadow-soft-sm"
+              className="w-10 h-10 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm"
             >
               <ArrowLeft size={20} color={colors.neutral[700]} />
             </TouchableOpacity>
@@ -103,16 +103,16 @@ export default function ForgotPasswordScreen() {
 
           {/* Heading */}
           <View className="mb-6">
-            <Text className="text-2xl font-bold font-sans text-neutral-900 tracking-tight">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
               Forgot your password?
             </Text>
-            <Text className="mt-1.5 text-sm font-sans text-neutral-500 leading-5">
+            <Text className="mt-1.5 text-sm font-sans text-neutral-500 dark:text-neutral-400 leading-5">
               Enter your email and we'll send you a link to reset your password.
             </Text>
           </View>
 
           {/* Form Card */}
-          <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800">
             {/* Server Error Alert */}
             {serverError ? (
               <ErrorMessage

@@ -142,9 +142,9 @@ export default function DocumentDetailsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* Header */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1">
           <TouchableOpacity
             onPress={() => {
@@ -158,13 +158,13 @@ export default function DocumentDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Document Details</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Document Details</Text>
           </View>
         </View>
 
@@ -196,7 +196,7 @@ export default function DocumentDetailsScreen() {
         {isLoading ? (
           <View className="py-12 items-center justify-center">
             <ActivityIndicator size="large" color={colors.primary[600]} />
-            <Text className="text-sm font-sans text-neutral-500 mt-3">
+            <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400 mt-3">
               Loading document details...
             </Text>
           </View>
@@ -215,7 +215,7 @@ export default function DocumentDetailsScreen() {
         ) : (
           <>
             {/* 1. Main Document Card */}
-            <View className="bg-white rounded-card p-6 shadow-card border border-neutral-200 mb-5 items-center text-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5 items-center text-center">
               {/* Large Icon Badge */}
               <View
                 className={`w-20 h-20 rounded-3xl ${fileDetails?.bg} border items-center justify-center mb-4`}
@@ -224,7 +224,7 @@ export default function DocumentDetailsScreen() {
               </View>
 
               {/* Title */}
-              <Text className="text-xl font-bold font-sans text-neutral-900 text-center mb-2">
+              <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-2">
                 {document.name}
               </Text>
 
@@ -242,45 +242,45 @@ export default function DocumentDetailsScreen() {
             </View>
 
             {/* 2. Metadata Specs Card */}
-            <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-5">
-              <Text className="text-sm font-bold font-sans text-neutral-900 mb-4">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+              <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4">
                 File Information
               </Text>
 
               {/* Category Row */}
-              <View className="flex-row items-center py-2.5 border-b border-neutral-100">
-                <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+              <View className="flex-row items-center py-2.5 border-b border-neutral-100 dark:border-neutral-800">
+                <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
                   <Folder size={15} color={colors.neutral[500]} />
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Category</Text>
-                  <Text className="text-sm font-medium font-sans text-neutral-800 capitalize">
+                  <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200 capitalize">
                     {CATEGORY_LABELS[document.category] || document.category}
                   </Text>
                 </View>
               </View>
 
               {/* File Format */}
-              <View className="flex-row items-center py-2.5 border-b border-neutral-100">
-                <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+              <View className="flex-row items-center py-2.5 border-b border-neutral-100 dark:border-neutral-800">
+                <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
                   <FileType size={15} color={colors.neutral[500]} />
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Format</Text>
-                  <Text className="text-sm font-medium font-sans text-neutral-800">
+                  <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">
                     {fileDetails?.extension} ({document.fileName})
                   </Text>
                 </View>
               </View>
 
               {/* File Size */}
-              <View className="flex-row items-center py-2.5 border-b border-neutral-100">
-                <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+              <View className="flex-row items-center py-2.5 border-b border-neutral-100 dark:border-neutral-800">
+                <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
                   <HardDrive size={15} color={colors.neutral[500]} />
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">File Size</Text>
-                  <Text className="text-sm font-medium font-sans text-neutral-800">
+                  <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">
                     {formatFileSize(document.fileSize)}
                   </Text>
                 </View>
@@ -288,12 +288,12 @@ export default function DocumentDetailsScreen() {
 
               {/* Uploaded Date */}
               <View className="flex-row items-center pt-2.5">
-                <View className="w-8 h-8 rounded-lg bg-neutral-50 items-center justify-center mr-3 border border-neutral-100">
+                <View className="w-8 h-8 rounded-lg bg-neutral-50 dark:bg-neutral-900 items-center justify-center mr-3 border border-neutral-100 dark:border-neutral-800">
                   <Calendar size={15} color={colors.neutral[500]} />
                 </View>
                 <View className="flex-1">
                   <Text className="text-xs font-sans text-neutral-400">Uploaded</Text>
-                  <Text className="text-sm font-medium font-sans text-neutral-800">
+                  <Text className="text-sm font-medium font-sans text-neutral-800 dark:text-neutral-200">
                     {formatUploadDate(document.createdAt)}
                   </Text>
                 </View>
@@ -302,11 +302,11 @@ export default function DocumentDetailsScreen() {
 
             {/* 3. Description (If present) */}
             {document.description ? (
-              <View className="bg-white rounded-card p-5 shadow-card border border-neutral-200 mb-6">
-                <Text className="text-sm font-bold font-sans text-neutral-900 mb-2">
+              <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+                <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-2">
                   Description
                 </Text>
-                <Text className="text-sm font-sans text-neutral-600 leading-relaxed">
+                <Text className="text-sm font-sans text-neutral-600 dark:text-neutral-400 leading-relaxed">
                   {document.description}
                 </Text>
               </View>

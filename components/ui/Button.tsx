@@ -43,15 +43,15 @@ export function Button({
 
   if (variant === 'secondary') {
     variantContainer = 'bg-neutral-100 active:bg-neutral-200 border border-transparent';
-    variantText = 'text-neutral-900 font-semibold';
+    variantText = 'text-neutral-900 dark:text-neutral-100 font-semibold';
     indicatorColor = colors.neutral[900];
   } else if (variant === 'outline') {
-    variantContainer = 'bg-white active:bg-neutral-50 border border-neutral-200';
-    variantText = 'text-neutral-900 font-medium';
+    variantContainer = 'bg-white dark:bg-neutral-900 active:bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800';
+    variantText = 'text-neutral-900 dark:text-neutral-100 font-medium';
     indicatorColor = colors.primary[600];
   } else if (variant === 'ghost') {
     variantContainer = 'bg-transparent active:bg-neutral-100 border border-transparent';
-    variantText = 'text-neutral-700 font-medium';
+    variantText = 'text-neutral-700 dark:text-neutral-300 font-medium';
     indicatorColor = colors.neutral[700];
   } else if (variant === 'danger') {
     variantContainer = 'bg-red-600 active:bg-red-700 border border-transparent';

@@ -78,9 +78,9 @@ export default function NotificationsScreen() {
   const hasNotifications = todayNotifications.length > 0 || earlierNotifications.length > 0;
 
   return (
-    <SafeAreaView className="flex-1 bg-background-app" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
       {/* 1. Header Bar */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 bg-white">
+      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
         <View className="flex-row items-center flex-1 mr-2">
           <TouchableOpacity
             onPress={() => {
@@ -94,14 +94,14 @@ export default function NotificationsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white items-center justify-center border border-neutral-200 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
-            <Text className="text-xl font-bold font-sans text-neutral-900">Notifications</Text>
-            <Text className="text-xs font-sans text-neutral-500">Stay updated with your OJT</Text>
+            <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100">Notifications</Text>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Stay updated with your OJT</Text>
           </View>
         </View>
 
@@ -113,7 +113,7 @@ export default function NotificationsScreen() {
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Notification settings"
-            className="w-10 h-10 rounded-full bg-neutral-50 border border-neutral-200 items-center justify-center mr-1"
+            className="w-10 h-10 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 items-center justify-center mr-1"
           >
             <SlidersHorizontal size={18} color={colors.neutral[700]} />
           </TouchableOpacity>

@@ -17,7 +17,7 @@ export function AttendanceHistory({ records }: AttendanceHistoryProps) {
     <View className="mb-6">
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-3">
-        <Text className="text-base font-bold font-sans text-neutral-900">Attendance History</Text>
+        <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Attendance History</Text>
         <TouchableOpacity
           onPress={() => router.push('/(app)/attendance-history')}
           activeOpacity={0.7}
@@ -30,13 +30,13 @@ export function AttendanceHistory({ records }: AttendanceHistoryProps) {
       </View>
 
       {/* History Card Container */}
-      <View className="bg-white rounded-card px-4 py-2 shadow-card border border-neutral-200">
+      <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card border border-neutral-200 dark:border-neutral-800">
         {records.length === 0 ? (
           <View className="items-center py-6">
             <View className="w-10 h-10 rounded-2xl bg-neutral-100 items-center justify-center mb-2">
               <CalendarOff size={20} color={colors.neutral[400]} />
             </View>
-            <Text className="text-sm font-semibold font-sans text-neutral-700">
+            <Text className="text-sm font-semibold font-sans text-neutral-700 dark:text-neutral-300">
               No attendance records yet
             </Text>
             <Text className="text-xs font-sans text-neutral-400 mt-0.5 text-center">
