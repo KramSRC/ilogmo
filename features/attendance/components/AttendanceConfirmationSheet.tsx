@@ -62,7 +62,7 @@ export function AttendanceConfirmationSheet({
           </View>
 
           {/* Description Content */}
-          <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-800 mb-6">
+          <View className="bg-neutral-50 dark:bg-neutral-800 rounded-2xl p-4 border border-neutral-100 dark:border-neutral-700 mb-6">
             {isCheckIn ? (
               <View className="items-center py-2">
                 <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-1">Current Time</Text>
@@ -87,7 +87,7 @@ export function AttendanceConfirmationSheet({
                     {nowFormatted}
                   </Text>
                 </View>
-                <View className="pt-2 mt-2 border-t border-neutral-200 dark:border-transparent flex-row justify-between items-center">
+                <View className="pt-2 mt-2 border-t border-neutral-200 dark:border-neutral-700 flex-row justify-between items-center">
                   <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">
                     Today's Total
                   </Text>
