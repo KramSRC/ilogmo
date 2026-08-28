@@ -4,35 +4,24 @@
  */
 
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { TaskFilter, TaskPriorityFilter, TaskStats } from '../types';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { TaskFilter, TaskStats } from '../types';
 
 export interface TaskFilterBarProps {
   statusFilter: TaskFilter;
   onSelectStatus: (filter: TaskFilter) => void;
-  priorityFilter: TaskPriorityFilter;
-  onSelectPriority: (priority: TaskPriorityFilter) => void;
   stats: TaskStats;
 }
 
 export function TaskFilterBar({
   statusFilter,
   onSelectStatus,
-  priorityFilter,
-  onSelectPriority,
   stats,
 }: TaskFilterBarProps) {
   const statusTabs: { id: TaskFilter; label: string; count: number }[] = [
     { id: 'all', label: 'All', count: stats.total },
     { id: 'pending', label: 'Pending', count: stats.pending },
     { id: 'completed', label: 'Completed', count: stats.completed },
-  ];
-
-  const priorityPills: { id: TaskPriorityFilter; label: string }[] = [
-    { id: 'all', label: 'All Priority' },
-    { id: 'high', label: 'High Priority' },
-    { id: 'medium', label: 'Medium' },
-    { id: 'low', label: 'Low' },
   ];
 
   return (
@@ -77,39 +66,6 @@ export function TaskFilterBar({
           );
         })}
       </View>
-
-      {/* 2. Priority Filter Pills */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        className="flex-row"
-        contentContainerStyle={{ paddingRight: 8 }}
-      >
-        {priorityPills.map((pill) => {
-          const isSelected = priorityFilter === pill.id;
-          return (
-            <TouchableOpacity
-              key={pill.id}
-              onPress={() => onSelectPriority(pill.id)}
-              activeOpacity={0.7}
-              accessibilityRole="button"
-              accessibilityState={{ selected: isSelected }}
-              accessibilityLabel={`Filter by ${pill.label}`}
-              className={`px-3 py-1.5 rounded-full mr-2 border min-h-[32px] items-center justify-center ${
-                isSelected ? 'bg-neutral-900 dark:bg-neutral-100 border-neutral-900 dark:border-neutral-100' : 'bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700'
-              }`}
-            >
-              <Text
-                className={`text-xs font-sans ${
-                  isSelected ? 'font-semibold text-white dark:text-neutral-900' : 'font-medium text-neutral-600 dark:text-neutral-400'
-                }`}
-              >
-                {pill.label}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </ScrollView>
     </View>
   );
 }

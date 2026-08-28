@@ -99,8 +99,6 @@ export default function TasksScreen() {
         <TaskFilterBar
           statusFilter={statusFilter}
           onSelectStatus={setStatusFilter}
-          priorityFilter={priorityFilter}
-          onSelectPriority={setPriorityFilter}
           stats={stats}
         />
 
