@@ -9,10 +9,12 @@ import { attendanceService } from '@/features/attendance/services/attendanceServ
 import { AttendanceHistoryItem } from '@/features/attendance/components/AttendanceHistoryItem';
 import { ErrorMessage, Button } from '@/components';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function AttendanceHistoryScreen() {
   const router = useRouter();
   const { user } = useAuth();
+  const isDark = useThemeStore((state) => state.isDark);
   const [history, setHistory] = useState<AttendanceRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -88,7 +90,7 @@ export default function AttendanceHistoryScreen() {
           style={{ minHeight: 44, minWidth: 44 }}
           className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none mr-3"
         >
-          <ArrowLeft size={20} color={colors.neutral[700]} />
+          <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
         </TouchableOpacity>
 
         <View className="flex-1">
