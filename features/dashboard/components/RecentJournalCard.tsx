@@ -44,7 +44,7 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
               <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">{journal.date}</Text>
             </View>
             {journal.mood ? (
-              <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2 py-0.5 rounded-md border border-emerald-100 flex-row items-center">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2 py-0.5 rounded-md border border-emerald-100 dark:border-emerald-800/50 flex-row items-center">
                 <Sparkles size={11} color={colors.success.DEFAULT} />
                 <Text className="ml-1 text-[11px] font-semibold font-sans text-emerald-700 dark:text-emerald-300 capitalize">
                   {journal.mood}

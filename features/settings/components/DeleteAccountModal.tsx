@@ -61,7 +61,7 @@ export function DeleteAccountModal({
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/40 items-center justify-center mr-3 border border-red-100">
+              <View className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/40 items-center justify-center mr-3 border border-red-100 dark:border-red-800/50">
                 <AlertTriangle size={22} color="#DC2626" />
               </View>
               <View className="flex-1">

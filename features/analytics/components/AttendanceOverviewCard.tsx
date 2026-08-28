@@ -27,7 +27,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100">
+          <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100 dark:border-emerald-800/50">
             <UserCheck size={16} color={colors.success.DEFAULT} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -47,7 +47,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
       {/* 2x2 Grid of Statuses */}
       <View className="flex-row mb-3">
         {/* Present */}
-        <View className="flex-1 bg-emerald-50 dark:bg-emerald-900/40/60 rounded-2xl p-3.5 mr-2 border border-emerald-100/80">
+        <View className="flex-1 bg-emerald-50 dark:bg-emerald-900/40/60 rounded-2xl p-3.5 mr-2 border border-emerald-100 dark:border-emerald-800/50/80">
           <View className="flex-row items-center mb-1">
             <CheckCircle size={14} color={colors.success.DEFAULT} />
             <Text className="ml-1.5 text-xs font-bold font-sans text-emerald-900 dark:text-emerald-100">Present</Text>
@@ -59,7 +59,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
         </View>
 
         {/* Late */}
-        <View className="flex-1 bg-amber-50 dark:bg-amber-900/40/60 rounded-2xl p-3.5 ml-2 border border-amber-100/80">
+        <View className="flex-1 bg-amber-50 dark:bg-amber-900/40/60 rounded-2xl p-3.5 ml-2 border border-amber-100 dark:border-amber-800/50/80">
           <View className="flex-row items-center mb-1">
             <AlertCircle size={14} color={colors.warning.DEFAULT} />
             <Text className="ml-1.5 text-xs font-bold font-sans text-amber-900 dark:text-amber-100">Late</Text>
@@ -72,7 +72,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
 
       <View className="flex-row mb-4">
         {/* Absent */}
-        <View className="flex-1 bg-red-50 dark:bg-red-900/40/60 rounded-2xl p-3.5 mr-2 border border-red-100/80">
+        <View className="flex-1 bg-red-50 dark:bg-red-900/40/60 rounded-2xl p-3.5 mr-2 border border-red-100 dark:border-red-800/50/80">
           <View className="flex-row items-center mb-1">
             <XCircle size={14} color={colors.error.DEFAULT} />
             <Text className="ml-1.5 text-xs font-bold font-sans text-red-900 dark:text-red-100">Absent</Text>

@@ -65,7 +65,7 @@ export function ReportTaskSection({ tasks }: ReportTaskSectionProps) {
 
             {/* 2. Completed */}
             <View className="w-1/2 px-1 mb-2.5">
-              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 rounded-xl p-2.5 flex-row items-center justify-between">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 dark:border-emerald-800/50 rounded-xl p-2.5 flex-row items-center justify-between">
                 <Text className="text-xs font-sans text-emerald-800">Completed</Text>
                 <Text className="text-sm font-bold font-sans text-emerald-700 dark:text-emerald-300">{tasks.completedTasks}</Text>
               </View>

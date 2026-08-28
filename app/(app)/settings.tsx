@@ -192,7 +192,7 @@ export default function SettingsScreen() {
           <SettingsRow
             icon={<Trash2 size={18} color="#DC2626" />}
             iconBgColor="bg-red-50 dark:bg-red-900/40"
-            iconBorderColor="border-red-100"
+            iconBorderColor="border-red-100 dark:border-red-800/50"
             title="Delete Account"
             subtitle="Permanently remove your account and records"
             isDestructive={true}
@@ -218,7 +218,7 @@ export default function SettingsScreen() {
           <SettingsRow
             icon={<ShieldCheck size={18} color="#059669" />}
             iconBgColor="bg-emerald-50 dark:bg-emerald-900/40"
-            iconBorderColor="border-emerald-100"
+            iconBorderColor="border-emerald-100 dark:border-emerald-800/50"
             title="Privacy Policy"
             subtitle="How iLogMo handles and protects your data"
             onPress={() => setLegalModalType('privacy')}
@@ -227,7 +227,7 @@ export default function SettingsScreen() {
           <SettingsRow
             icon={<FileText size={18} color="#D97706" />}
             iconBgColor="bg-amber-50 dark:bg-amber-900/40"
-            iconBorderColor="border-amber-100"
+            iconBorderColor="border-amber-100 dark:border-amber-800/50"
             title="Terms of Service"
             subtitle="Rules and acceptable usage guidelines"
             onPress={() => setLegalModalType('terms')}
@@ -242,7 +242,7 @@ export default function SettingsScreen() {
           <SettingsRow
             icon={<LogOut size={18} color="#DC2626" />}
             iconBgColor="bg-red-50 dark:bg-red-900/40"
-            iconBorderColor="border-red-100"
+            iconBorderColor="border-red-100 dark:border-red-800/50"
             title="Sign Out"
             subtitle="Log out of your session on this device"
             isDestructive={true}

@@ -91,7 +91,7 @@ export function ReportExportModal({
 
               {successMessage ? (
                 <View className="py-6 items-center justify-center">
-                  <View className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl items-center justify-center mb-3 border border-emerald-100">
+                  <View className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl items-center justify-center mb-3 border border-emerald-100 dark:border-emerald-800/50">
                     <CheckCircle2 size={30} color={colors.success.DEFAULT} strokeWidth={2.5} />
                   </View>
                   <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center">

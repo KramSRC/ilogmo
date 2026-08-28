@@ -23,7 +23,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
       <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
-            <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100">
+            <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100 dark:border-emerald-800/50">
               <Clock size={16} color={colors.success.DEFAULT} />
             </View>
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -70,7 +70,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
       <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
-            <View className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-900/40 items-center justify-center mr-2.5 border border-blue-100">
+            <View className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-900/40 items-center justify-center mr-2.5 border border-blue-100 dark:border-blue-800/50">
               <CheckCircle2 size={16} color={colors.primary[600]} />
             </View>
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -117,7 +117,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
     <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
       <View className="flex-row items-center justify-between mb-3">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100">
+          <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100 dark:border-amber-800/50">
             <Clock size={16} color={colors.warning.DEFAULT} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Today's Attendance</Text>

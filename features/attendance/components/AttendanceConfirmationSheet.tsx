@@ -38,7 +38,7 @@ export function AttendanceConfirmationSheet({
             <View className="flex-row items-center">
               <View
                 className={`w-10 h-10 rounded-2xl items-center justify-center mr-3 border ${
-                  isCheckIn ? 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100' : 'bg-blue-50 dark:bg-blue-900/40 border-blue-100'
+                  isCheckIn ? 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100 dark:border-emerald-800/50' : 'bg-blue-50 dark:bg-blue-900/40 border-blue-100 dark:border-blue-800/50'
                 }`}
               >
                 {isCheckIn ? (

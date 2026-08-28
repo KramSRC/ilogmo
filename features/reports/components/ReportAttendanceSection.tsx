@@ -23,7 +23,7 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
-          <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 items-center justify-center mr-2.5">
+          <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 dark:border-emerald-800/50 items-center justify-center mr-2.5">
             <Clock size={16} color={colors.success.DEFAULT} />
           </View>
           <View className="flex-1">
@@ -79,7 +79,7 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 2. Present */}
             <View className="w-1/3 px-1 mb-3">
-              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 rounded-xl p-2.5 items-center">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 dark:border-emerald-800/50 rounded-xl p-2.5 items-center">
                 <Text className="text-[10.5px] font-semibold font-sans text-emerald-800 uppercase">
                   Present
                 </Text>

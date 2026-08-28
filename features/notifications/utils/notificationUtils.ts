@@ -86,7 +86,7 @@ export function getNotificationTypeDetails(
       return {
         label: 'Check-Out Reminder',
         color: '#D97706', // Amber
-        bg: 'bg-amber-50 dark:bg-amber-900/40 border-amber-100',
+        bg: 'bg-amber-50 dark:bg-amber-900/40 border-amber-100 dark:border-amber-800/50',
         defaultRoute: '/(app)/attendance',
       };
     case 'task_reminder':
@@ -100,21 +100,21 @@ export function getNotificationTypeDetails(
       return {
         label: 'Overdue Task',
         color: '#DC2626', // Red
-        bg: 'bg-red-50 dark:bg-red-900/40 border-red-100',
+        bg: 'bg-red-50 dark:bg-red-900/40 border-red-100 dark:border-red-800/50',
         defaultRoute: '/(app)/tasks',
       };
     case 'journal_reminder':
       return {
         label: 'Journal Reminder',
         color: '#16A34A', // Green
-        bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
+        bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100 dark:border-emerald-800/50',
         defaultRoute: '/(app)/journal',
       };
     case 'ojt_reminder':
       return {
         label: 'OJT Reminder',
         color: '#9333EA', // Purple
-        bg: 'bg-purple-50 border-purple-100',
+        bg: 'bg-purple-50 border-purple-100 dark:border-purple-800/50',
         defaultRoute: '/(app)/profile',
       };
     default: {
@@ -138,7 +138,7 @@ export function getNotificationTypeDetails(
         return {
           label: 'Journal',
           color: '#16A34A',
-          bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
+          bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100 dark:border-emerald-800/50',
           defaultRoute: '/(app)/journal',
         };
       }

@@ -35,7 +35,7 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
         </View>
 
         {/* Monthly Attendance Rate */}
-        <View className="flex-1 ml-2 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl p-4 border border-emerald-100">
+        <View className="flex-1 ml-2 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl p-4 border border-emerald-100 dark:border-emerald-800/50">
           <View className="flex-row items-center mb-1.5">
             <Percent size={16} color={colors.success.DEFAULT} />
             <Text className="text-xs font-semibold font-sans text-emerald-700 dark:text-emerald-300 ml-1.5">

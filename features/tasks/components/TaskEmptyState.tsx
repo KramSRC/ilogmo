@@ -30,7 +30,7 @@ export function TaskEmptyState({ filter, onCreateTask }: TaskEmptyStateProps) {
     Icon = ListTodo;
     iconColor = colors.success.DEFAULT;
     iconBg = 'bg-emerald-50 dark:bg-emerald-900/40';
-    iconBorder = 'border-emerald-100';
+    iconBorder = 'border-emerald-100 dark:border-emerald-800/50';
   } else if (filter === 'completed') {
     title = 'No completed tasks yet.';
     description = 'Tasks you mark as completed will appear here.';

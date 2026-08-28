@@ -54,7 +54,7 @@ export function ProfileOjtCard({ ojtRecord, onViewDetails }: ProfileOjtCardProps
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">OJT Information</Text>
-        <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2 py-0.5 rounded-md border border-emerald-100">
+        <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2 py-0.5 rounded-md border border-emerald-100 dark:border-emerald-800/50">
           <Text className="text-[10px] font-bold font-sans text-emerald-700 dark:text-emerald-300">Active</Text>
         </View>
       </View>

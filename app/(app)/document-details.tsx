@@ -176,7 +176,7 @@ export default function DocumentDetailsScreen() {
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Delete document"
-            className="w-10 h-10 rounded-full bg-red-50 dark:bg-red-900/40 items-center justify-center border border-red-100"
+            className="w-10 h-10 rounded-full bg-red-50 dark:bg-red-900/40 items-center justify-center border border-red-100 dark:border-red-800/50"
           >
             {isDeleting ? (
               <ActivityIndicator size="small" color="#EF4444" />

@@ -24,7 +24,7 @@ export function ReportJournalSection({ journal, documentsCount }: ReportJournalS
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
-          <View className="w-8 h-8 rounded-xl bg-purple-50 border border-purple-100 items-center justify-center mr-2.5">
+          <View className="w-8 h-8 rounded-xl bg-purple-50 border border-purple-100 dark:border-purple-800/50 items-center justify-center mr-2.5">
             <BookOpen size={16} color="#8B5CF6" />
           </View>
           <View className="flex-1">

@@ -106,7 +106,7 @@ export default function OjtSetupScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
         <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent w-full max-w-sm items-center">
-          <View className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/40 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
+          <View className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/40 rounded-3xl items-center justify-center mb-4 border border-emerald-100 dark:border-emerald-800/50">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
           <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-1.5">

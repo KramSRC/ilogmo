@@ -92,7 +92,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
 
               {/* Open Source Licenses */}
               <View className="flex-row items-center p-3.5">
-                <View className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-3 border border-amber-100">
+                <View className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-3 border border-amber-100 dark:border-amber-800/50">
                   <Award size={16} color="#D97706" />
                 </View>
                 <View className="flex-1">

@@ -38,7 +38,7 @@ export function InsightsCard({ insights }: InsightsCardProps) {
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100">
+          <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100 dark:border-amber-800/50">
             <Lightbulb size={16} color={colors.warning.DEFAULT} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Key Insights</Text>

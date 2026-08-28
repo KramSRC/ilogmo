@@ -19,7 +19,7 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-purple-50 items-center justify-center mr-2.5 border border-purple-100">
+          <View className="w-8 h-8 rounded-xl bg-purple-50 items-center justify-center mr-2.5 border border-purple-100 dark:border-purple-800/50">
             <Sparkles size={16} color="#9333EA" />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -33,7 +33,7 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
         <View>
           {/* Main Date Display */}
           <View className="flex-row items-center mb-2">
-            <View className="w-10 h-10 rounded-2xl bg-purple-50 items-center justify-center mr-3 border border-purple-100">
+            <View className="w-10 h-10 rounded-2xl bg-purple-50 items-center justify-center mr-3 border border-purple-100 dark:border-purple-800/50">
               <Calendar size={20} color="#9333EA" />
             </View>
             <View className="flex-1">
@@ -55,7 +55,7 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
               </Text>
             </View>
           ) : (
-            <View className="mt-2 p-3.5 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl border border-emerald-100 flex-row items-start">
+            <View className="mt-2 p-3.5 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl border border-emerald-100 dark:border-emerald-800/50 flex-row items-start">
               <CheckCircle size={16} color={colors.success.DEFAULT} style={{ marginTop: 1 }} />
               <Text className="ml-2 text-xs font-sans text-emerald-900 dark:text-emerald-100 leading-4 flex-1">
                 {estimate.message}

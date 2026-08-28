@@ -61,7 +61,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'View and export OJT reports',
     icon: (c) => <FileText size={18} color={c} />,
     iconColor: '#8B5CF6', // Purple
-    iconBg: 'bg-purple-50 border-purple-100',
+    iconBg: 'bg-purple-50 border-purple-100 dark:border-purple-800/50',
     route: '/(app)/reports',
   },
   {
@@ -70,7 +70,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'Manage your personal information',
     icon: (c) => <User size={18} color={c} />,
     iconColor: '#059669', // Emerald
-    iconBg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100 dark:border-emerald-800/50',
     route: '/(app)/profile',
   },
   {

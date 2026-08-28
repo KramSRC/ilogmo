@@ -85,7 +85,7 @@ export function NotificationSettingsModal({
             {/* 2. Check-Out Reminder */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-900/40 border border-amber-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-900/40 border border-amber-100 dark:border-amber-800/50 items-center justify-center mr-3">
                   <LogOut size={18} color="#D97706" />
                 </View>
                 <View className="flex-1">
@@ -131,7 +131,7 @@ export function NotificationSettingsModal({
             {/* 4. Journal Reminders */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 dark:border-emerald-800/50 items-center justify-center mr-3">
                   <BookOpen size={18} color="#16A34A" />
                 </View>
                 <View className="flex-1">
@@ -154,7 +154,7 @@ export function NotificationSettingsModal({
             {/* 5. OJT Milestones */}
             <View className="flex-row items-center justify-between py-2">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 dark:border-purple-800/50 items-center justify-center mr-3">
                   <Award size={18} color="#9333EA" />
                 </View>
                 <View className="flex-1">
