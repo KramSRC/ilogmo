@@ -20,7 +20,7 @@ export function AttendanceStatusBadge({ status, size = 'sm' }: AttendanceStatusB
       bg = 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800';
       textColor = 'text-emerald-700 dark:text-emerald-300';
       label = 'Working';
-      icon = <View className="w-2 h-2 rounded-full bg-emerald-50 dark:bg-emerald-900/400 mr-1" />;
+      icon = <View className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 mr-1" />;
       break;
     case 'completed':
     case 'present':
@@ -31,7 +31,7 @@ export function AttendanceStatusBadge({ status, size = 'sm' }: AttendanceStatusB
       break;
     case 'late':
       bg = 'bg-amber-50 dark:bg-amber-900/40 border-amber-200 dark:border-amber-800';
-      textColor = 'text-amber-700';
+      textColor = 'text-amber-700 dark:text-amber-300';
       label = 'Late';
       icon = <Clock size={12} color={colors.warning.DEFAULT} />;
       break;

@@ -40,7 +40,7 @@ export function AttendanceHistoryItem({ record, isLast = false }: AttendanceHist
     >
       {/* Left Date Column */}
       <View className="flex-row items-center flex-1 mr-2">
-        <View className="w-11 h-11 rounded-2xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-transparent items-center justify-center mr-3">
+        <View className="w-11 h-11 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-transparent items-center justify-center mr-3">
           <Text className="text-[10px] font-bold font-sans text-neutral-500 dark:text-neutral-400 uppercase">
             {dayName}
           </Text>
