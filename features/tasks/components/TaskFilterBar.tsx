@@ -96,7 +96,7 @@ export function TaskFilterBar({
               accessibilityState={{ selected: isSelected }}
               accessibilityLabel={`Filter by ${pill.label}`}
               className={`px-3 py-1.5 rounded-full mr-2 border min-h-[32px] items-center justify-center ${
-                isSelected ? 'bg-neutral-900 dark:bg-neutral-100 border-neutral-900 dark:border-neutral-100' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-transparent'
+                isSelected ? 'bg-neutral-900 dark:bg-neutral-100 border-neutral-900 dark:border-neutral-100' : 'bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700'
               }`}
             >
               <Text

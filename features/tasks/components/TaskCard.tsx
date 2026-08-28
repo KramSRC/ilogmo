@@ -136,7 +136,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
           ) : (
             <View
               className={`w-6 h-6 rounded-lg items-center justify-center border ${
-                task.completed ? 'bg-primary-600 border-primary-600' : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700'
+                task.completed ? 'bg-primary-600 border-primary-600' : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-500'
               }`}
             >
               {task.completed ? <Check size={14} color="#FFFFFF" strokeWidth={3} /> : null}
