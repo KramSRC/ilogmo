@@ -117,16 +117,6 @@ export default function JournalDetailsScreen() {
           </View>
         </View>
 
-        {/* Quick Edit Action in Header */}
-        {entry && !isLoading ? (
-          <TouchableOpacity
-            onPress={handleEdit}
-            activeOpacity={0.7}
-            className="w-10 h-10 rounded-full bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50"
-          >
-            <Edit2 size={18} color={colors.primary[600]} />
-          </TouchableOpacity>
-        ) : null}
       </View>
 
       {isLoading ? (
