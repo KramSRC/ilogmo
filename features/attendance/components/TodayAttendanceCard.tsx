@@ -6,6 +6,7 @@ import { AttendanceRecord } from '../types';
 import { Button } from '@/components';
 import { formatDateDisplay, formatTimeDisplay, isWeekendDay } from '../utils/timeUtils';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface TodayAttendanceCardProps {
   todayRecord: AttendanceRecord | null;
@@ -23,6 +24,7 @@ export function TodayAttendanceCard({
   isSubmitting = false,
 }: TodayAttendanceCardProps) {
   const router = useRouter();
+  const isDark = useThemeStore((state) => state.isDark);
   const today = new Date();
   const todayFormatted = `Today • ${formatDateDisplay(today)}`;
   const isWeekend = isWeekendDay(today);
@@ -59,12 +61,12 @@ export function TodayAttendanceCard({
           <View className="flex-1">
             <View className="flex-row items-center mb-1">
               <View
-                className={`w-3.5 h-3.5 rounded-full items-center justify-center mr-1.5 ${
-                  todayRecord ? 'bg-emerald-50 dark:bg-emerald-900/400' : 'bg-neutral-300'
+                className={`w-4 h-4 rounded-full items-center justify-center mr-1.5 ${
+                  todayRecord ? 'bg-emerald-500 dark:bg-emerald-600' : 'bg-neutral-200 dark:bg-neutral-800'
                 }`}
               >
                 {todayRecord ? (
-                  <CheckCircle2 size={10} color="#FFFFFF" />
+                  <CheckCircle2 size={12} color="#FFFFFF" />
                 ) : (
                   <View className="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900" />
                 )}
@@ -83,12 +85,12 @@ export function TodayAttendanceCard({
           <View className="flex-1 items-end">
             <View className="flex-row items-center mb-1">
               <View
-                className={`w-3.5 h-3.5 rounded-full items-center justify-center mr-1.5 ${
-                  isCompleted ? 'bg-blue-50 dark:bg-blue-900/400' : 'bg-neutral-300'
+                className={`w-4 h-4 rounded-full items-center justify-center mr-1.5 ${
+                  isCompleted ? 'bg-blue-500 dark:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-800'
                 }`}
               >
                 {isCompleted ? (
-                  <CheckCircle2 size={10} color="#FFFFFF" />
+                  <CheckCircle2 size={12} color="#FFFFFF" />
                 ) : (
                   <View className="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900" />
                 )}
@@ -145,7 +147,7 @@ export function TodayAttendanceCard({
           }}
           variant="outline"
           size="md"
-          rightIcon={<ArrowRight size={16} color={colors.neutral[700]} />}
+          rightIcon={<ArrowRight size={16} color={isDark ? colors.neutral[300] : colors.neutral[700]} />}
           className="w-full"
         />
       )}
