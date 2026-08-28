@@ -30,7 +30,7 @@ export function NotificationBellButton({
       accessibilityRole="button"
       accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
       style={{ width: 44, height: 44, minWidth: 44, minHeight: 44 }}
-      className={`rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none items-center justify-center relative ${
+      className={`rounded-2xl bg-white dark:bg-transparent border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none items-center justify-center relative ${
         className || ''
       }`}
     >

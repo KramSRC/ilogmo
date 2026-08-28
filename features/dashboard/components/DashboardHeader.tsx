@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { Bell } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
 import { useNotificationStore } from '@/store';
+import { NotificationBellButton } from '@/components/ui/NotificationBellButton';
 
 export interface DashboardHeaderProps {
   firstName?: string;
@@ -46,23 +47,7 @@ export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: Das
       </View>
 
       {/* Notification Bell Button */}
-      <TouchableOpacity
-        onPress={() => router.push('/(app)/notifications')}
-        activeOpacity={0.7}
-        accessibilityRole="button"
-        accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
-        style={{ minHeight: 44, minWidth: 44 }}
-        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none items-center justify-center relative"
-      >
-        <Bell size={20} color={colors.neutral[700]} />
-        {hasUnread ? (
-          <View className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-600 border-2 border-white items-center justify-center">
-            <Text className="text-[10px] font-bold font-sans text-white leading-none">
-              {unreadCount > 9 ? '9+' : unreadCount}
-            </Text>
-          </View>
-        ) : null}
-      </TouchableOpacity>
+      <NotificationBellButton unreadCount={unreadCount} />
     </View>
   );
 }
