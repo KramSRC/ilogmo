@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { TaskFilter, TaskStats } from '../types';
 
 export interface TaskFilterBarProps {
@@ -31,16 +31,17 @@ export function TaskFilterBar({
         {statusTabs.map((tab) => {
           const isActive = statusFilter === tab.id;
           return (
-            <TouchableOpacity
+            <Pressable
               key={tab.id}
               onPress={() => onSelectStatus(tab.id)}
-              activeOpacity={0.7}
               accessibilityRole="radio"
               accessibilityState={{ checked: isActive }}
               accessibilityLabel={`${tab.label} tasks, ${tab.count} items`}
-              className={`flex-1 flex-row items-center justify-center py-2.5 rounded-xl ${
-                isActive ? 'bg-white dark:bg-neutral-900 shadow-soft-sm dark:shadow-none' : 'bg-transparent'
-              }`}
+              className={({ pressed }) =>
+                `flex-1 flex-row items-center justify-center py-2.5 rounded-xl ${
+                  isActive ? 'bg-white dark:bg-neutral-900 shadow-soft-sm dark:shadow-none' : 'bg-transparent'
+                } ${pressed ? 'opacity-70' : 'opacity-100'}`
+              }
             >
               <Text
                 className={`text-xs font-sans ${
@@ -62,7 +63,7 @@ export function TaskFilterBar({
                   {tab.count}
                 </Text>
               </View>
-            </TouchableOpacity>
+            </Pressable>
           );
         })}
       </View>
