@@ -13,11 +13,13 @@ import {
   formatHoursMinutes,
 } from '@/features/attendance/utils/timeUtils';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function AttendanceDetailsScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { user } = useAuth();
+  const isDark = useThemeStore((state) => state.isDark);
 
   const [record, setRecord] = useState<AttendanceRecord | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +69,7 @@ export default function AttendanceDetailsScreen() {
           style={{ minHeight: 44, minWidth: 44 }}
           className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none mr-3"
         >
-          <ArrowLeft size={20} color={colors.neutral[700]} />
+          <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
         </TouchableOpacity>
 
         <View className="flex-1">
