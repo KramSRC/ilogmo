@@ -22,11 +22,13 @@ import { useJournal, JournalEntry } from '@/features/journal';
 import { formatJournalDate, formatJournalTime } from '@/features/journal/utils/journalUtils';
 import { Button } from '@/components';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function JournalDetailsScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { getEntryById, deleteEntry, isDeleting } = useJournal();
+  const isDark = useThemeStore((state) => state.isDark);
 
   const [entry, setEntry] = useState<JournalEntry | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -107,7 +109,7 @@ export default function JournalDetailsScreen() {
             style={{ minHeight: 44, minWidth: 44 }}
             className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
+            <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
@@ -169,7 +171,7 @@ export default function JournalDetailsScreen() {
               </View>
 
               {formatJournalTime(entry.createdAt) ? (
-                <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-900 px-2.5 py-1.5 rounded-full border border-neutral-200 dark:border-transparent">
+                <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-800 px-2.5 py-1.5 rounded-full border border-neutral-200 dark:border-transparent">
                   <Clock size={13} color={colors.neutral[500]} />
                   <Text className="ml-1 text-xs font-semibold font-sans text-neutral-600 dark:text-neutral-400">
                     {formatJournalTime(entry.createdAt)}
