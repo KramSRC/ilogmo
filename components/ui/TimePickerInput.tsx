@@ -152,7 +152,7 @@ export function TimePickerInput({
           onRequestClose={() => setShowPicker(false)}
         >
           <View className="flex-1 bg-black/40 justify-end">
-            <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-5 pb-8 shadow-card dark:shadow-none border-t border-neutral-200 dark:border-transparent">
+            <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-5 pb-8 shadow-card dark:shadow-none border-t border-neutral-200 dark:border-neutral-800">
               <View className="flex-row justify-between items-center mb-4 pb-3 border-b border-neutral-100 dark:border-neutral-800">
                 <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
                   {label || 'Select Time'}

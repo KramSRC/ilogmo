@@ -46,7 +46,7 @@ export function Button({
     variantText = 'text-neutral-900 dark:text-neutral-100 font-semibold';
     indicatorColor = colors.neutral[900];
   } else if (variant === 'outline') {
-    variantContainer = 'bg-white dark:bg-neutral-900 active:bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-transparent';
+    variantContainer = 'bg-white dark:bg-neutral-900 active:bg-neutral-50 dark:active:bg-neutral-800 border border-neutral-200 dark:border-neutral-800';
     variantText = 'text-neutral-900 dark:text-neutral-100 font-medium';
     indicatorColor = colors.primary[600];
   } else if (variant === 'ghost') {
