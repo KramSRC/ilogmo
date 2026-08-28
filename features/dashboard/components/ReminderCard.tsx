@@ -25,7 +25,7 @@ export function ReminderCard({ reminder }: ReminderCardProps) {
       className="bg-amber-50 dark:bg-amber-900/40 rounded-card p-4 border border-amber-200 dark:border-amber-800 mb-8 flex-row items-center justify-between"
     >
       <View className="flex-row items-center flex-1 mr-2">
-        <View className="w-10 h-10 rounded-2xl bg-amber-100 items-center justify-center mr-3 border border-amber-200 dark:border-amber-800">
+        <View className="w-10 h-10 rounded-2xl bg-amber-100 dark:bg-amber-500/20 items-center justify-center mr-3 border border-amber-200 dark:border-amber-500/30">
           <IconComponent size={18} color={colors.warning.dark} />
         </View>
 
@@ -35,7 +35,7 @@ export function ReminderCard({ reminder }: ReminderCardProps) {
               {reminder.timing}
             </Text>
           </View>
-          <Text className="text-sm font-bold font-sans text-amber-950 mt-0.5" numberOfLines={1}>
+          <Text className="text-sm font-bold font-sans text-amber-950 dark:text-amber-100 mt-0.5" numberOfLines={1}>
             {reminder.title}
           </Text>
           {reminder.description ? (
