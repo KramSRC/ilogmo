@@ -9,12 +9,14 @@ import Svg, { Circle } from 'react-native-svg';
 import { TrendingUp, Clock, CheckCircle2 } from 'lucide-react-native';
 import { OjtProgressStats } from '../types';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface OverallProgressCardProps {
   progress: OjtProgressStats;
 }
 
 export function OverallProgressCard({ progress }: OverallProgressCardProps) {
+  const isDark = useThemeStore((state) => state.isDark);
   // SVG Circular Ring Dimensions
   const size = 108;
   const strokeWidth = 10;
@@ -79,7 +81,7 @@ export function OverallProgressCard({ progress }: OverallProgressCardProps) {
               cx={size / 2}
               cy={size / 2}
               r={radius}
-              stroke="#EFF6FF"
+              stroke={isDark ? colors.neutral[800] : '#EFF6FF'}
               strokeWidth={strokeWidth}
               fill="none"
             />
