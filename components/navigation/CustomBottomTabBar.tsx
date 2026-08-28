@@ -11,6 +11,7 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { House, Clock, BookOpen, CheckSquare, Ellipsis, X } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 import { FloatingNavMenu } from './FloatingNavMenu';
 
 interface TabItemConfig {
@@ -47,6 +48,7 @@ const MENU_ROUTE_NAMES = ['analytics', 'documents', 'reports', 'profile', 'setti
 export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
   const insets = useSafeAreaInsets();
   const router = useRouter();
+  const isDark = useThemeStore((state) => state.isDark);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const currentRoute = state.routes[state.index];
@@ -116,13 +118,13 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         <View
           style={{
             height: BAR_HEIGHT,
-            backgroundColor: '#FFFFFF',
+            backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
             borderRadius: BAR_HEIGHT / 2,
             borderWidth: 1,
-            borderColor: 'rgba(226, 232, 240, 0.95)',
-            shadowColor: '#0F172A',
+            borderColor: isDark ? '#1E293B' : 'rgba(226, 232, 240, 0.95)',
+            shadowColor: '#000000',
             shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.09,
+            shadowOpacity: isDark ? 0.35 : 0.09,
             shadowRadius: 14,
             elevation: 8,
           }}
@@ -130,8 +132,8 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         >
           {PRIMARY_TABS.map((tab) => {
             const isFocused = currentRoute.name === tab.name;
-            const activeColor = colors.primary[600];
-            const inactiveColor = colors.neutral[400];
+            const activeColor = colors.primary[500];
+            const inactiveColor = isDark ? colors.neutral[500] : colors.neutral[400];
             const iconColor = isFocused ? activeColor : inactiveColor;
 
             return (
@@ -172,23 +174,39 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
             width: BAR_HEIGHT,
             height: BAR_HEIGHT,
             borderRadius: BAR_HEIGHT / 2,
-            backgroundColor: isMoreActive ? '#EFF6FF' : '#FFFFFF',
+            backgroundColor: isMoreActive
+              ? isDark
+                ? 'rgba(37, 99, 235, 0.25)'
+                : '#EFF6FF'
+              : isDark
+                ? '#0F172A'
+                : '#FFFFFF',
             borderWidth: 1,
-            borderColor: isMoreActive ? colors.primary[300] : 'rgba(226, 232, 240, 0.95)',
-            shadowColor: '#0F172A',
+            borderColor: isMoreActive
+              ? colors.primary[400]
+              : isDark
+                ? '#1E293B'
+                : 'rgba(226, 232, 240, 0.95)',
+            shadowColor: '#000000',
             shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.1,
+            shadowOpacity: isDark ? 0.35 : 0.1,
             shadowRadius: 14,
             elevation: 8,
           }}
           className="items-center justify-center"
         >
           {isMenuOpen ? (
-            <X size={23} color={colors.primary[600]} strokeWidth={2.4} />
+            <X size={23} color={colors.primary[500]} strokeWidth={2.4} />
           ) : (
             <Ellipsis
               size={23}
-              color={isMenuDestinationActive ? colors.primary[600] : colors.neutral[700]}
+              color={
+                isMenuDestinationActive
+                  ? colors.primary[500]
+                  : isDark
+                    ? colors.neutral[300]
+                    : colors.neutral[700]
+              }
               strokeWidth={2.2}
             />
           )}

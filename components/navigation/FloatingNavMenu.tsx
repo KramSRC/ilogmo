@@ -24,6 +24,7 @@ import {
   ChevronRight,
 } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface MenuItem {
   id: string;
@@ -96,6 +97,7 @@ export function FloatingNavMenu({
   onNavigate,
   bottomOffset,
 }: FloatingNavMenuProps) {
+  const isDark = useThemeStore((state) => state.isDark);
   const animValue = useRef(new Animated.Value(0)).current;
   const [rendered, setRendered] = React.useState(isOpen);
 
@@ -128,24 +130,31 @@ export function FloatingNavMenu({
         toValue: 0,
         duration: 180,
         useNativeDriver: true,
-      }).start(({ finished }) => {
-        if (finished) {
-          setRendered(false);
-        }
+      }).start(() => {
+        setRendered(false);
       });
     }
   }, [isOpen, animValue]);
 
   if (!rendered) return null;
 
-  const opacity = animValue;
+  const screenWidth = Dimensions.get('window').width;
+  const panelWidth = Math.min(270, screenWidth - 28);
+
   const translateY = animValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [16, 0],
+    outputRange: [14, 0],
   });
 
-  const screenWidth = Dimensions.get('window').width;
-  const panelWidth = Math.min(296, screenWidth * 0.82);
+  const opacity = animValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
+
+  const backdropOpacity = animValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 0.45],
+  });
 
   return (
     <View
@@ -155,12 +164,13 @@ export function FloatingNavMenu({
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: 999,
+        zIndex: 9999,
+        elevation: 9999,
       }}
       pointerEvents={isOpen ? 'auto' : 'none'}
     >
-      {/* 1. Backdrop Overlay (Tap outside to close) */}
-      <TouchableWithoutFeedback onPress={onClose} accessibilityLabel="Close menu backdrop">
+      {/* Backdrop overlay */}
+      <TouchableWithoutFeedback onPress={onClose} accessibilityLabel="Close menu overlay">
         <Animated.View
           style={{
             position: 'absolute',
@@ -168,13 +178,13 @@ export function FloatingNavMenu({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.28)',
-            opacity,
+            backgroundColor: '#0F172A',
+            opacity: backdropOpacity,
           }}
         />
       </TouchableWithoutFeedback>
 
-      {/* 2. Anchored Floating Menu Panel */}
+      {/* Floating Menu Panel */}
       <Animated.View
         style={{
           position: 'absolute',
@@ -183,13 +193,16 @@ export function FloatingNavMenu({
           width: panelWidth,
           opacity,
           transform: [{ translateY }],
-          shadowColor: '#0F172A',
+          backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
+          borderColor: isDark ? '#1E293B' : '#E2E8F0',
+          borderWidth: 1,
+          shadowColor: '#000000',
           shadowOffset: { width: 0, height: 6 },
-          shadowOpacity: 0.16,
+          shadowOpacity: isDark ? 0.4 : 0.16,
           shadowRadius: 16,
           elevation: 12,
         }}
-        className="bg-white rounded-3xl border border-neutral-200 overflow-hidden"
+        className="rounded-3xl overflow-hidden"
       >
         <View className="p-2">
           {MENU_ITEMS.map((item, index) => {
@@ -206,7 +219,7 @@ export function FloatingNavMenu({
                 accessibilityRole="button"
                 accessibilityLabel={`${item.title}, ${item.subtitle}`}
                 style={{ minHeight: 52 }}
-                className={`flex-row items-center px-3 py-2.5 rounded-2xl active:bg-neutral-50 ${
+                className={`flex-row items-center px-3 py-2.5 rounded-2xl active:bg-neutral-100 dark:active:bg-neutral-800 ${
                   isLast ? '' : 'mb-0.5'
                 }`}
               >
@@ -219,18 +232,18 @@ export function FloatingNavMenu({
 
                 {/* Text Content */}
                 <View className="flex-1 mr-1">
-                  <Text className="text-sm font-bold font-sans text-neutral-900 leading-tight">
+                  <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 leading-tight">
                     {item.title}
                   </Text>
                   <Text
-                    className="text-[11px] font-sans text-neutral-500 mt-0.5 leading-tight"
+                    className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 mt-0.5 leading-tight"
                     numberOfLines={1}
                   >
                     {item.subtitle}
                   </Text>
                 </View>
 
-                <ChevronRight size={15} color={colors.neutral[300]} />
+                <ChevronRight size={15} color={isDark ? colors.neutral[600] : colors.neutral[300]} />
               </TouchableOpacity>
             );
           })}

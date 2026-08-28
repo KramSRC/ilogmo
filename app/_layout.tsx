@@ -12,11 +12,12 @@ import {
 } from '@expo-google-fonts/inter';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ActivityIndicator, View, Platform, StatusBar as RNStatusBar } from 'react-native';
+import { ActivityIndicator, View, Platform, StatusBar as RNStatusBar, Appearance } from 'react-native';
 import * as Linking from 'expo-linking';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/store/authStore';
 import { useOjtStore } from '@/store/ojtStore';
+import { useThemeStore } from '@/store/themeStore';
 import { authService } from '@/features/auth/services/authService';
 import { ojtService } from '@/features/ojt/services/ojtService';
 import { colors } from '@/constants/colors';
@@ -24,6 +25,8 @@ import { colors } from '@/constants/colors';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const isDark = useThemeStore((state) => state.isDark);
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -31,17 +34,30 @@ export default function RootLayout() {
     Inter_700Bold,
   });
 
-  // 1. Configure transparent Android status bar & hide native splash screen once fonts are loaded
+  // 1. Initialize theme preference on startup & listen to OS appearance changes
+  useEffect(() => {
+    useThemeStore.getState().initTheme();
+
+    const appearanceListener = Appearance.addChangeListener(({ colorScheme }) => {
+      useThemeStore.getState().syncSystemTheme(colorScheme);
+    });
+
+    return () => {
+      appearanceListener.remove();
+    };
+  }, []);
+
+  // 2. Configure Android translucent status bar & hide native splash screen once fonts are loaded
   useEffect(() => {
     if (Platform.OS === 'android') {
       RNStatusBar.setTranslucent(true);
       RNStatusBar.setBackgroundColor('transparent');
-      RNStatusBar.setBarStyle('dark-content');
+      RNStatusBar.setBarStyle(isDark ? 'light-content' : 'dark-content');
     }
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, isDark]);
 
   // 2. Set up global Supabase auth state listener (using getState() to prevent root re-renders)
   useEffect(() => {
@@ -139,12 +155,12 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <StatusBar style="dark" />
+        <StatusBar style={isDark ? 'light' : 'dark'} />
         <Stack
           screenOptions={{
             headerShown: false,
             contentStyle: {
-              backgroundColor: colors.background.app,
+              backgroundColor: isDark ? '#020617' : colors.background.app,
             },
           }}
         >

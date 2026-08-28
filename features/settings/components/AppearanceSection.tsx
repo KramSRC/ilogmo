@@ -8,6 +8,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { Smartphone, Sun, Moon, Check } from 'lucide-react-native';
 import { ThemeMode } from '../types';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface AppearanceSectionProps {
   themeMode: ThemeMode;
@@ -41,10 +42,14 @@ const THEME_OPTIONS: {
 ];
 
 export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectionProps) {
+  const isDark = useThemeStore((state) => state.isDark);
+
   return (
     <View className="p-4">
-      <Text className="text-sm font-semibold font-sans text-neutral-800 mb-1">Theme</Text>
-      <Text className="text-xs font-sans text-neutral-400 mb-3.5">
+      <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1">
+        Theme
+      </Text>
+      <Text className="text-xs font-sans text-neutral-400 dark:text-neutral-400 mb-3.5">
         Choose how iLogMo looks on your device
       </Text>
 
@@ -52,7 +57,11 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
       <View className="flex-row justify-between space-x-2">
         {THEME_OPTIONS.map((opt) => {
           const isSelected = themeMode === opt.id;
-          const activeColor = isSelected ? colors.primary[600] : colors.neutral[500];
+          const activeColor = isSelected
+            ? colors.primary[600]
+            : isDark
+              ? colors.neutral[400]
+              : colors.neutral[500];
 
           return (
             <TouchableOpacity
@@ -65,7 +74,9 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
               style={[
                 { minHeight: 74 },
                 isSelected && {
-                  backgroundColor: 'rgba(239, 246, 255, 0.7)', // primary-50 with 70% opacity
+                  backgroundColor: isDark
+                    ? 'rgba(37, 99, 235, 0.18)'
+                    : 'rgba(239, 246, 255, 0.7)',
                   shadowColor: '#000',
                   shadowOffset: { width: 0, height: 1 },
                   shadowOpacity: 0.04,
@@ -76,14 +87,16 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
               className={`flex-1 mx-1 p-3 rounded-2xl items-center justify-center border ${
                 isSelected
                   ? 'border-primary-500'
-                  : 'bg-neutral-50 border-neutral-200'
+                  : 'bg-neutral-50 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700'
               }`}
             >
               <View className="mb-1.5">{opt.icon(activeColor)}</View>
 
               <Text
                 className={`text-xs font-bold font-sans ${
-                  isSelected ? 'text-primary-700' : 'text-neutral-700'
+                  isSelected
+                    ? 'text-primary-700 dark:text-primary-400'
+                    : 'text-neutral-700 dark:text-neutral-300'
                 }`}
                 numberOfLines={1}
               >
@@ -96,7 +109,7 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
                     <Check size={10} color="#FFFFFF" strokeWidth={3} />
                   </View>
                 ) : (
-                  <View className="w-4 h-4 rounded-full border border-neutral-300 bg-white" />
+                  <View className="w-4 h-4 rounded-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700" />
                 )}
               </View>
             </TouchableOpacity>

@@ -31,4 +31,5 @@ export * from './journalStore';
 export * from './taskStore';
 export * from './documentStore';
 export * from './notificationStore';
+export * from './themeStore';
 export default useAppStore;
