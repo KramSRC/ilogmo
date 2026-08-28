@@ -50,7 +50,7 @@ export function ExportDataModal({
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
+              <View className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-3 border border-primary-100 dark:border-primary-800/50">
                 <Download size={20} color={colors.primary[600]} />
               </View>
               <View className="flex-1">
@@ -66,7 +66,7 @@ export function ExportDataModal({
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel="Close export modal"
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>
@@ -81,13 +81,13 @@ export function ExportDataModal({
             ) : null}
 
             {success ? (
-              <View className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-4 flex-row items-center">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-4 mb-4 flex-row items-center">
                 <CheckCircle2 size={20} color={colors.success.DEFAULT} className="mr-3" />
                 <View className="flex-1 ml-2.5">
-                  <Text className="text-sm font-bold font-sans text-emerald-900">
+                  <Text className="text-sm font-bold font-sans text-emerald-900 dark:text-emerald-100">
                     Your data export is ready.
                   </Text>
-                  <Text className="text-xs font-sans text-emerald-700 mt-0.5">
+                  <Text className="text-xs font-sans text-emerald-700 dark:text-emerald-300 mt-0.5">
                     The share sheet has been opened to save or share your JSON export file.
                   </Text>
                 </View>
@@ -147,9 +147,9 @@ export function ExportDataModal({
             </View>
 
             {/* Privacy notice */}
-            <View className="flex-row items-start p-3 bg-amber-50 rounded-xl border border-amber-200 mb-2">
+            <View className="flex-row items-start p-3 bg-amber-50 dark:bg-amber-900/40 rounded-xl border border-amber-200 dark:border-amber-800 mb-2">
               <ShieldCheck size={16} color="#D97706" className="mt-0.5 mr-2" />
-              <Text className="text-[11px] font-sans text-amber-800 flex-1 ml-2 leading-4">
+              <Text className="text-[11px] font-sans text-amber-800 dark:text-amber-300 flex-1 ml-2 leading-4">
                 Passwords, authentication tokens, and private credentials are never exported. Document
                 binaries are not downloaded to maintain a fast, lightweight export.
               </Text>

@@ -25,7 +25,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
+              <View className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-3 border border-primary-100 dark:border-primary-800/50">
                 <Info size={20} color={colors.primary[600]} />
               </View>
               <View className="flex-1">
@@ -41,7 +41,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel="Close about modal"
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>
@@ -55,8 +55,8 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
               <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center px-4 mt-1">
                 A mobile application designed to help students manage and track their OJT experience.
               </Text>
-              <View className="bg-primary-50 px-3 py-1 rounded-full border border-primary-200 mt-2">
-                <Text className="text-[11px] font-bold font-sans text-primary-700">
+              <View className="bg-primary-50 dark:bg-primary-900/40 px-3 py-1 rounded-full border border-primary-200 mt-2">
+                <Text className="text-[11px] font-bold font-sans text-primary-700 dark:text-primary-300">
                   Version {appVersion}
                 </Text>
               </View>
@@ -66,7 +66,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
             <View className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 divide-y divide-neutral-100 mb-4">
               {/* Developer */}
               <View className="flex-row items-center p-3.5">
-                <View className="w-8 h-8 rounded-lg bg-sky-50 items-center justify-center mr-3 border border-sky-100">
+                <View className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-900/40 items-center justify-center mr-3 border border-sky-100 dark:border-sky-800/50">
                   <Code2 size={16} color="#0284C7" />
                 </View>
                 <View className="flex-1">
@@ -79,7 +79,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
 
               {/* Technology Stack */}
               <View className="flex-row items-center p-3.5">
-                <View className="w-8 h-8 rounded-lg bg-indigo-50 items-center justify-center mr-3 border border-indigo-100">
+                <View className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/40 items-center justify-center mr-3 border border-indigo-100 dark:border-indigo-800/50">
                   <Layers size={16} color="#4F46E5" />
                 </View>
                 <View className="flex-1">
@@ -92,7 +92,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
 
               {/* Open Source Licenses */}
               <View className="flex-row items-center p-3.5">
-                <View className="w-8 h-8 rounded-lg bg-amber-50 items-center justify-center mr-3 border border-amber-100">
+                <View className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-3 border border-amber-100">
                   <Award size={16} color="#D97706" />
                 </View>
                 <View className="flex-1">

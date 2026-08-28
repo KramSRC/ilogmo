@@ -17,20 +17,20 @@ export function QuickActionCard({ title, subtitle, icon, route }: QuickActionCar
 
   let IconComponent = Clock;
   let iconColor: string = colors.primary[600];
-  let iconBg = 'bg-primary-50 border-primary-100';
+  let iconBg = 'bg-primary-50 dark:bg-primary-900/40 border-primary-100 dark:border-primary-800/50';
 
   if (icon === 'journal') {
     IconComponent = BookOpen;
     iconColor = '#4F46E5'; // Indigo
-    iconBg = 'bg-indigo-50 border-indigo-100';
+    iconBg = 'bg-indigo-50 dark:bg-indigo-900/40 border-indigo-100 dark:border-indigo-800/50';
   } else if (icon === 'calendar') {
     IconComponent = Calendar;
     iconColor = colors.success.DEFAULT;
-    iconBg = 'bg-emerald-50 border-emerald-100';
+    iconBg = 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100';
   } else if (icon === 'documents') {
     IconComponent = Folder;
     iconColor = '#0284C7'; // Sky blue
-    iconBg = 'bg-sky-50 border-sky-100';
+    iconBg = 'bg-sky-50 dark:bg-sky-900/40 border-sky-100 dark:border-sky-800/50';
   } else if (icon === 'reports') {
     IconComponent = FileText;
     iconColor = '#8B5CF6'; // Violet
@@ -38,7 +38,7 @@ export function QuickActionCard({ title, subtitle, icon, route }: QuickActionCar
   } else if (icon === 'tasks') {
     IconComponent = CheckSquare;
     iconColor = '#F59E0B'; // Amber
-    iconBg = 'bg-amber-50 border-amber-100';
+    iconBg = 'bg-amber-50 dark:bg-amber-900/40 border-amber-100';
   }
 
   return (

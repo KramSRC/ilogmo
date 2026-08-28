@@ -33,7 +33,7 @@ export function AttendanceHistory({ records }: AttendanceHistoryProps) {
       <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card border border-neutral-200 dark:border-neutral-800">
         {records.length === 0 ? (
           <View className="items-center py-6">
-            <View className="w-10 h-10 rounded-2xl bg-neutral-100 items-center justify-center mb-2">
+            <View className="w-10 h-10 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-2">
               <CalendarOff size={20} color={colors.neutral[400]} />
             </View>
             <Text className="text-sm font-semibold font-sans text-neutral-700 dark:text-neutral-300">

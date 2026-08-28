@@ -19,10 +19,10 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
       {/* 2-Column Metrics Cards: Total Hours & Attendance Rate */}
       <View className="flex-row justify-between mb-5">
         {/* Total Hours in Month */}
-        <View className="flex-1 mr-2 bg-primary-50 rounded-2xl p-4 border border-primary-100">
+        <View className="flex-1 mr-2 bg-primary-50 dark:bg-primary-900/40 rounded-2xl p-4 border border-primary-100 dark:border-primary-800/50">
           <View className="flex-row items-center mb-1.5">
             <Clock size={16} color={colors.primary[600]} />
-            <Text className="text-xs font-semibold font-sans text-primary-700 ml-1.5">
+            <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300 ml-1.5">
               Total Hours
             </Text>
           </View>
@@ -35,10 +35,10 @@ export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
         </View>
 
         {/* Monthly Attendance Rate */}
-        <View className="flex-1 ml-2 bg-emerald-50 rounded-2xl p-4 border border-emerald-100">
+        <View className="flex-1 ml-2 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl p-4 border border-emerald-100">
           <View className="flex-row items-center mb-1.5">
             <Percent size={16} color={colors.success.DEFAULT} />
-            <Text className="text-xs font-semibold font-sans text-emerald-700 ml-1.5">
+            <Text className="text-xs font-semibold font-sans text-emerald-700 dark:text-emerald-300 ml-1.5">
               Attendance
             </Text>
           </View>

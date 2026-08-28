@@ -138,8 +138,8 @@ export default function SettingsScreen() {
         <SettingsSection title="Notifications">
           <SettingsRow
             icon={<Bell size={18} color="#0284C7" />}
-            iconBgColor="bg-sky-50"
-            iconBorderColor="border-sky-100"
+            iconBgColor="bg-sky-50 dark:bg-sky-900/40"
+            iconBorderColor="border-sky-100 dark:border-sky-800/50"
             title="Notification Settings"
             subtitle="Manage shift reminders, task due dates & milestones"
             onPress={() => setIsNotificationModalOpen(true)}
@@ -153,8 +153,8 @@ export default function SettingsScreen() {
         <SettingsSection title="Account">
           <SettingsRow
             icon={<KeyRound size={18} color="#4F46E5" />}
-            iconBgColor="bg-indigo-50"
-            iconBorderColor="border-indigo-100"
+            iconBgColor="bg-indigo-50 dark:bg-indigo-900/40"
+            iconBorderColor="border-indigo-100 dark:border-indigo-800/50"
             title="Change Password"
             subtitle="Update your account security password"
             onPress={() => setIsPasswordModalOpen(true)}
@@ -182,8 +182,8 @@ export default function SettingsScreen() {
         <SettingsSection title="Data & Privacy">
           <SettingsRow
             icon={<Download size={18} color={colors.primary[600]} />}
-            iconBgColor="bg-primary-50"
-            iconBorderColor="border-primary-100"
+            iconBgColor="bg-primary-50 dark:bg-primary-900/40"
+            iconBorderColor="border-primary-100 dark:border-primary-800/50"
             title="Export My Data"
             subtitle="Create a copy of your raw records as JSON"
             onPress={() => setIsExportModalOpen(true)}
@@ -191,7 +191,7 @@ export default function SettingsScreen() {
 
           <SettingsRow
             icon={<Trash2 size={18} color="#DC2626" />}
-            iconBgColor="bg-red-50"
+            iconBgColor="bg-red-50 dark:bg-red-900/40"
             iconBorderColor="border-red-100"
             title="Delete Account"
             subtitle="Permanently remove your account and records"
@@ -207,8 +207,8 @@ export default function SettingsScreen() {
         <SettingsSection title="About">
           <SettingsRow
             icon={<Info size={18} color="#0284C7" />}
-            iconBgColor="bg-sky-50"
-            iconBorderColor="border-sky-100"
+            iconBgColor="bg-sky-50 dark:bg-sky-900/40"
+            iconBorderColor="border-sky-100 dark:border-sky-800/50"
             title="About iLogMo"
             subtitle="OJT Hours & Experience Tracker"
             value={`v${appVersion}`}
@@ -217,7 +217,7 @@ export default function SettingsScreen() {
 
           <SettingsRow
             icon={<ShieldCheck size={18} color="#059669" />}
-            iconBgColor="bg-emerald-50"
+            iconBgColor="bg-emerald-50 dark:bg-emerald-900/40"
             iconBorderColor="border-emerald-100"
             title="Privacy Policy"
             subtitle="How iLogMo handles and protects your data"
@@ -226,7 +226,7 @@ export default function SettingsScreen() {
 
           <SettingsRow
             icon={<FileText size={18} color="#D97706" />}
-            iconBgColor="bg-amber-50"
+            iconBgColor="bg-amber-50 dark:bg-amber-900/40"
             iconBorderColor="border-amber-100"
             title="Terms of Service"
             subtitle="Rules and acceptable usage guidelines"
@@ -241,7 +241,7 @@ export default function SettingsScreen() {
         <SettingsSection title="Danger Zone">
           <SettingsRow
             icon={<LogOut size={18} color="#DC2626" />}
-            iconBgColor="bg-red-50"
+            iconBgColor="bg-red-50 dark:bg-red-900/40"
             iconBorderColor="border-red-100"
             title="Sign Out"
             subtitle="Log out of your session on this device"

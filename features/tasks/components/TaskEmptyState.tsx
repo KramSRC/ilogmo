@@ -20,8 +20,8 @@ export function TaskEmptyState({ filter, onCreateTask }: TaskEmptyStateProps) {
   let description = 'Create a task to start organizing your OJT.';
   let Icon = CheckSquare;
   let iconColor: string = colors.primary[600];
-  let iconBg = 'bg-primary-50';
-  let iconBorder = 'border-primary-100';
+  let iconBg = 'bg-primary-50 dark:bg-primary-900/40';
+  let iconBorder = 'border-primary-100 dark:border-primary-800/50';
   let showButton = true;
 
   if (filter === 'pending') {
@@ -29,14 +29,14 @@ export function TaskEmptyState({ filter, onCreateTask }: TaskEmptyStateProps) {
     description = 'No tasks are waiting for you right now.';
     Icon = ListTodo;
     iconColor = colors.success.DEFAULT;
-    iconBg = 'bg-emerald-50';
+    iconBg = 'bg-emerald-50 dark:bg-emerald-900/40';
     iconBorder = 'border-emerald-100';
   } else if (filter === 'completed') {
     title = 'No completed tasks yet.';
     description = 'Tasks you mark as completed will appear here.';
     Icon = CheckCircle2;
     iconColor = colors.neutral[400];
-    iconBg = 'bg-neutral-100';
+    iconBg = 'bg-neutral-100 dark:bg-neutral-800';
     iconBorder = 'border-neutral-200 dark:border-neutral-800';
     showButton = false;
   }

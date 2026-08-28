@@ -85,7 +85,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
       kind: 'pdf',
       badge: 'PDF',
       color: '#DC2626', // Red
-      bg: 'bg-red-50 border-red-100',
+      bg: 'bg-red-50 dark:bg-red-900/40 border-red-100',
     };
   }
 
@@ -100,7 +100,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
       kind: 'doc',
       badge: ext.toUpperCase() || 'DOCX',
       color: '#2563EB', // Blue
-      bg: 'bg-blue-50 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-900/40 border-blue-100',
     };
   }
 
@@ -116,7 +116,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
       kind: 'sheet',
       badge: ext.toUpperCase() || 'XLSX',
       color: '#16A34A', // Green
-      bg: 'bg-emerald-50 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
     };
   }
 
@@ -151,7 +151,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
       kind: 'text',
       badge: 'TXT',
       color: '#4B5563', // Gray
-      bg: 'bg-neutral-100 border-neutral-200 dark:border-neutral-800',
+      bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
     };
   }
 
@@ -160,7 +160,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
     kind: 'other',
     badge: ext.toUpperCase() || 'FILE',
     color: '#4B5563',
-    bg: 'bg-neutral-100 border-neutral-200 dark:border-neutral-800',
+    bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
   };
 }
 

@@ -110,25 +110,25 @@ export default function TaskDetailsScreen() {
     switch (priority) {
       case 'high':
         return (
-          <View className="flex-row items-center bg-red-50 px-2.5 py-1 rounded-xl border border-red-200">
+          <View className="flex-row items-center bg-red-50 dark:bg-red-900/40 px-2.5 py-1 rounded-xl border border-red-200 dark:border-red-800">
             <Text className="text-xs font-bold text-red-600 mr-1.5">!</Text>
-            <Text className="text-xs font-bold font-sans text-red-700 uppercase tracking-wider">
+            <Text className="text-xs font-bold font-sans text-red-700 dark:text-red-300 uppercase tracking-wider">
               High Priority
             </Text>
           </View>
         );
       case 'medium':
         return (
-          <View className="flex-row items-center bg-amber-50 px-2.5 py-1 rounded-xl border border-amber-200">
+          <View className="flex-row items-center bg-amber-50 dark:bg-amber-900/40 px-2.5 py-1 rounded-xl border border-amber-200 dark:border-amber-800">
             <Text className="text-xs font-bold text-amber-600 mr-1.5">•</Text>
-            <Text className="text-xs font-bold font-sans text-amber-800 uppercase tracking-wider">
+            <Text className="text-xs font-bold font-sans text-amber-800 dark:text-amber-300 uppercase tracking-wider">
               Medium Priority
             </Text>
           </View>
         );
       case 'low':
         return (
-          <View className="flex-row items-center bg-neutral-100 px-2.5 py-1 rounded-xl border border-neutral-200 dark:border-neutral-800">
+          <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 rounded-xl border border-neutral-200 dark:border-neutral-800">
             <Text className="text-xs font-bold text-neutral-500 dark:text-neutral-400 mr-1.5">↓</Text>
             <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">
               Low Priority
@@ -172,7 +172,7 @@ export default function TaskDetailsScreen() {
           <TouchableOpacity
             onPress={handleEdit}
             activeOpacity={0.7}
-            className="w-10 h-10 rounded-full bg-primary-50 items-center justify-center border border-primary-100"
+            className="w-10 h-10 rounded-full bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50"
           >
             <Edit2 size={18} color={colors.primary[600]} />
           </TouchableOpacity>
@@ -211,12 +211,12 @@ export default function TaskDetailsScreen() {
               {/* Status Badge */}
               <View
                 className={`px-3 py-1 rounded-full border ${
-                  task.completed ? 'bg-emerald-50 border-emerald-200' : 'bg-blue-50 border-blue-200'
+                  task.completed ? 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800' : 'bg-blue-50 dark:bg-blue-900/40 border-blue-200 dark:border-blue-800'
                 }`}
               >
                 <Text
                   className={`text-xs font-bold font-sans ${
-                    task.completed ? 'text-emerald-700' : 'text-primary-700'
+                    task.completed ? 'text-emerald-700 dark:text-emerald-300' : 'text-primary-700 dark:text-primary-300'
                   }`}
                 >
                   {task.completed ? 'Completed' : 'Pending'}
@@ -266,7 +266,7 @@ export default function TaskDetailsScreen() {
             {task.completed && task.completedAt ? (
               <View className="flex-row items-center justify-between py-1.5">
                 <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Completed On</Text>
-                <Text className="text-xs font-semibold font-sans text-emerald-700">
+                <Text className="text-xs font-semibold font-sans text-emerald-700 dark:text-emerald-300">
                   {formatJournalDate(task.completedAt.slice(0, 10))}
                 </Text>
               </View>

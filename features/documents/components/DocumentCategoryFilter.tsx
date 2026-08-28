@@ -54,7 +54,7 @@ export function DocumentCategoryFilter({
               {typeof count === 'number' && count > 0 ? (
                 <View
                   className={`ml-1.5 px-1.5 py-0.2 rounded-full ${
-                    isSelected ? 'bg-white dark:bg-neutral-900/25' : 'bg-neutral-100'
+                    isSelected ? 'bg-white dark:bg-neutral-900/25' : 'bg-neutral-100 dark:bg-neutral-800'
                   }`}
                 >
                   <Text

@@ -32,7 +32,7 @@ export function MonthNavigator({
         accessibilityLabel="Previous month"
         accessibilityState={{ disabled: !canGoPrev }}
         className={`w-11 h-11 rounded-xl items-center justify-center border ${
-          canGoPrev ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-neutral-100 border-neutral-200 dark:border-neutral-800 opacity-40'
+          canGoPrev ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800 opacity-40'
         }`}
       >
         <ChevronLeft size={20} color={canGoPrev ? colors.neutral[800] : colors.neutral[400]} />
@@ -52,7 +52,7 @@ export function MonthNavigator({
         accessibilityLabel="Next month"
         accessibilityState={{ disabled: !canGoNext }}
         className={`w-11 h-11 rounded-xl items-center justify-center border ${
-          canGoNext ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-neutral-100 border-neutral-200 dark:border-neutral-800 opacity-40'
+          canGoNext ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800 opacity-40'
         }`}
       >
         <ChevronRight size={20} color={canGoNext ? colors.neutral[800] : colors.neutral[400]} />

@@ -25,7 +25,7 @@ export function MonthlyProgressCard({
       {/* Month Navigator Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-primary-50 items-center justify-center mr-2.5 border border-primary-100">
+          <View className="w-8 h-8 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-2.5 border border-primary-100 dark:border-primary-800/50">
             <Calendar size={16} color={colors.primary[600]} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -40,7 +40,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Previous month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200 dark:border-neutral-800"
+            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-neutral-800"
           >
             <ChevronLeft size={16} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -50,7 +50,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Next month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 items-center justify-center border border-neutral-200 dark:border-neutral-800 ml-1.5"
+            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-neutral-800 ml-1.5"
           >
             <ChevronRight size={16} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -113,7 +113,7 @@ export function MonthlyProgressCard({
                   </View>
 
                   {/* Horizontal Bar */}
-                  <View className="w-full h-2.5 bg-neutral-100 rounded-full overflow-hidden">
+                  <View className="w-full h-2.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
                     <View
                       style={{ width: `${Math.max(4, week.percentageOfMax)}%` }}
                       className={`h-full rounded-full ${

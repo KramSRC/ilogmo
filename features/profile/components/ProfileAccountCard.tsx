@@ -61,7 +61,7 @@ export function ProfileAccountCard({
           className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900"
         >
           <View className="flex-row items-center flex-1">
-            <View className="w-8 h-8 rounded-lg bg-indigo-50 items-center justify-center mr-3 border border-indigo-100">
+            <View className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/40 items-center justify-center mr-3 border border-indigo-100 dark:border-indigo-800/50">
               <KeyRound size={15} color="#4F46E5" />
             </View>
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
@@ -79,7 +79,7 @@ export function ProfileAccountCard({
           className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 mt-2"
         >
           <View className="flex-row items-center flex-1">
-            <View className="w-8 h-8 rounded-lg bg-sky-50 items-center justify-center mr-3 border border-sky-100">
+            <View className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-900/40 items-center justify-center mr-3 border border-sky-100 dark:border-sky-800/50">
               <Bell size={15} color="#0284C7" />
             </View>
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200">
@@ -94,7 +94,7 @@ export function ProfileAccountCard({
           activeOpacity={0.75}
           accessibilityRole="button"
           accessibilityLabel="Sign out of iLogMo"
-          className="flex-row items-center justify-center p-3.5 rounded-xl border border-red-200 bg-red-50 mt-4"
+          className="flex-row items-center justify-center p-3.5 rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/40 mt-4"
         >
           <LogOut size={16} color="#DC2626" />
           <Text className="text-sm font-bold font-sans text-red-600 ml-2">Sign Out</Text>

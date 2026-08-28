@@ -31,10 +31,10 @@ export function ProfileInfoCard({ profile, onEditPress }: ProfileInfoCardProps) 
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Edit profile"
-          className="flex-row items-center bg-primary-50 px-2.5 py-1.5 rounded-lg border border-primary-100"
+          className="flex-row items-center bg-primary-50 dark:bg-primary-900/40 px-2.5 py-1.5 rounded-lg border border-primary-100 dark:border-primary-800/50"
         >
           <Edit3 size={13} color={colors.primary[600]} />
-          <Text className="text-xs font-semibold font-sans text-primary-700 ml-1">Edit</Text>
+          <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300 ml-1">Edit</Text>
         </TouchableOpacity>
       </View>
 

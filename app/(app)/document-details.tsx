@@ -176,7 +176,7 @@ export default function DocumentDetailsScreen() {
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Delete document"
-            className="w-10 h-10 rounded-full bg-red-50 items-center justify-center border border-red-100"
+            className="w-10 h-10 rounded-full bg-red-50 dark:bg-red-900/40 items-center justify-center border border-red-100"
           >
             {isDeleting ? (
               <ActivityIndicator size="small" color="#EF4444" />
@@ -229,8 +229,8 @@ export default function DocumentDetailsScreen() {
               </Text>
 
               {/* Category Pill */}
-              <View className="bg-primary-50 px-3.5 py-1 rounded-full border border-primary-100 mb-2">
-                <Text className="text-xs font-bold font-sans text-primary-700">
+              <View className="bg-primary-50 dark:bg-primary-900/40 px-3.5 py-1 rounded-full border border-primary-100 dark:border-primary-800/50 mb-2">
+                <Text className="text-xs font-bold font-sans text-primary-700 dark:text-primary-300">
                   {CATEGORY_LABELS[document.category] || document.category}
                 </Text>
               </View>

@@ -245,7 +245,7 @@ export default function DocumentUploadScreen() {
                 className="bg-white dark:bg-neutral-900 rounded-2xl p-6 border-2 border-dashed border-neutral-300 dark:border-neutral-700 items-center justify-center"
                 style={errors.file ? styles.dashedBorderError : undefined}
               >
-                <View className="w-14 h-14 rounded-2xl bg-primary-50 items-center justify-center mb-3">
+                <View className="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mb-3">
                   <UploadCloud size={28} color={colors.primary[600]} />
                 </View>
                 <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
@@ -254,8 +254,8 @@ export default function DocumentUploadScreen() {
                 <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center mb-3">
                   PDF, DOCX, XLSX, PPTX, TXT, Images
                 </Text>
-                <View className="bg-primary-50 px-3.5 py-1.5 rounded-lg border border-primary-100">
-                  <Text className="text-xs font-semibold font-sans text-primary-700">
+                <View className="bg-primary-50 dark:bg-primary-900/40 px-3.5 py-1.5 rounded-lg border border-primary-100 dark:border-primary-800/50">
+                  <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300">
                     Max size: 10 MB
                   </Text>
                 </View>
@@ -286,7 +286,7 @@ export default function DocumentUploadScreen() {
                   <TouchableOpacity
                     onPress={handleClearFile}
                     hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-                    className="w-7 h-7 rounded-full bg-neutral-100 items-center justify-center"
+                    className="w-7 h-7 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
                   >
                     <X size={14} color={colors.neutral[500]} />
                   </TouchableOpacity>
@@ -362,7 +362,7 @@ export default function DocumentUploadScreen() {
                     activeOpacity={0.75}
                     className={`mr-2 mb-2.5 px-3.5 py-2 rounded-xl flex-row items-center border ${
                       isSelected
-                        ? 'bg-primary-50 border-primary-600'
+                        ? 'bg-primary-50 dark:bg-primary-900/40 border-primary-600'
                         : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
                     }`}
                   >
@@ -375,7 +375,7 @@ export default function DocumentUploadScreen() {
                     ) : null}
                     <Text
                       className={`text-xs font-semibold font-sans ${
-                        isSelected ? 'text-primary-700' : 'text-neutral-700 dark:text-neutral-300'
+                        isSelected ? 'text-primary-700 dark:text-primary-300' : 'text-neutral-700 dark:text-neutral-300'
                       }`}
                     >
                       {opt.label}

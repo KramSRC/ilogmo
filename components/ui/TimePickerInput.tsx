@@ -118,7 +118,7 @@ export function TimePickerInput({
           <TouchableOpacity
             onPress={handleClear}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-            className="w-5 h-5 rounded-full bg-neutral-100 items-center justify-center mr-1"
+            className="w-5 h-5 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center mr-1"
           >
             <X size={12} color={colors.neutral[500]} />
           </TouchableOpacity>
@@ -159,7 +159,7 @@ export function TimePickerInput({
                 </Text>
                 <TouchableOpacity
                   onPress={() => setShowPicker(false)}
-                  className="px-3 py-1 bg-primary-50 rounded-lg"
+                  className="px-3 py-1 bg-primary-50 dark:bg-primary-900/40 rounded-lg"
                 >
                   <Text className="text-sm font-semibold font-sans text-primary-600">Done</Text>
                 </TouchableOpacity>

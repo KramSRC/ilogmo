@@ -55,9 +55,9 @@ export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
             textColor = 'text-white';
             fontWeight = 'font-bold';
           } else if (isToday) {
-            cellBg = 'bg-primary-50';
+            cellBg = 'bg-primary-50 dark:bg-primary-900/40';
             borderColor = 'border-primary-400';
-            textColor = 'text-primary-700';
+            textColor = 'text-primary-700 dark:text-primary-300';
             fontWeight = 'font-bold';
           }
 

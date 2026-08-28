@@ -20,13 +20,13 @@ export function JournalSkeleton() {
 
           {/* Section 1 */}
           <View className="w-24 h-3 bg-neutral-200 rounded-md mb-2" />
-          <View className="w-full h-3.5 bg-neutral-100 rounded-md mb-1.5" />
-          <View className="w-3/4 h-3.5 bg-neutral-100 rounded-md mb-3" />
+          <View className="w-full h-3.5 bg-neutral-100 dark:bg-neutral-800 rounded-md mb-1.5" />
+          <View className="w-3/4 h-3.5 bg-neutral-100 dark:bg-neutral-800 rounded-md mb-3" />
 
           {/* Section 2 */}
           <View className="w-20 h-3 bg-neutral-200 rounded-md mb-2" />
-          <View className="w-full h-3.5 bg-neutral-100 rounded-md mb-1.5" />
-          <View className="w-2/3 h-3.5 bg-neutral-100 rounded-md" />
+          <View className="w-full h-3.5 bg-neutral-100 dark:bg-neutral-800 rounded-md mb-1.5" />
+          <View className="w-2/3 h-3.5 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
         </View>
       ))}
     </View>

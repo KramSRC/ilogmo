@@ -56,7 +56,7 @@ export function ProfileAvatar({
         ) : (
           <Text
             style={{ fontSize }}
-            className="font-bold font-sans text-primary-700 tracking-wider"
+            className="font-bold font-sans text-primary-700 dark:text-primary-300 tracking-wider"
           >
             {initials}
           </Text>

@@ -51,7 +51,7 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Jump to today"
-          className="flex-row items-center bg-primary-50 px-3 py-2 rounded-xl border border-primary-100 min-h-[44px]"
+          className="flex-row items-center bg-primary-50 dark:bg-primary-900/40 px-3 py-2 rounded-xl border border-primary-100 dark:border-primary-800/50 min-h-[44px]"
         >
           <CalendarIcon size={14} color={colors.primary[600]} />
           <Text className="text-xs font-semibold font-sans text-primary-600 ml-1.5">Today</Text>

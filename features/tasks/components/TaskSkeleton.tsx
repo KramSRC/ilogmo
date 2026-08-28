@@ -19,10 +19,10 @@ export function TaskSkeleton() {
           {/* Text lines */}
           <View className="flex-1">
             <View className="w-3/4 h-4 bg-neutral-200 rounded-md mb-2" />
-            <View className="w-full h-3 bg-neutral-100 rounded-md mb-2" />
+            <View className="w-full h-3 bg-neutral-100 dark:bg-neutral-800 rounded-md mb-2" />
             <View className="flex-row items-center">
-              <View className="w-14 h-4 bg-neutral-100 rounded-md mr-2" />
-              <View className="w-20 h-4 bg-neutral-100 rounded-md" />
+              <View className="w-14 h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md mr-2" />
+              <View className="w-20 h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
             </View>
           </View>
         </View>

@@ -43,7 +43,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'View your OJT progress',
     icon: (c) => <BarChart3 size={18} color={c} />,
     iconColor: colors.primary[600],
-    iconBg: 'bg-primary-50 border-primary-100',
+    iconBg: 'bg-primary-50 dark:bg-primary-900/40 border-primary-100 dark:border-primary-800/50',
     route: '/(app)/analytics',
   },
   {
@@ -52,7 +52,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'Manage your OJT documents',
     icon: (c) => <Folder size={18} color={c} />,
     iconColor: '#0284C7', // Sky blue
-    iconBg: 'bg-sky-50 border-sky-100',
+    iconBg: 'bg-sky-50 dark:bg-sky-900/40 border-sky-100 dark:border-sky-800/50',
     route: '/(app)/documents',
   },
   {
@@ -70,7 +70,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'Manage your personal information',
     icon: (c) => <User size={18} color={c} />,
     iconColor: '#059669', // Emerald
-    iconBg: 'bg-emerald-50 border-emerald-100',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
     route: '/(app)/profile',
   },
   {
@@ -79,7 +79,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'Manage app preferences',
     icon: (c) => <Settings size={18} color={c} />,
     iconColor: colors.neutral[600],
-    iconBg: 'bg-neutral-100 border-neutral-200 dark:border-neutral-800',
+    iconBg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
     route: '/(app)/settings',
   },
 ];
@@ -219,7 +219,7 @@ export function FloatingNavMenu({
                 accessibilityRole="button"
                 accessibilityLabel={`${item.title}, ${item.subtitle}`}
                 style={{ minHeight: 52 }}
-                className={`flex-row items-center px-3 py-2.5 rounded-2xl active:bg-neutral-100 dark:active:bg-neutral-800 ${
+                className={`flex-row items-center px-3 py-2.5 rounded-2xl active:bg-neutral-100 dark:bg-neutral-800 dark:active:bg-neutral-800 ${
                   isLast ? '' : 'mb-0.5'
                 }`}
               >

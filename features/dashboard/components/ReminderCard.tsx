@@ -22,16 +22,16 @@ export function ReminderCard({ reminder }: ReminderCardProps) {
     <TouchableOpacity
       onPress={() => router.push('/(app)/reports')}
       activeOpacity={0.85}
-      className="bg-amber-50 rounded-card p-4 border border-amber-200 mb-8 flex-row items-center justify-between"
+      className="bg-amber-50 dark:bg-amber-900/40 rounded-card p-4 border border-amber-200 dark:border-amber-800 mb-8 flex-row items-center justify-between"
     >
       <View className="flex-row items-center flex-1 mr-2">
-        <View className="w-10 h-10 rounded-2xl bg-amber-100 items-center justify-center mr-3 border border-amber-200">
+        <View className="w-10 h-10 rounded-2xl bg-amber-100 items-center justify-center mr-3 border border-amber-200 dark:border-amber-800">
           <IconComponent size={18} color={colors.warning.dark} />
         </View>
 
         <View className="flex-1">
           <View className="flex-row items-center">
-            <Text className="text-[11px] font-bold font-sans text-amber-800 uppercase tracking-wider mr-2">
+            <Text className="text-[11px] font-bold font-sans text-amber-800 dark:text-amber-300 uppercase tracking-wider mr-2">
               {reminder.timing}
             </Text>
           </View>
@@ -39,7 +39,7 @@ export function ReminderCard({ reminder }: ReminderCardProps) {
             {reminder.title}
           </Text>
           {reminder.description ? (
-            <Text className="text-xs font-sans text-amber-800/80 mt-0.5" numberOfLines={1}>
+            <Text className="text-xs font-sans text-amber-800 dark:text-amber-300/80 mt-0.5" numberOfLines={1}>
               {reminder.description}
             </Text>
           ) : null}

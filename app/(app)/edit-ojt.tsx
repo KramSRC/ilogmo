@@ -131,7 +131,7 @@ export default function EditOjtScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
         <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
-          <View className="w-16 h-16 bg-emerald-50 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
+          <View className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/40 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
           <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-1.5">
@@ -161,7 +161,7 @@ export default function EditOjtScreen() {
                 router.replace('/(app)/profile');
               }
             }}
-            className="p-2 -ml-2 rounded-full active:bg-neutral-100 min-h-[44px] min-w-[44px] items-center justify-center"
+            className="p-2 -ml-2 rounded-full active:bg-neutral-100 dark:bg-neutral-800 min-h-[44px] min-w-[44px] items-center justify-center"
             hitSlop={{ top: 10, right: 10, bottom: 10, left: 10 }}
           >
             <ArrowLeft size={24} color={colors.neutral[800]} />

@@ -66,7 +66,7 @@ export function ReportExportModal({
               {/* Header */}
               <View className="flex-row items-center justify-between mb-2">
                 <View className="flex-row items-center">
-                  <View className="w-10 h-10 rounded-2xl bg-primary-50 border border-primary-100 items-center justify-center mr-3">
+                  <View className="w-10 h-10 rounded-2xl bg-primary-50 dark:bg-primary-900/40 border border-primary-100 dark:border-primary-800/50 items-center justify-center mr-3">
                     <Download size={20} color={colors.primary[600]} />
                   </View>
                   <View>
@@ -91,7 +91,7 @@ export function ReportExportModal({
 
               {successMessage ? (
                 <View className="py-6 items-center justify-center">
-                  <View className="w-14 h-14 bg-emerald-50 rounded-2xl items-center justify-center mb-3 border border-emerald-100">
+                  <View className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl items-center justify-center mb-3 border border-emerald-100">
                     <CheckCircle2 size={30} color={colors.success.DEFAULT} strokeWidth={2.5} />
                   </View>
                   <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center">
@@ -121,7 +121,7 @@ export function ReportExportModal({
                       ]}
                       className={`p-3.5 rounded-2xl border flex-row items-center ${
                         selectedFormat === 'pdf'
-                          ? 'border-primary-500 bg-primary-50'
+                          ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/40'
                           : 'border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900'
                       }`}
                     >
@@ -166,7 +166,7 @@ export function ReportExportModal({
                       ]}
                       className={`p-3.5 rounded-2xl border flex-row items-center mt-2.5 ${
                         selectedFormat === 'json'
-                          ? 'border-primary-500 bg-primary-50'
+                          ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/40'
                           : 'border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900'
                       }`}
                     >
@@ -204,7 +204,7 @@ export function ReportExportModal({
                       disabled={isExporting}
                       activeOpacity={0.75}
                       style={{ minHeight: 46 }}
-                      className="flex-1 mr-2 bg-neutral-100 rounded-xl items-center justify-center"
+                      className="flex-1 mr-2 bg-neutral-100 dark:bg-neutral-800 rounded-xl items-center justify-center"
                     >
                       <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">Cancel</Text>
                     </TouchableOpacity>

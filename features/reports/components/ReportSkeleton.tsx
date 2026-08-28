@@ -53,10 +53,10 @@ export function ReportSkeleton() {
         className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 mb-4 h-52 justify-between"
       >
         <View className="w-32 h-5 bg-neutral-200 rounded-md" />
-        <View className="w-full h-4 bg-neutral-100 rounded-md" />
-        <View className="w-full h-4 bg-neutral-100 rounded-md" />
-        <View className="w-full h-4 bg-neutral-100 rounded-md" />
-        <View className="w-full h-4 bg-neutral-100 rounded-md" />
+        <View className="w-full h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
+        <View className="w-full h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
+        <View className="w-full h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
+        <View className="w-full h-4 bg-neutral-100 dark:bg-neutral-800 rounded-md" />
       </Animated.View>
 
       {/* 4. Attendance Summary card skeleton */}
@@ -66,14 +66,14 @@ export function ReportSkeleton() {
       >
         <View className="w-36 h-5 bg-neutral-200 rounded-md" />
         <View className="flex-row justify-between">
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
         </View>
         <View className="flex-row justify-between">
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
-          <View className="w-[30%] h-14 bg-neutral-100 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
+          <View className="w-[30%] h-14 bg-neutral-100 dark:bg-neutral-800 rounded-xl" />
         </View>
       </Animated.View>
     </View>

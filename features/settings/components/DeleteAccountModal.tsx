@@ -57,11 +57,11 @@ export function DeleteAccountModal({
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         className="flex-1 bg-black/60 justify-end"
       >
-        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-red-200 max-h-[90%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-red-200 dark:border-red-800 max-h-[90%]">
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-red-50 items-center justify-center mr-3 border border-red-100">
+              <View className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/40 items-center justify-center mr-3 border border-red-100">
                 <AlertTriangle size={22} color="#DC2626" />
               </View>
               <View className="flex-1">
@@ -77,7 +77,7 @@ export function DeleteAccountModal({
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel="Close delete account modal"
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>
@@ -91,11 +91,11 @@ export function DeleteAccountModal({
             ) : null}
 
             {/* Warning Details Card */}
-            <View className="bg-red-50/60 rounded-2xl p-4 border border-red-200 mb-4">
-              <Text className="text-sm font-bold font-sans text-red-900 mb-1">
+            <View className="bg-red-50 dark:bg-red-900/40/60 rounded-2xl p-4 border border-red-200 dark:border-red-800 mb-4">
+              <Text className="text-sm font-bold font-sans text-red-900 dark:text-red-100 mb-1">
                 Deleting your account is permanent.
               </Text>
-              <Text className="text-xs font-sans text-red-700 leading-4 mb-3">
+              <Text className="text-xs font-sans text-red-700 dark:text-red-300 leading-4 mb-3">
                 All of your iLogMo internship data will be permanently wiped:
               </Text>
 

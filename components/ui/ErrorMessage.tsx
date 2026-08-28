@@ -22,28 +22,28 @@ export function ErrorMessage({
 }: ErrorMessageProps) {
   if (!message) return null;
 
-  let bgClass = 'bg-red-50 border-red-200';
+  let bgClass = 'bg-red-50 dark:bg-red-900/40 border-red-200 dark:border-red-800';
   let textClass = 'text-red-800';
-  let titleClass = 'text-red-900';
+  let titleClass = 'text-red-900 dark:text-red-100';
   let IconComponent = AlertCircle;
   let iconColor: string = colors.error.DEFAULT;
 
   if (type === 'success') {
-    bgClass = 'bg-emerald-50 border-emerald-200';
+    bgClass = 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800';
     textClass = 'text-emerald-800';
-    titleClass = 'text-emerald-900';
+    titleClass = 'text-emerald-900 dark:text-emerald-100';
     IconComponent = CheckCircle2;
     iconColor = colors.success.DEFAULT;
   } else if (type === 'warning') {
-    bgClass = 'bg-amber-50 border-amber-200';
-    textClass = 'text-amber-800';
-    titleClass = 'text-amber-900';
+    bgClass = 'bg-amber-50 dark:bg-amber-900/40 border-amber-200 dark:border-amber-800';
+    textClass = 'text-amber-800 dark:text-amber-300';
+    titleClass = 'text-amber-900 dark:text-amber-100';
     IconComponent = AlertCircle;
     iconColor = colors.warning.DEFAULT;
   } else if (type === 'info') {
-    bgClass = 'bg-blue-50 border-blue-200';
+    bgClass = 'bg-blue-50 dark:bg-blue-900/40 border-blue-200 dark:border-blue-800';
     textClass = 'text-blue-800';
-    titleClass = 'text-blue-900';
+    titleClass = 'text-blue-900 dark:text-blue-100';
     IconComponent = Info;
     iconColor = colors.primary[600];
   }

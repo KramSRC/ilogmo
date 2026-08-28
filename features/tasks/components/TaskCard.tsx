@@ -25,25 +25,25 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
     switch (priority) {
       case 'high':
         return (
-          <View className="flex-row items-center bg-red-50 px-2 py-0.5 rounded-md border border-red-100 mr-2">
+          <View className="flex-row items-center bg-red-50 dark:bg-red-900/40 px-2 py-0.5 rounded-md border border-red-100 mr-2">
             <Text className="text-xs font-bold text-red-600 mr-1">!</Text>
-            <Text className="text-[10px] font-bold font-sans text-red-700 uppercase tracking-wider">
+            <Text className="text-[10px] font-bold font-sans text-red-700 dark:text-red-300 uppercase tracking-wider">
               High
             </Text>
           </View>
         );
       case 'medium':
         return (
-          <View className="flex-row items-center bg-amber-50 px-2 py-0.5 rounded-md border border-amber-100 mr-2">
+          <View className="flex-row items-center bg-amber-50 dark:bg-amber-900/40 px-2 py-0.5 rounded-md border border-amber-100 mr-2">
             <Text className="text-xs font-bold text-amber-600 mr-1">•</Text>
-            <Text className="text-[10px] font-bold font-sans text-amber-800 uppercase tracking-wider">
+            <Text className="text-[10px] font-bold font-sans text-amber-800 dark:text-amber-300 uppercase tracking-wider">
               Med
             </Text>
           </View>
         );
       case 'low':
         return (
-          <View className="flex-row items-center bg-neutral-100 px-2 py-0.5 rounded-md border border-neutral-200 dark:border-neutral-800 mr-2">
+          <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-md border border-neutral-200 dark:border-neutral-800 mr-2">
             <Text className="text-xs font-bold text-neutral-500 dark:text-neutral-400 mr-1">↓</Text>
             <Text className="text-[10px] font-bold font-sans text-neutral-600 dark:text-neutral-400 uppercase tracking-wider">
               Low
@@ -77,7 +77,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
 
     if (dueStatus.isOverdue) {
       return (
-        <View className="flex-row items-center bg-red-50 px-2 py-0.5 rounded-md border border-red-200">
+        <View className="flex-row items-center bg-red-50 dark:bg-red-900/40 px-2 py-0.5 rounded-md border border-red-200 dark:border-red-800">
           <Calendar size={11} color={colors.error.DEFAULT} />
           <Text className="ml-1 text-[11px] font-bold font-sans text-red-600">
             {dueStatus.badgeLabel}
@@ -88,18 +88,18 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
 
     if (dueStatus.isDueToday) {
       return (
-        <View className="flex-row items-center bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+        <View className="flex-row items-center bg-amber-50 dark:bg-amber-900/40 px-2 py-0.5 rounded-md border border-amber-200 dark:border-amber-800">
           <Calendar size={11} color={colors.warning.DEFAULT} />
-          <Text className="ml-1 text-[11px] font-bold font-sans text-amber-800">Due today</Text>
+          <Text className="ml-1 text-[11px] font-bold font-sans text-amber-800 dark:text-amber-300">Due today</Text>
         </View>
       );
     }
 
     if (dueStatus.isDueSoon) {
       return (
-        <View className="flex-row items-center bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">
+        <View className="flex-row items-center bg-blue-50 dark:bg-blue-900/40 px-2 py-0.5 rounded-md border border-blue-100">
           <Calendar size={11} color={colors.primary[600]} />
-          <Text className="ml-1 text-[11px] font-medium font-sans text-primary-700">
+          <Text className="ml-1 text-[11px] font-medium font-sans text-primary-700 dark:text-primary-300">
             {dueStatus.badgeLabel}
           </Text>
         </View>

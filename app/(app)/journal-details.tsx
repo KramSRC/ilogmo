@@ -120,7 +120,7 @@ export default function JournalDetailsScreen() {
           <TouchableOpacity
             onPress={handleEdit}
             activeOpacity={0.7}
-            className="w-10 h-10 rounded-full bg-primary-50 items-center justify-center border border-primary-100"
+            className="w-10 h-10 rounded-full bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50"
           >
             <Edit2 size={18} color={colors.primary[600]} />
           </TouchableOpacity>
@@ -155,7 +155,7 @@ export default function JournalDetailsScreen() {
           <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
             <View className="flex-row items-center justify-between">
               <View className="flex-row items-center flex-1 mr-2">
-                <View className="w-12 h-12 rounded-2xl bg-primary-50 items-center justify-center border border-primary-100 mr-3.5">
+                <View className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50 mr-3.5">
                   <Calendar size={22} color={colors.primary[600]} />
                 </View>
                 <View className="flex-1">

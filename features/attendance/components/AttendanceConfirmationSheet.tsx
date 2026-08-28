@@ -38,7 +38,7 @@ export function AttendanceConfirmationSheet({
             <View className="flex-row items-center">
               <View
                 className={`w-10 h-10 rounded-2xl items-center justify-center mr-3 border ${
-                  isCheckIn ? 'bg-emerald-50 border-emerald-100' : 'bg-blue-50 border-blue-100'
+                  isCheckIn ? 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100' : 'bg-blue-50 dark:bg-blue-900/40 border-blue-100'
                 }`}
               >
                 {isCheckIn ? (
@@ -55,7 +55,7 @@ export function AttendanceConfirmationSheet({
             <TouchableOpacity
               onPress={onCancel}
               hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={16} color={colors.neutral[500]} />
             </TouchableOpacity>

@@ -23,7 +23,7 @@ export function ReportTaskSection({ tasks }: ReportTaskSectionProps) {
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
-          <View className="w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-100 items-center justify-center mr-2.5">
+          <View className="w-8 h-8 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 border border-indigo-100 dark:border-indigo-800/50 items-center justify-center mr-2.5">
             <CheckSquare size={16} color="#4F46E5" />
           </View>
           <View className="flex-1">
@@ -65,9 +65,9 @@ export function ReportTaskSection({ tasks }: ReportTaskSectionProps) {
 
             {/* 2. Completed */}
             <View className="w-1/2 px-1 mb-2.5">
-              <View className="bg-emerald-50/60 border border-emerald-100 rounded-xl p-2.5 flex-row items-center justify-between">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 rounded-xl p-2.5 flex-row items-center justify-between">
                 <Text className="text-xs font-sans text-emerald-800">Completed</Text>
-                <Text className="text-sm font-bold font-sans text-emerald-700">{tasks.completedTasks}</Text>
+                <Text className="text-sm font-bold font-sans text-emerald-700 dark:text-emerald-300">{tasks.completedTasks}</Text>
               </View>
             </View>
 
@@ -95,9 +95,9 @@ export function ReportTaskSection({ tasks }: ReportTaskSectionProps) {
           </View>
 
           {/* Completion Rate Pill */}
-          <View className="bg-primary-50/70 border border-primary-200 rounded-xl p-3 flex-row items-center justify-between">
+          <View className="bg-primary-50 dark:bg-primary-900/40/70 border border-primary-200 rounded-xl p-3 flex-row items-center justify-between">
             <Text className="text-xs font-bold font-sans text-primary-900">Task Completion Rate</Text>
-            <Text className="text-sm font-extrabold font-sans text-primary-700">
+            <Text className="text-sm font-extrabold font-sans text-primary-700 dark:text-primary-300">
               {tasks.completionRateFormatted}
             </Text>
           </View>

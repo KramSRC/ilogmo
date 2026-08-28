@@ -23,7 +23,7 @@ export function DocumentEmptyState({
   return (
     <View className="bg-white dark:bg-neutral-900 rounded-card p-7 shadow-card border border-neutral-200 dark:border-neutral-800 items-center text-center my-4">
       {/* Icon Circle */}
-      <View className="w-14 h-14 rounded-2xl bg-primary-50 border border-primary-100 items-center justify-center mb-4">
+      <View className="w-14 h-14 rounded-2xl bg-primary-50 dark:bg-primary-900/40 border border-primary-100 dark:border-primary-800/50 items-center justify-center mb-4">
         {hasFilter ? (
           <FolderOpen size={26} color={colors.primary[600]} />
         ) : (

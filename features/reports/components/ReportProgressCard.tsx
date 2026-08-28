@@ -46,7 +46,7 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
           )}
           <Text
             className={`text-xs font-bold font-sans ml-1.5 ${
-              isCompleted ? 'text-emerald-700' : 'text-primary-700'
+              isCompleted ? 'text-emerald-700 dark:text-emerald-300' : 'text-primary-700 dark:text-primary-300'
             }`}
           >
             {hours.progressPercentage}%
@@ -71,11 +71,11 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
       </View>
 
       {/* Visual Progress Bar */}
-      <View className="h-3 w-full bg-neutral-100 rounded-full overflow-hidden mb-3">
+      <View className="h-3 w-full bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden mb-3">
         <View
           style={{ width: `${Math.min(100, Math.max(0, hours.progressPercentage))}%` }}
           className={`h-full rounded-full ${
-            isCompleted ? 'bg-emerald-500' : 'bg-primary-600'
+            isCompleted ? 'bg-emerald-50 dark:bg-emerald-900/400' : 'bg-primary-600'
           }`}
         />
       </View>

@@ -62,7 +62,7 @@ export default function SignUpScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
         <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
-          <View className="w-14 h-14 bg-emerald-50 rounded-2xl items-center justify-center mb-4 border border-emerald-100">
+          <View className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={28} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
           <Text className="text-xl font-bold font-sans text-neutral-900 dark:text-neutral-100 text-center mb-1.5">

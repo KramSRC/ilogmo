@@ -243,7 +243,7 @@ export default function TaskEntryScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Priority *
             </Text>
-            <View className="flex-row bg-neutral-100 p-1 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+            <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl border border-neutral-200 dark:border-neutral-800">
               {priorities.map((item) => {
                 const isSelected = priority === item.id;
                 return (

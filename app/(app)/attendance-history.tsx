@@ -129,7 +129,7 @@ export default function AttendanceHistoryScreen() {
         <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card border border-neutral-200 dark:border-neutral-800">
           {history.length === 0 && !isLoading ? (
             <View className="items-center py-12">
-              <View className="w-12 h-12 rounded-2xl bg-neutral-100 items-center justify-center mb-3">
+              <View className="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-3">
                 <CalendarOff size={24} color={colors.neutral[400]} />
               </View>
               <Text className="text-base font-bold font-sans text-neutral-800 dark:text-neutral-200">

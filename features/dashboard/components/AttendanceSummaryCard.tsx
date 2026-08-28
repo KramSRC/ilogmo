@@ -23,16 +23,16 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
       <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
-            <View className="w-8 h-8 rounded-xl bg-emerald-50 items-center justify-center mr-2.5 border border-emerald-100">
+            <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100">
               <Clock size={16} color={colors.success.DEFAULT} />
             </View>
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
               Today's Attendance
             </Text>
           </View>
-          <View className="bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex-row items-center">
-            <View className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5" />
-            <Text className="text-xs font-semibold font-sans text-emerald-700">Working</Text>
+          <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex-row items-center">
+            <View className="w-2 h-2 rounded-full bg-emerald-50 dark:bg-emerald-900/400 mr-1.5" />
+            <Text className="text-xs font-semibold font-sans text-emerald-700 dark:text-emerald-300">Working</Text>
           </View>
         </View>
 
@@ -70,15 +70,15 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
       <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
-            <View className="w-8 h-8 rounded-xl bg-blue-50 items-center justify-center mr-2.5 border border-blue-100">
+            <View className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-900/40 items-center justify-center mr-2.5 border border-blue-100">
               <CheckCircle2 size={16} color={colors.primary[600]} />
             </View>
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">
               Today's Attendance
             </Text>
           </View>
-          <View className="bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
-            <Text className="text-xs font-semibold font-sans text-primary-700">Completed</Text>
+          <View className="bg-blue-50 dark:bg-blue-900/40 px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-800">
+            <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300">Completed</Text>
           </View>
         </View>
 
@@ -92,7 +92,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
             </View>
             <View className="items-end">
               <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Total Hours</Text>
-              <Text className="text-base font-bold font-sans text-primary-700 mt-0.5">
+              <Text className="text-base font-bold font-sans text-primary-700 dark:text-primary-300 mt-0.5">
                 {attendance.totalHours || '8h 57m'}
               </Text>
             </View>
@@ -117,12 +117,12 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
     <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
       <View className="flex-row items-center justify-between mb-3">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-amber-50 items-center justify-center mr-2.5 border border-amber-100">
+          <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100">
             <Clock size={16} color={colors.warning.DEFAULT} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Today's Attendance</Text>
         </View>
-        <View className="bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+        <View className="bg-amber-50 dark:bg-amber-900/40 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800">
           <Text className="text-xs font-semibold font-sans text-amber-700">Not checked in</Text>
         </View>
       </View>

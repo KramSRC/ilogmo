@@ -29,9 +29,9 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
           onPress={() => router.push('/(onboarding)/ojt-setup')}
           activeOpacity={0.75}
           style={{ minHeight: 44 }}
-          className="bg-primary-50 border border-primary-200 rounded-xl px-4 py-2.5 items-center justify-center"
+          className="bg-primary-50 dark:bg-primary-900/40 border border-primary-200 rounded-xl px-4 py-2.5 items-center justify-center"
         >
-          <Text className="text-xs font-bold font-sans text-primary-700">Set Up OJT</Text>
+          <Text className="text-xs font-bold font-sans text-primary-700 dark:text-primary-300">Set Up OJT</Text>
         </TouchableOpacity>
       </View>
     );
@@ -44,7 +44,7 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
-          <View className="w-8 h-8 rounded-xl bg-primary-50 border border-primary-100 items-center justify-center mr-2.5">
+          <View className="w-8 h-8 rounded-xl bg-primary-50 dark:bg-primary-900/40 border border-primary-100 dark:border-primary-800/50 items-center justify-center mr-2.5">
             <Building2 size={16} color={colors.primary[600]} />
           </View>
           <View className="flex-1">
@@ -103,7 +103,7 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
         {/* Completed */}
         <View className="flex-row justify-between items-center py-1">
           <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Completed Hours</Text>
-          <Text className="text-xs font-semibold font-sans text-emerald-700">{hours.completedHoursFormatted}</Text>
+          <Text className="text-xs font-semibold font-sans text-emerald-700 dark:text-emerald-300">{hours.completedHoursFormatted}</Text>
         </View>
 
         {/* Remaining */}
@@ -115,7 +115,7 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
         {/* Progress */}
         <View className="flex-row justify-between items-center py-1">
           <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400">Progress</Text>
-          <Text className="text-xs font-bold font-sans text-primary-700">{hours.progressPercentage}%</Text>
+          <Text className="text-xs font-bold font-sans text-primary-700 dark:text-primary-300">{hours.progressPercentage}%</Text>
         </View>
 
         {/* Start Date */}

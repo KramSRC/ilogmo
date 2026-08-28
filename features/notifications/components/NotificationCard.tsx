@@ -57,7 +57,7 @@ export function NotificationCard({ notification, onPress, onDelete }: Notificati
         notification.isRead ? 'Read' : 'Unread'
       }`}
       className={`rounded-card p-4 mb-3 shadow-card border ${
-        notification.isRead ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-primary-50/40 border-primary-200'
+        notification.isRead ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800' : 'bg-primary-50 dark:bg-primary-900/40/40 border-primary-200'
       }`}
     >
       <View className="flex-row items-start justify-between">

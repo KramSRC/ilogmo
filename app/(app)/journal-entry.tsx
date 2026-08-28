@@ -278,14 +278,14 @@ export default function JournalEntryScreen() {
 
           {/* Existing Entry On Date Notice */}
           {existingEntryOnDate && !isEditing ? (
-            <View className="mb-4 p-3.5 bg-blue-50 rounded-2xl border border-blue-200 flex-row items-center justify-between">
+            <View className="mb-4 p-3.5 bg-blue-50 dark:bg-blue-900/40 rounded-2xl border border-blue-200 dark:border-blue-800 flex-row items-center justify-between">
               <View className="flex-row items-center flex-1 mr-2">
                 <BookOpen size={18} color={colors.primary[600]} />
                 <View className="ml-2.5 flex-1">
-                  <Text className="text-xs font-bold font-sans text-blue-900">
+                  <Text className="text-xs font-bold font-sans text-blue-900 dark:text-blue-100">
                     Previous Entry Found for {entryDate}
                   </Text>
-                  <Text className="text-[11px] font-sans text-blue-700 leading-4">
+                  <Text className="text-[11px] font-sans text-blue-700 dark:text-blue-300 leading-4">
                     You can edit your previous entry or fill out below to add another entry for
                     today.
                   </Text>
@@ -308,13 +308,13 @@ export default function JournalEntryScreen() {
 
           {/* OJT Date Warning */}
           {ojtWarning ? (
-            <View className="mb-4 p-3.5 bg-amber-50 rounded-2xl border border-amber-200 flex-row items-start">
+            <View className="mb-4 p-3.5 bg-amber-50 dark:bg-amber-900/40 rounded-2xl border border-amber-200 dark:border-amber-800 flex-row items-start">
               <AlertCircle size={18} color="#D97706" style={{ marginTop: 1 }} />
               <View className="ml-2.5 flex-1">
-                <Text className="text-xs font-bold font-sans text-amber-900">
+                <Text className="text-xs font-bold font-sans text-amber-900 dark:text-amber-100">
                   OJT Period Warning
                 </Text>
-                <Text className="text-xs font-sans text-amber-800 mt-0.5 leading-4">
+                <Text className="text-xs font-sans text-amber-800 dark:text-amber-300 mt-0.5 leading-4">
                   {ojtWarning}
                 </Text>
               </View>
@@ -341,7 +341,6 @@ export default function JournalEntryScreen() {
             <View
               className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
               style={[
-                styles.inputWrapper,
                 errors.workDescription ? styles.inputError : styles.inputNormal,
               ]}
             >
@@ -373,7 +372,6 @@ export default function JournalEntryScreen() {
             <View
               className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
               style={[
-                styles.inputWrapper,
                 errors.learningDescription ? styles.inputError : styles.inputNormal,
               ]}
             >
@@ -457,9 +455,6 @@ export default function JournalEntryScreen() {
 }
 
 const styles = StyleSheet.create({
-  inputWrapper: {
-    backgroundColor: '#FFFFFF',
-  },
   inputNormal: {
     borderColor: '#E2E8F0',
   },

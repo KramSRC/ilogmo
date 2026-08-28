@@ -23,7 +23,7 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">
-          <View className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 items-center justify-center mr-2.5">
+          <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 items-center justify-center mr-2.5">
             <Clock size={16} color={colors.success.DEFAULT} />
           </View>
           <View className="flex-1">
@@ -55,9 +55,9 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
         <>
           {/* Missing Check-Out Warning Banner if > 0 */}
           {attendance.missingCheckOutCount > 0 ? (
-            <View className="mb-3.5 bg-amber-50 border border-amber-200 rounded-xl p-3 flex-row items-center">
+            <View className="mb-3.5 bg-amber-50 dark:bg-amber-900/40 border border-amber-200 dark:border-amber-800 rounded-xl p-3 flex-row items-center">
               <AlertCircle size={15} color="#D97706" />
-              <Text className="text-xs font-sans text-amber-900 ml-2 flex-1">
+              <Text className="text-xs font-sans text-amber-900 dark:text-amber-100 ml-2 flex-1">
                 <Text className="font-bold">{attendance.missingCheckOutCount} past day(s)</Text> have missing check-out records.
               </Text>
             </View>
@@ -79,11 +79,11 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 2. Present */}
             <View className="w-1/3 px-1 mb-3">
-              <View className="bg-emerald-50/60 border border-emerald-100 rounded-xl p-2.5 items-center">
+              <View className="bg-emerald-50 dark:bg-emerald-900/40/60 border border-emerald-100 rounded-xl p-2.5 items-center">
                 <Text className="text-[10.5px] font-semibold font-sans text-emerald-800 uppercase">
                   Present
                 </Text>
-                <Text className="text-base font-bold font-sans text-emerald-700 mt-0.5">
+                <Text className="text-base font-bold font-sans text-emerald-700 dark:text-emerald-300 mt-0.5">
                   {attendance.presentCount}
                 </Text>
               </View>
@@ -119,11 +119,11 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
 
             {/* 5. Total Hours */}
             <View className="w-1/3 px-1">
-              <View className="bg-primary-50/60 border border-primary-100 rounded-xl p-2.5 items-center">
+              <View className="bg-primary-50 dark:bg-primary-900/40/60 border border-primary-100 dark:border-primary-800/50 rounded-xl p-2.5 items-center">
                 <Text className="text-[10.5px] font-semibold font-sans text-primary-800 uppercase">
                   Total Hours
                 </Text>
-                <Text className="text-base font-bold font-sans text-primary-700 mt-0.5" numberOfLines={1}>
+                <Text className="text-base font-bold font-sans text-primary-700 dark:text-primary-300 mt-0.5" numberOfLines={1}>
                   {attendance.totalWorkedHoursFormatted}
                 </Text>
               </View>

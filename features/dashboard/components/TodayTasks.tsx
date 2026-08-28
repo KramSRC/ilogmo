@@ -74,7 +74,7 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
 
                 {/* Priority Pill */}
                 {task.priority === 'high' && !task.completed ? (
-                  <View className="bg-red-50 px-2 py-0.5 rounded-md border border-red-100">
+                  <View className="bg-red-50 dark:bg-red-900/40 px-2 py-0.5 rounded-md border border-red-100">
                     <Text className="text-[10px] font-semibold font-sans text-red-600">High</Text>
                   </View>
                 ) : null}

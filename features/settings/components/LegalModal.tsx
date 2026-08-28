@@ -31,7 +31,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
+              <View className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-3 border border-primary-100 dark:border-primary-800/50">
                 {isPrivacy ? (
                   <ShieldCheck size={20} color={colors.primary[600]} />
                 ) : (
@@ -49,7 +49,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel={`Close ${title}`}
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>
@@ -66,7 +66,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
                   : 'These terms of service are currently being prepared. By using the iLogMo platform during your on-the-job training, you agree to log accurate internship hours and maintain professional reflection journals.'}
               </Text>
 
-              <View className="bg-primary-50/70 p-3 rounded-xl border border-primary-200">
+              <View className="bg-primary-50 dark:bg-primary-900/40/70 p-3 rounded-xl border border-primary-200">
                 <Text className="text-[11px] font-medium font-sans text-primary-800 leading-4">
                   For any immediate privacy or compliance inquiries, please contact your university
                   OJT coordinator or internship supervisor.

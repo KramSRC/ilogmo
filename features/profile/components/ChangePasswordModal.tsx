@@ -84,7 +84,7 @@ export function ChangePasswordModal({ visible, onClose, onSubmit }: ChangePasswo
           {/* Header */}
           <View className="flex-row items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
-              <View className="w-10 h-10 rounded-xl bg-indigo-50 items-center justify-center mr-3 border border-indigo-100">
+              <View className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 items-center justify-center mr-3 border border-indigo-100 dark:border-indigo-800/50">
                 <KeyRound size={20} color="#4F46E5" />
               </View>
               <View className="flex-1">
@@ -101,7 +101,7 @@ export function ChangePasswordModal({ visible, onClose, onSubmit }: ChangePasswo
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel="Close modal"
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>

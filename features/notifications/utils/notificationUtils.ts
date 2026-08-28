@@ -79,35 +79,35 @@ export function getNotificationTypeDetails(
       return {
         label: 'Attendance Reminder',
         color: '#0284C7', // Sky blue
-        bg: 'bg-sky-50 border-sky-100',
+        bg: 'bg-sky-50 dark:bg-sky-900/40 border-sky-100 dark:border-sky-800/50',
         defaultRoute: '/(app)/attendance',
       };
     case 'checkout_reminder':
       return {
         label: 'Check-Out Reminder',
         color: '#D97706', // Amber
-        bg: 'bg-amber-50 border-amber-100',
+        bg: 'bg-amber-50 dark:bg-amber-900/40 border-amber-100',
         defaultRoute: '/(app)/attendance',
       };
     case 'task_reminder':
       return {
         label: 'Task Reminder',
         color: '#4F46E5', // Indigo
-        bg: 'bg-indigo-50 border-indigo-100',
+        bg: 'bg-indigo-50 dark:bg-indigo-900/40 border-indigo-100 dark:border-indigo-800/50',
         defaultRoute: '/(app)/tasks',
       };
     case 'overdue_task':
       return {
         label: 'Overdue Task',
         color: '#DC2626', // Red
-        bg: 'bg-red-50 border-red-100',
+        bg: 'bg-red-50 dark:bg-red-900/40 border-red-100',
         defaultRoute: '/(app)/tasks',
       };
     case 'journal_reminder':
       return {
         label: 'Journal Reminder',
         color: '#16A34A', // Green
-        bg: 'bg-emerald-50 border-emerald-100',
+        bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
         defaultRoute: '/(app)/journal',
       };
     case 'ojt_reminder':
@@ -122,7 +122,7 @@ export function getNotificationTypeDetails(
         return {
           label: 'Attendance',
           color: '#0284C7',
-          bg: 'bg-sky-50 border-sky-100',
+          bg: 'bg-sky-50 dark:bg-sky-900/40 border-sky-100 dark:border-sky-800/50',
           defaultRoute: '/(app)/attendance',
         };
       }
@@ -130,7 +130,7 @@ export function getNotificationTypeDetails(
         return {
           label: 'Task',
           color: '#4F46E5',
-          bg: 'bg-indigo-50 border-indigo-100',
+          bg: 'bg-indigo-50 dark:bg-indigo-900/40 border-indigo-100 dark:border-indigo-800/50',
           defaultRoute: '/(app)/tasks',
         };
       }
@@ -138,7 +138,7 @@ export function getNotificationTypeDetails(
         return {
           label: 'Journal',
           color: '#16A34A',
-          bg: 'bg-emerald-50 border-emerald-100',
+          bg: 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-100',
           defaultRoute: '/(app)/journal',
         };
       }

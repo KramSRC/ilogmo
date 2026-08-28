@@ -18,7 +18,7 @@ export function WeeklyHoursCard({ weekly }: WeeklyHoursCardProps) {
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-indigo-50 items-center justify-center mr-2.5 border border-indigo-100">
+          <View className="w-8 h-8 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 items-center justify-center mr-2.5 border border-indigo-100 dark:border-indigo-800/50">
             <BarChart2 size={16} color="#4F46E5" />
           </View>
           <View>
@@ -64,7 +64,7 @@ export function WeeklyHoursCard({ weekly }: WeeklyHoursCardProps) {
               </Text>
 
               {/* Bar Track & Fill */}
-              <View className="w-full max-w-[28px] h-20 bg-neutral-100 rounded-t-lg justify-end overflow-hidden">
+              <View className="w-full max-w-[28px] h-20 bg-neutral-100 dark:bg-neutral-800 rounded-t-lg justify-end overflow-hidden">
                 <View
                   style={{ height: `${barHeightPct}%` }}
                   className={`w-full rounded-t-lg ${

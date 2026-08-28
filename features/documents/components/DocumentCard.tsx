@@ -82,8 +82,8 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
 
             {/* Category Pill */}
             <View className="flex-row items-center mb-1.5">
-              <View className="bg-primary-50 px-2.5 py-0.5 rounded-md border border-primary-100">
-                <Text className="text-[11px] font-semibold font-sans text-primary-700">
+              <View className="bg-primary-50 dark:bg-primary-900/40 px-2.5 py-0.5 rounded-md border border-primary-100 dark:border-primary-800/50">
+                <Text className="text-[11px] font-semibold font-sans text-primary-700 dark:text-primary-300">
                   {categoryLabel}
                 </Text>
               </View>

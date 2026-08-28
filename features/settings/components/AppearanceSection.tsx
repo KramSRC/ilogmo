@@ -95,7 +95,7 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
               <Text
                 className={`text-xs font-bold font-sans ${
                   isSelected
-                    ? 'text-primary-700 dark:text-primary-400'
+                    ? 'text-primary-700 dark:text-primary-300 dark:text-primary-400'
                     : 'text-neutral-700 dark:text-neutral-300'
                 }`}
                 numberOfLines={1}

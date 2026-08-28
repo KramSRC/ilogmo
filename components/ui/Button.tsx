@@ -42,7 +42,7 @@ export function Button({
   let indicatorColor = '#FFFFFF';
 
   if (variant === 'secondary') {
-    variantContainer = 'bg-neutral-100 active:bg-neutral-200 border border-transparent';
+    variantContainer = 'bg-neutral-100 dark:bg-neutral-800 active:bg-neutral-200 border border-transparent';
     variantText = 'text-neutral-900 dark:text-neutral-100 font-semibold';
     indicatorColor = colors.neutral[900];
   } else if (variant === 'outline') {
@@ -50,7 +50,7 @@ export function Button({
     variantText = 'text-neutral-900 dark:text-neutral-100 font-medium';
     indicatorColor = colors.primary[600];
   } else if (variant === 'ghost') {
-    variantContainer = 'bg-transparent active:bg-neutral-100 border border-transparent';
+    variantContainer = 'bg-transparent active:bg-neutral-100 dark:bg-neutral-800 border border-transparent';
     variantText = 'text-neutral-700 dark:text-neutral-300 font-medium';
     indicatorColor = colors.neutral[700];
   } else if (variant === 'danger') {

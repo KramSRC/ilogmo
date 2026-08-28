@@ -125,10 +125,10 @@ export default function NotificationsScreen() {
               activeOpacity={0.75}
               accessibilityRole="button"
               accessibilityLabel="Mark all as read"
-              className="flex-row items-center bg-primary-50 border border-primary-200 px-3 py-2 rounded-xl"
+              className="flex-row items-center bg-primary-50 dark:bg-primary-900/40 border border-primary-200 px-3 py-2 rounded-xl"
             >
               <CheckCheck size={15} color={colors.primary[600]} />
-              <Text className="text-xs font-bold font-sans text-primary-700 ml-1">Mark all</Text>
+              <Text className="text-xs font-bold font-sans text-primary-700 dark:text-primary-300 ml-1">Mark all</Text>
             </TouchableOpacity>
           ) : null}
         </View>
@@ -149,7 +149,7 @@ export default function NotificationsScreen() {
       >
         {/* Success Banner */}
         {successBanner ? (
-          <View className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 mb-4 flex-row items-center">
+          <View className="bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3 mb-4 flex-row items-center">
             <Text className="text-xs font-semibold font-sans text-emerald-800">
               {successBanner}
             </Text>

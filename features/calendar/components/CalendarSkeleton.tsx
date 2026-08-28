@@ -54,7 +54,7 @@ export function CalendarSkeleton() {
               style={{ width: `${100 / 7}%`, minHeight: 48 }}
               className="items-center justify-center py-1"
             >
-              <View className="w-9 h-9 bg-neutral-100 rounded-full" />
+              <View className="w-9 h-9 bg-neutral-100 dark:bg-neutral-800 rounded-full" />
               <View className="w-1.5 h-1.5 bg-neutral-200 rounded-full mt-1" />
             </View>
           ))}
@@ -64,7 +64,7 @@ export function CalendarSkeleton() {
       {/* Legend Skeleton */}
       <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-3 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5 flex-row justify-between">
         {Array.from({ length: 4 }).map((_, i) => (
-          <View key={i} className="w-16 h-4 bg-neutral-100 rounded" />
+          <View key={i} className="w-16 h-4 bg-neutral-100 dark:bg-neutral-800 rounded" />
         ))}
       </View>
 
@@ -74,7 +74,7 @@ export function CalendarSkeleton() {
           <View className="w-32 h-5 bg-neutral-200 rounded" />
           <View className="w-20 h-5 bg-neutral-200 rounded-full" />
         </View>
-        <View className="w-full h-16 bg-neutral-100 rounded-2xl mb-3" />
+        <View className="w-full h-16 bg-neutral-100 dark:bg-neutral-800 rounded-2xl mb-3" />
         <View className="w-full h-10 bg-neutral-200 rounded-xl" />
       </View>
     </Animated.View>

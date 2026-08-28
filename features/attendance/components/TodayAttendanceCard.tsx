@@ -39,12 +39,12 @@ export function TodayAttendanceCard({
         <Text className="text-xs font-semibold font-sans text-neutral-500 dark:text-neutral-400">{todayFormatted}</Text>
         <View
           className={`px-2.5 py-0.5 rounded-full border ${
-            isWeekend ? 'bg-neutral-100 border-neutral-200 dark:border-neutral-800' : 'bg-emerald-50 border-emerald-200'
+            isWeekend ? 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800' : 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800'
           }`}
         >
           <Text
             className={`text-[11px] font-semibold font-sans ${
-              isWeekend ? 'text-neutral-600 dark:text-neutral-400' : 'text-emerald-700'
+              isWeekend ? 'text-neutral-600 dark:text-neutral-400' : 'text-emerald-700 dark:text-emerald-300'
             }`}
           >
             {isWeekend ? 'Day Off' : 'Working Day'}
@@ -60,7 +60,7 @@ export function TodayAttendanceCard({
             <View className="flex-row items-center mb-1">
               <View
                 className={`w-3.5 h-3.5 rounded-full items-center justify-center mr-1.5 ${
-                  todayRecord ? 'bg-emerald-500' : 'bg-neutral-300'
+                  todayRecord ? 'bg-emerald-50 dark:bg-emerald-900/400' : 'bg-neutral-300'
                 }`}
               >
                 {todayRecord ? (
@@ -84,7 +84,7 @@ export function TodayAttendanceCard({
             <View className="flex-row items-center mb-1">
               <View
                 className={`w-3.5 h-3.5 rounded-full items-center justify-center mr-1.5 ${
-                  isCompleted ? 'bg-blue-500' : 'bg-neutral-300'
+                  isCompleted ? 'bg-blue-50 dark:bg-blue-900/400' : 'bg-neutral-300'
                 }`}
               >
                 {isCompleted ? (

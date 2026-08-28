@@ -38,7 +38,7 @@ export function TaskFilterBar({
   return (
     <View className="mb-4">
       {/* 1. Main Status Segmented Control */}
-      <View className="flex-row bg-neutral-100 p-1 rounded-2xl mb-3 border border-neutral-200 dark:border-neutral-800">
+      <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl mb-3 border border-neutral-200 dark:border-neutral-800">
         {statusTabs.map((tab) => {
           const isActive = statusFilter === tab.id;
           return (
@@ -62,12 +62,12 @@ export function TaskFilterBar({
               </Text>
               <View
                 className={`ml-1.5 px-1.5 py-0.2 rounded-full ${
-                  isActive ? 'bg-primary-50 border border-primary-100' : 'bg-neutral-200'
+                  isActive ? 'bg-primary-50 dark:bg-primary-900/40 border border-primary-100 dark:border-primary-800/50' : 'bg-neutral-200'
                 }`}
               >
                 <Text
                   className={`text-[10px] font-bold font-sans ${
-                    isActive ? 'text-primary-700' : 'text-neutral-600 dark:text-neutral-400'
+                    isActive ? 'text-primary-700 dark:text-primary-300' : 'text-neutral-600 dark:text-neutral-400'
                   }`}
                 >
                   {tab.count}

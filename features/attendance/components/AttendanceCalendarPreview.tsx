@@ -56,11 +56,11 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
             dayItem.status === 'completed' ||
             dayItem.status === 'working'
           ) {
-            dotColor = 'bg-emerald-500';
+            dotColor = 'bg-emerald-50 dark:bg-emerald-900/400';
           } else if (dayItem.status === 'late') {
-            dotColor = 'bg-amber-500';
+            dotColor = 'bg-amber-50 dark:bg-amber-900/400';
           } else if (dayItem.status === 'absent') {
-            dotColor = 'bg-red-500';
+            dotColor = 'bg-red-50 dark:bg-red-900/400';
           } else if (dayItem.status === 'day_off') {
             dotColor = 'bg-neutral-300';
           }
@@ -111,15 +111,15 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
       {/* Legend Footer */}
       <View className="flex-row justify-between items-center pt-3 mt-3 border-t border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
-          <View className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5" />
+          <View className="w-2 h-2 rounded-full bg-emerald-50 dark:bg-emerald-900/400 mr-1.5" />
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Present</Text>
         </View>
         <View className="flex-row items-center">
-          <View className="w-2 h-2 rounded-full bg-amber-500 mr-1.5" />
+          <View className="w-2 h-2 rounded-full bg-amber-50 dark:bg-amber-900/400 mr-1.5" />
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Late</Text>
         </View>
         <View className="flex-row items-center">
-          <View className="w-2 h-2 rounded-full bg-red-500 mr-1.5" />
+          <View className="w-2 h-2 rounded-full bg-red-50 dark:bg-red-900/400 mr-1.5" />
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400">Absent</Text>
         </View>
         <View className="flex-row items-center">

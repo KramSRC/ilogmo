@@ -51,7 +51,7 @@ export default function ForgotPasswordScreen() {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
         <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
-          <View className="w-16 h-16 bg-blue-50 rounded-3xl items-center justify-center mb-5 border border-blue-100">
+          <View className="w-16 h-16 bg-blue-50 dark:bg-blue-900/40 rounded-3xl items-center justify-center mb-5 border border-blue-100">
             <MailCheck size={32} color={colors.primary[600]} />
           </View>
 

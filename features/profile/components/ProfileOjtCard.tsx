@@ -39,9 +39,9 @@ export function ProfileOjtCard({ ojtRecord, onViewDetails }: ProfileOjtCardProps
         <TouchableOpacity
           onPress={onViewDetails}
           activeOpacity={0.8}
-          className="bg-primary-50 border border-primary-200 py-2.5 rounded-xl items-center"
+          className="bg-primary-50 dark:bg-primary-900/40 border border-primary-200 py-2.5 rounded-xl items-center"
         >
-          <Text className="text-xs font-semibold font-sans text-primary-700">
+          <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300">
             Set up OJT Program
           </Text>
         </TouchableOpacity>
@@ -54,8 +54,8 @@ export function ProfileOjtCard({ ojtRecord, onViewDetails }: ProfileOjtCardProps
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">OJT Information</Text>
-        <View className="bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
-          <Text className="text-[10px] font-bold font-sans text-emerald-700">Active</Text>
+        <View className="bg-emerald-50 dark:bg-emerald-900/40 px-2 py-0.5 rounded-md border border-emerald-100">
+          <Text className="text-[10px] font-bold font-sans text-emerald-700 dark:text-emerald-300">Active</Text>
         </View>
       </View>
 

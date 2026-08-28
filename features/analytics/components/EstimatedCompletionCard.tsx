@@ -48,16 +48,16 @@ export function EstimatedCompletionCard({ estimate }: EstimatedCompletionCardPro
 
           {/* Explanation / Warning Alert */}
           {estimate.isOverdueWarning ? (
-            <View className="mt-2 p-3.5 bg-amber-50 rounded-2xl border border-amber-200 flex-row items-start">
+            <View className="mt-2 p-3.5 bg-amber-50 dark:bg-amber-900/40 rounded-2xl border border-amber-200 dark:border-amber-800 flex-row items-start">
               <AlertTriangle size={16} color={colors.warning.DEFAULT} style={{ marginTop: 1 }} />
-              <Text className="ml-2 text-xs font-sans text-amber-900 leading-4 flex-1">
+              <Text className="ml-2 text-xs font-sans text-amber-900 dark:text-amber-100 leading-4 flex-1">
                 {estimate.message}
               </Text>
             </View>
           ) : (
-            <View className="mt-2 p-3.5 bg-emerald-50 rounded-2xl border border-emerald-100 flex-row items-start">
+            <View className="mt-2 p-3.5 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl border border-emerald-100 flex-row items-start">
               <CheckCircle size={16} color={colors.success.DEFAULT} style={{ marginTop: 1 }} />
-              <Text className="ml-2 text-xs font-sans text-emerald-900 leading-4 flex-1">
+              <Text className="ml-2 text-xs font-sans text-emerald-900 dark:text-emerald-100 leading-4 flex-1">
                 {estimate.message}
               </Text>
             </View>

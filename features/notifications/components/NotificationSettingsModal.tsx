@@ -52,7 +52,7 @@ export function NotificationSettingsModal({
               hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               accessibilityRole="button"
               accessibilityLabel="Close settings"
-              className="w-8 h-8 rounded-full bg-neutral-100 items-center justify-center"
+              className="w-8 h-8 rounded-full bg-neutral-100 dark:bg-neutral-800 items-center justify-center"
             >
               <X size={18} color={colors.neutral[600]} />
             </TouchableOpacity>
@@ -62,7 +62,7 @@ export function NotificationSettingsModal({
             {/* 1. Attendance Reminder */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-sky-50 border border-sky-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-900/40 border border-sky-100 dark:border-sky-800/50 items-center justify-center mr-3">
                   <Clock size={18} color="#0284C7" />
                 </View>
                 <View className="flex-1">
@@ -85,7 +85,7 @@ export function NotificationSettingsModal({
             {/* 2. Check-Out Reminder */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-900/40 border border-amber-100 items-center justify-center mr-3">
                   <LogOut size={18} color="#D97706" />
                 </View>
                 <View className="flex-1">
@@ -108,7 +108,7 @@ export function NotificationSettingsModal({
             {/* 3. Task Reminders */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 border border-indigo-100 dark:border-indigo-800/50 items-center justify-center mr-3">
                   <CheckSquare size={18} color="#4F46E5" />
                 </View>
                 <View className="flex-1">
@@ -131,7 +131,7 @@ export function NotificationSettingsModal({
             {/* 4. Journal Reminders */}
             <View className="flex-row items-center justify-between py-2 border-b border-neutral-100 dark:border-neutral-800">
               <View className="flex-row items-center flex-1 mr-3">
-                <View className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 items-center justify-center mr-3">
+                <View className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-100 items-center justify-center mr-3">
                   <BookOpen size={18} color="#16A34A" />
                 </View>
                 <View className="flex-1">

@@ -94,7 +94,7 @@ export default function AttendanceDetailsScreen() {
         >
           {/* Main Status & Date Summary Card */}
           <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
-            <View className="w-14 h-14 bg-primary-50 rounded-2xl items-center justify-center mb-3 border border-primary-100">
+            <View className="w-14 h-14 bg-primary-50 dark:bg-primary-900/40 rounded-2xl items-center justify-center mb-3 border border-primary-100 dark:border-primary-800/50">
               <Calendar size={26} color={colors.primary[600]} />
             </View>
 

@@ -31,7 +31,7 @@ export function ProgressCard({ progress }: ProgressCardProps) {
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-4">
         <View className="flex-row items-center">
-          <View className="w-8 h-8 rounded-xl bg-primary-50 items-center justify-center mr-2.5 border border-primary-100">
+          <View className="w-8 h-8 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-2.5 border border-primary-100 dark:border-primary-800/50">
             <TrendingUp size={16} color={colors.primary[600]} />
           </View>
           <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">OJT Progress</Text>
@@ -55,8 +55,8 @@ export function ProgressCard({ progress }: ProgressCardProps) {
 
           {/* Remaining Hours Pill */}
           <View className="flex-row items-center mt-2.5">
-            <View className="bg-primary-50 px-2.5 py-1 rounded-full border border-primary-100">
-              <Text className="text-xs font-semibold font-sans text-primary-700">
+            <View className="bg-primary-50 dark:bg-primary-900/40 px-2.5 py-1 rounded-full border border-primary-100 dark:border-primary-800/50">
+              <Text className="text-xs font-semibold font-sans text-primary-700 dark:text-primary-300">
                 {progress.remainingHours} hrs remaining
               </Text>
             </View>

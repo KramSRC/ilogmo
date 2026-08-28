@@ -22,7 +22,7 @@ export interface SelectedDateCardProps {
  * Status Badge for Calendar Selected Date view
  */
 function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
-  let bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+  let bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
   let textColor = 'text-neutral-700 dark:text-neutral-300';
   let label = 'No Record';
   let icon = <Info size={12} color={colors.neutral[500]} />;
@@ -30,49 +30,49 @@ function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
   switch (status) {
     case 'completed':
     case 'present':
-      bg = 'bg-emerald-50 border-emerald-200';
-      textColor = 'text-emerald-700';
+      bg = 'bg-emerald-50 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800';
+      textColor = 'text-emerald-700 dark:text-emerald-300';
       label = status === 'completed' ? 'Completed' : 'Present';
       icon = <CheckCircle2 size={12} color={colors.success.DEFAULT} strokeWidth={2.5} />;
       break;
     case 'working':
-      bg = 'bg-blue-50 border-blue-200';
-      textColor = 'text-blue-700';
+      bg = 'bg-blue-50 dark:bg-blue-900/40 border-blue-200 dark:border-blue-800';
+      textColor = 'text-blue-700 dark:text-blue-300';
       label = 'Working';
-      icon = <View className="w-2 h-2 rounded-full bg-blue-500 mr-1" />;
+      icon = <View className="w-2 h-2 rounded-full bg-blue-50 dark:bg-blue-900/400 mr-1" />;
       break;
     case 'late':
-      bg = 'bg-amber-50 border-amber-200';
+      bg = 'bg-amber-50 dark:bg-amber-900/40 border-amber-200 dark:border-amber-800';
       textColor = 'text-amber-700';
       label = 'Late';
       icon = <Clock size={12} color={colors.warning.DEFAULT} />;
       break;
     case 'absent':
-      bg = 'bg-red-50 border-red-200';
-      textColor = 'text-red-700';
+      bg = 'bg-red-50 dark:bg-red-900/40 border-red-200 dark:border-red-800';
+      textColor = 'text-red-700 dark:text-red-300';
       label = 'Absent';
       icon = <AlertCircle size={12} color={colors.error.DEFAULT} />;
       break;
     case 'day_off':
-      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
       textColor = 'text-neutral-600 dark:text-neutral-400';
       label = 'Day Off';
       icon = <CalendarIcon size={12} color={colors.neutral[500]} />;
       break;
     case 'upcoming':
-      bg = 'bg-primary-50 border-primary-200';
-      textColor = 'text-primary-700';
+      bg = 'bg-primary-50 dark:bg-primary-900/40 border-primary-200';
+      textColor = 'text-primary-700 dark:text-primary-300';
       label = 'Upcoming';
       icon = <CalendarIcon size={12} color={colors.primary[600]} />;
       break;
     case 'before_ojt':
-      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
       textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'Before OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
       break;
     case 'after_ojt':
-      bg = 'bg-neutral-100 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
       textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'After OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
@@ -133,7 +133,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
           {/* Big Total Worked Time Display */}
           <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 mb-4 border border-neutral-100 dark:border-neutral-800 flex-row items-center justify-between">
             <View className="flex-row items-center">
-              <View className="w-10 h-10 rounded-xl bg-primary-50 items-center justify-center mr-3 border border-primary-100">
+              <View className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center mr-3 border border-primary-100 dark:border-primary-800/50">
                 <Timer size={20} color={colors.primary[600]} />
               </View>
               <View>
@@ -148,7 +148,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
 
             {isWorking ? (
               <View className="px-2.5 py-1 bg-blue-100 rounded-lg">
-                <Text className="text-[11px] font-bold font-sans text-blue-700">IN PROGRESS</Text>
+                <Text className="text-[11px] font-bold font-sans text-blue-700 dark:text-blue-300">IN PROGRESS</Text>
               </View>
             ) : null}
           </View>
