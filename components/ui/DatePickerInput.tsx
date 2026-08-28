@@ -4,6 +4,7 @@ import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/dat
 import { Calendar, X } from 'lucide-react-native';
 import { format, parseISO, isValid } from 'date-fns';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface DatePickerInputProps {
   label?: string;
@@ -63,6 +64,7 @@ export function DatePickerInput({
   containerClassName = '',
 }: DatePickerInputProps) {
   const [showPicker, setShowPicker] = useState(false);
+  const isDark = useThemeStore((state) => state.isDark);
 
   const selectedDate = parseDateValue(value);
   const displayFormatted = formatDateDisplay(value);
@@ -100,12 +102,9 @@ export function DatePickerInput({
         accessibilityRole="button"
         accessibilityLabel={label || 'Select date'}
         disabled={disabled}
-        className="w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border bg-white dark:bg-neutral-900"
-        style={[
-          styles.container,
-          error ? styles.errorBorder : styles.normalBorder,
-          disabled && styles.disabledStyle,
-        ]}
+        className={`w-full flex-row items-center justify-between rounded-xl px-3.5 py-3 border min-h-[48px] ${
+          error ? 'border-red-500' : 'border-neutral-200 dark:border-neutral-800'
+        } ${disabled ? 'opacity-50 bg-neutral-50 dark:bg-neutral-900/50' : 'bg-white dark:bg-neutral-900'}`}
       >
         <View className="flex-row items-center flex-1 mr-2">
           <Calendar size={18} color={colors.neutral[400]} />
@@ -178,7 +177,7 @@ export function DatePickerInput({
                 minimumDate={minDate}
                 maximumDate={maxDate}
                 onChange={handleValueChange}
-                textColor={colors.neutral[900]}
+                textColor={isDark ? colors.neutral[100] : colors.neutral[900]}
               />
             </View>
           </View>
@@ -187,21 +186,5 @@ export function DatePickerInput({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    minHeight: 48,
-  },
-  normalBorder: {
-    borderColor: '#E2E8F0',
-  },
-  errorBorder: {
-    borderColor: '#EF4444',
-  },
-  disabledStyle: {
-    opacity: 0.5,
-    backgroundColor: '#F8FAFC',
-  },
-});
 
 export default DatePickerInput;

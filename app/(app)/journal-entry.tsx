@@ -21,11 +21,13 @@ import { ArrowLeft, AlertCircle, BookOpen } from 'lucide-react-native';
 import { useJournal, getTodayJournalDate, JournalEntry } from '@/features/journal';
 import { Button, DatePickerInput, ErrorMessage } from '@/components';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export default function JournalEntryScreen() {
   const router = useRouter();
   const { id, date: initialDateParam } = useLocalSearchParams<{ id?: string; date?: string }>();
   const isEditing = Boolean(id);
+  const isDark = useThemeStore((state) => state.isDark);
 
   const { createEntry, updateEntry, getEntryById, getEntryByDate, validateOjtDate, isSaving } =
     useJournal();
@@ -249,7 +251,7 @@ export default function JournalEntryScreen() {
             style={{ minHeight: 44, minWidth: 44 }}
             className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
-            <ArrowLeft size={20} color={colors.neutral[700]} />
+            <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
           </TouchableOpacity>
 
           <View className="flex-1">
@@ -339,10 +341,9 @@ export default function JournalEntryScreen() {
               What did you work on? *
             </Text>
             <View
-              className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
-              style={[
-                errors.workDescription ? styles.inputError : styles.inputNormal,
-              ]}
+              className={`bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border ${
+                errors.workDescription ? 'border-red-500' : 'border-neutral-200 dark:border-transparent'
+              }`}
             >
               <TextInput
                 multiline
@@ -370,10 +371,9 @@ export default function JournalEntryScreen() {
               What did you learn? *
             </Text>
             <View
-              className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border"
-              style={[
-                errors.learningDescription ? styles.inputError : styles.inputNormal,
-              ]}
+              className={`bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border ${
+                errors.learningDescription ? 'border-red-500' : 'border-neutral-200 dark:border-transparent'
+              }`}
             >
               <TextInput
                 multiline
@@ -454,11 +454,3 @@ export default function JournalEntryScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  inputNormal: {
-    borderColor: '#E2E8F0',
-  },
-  inputError: {
-    borderColor: '#EF4444',
-  },
-});
