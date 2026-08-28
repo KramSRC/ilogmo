@@ -43,7 +43,7 @@ export function ProfileAvatar({
       {/* Avatar Circle */}
       <View
         style={containerStyle}
-        className="bg-primary-100 border-2 border-primary-200 items-center justify-center overflow-hidden shadow-soft-sm"
+        className="bg-primary-100 border-2 border-primary-200 items-center justify-center overflow-hidden shadow-soft-sm dark:shadow-none"
       >
         {isUploading ? (
           <ActivityIndicator size="small" color={colors.primary[600]} />
@@ -78,7 +78,7 @@ export function ProfileAvatar({
             bottom: -2,
             right: -2,
           }}
-          className="absolute bg-primary-600 border-2 border-white items-center justify-center shadow-soft-sm"
+          className="absolute bg-primary-600 border-2 border-white items-center justify-center shadow-soft-sm dark:shadow-none"
         >
           <Camera size={Math.round(badgeSize * 0.52)} color="#FFFFFF" />
         </TouchableOpacity>

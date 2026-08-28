@@ -25,7 +25,7 @@ export function JournalCard({ entry, onPress }: JournalCardProps) {
       activeOpacity={0.7}
       accessibilityRole="button"
       accessibilityLabel={`View journal entry for ${formattedDate}`}
-      className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-3.5 border border-neutral-200 dark:border-neutral-800 shadow-card"
+      className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-3.5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none"
     >
       {/* Date & Time Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">

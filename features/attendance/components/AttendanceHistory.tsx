@@ -30,7 +30,7 @@ export function AttendanceHistory({ records }: AttendanceHistoryProps) {
       </View>
 
       {/* History Card Container */}
-      <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card border border-neutral-200 dark:border-neutral-800">
+      <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
         {records.length === 0 ? (
           <View className="items-center py-6">
             <View className="w-10 h-10 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-2">

@@ -17,7 +17,7 @@ export function AttendanceCalendarPreview({ days }: AttendanceCalendarPreviewPro
   const currentMonthName = format(new Date(), 'MMMM yyyy');
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-8">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-8">
       {/* Header Row */}
       <View className="flex-row items-center justify-between mb-4">
         <View>

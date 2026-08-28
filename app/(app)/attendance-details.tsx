@@ -65,7 +65,7 @@ export default function AttendanceDetailsScreen() {
           accessibilityRole="button"
           accessibilityLabel="Go back"
           style={{ minHeight: 44, minWidth: 44 }}
-          className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm mr-3"
+          className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none mr-3"
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
         </TouchableOpacity>
@@ -93,7 +93,7 @@ export default function AttendanceDetailsScreen() {
           className="px-5 pt-2"
         >
           {/* Main Status & Date Summary Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
             <View className="w-14 h-14 bg-primary-50 dark:bg-primary-900/40 rounded-2xl items-center justify-center mb-3 border border-primary-100 dark:border-primary-800/50">
               <Calendar size={26} color={colors.primary[600]} />
             </View>
@@ -118,7 +118,7 @@ export default function AttendanceDetailsScreen() {
           </View>
 
           {/* Time & Details Breakdown Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4 space-y-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4 space-y-4">
             <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 border-b border-neutral-100 dark:border-neutral-800 pb-2">
               Time Breakdown
             </Text>
@@ -156,7 +156,7 @@ export default function AttendanceDetailsScreen() {
           </View>
 
           {/* Location & Additional Info */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 space-y-3">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 space-y-3">
             <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 border-b border-neutral-100 dark:border-neutral-800 pb-2">
               Additional Information
             </Text>

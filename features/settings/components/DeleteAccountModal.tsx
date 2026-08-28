@@ -146,7 +146,7 @@ export function DeleteAccountModal({
               onPress={handleDelete}
               variant="danger"
               size="lg"
-              className="flex-1 ml-2 shadow-button"
+              className="flex-1 ml-2 shadow-button dark:shadow-none"
               disabled={!isConfirmed || isDeleting}
             />
           </View>

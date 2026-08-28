@@ -103,7 +103,7 @@ export default function SplashScreen() {
         className="items-center justify-center"
       >
         {/* Brand Icon Container */}
-        <View className="w-20 h-20 rounded-3xl bg-primary-600 items-center justify-center shadow-card mb-5 border border-primary-500">
+        <View className="w-20 h-20 rounded-3xl bg-primary-600 items-center justify-center shadow-card dark:shadow-none mb-5 border border-primary-500">
           <BookOpen size={38} color="#FFFFFF" strokeWidth={2.4} />
         </View>
 

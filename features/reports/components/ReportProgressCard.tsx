@@ -21,7 +21,7 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
     <View
       accessibilityRole="summary"
       accessibilityLabel={`OJT progress: ${hours.progressPercentage} percent, ${hours.completedHoursFormatted} of ${hours.requiredHours} hours completed. ${hours.remainingHoursFormatted} remaining.`}
-      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4"
+      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4"
     >
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3">

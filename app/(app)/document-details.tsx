@@ -158,7 +158,7 @@ export default function DocumentDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -215,7 +215,7 @@ export default function DocumentDetailsScreen() {
         ) : (
           <>
             {/* 1. Main Document Card */}
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5 items-center text-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5 items-center text-center">
               {/* Large Icon Badge */}
               <View
                 className={`w-20 h-20 rounded-3xl ${fileDetails?.bg} border items-center justify-center mb-4`}
@@ -242,7 +242,7 @@ export default function DocumentDetailsScreen() {
             </View>
 
             {/* 2. Metadata Specs Card */}
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
               <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4">
                 File Information
               </Text>
@@ -302,7 +302,7 @@ export default function DocumentDetailsScreen() {
 
             {/* 3. Description (If present) */}
             {document.description ? (
-              <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+              <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-6">
                 <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-2">
                   Description
                 </Text>
@@ -321,7 +321,7 @@ export default function DocumentDetailsScreen() {
                 onPress={handleOpen}
                 variant="primary"
                 size="lg"
-                className="w-full shadow-button"
+                className="w-full shadow-button dark:shadow-none"
               />
 
               <Button

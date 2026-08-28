@@ -119,7 +119,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
   }.`;
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-neutral-800 shadow-card">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none">
       <View className="flex-row items-start">
         {/* Checkbox Trigger */}
         <TouchableOpacity

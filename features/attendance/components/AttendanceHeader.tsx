@@ -35,7 +35,7 @@ export function AttendanceHeader({
         activeOpacity={0.7}
         accessibilityRole="button"
         accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
-        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm items-center justify-center relative"
+        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
         {hasUnread ? (

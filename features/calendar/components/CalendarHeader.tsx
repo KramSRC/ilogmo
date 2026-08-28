@@ -27,7 +27,7 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
           activeOpacity={0.7}
           accessibilityRole="button"
           accessibilityLabel="Go back to previous screen"
-          className="w-11 h-11 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+          className="w-11 h-11 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           style={{ elevation: 1 }}
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />

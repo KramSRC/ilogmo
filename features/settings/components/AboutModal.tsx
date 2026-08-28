@@ -119,7 +119,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
             onPress={onClose}
             variant="primary"
             size="lg"
-            className="w-full shadow-button"
+            className="w-full shadow-button dark:shadow-none"
           />
         </View>
       </View>

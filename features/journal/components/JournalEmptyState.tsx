@@ -15,7 +15,7 @@ export interface JournalEmptyStateProps {
 
 export function JournalEmptyState({ onCreateEntry }: JournalEmptyStateProps) {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 border border-neutral-200 dark:border-neutral-800 shadow-card items-center my-6">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none items-center my-6">
       <View className="w-16 h-16 bg-primary-50 dark:bg-primary-900/40 rounded-3xl items-center justify-center mb-4 border border-primary-100 dark:border-primary-800/50">
         <BookOpen size={30} color={colors.primary[600]} />
       </View>

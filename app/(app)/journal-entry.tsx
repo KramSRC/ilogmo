@@ -247,7 +247,7 @@ export default function JournalEntryScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -445,7 +445,7 @@ export default function JournalEntryScreen() {
             onPress={handleSave}
             variant="primary"
             size="lg"
-            className="w-full shadow-button"
+            className="w-full shadow-button dark:shadow-none"
             disabled={isSaving || isLoadingInitial}
           />
         </ScrollView>

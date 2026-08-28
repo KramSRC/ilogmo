@@ -10,7 +10,7 @@ import { colors } from '@/constants/colors';
 
 export function NotificationEmptyState() {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 items-center text-center my-6">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 items-center text-center my-6">
       <View className="w-14 h-14 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-4 border border-neutral-200 dark:border-neutral-800">
         <BellOff size={26} color={colors.neutral[500]} />
       </View>

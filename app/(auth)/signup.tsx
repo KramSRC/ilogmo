@@ -61,7 +61,7 @@ export default function SignUpScreen() {
   if (isSuccess) {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
-        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
           <View className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-2xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={28} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
@@ -103,7 +103,7 @@ export default function SignUpScreen() {
               accessibilityRole="button"
               accessibilityLabel="Back to Sign In"
               hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
-              className="w-10 h-10 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm mr-3"
+              className="w-10 h-10 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none mr-3"
             >
               <ArrowLeft size={20} color={colors.neutral[700]} />
             </TouchableOpacity>
@@ -119,7 +119,7 @@ export default function SignUpScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-6">
             {/* Server Error Alert */}
             {serverError ? (
               <ErrorMessage

@@ -173,7 +173,7 @@ export function ExportDataModal({
               onPress={handleExport}
               variant="primary"
               size="lg"
-              className="flex-1 ml-2 shadow-button"
+              className="flex-1 ml-2 shadow-button dark:shadow-none"
             />
           </View>
         </View>

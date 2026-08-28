@@ -32,7 +32,7 @@ export function AttendanceConfirmationSheet({
   return (
     <Modal transparent animationType="fade" visible={visible} onRequestClose={onCancel}>
       <View className="flex-1 bg-black/50 justify-center items-center px-6">
-        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 w-full max-w-sm">
           {/* Header with Close Icon */}
           <View className="flex-row items-center justify-between mb-4">
             <View className="flex-row items-center">

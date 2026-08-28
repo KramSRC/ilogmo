@@ -205,7 +205,7 @@ export default function DocumentUploadScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -262,7 +262,7 @@ export default function DocumentUploadScreen() {
               </TouchableOpacity>
             ) : (
               /* Selected File Card */
-              <View className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm">
+              <View className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none">
                 <View className="flex-row items-center justify-between mb-3">
                   <View className="flex-row items-center flex-1 mr-2">
                     <View
@@ -425,7 +425,7 @@ export default function DocumentUploadScreen() {
             onPress={handleUpload}
             variant="primary"
             size="lg"
-            className="w-full shadow-button"
+            className="w-full shadow-button dark:shadow-none"
             disabled={isUploading}
           />
         </ScrollView>

@@ -76,7 +76,7 @@ export default function ReportsScreen() {
             activeOpacity={0.8}
             accessibilityRole="button"
             accessibilityLabel="Export OJT report"
-            className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+            className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card dark:shadow-none mb-4 min-h-[48px]"
           >
             <Download size={18} color="#FFFFFF" strokeWidth={2.4} />
             <Text className="text-sm font-bold font-sans text-white ml-2">Export OJT Report</Text>
@@ -123,7 +123,7 @@ export default function ReportsScreen() {
             />
 
             {/* 8. Export Action Banner */}
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mt-1 mb-3 items-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mt-1 mb-3 items-center">
               <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
                 Formal Progress Report
               </Text>
@@ -137,7 +137,7 @@ export default function ReportsScreen() {
                 accessibilityRole="button"
                 accessibilityLabel="Export OJT report"
                 style={{ minHeight: 48 }}
-                className="w-full bg-primary-600 rounded-xl items-center justify-center flex-row shadow-soft-sm"
+                className="w-full bg-primary-600 rounded-xl items-center justify-center flex-row shadow-soft-sm dark:shadow-none"
               >
                 <Download size={16} color="#FFFFFF" strokeWidth={2.4} />
                 <Text className="text-sm font-bold font-sans text-white ml-2">

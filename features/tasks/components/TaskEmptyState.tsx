@@ -42,7 +42,7 @@ export function TaskEmptyState({ filter, onCreateTask }: TaskEmptyStateProps) {
   }
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 border border-neutral-200 dark:border-neutral-800 shadow-card items-center my-6">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-8 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none items-center my-6">
       <View
         className={`w-16 h-16 ${iconBg} rounded-3xl items-center justify-center mb-4 border ${iconBorder}`}
       >

@@ -62,7 +62,7 @@ export function ReportExportModal({
       <TouchableWithoutFeedback onPress={onClose}>
         <View className="flex-1 bg-black/50 justify-center items-center px-5">
           <TouchableWithoutFeedback onPress={(e) => e.stopPropagation()}>
-            <View className="bg-white dark:bg-neutral-900 rounded-3xl p-6 w-full max-w-sm shadow-card border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-3xl p-6 w-full max-w-sm shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
               {/* Header */}
               <View className="flex-row items-center justify-between mb-2">
                 <View className="flex-row items-center">
@@ -214,7 +214,7 @@ export function ReportExportModal({
                       disabled={isExporting}
                       activeOpacity={0.8}
                       style={{ minHeight: 46 }}
-                      className="flex-1 ml-2 bg-primary-600 rounded-xl items-center justify-center flex-row shadow-soft-sm"
+                      className="flex-1 ml-2 bg-primary-600 rounded-xl items-center justify-center flex-row shadow-soft-sm dark:shadow-none"
                     >
                       {isExporting ? (
                         <ActivityIndicator size="small" color="#FFFFFF" />

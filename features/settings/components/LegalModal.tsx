@@ -81,7 +81,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
             onPress={onClose}
             variant="primary"
             size="lg"
-            className="w-full shadow-button"
+            className="w-full shadow-button dark:shadow-none"
           />
         </View>
       </View>

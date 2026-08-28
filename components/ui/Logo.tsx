@@ -36,7 +36,7 @@ export function Logo({
     return (
       <View className="flex-row items-center">
         <View
-          className={`${iconContainerSize} bg-primary-600 items-center justify-center shadow-soft-md mr-3`}
+          className={`${iconContainerSize} bg-primary-600 items-center justify-center shadow-soft-md dark:shadow-none mr-3`}
         >
           <BookOpen size={iconSize} color="#FFFFFF" strokeWidth={2.4} />
         </View>
@@ -55,7 +55,7 @@ export function Logo({
   return (
     <View className="items-center justify-center">
       <View
-        className={`${iconContainerSize} bg-primary-600 items-center justify-center shadow-soft-md mb-3`}
+        className={`${iconContainerSize} bg-primary-600 items-center justify-center shadow-soft-md dark:shadow-none mb-3`}
       >
         <BookOpen size={iconSize} color="#FFFFFF" strokeWidth={2.4} />
       </View>

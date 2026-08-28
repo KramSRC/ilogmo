@@ -20,7 +20,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
   // State B: Currently Working
   if (attendance.state === 'working') {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
             <View className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 items-center justify-center mr-2.5 border border-emerald-100">
@@ -67,7 +67,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
   // State C: Completed
   if (attendance.state === 'completed') {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
         <View className="flex-row items-center justify-between mb-3">
           <View className="flex-row items-center">
             <View className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-900/40 items-center justify-center mr-2.5 border border-blue-100">
@@ -114,7 +114,7 @@ export function AttendanceSummaryCard({ attendance }: AttendanceSummaryCardProps
 
   // State A: Not checked in (Default)
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
       <View className="flex-row items-center justify-between mb-3">
         <View className="flex-row items-center">
           <View className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-900/40 items-center justify-center mr-2.5 border border-amber-100">

@@ -159,7 +159,7 @@ export default function ProfileScreen() {
         ) : (
           <>
             {/* 2. Top Profile Avatar & Name Card */}
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4 items-center">
               <ProfileAvatar
                 firstName={profile?.firstName}
                 lastName={profile?.lastName}

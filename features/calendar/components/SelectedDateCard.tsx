@@ -92,7 +92,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
 
   if (!details) {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5 items-center">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5 items-center">
         <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400">
           Tap a date on the calendar to view its details.
         </Text>
@@ -113,7 +113,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
   };
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
       {/* Section Header */}
       <View className="flex-row justify-between items-start pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-1 mr-2">

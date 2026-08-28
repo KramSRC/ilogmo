@@ -40,7 +40,7 @@ export function DocumentCategoryFilter({
               accessibilityState={{ selected: isSelected }}
               className={`mr-2.5 px-3.5 py-2 rounded-xl flex-row items-center border ${
                 isSelected
-                  ? 'bg-primary-600 border-primary-600 shadow-soft-sm'
+                  ? 'bg-primary-600 border-primary-600 shadow-soft-sm dark:shadow-none'
                   : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
               }`}
             >

@@ -105,7 +105,7 @@ export default function JournalDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -152,7 +152,7 @@ export default function JournalDetailsScreen() {
           className="px-5 pt-4"
         >
           {/* Date Summary Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
             <View className="flex-row items-center justify-between">
               <View className="flex-row items-center flex-1 mr-2">
                 <View className="w-12 h-12 rounded-2xl bg-primary-50 dark:bg-primary-900/40 items-center justify-center border border-primary-100 dark:border-primary-800/50 mr-3.5">
@@ -180,7 +180,7 @@ export default function JournalDetailsScreen() {
           </View>
 
           {/* Today's Work Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
             <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <BookOpen size={16} color={colors.primary[600]} />
               <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -193,7 +193,7 @@ export default function JournalDetailsScreen() {
           </View>
 
           {/* What I Learned Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
             <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <Lightbulb size={16} color={colors.warning.DEFAULT} />
               <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -207,7 +207,7 @@ export default function JournalDetailsScreen() {
 
           {/* Challenges Card (if any) */}
           {entry.challenges ? (
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
               <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
                 <AlertTriangle size={16} color={colors.error.DEFAULT} />
                 <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -222,7 +222,7 @@ export default function JournalDetailsScreen() {
 
           {/* Additional Notes Card (if any) */}
           {entry.notes ? (
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
               <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
                 <FileText size={16} color={colors.neutral[600]} />
                 <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">

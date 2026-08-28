@@ -17,7 +17,7 @@ export function ProfileSkeleton() {
       </View>
 
       {/* Info Card Skeleton */}
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card border border-neutral-200 dark:border-neutral-800">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
         <View className="w-36 h-4 bg-neutral-200 rounded-md mb-4" />
         <View className="space-y-3">
           <View className="w-full h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-2" />
@@ -27,7 +27,7 @@ export function ProfileSkeleton() {
       </View>
 
       {/* OJT Card Skeleton */}
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card border border-neutral-200 dark:border-neutral-800">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
         <View className="w-32 h-4 bg-neutral-200 rounded-md mb-4" />
         <View className="space-y-3">
           <View className="w-full h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-2" />

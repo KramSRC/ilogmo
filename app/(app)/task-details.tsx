@@ -157,7 +157,7 @@ export default function TaskDetailsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -204,7 +204,7 @@ export default function TaskDetailsScreen() {
           className="px-5 pt-4"
         >
           {/* Main Title & Status Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
             <View className="flex-row items-center justify-between mb-3">
               {renderPriorityBadge(task.priority)}
 
@@ -234,7 +234,7 @@ export default function TaskDetailsScreen() {
           </View>
 
           {/* Due Date & Timeline Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-4">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-4">
             <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <Calendar size={16} color={colors.primary[600]} />
               <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">
@@ -274,7 +274,7 @@ export default function TaskDetailsScreen() {
           </View>
 
           {/* Description Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card mb-5">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none mb-5">
             <View className="flex-row items-center pb-2.5 mb-3 border-b border-neutral-100 dark:border-neutral-800">
               <FileText size={16} color={colors.primary[600]} />
               <Text className="ml-2 text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100">Description</Text>
@@ -302,7 +302,7 @@ export default function TaskDetailsScreen() {
                   <Check size={18} color="#FFFFFF" strokeWidth={3} />
                 )
               }
-              className="w-full shadow-button"
+              className="w-full shadow-button dark:shadow-none"
             />
 
             <View className="flex-row items-center mt-3">

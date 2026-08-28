@@ -105,7 +105,7 @@ export default function OjtSetupScreen() {
   if (isSuccess) {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
-        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
           <View className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/40 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
@@ -159,7 +159,7 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 1: OJT Requirements */}
           {/* ========================================================================= */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Requirements
             </Text>
@@ -220,7 +220,7 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 2: Internship Details */}
           {/* ========================================================================= */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               Internship Details
             </Text>
@@ -302,7 +302,7 @@ export default function OjtSetupScreen() {
           {/* ========================================================================= */}
           {/* SECTION 3: OJT Schedule */}
           {/* ========================================================================= */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-6">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-6">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Schedule
             </Text>
@@ -445,7 +445,7 @@ export default function OjtSetupScreen() {
             loadingText="Saving OJT Setup..."
             variant="primary"
             size="lg"
-            className="w-full mb-6 shadow-soft-sm"
+            className="w-full mb-6 shadow-soft-sm dark:shadow-none"
           />
         </ScrollView>
       </KeyboardAvoidingView>

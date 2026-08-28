@@ -31,7 +31,7 @@ function formatDate(dateStr?: string | null): string {
 export function ProfileOjtCard({ ojtRecord, onViewDetails }: ProfileOjtCardProps) {
   if (!ojtRecord) {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card border border-neutral-200 dark:border-neutral-800">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-2">OJT Information</Text>
         <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-3">
           No active OJT setup found. Configure your internship to track hours and attendance.
@@ -50,7 +50,7 @@ export function ProfileOjtCard({ ojtRecord, onViewDetails }: ProfileOjtCardProps
   }
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card border border-neutral-200 dark:border-neutral-800">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">OJT Information</Text>

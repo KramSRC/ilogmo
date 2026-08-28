@@ -77,7 +77,7 @@ export default function TasksScreen() {
           activeOpacity={0.8}
           accessibilityRole="button"
           accessibilityLabel="Add new task"
-          className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card mb-4 min-h-[48px]"
+          className="flex-row items-center justify-center bg-primary-600 py-3.5 px-4 rounded-2xl shadow-card dark:shadow-none mb-4 min-h-[48px]"
         >
           <Plus size={18} color="#FFFFFF" strokeWidth={2.5} />
           <Text className="text-sm font-bold font-sans text-white ml-2">Add New Task</Text>

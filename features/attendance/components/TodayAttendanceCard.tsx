@@ -33,7 +33,7 @@ export function TodayAttendanceCard({
   const isNotCheckedIn = !todayRecord;
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card border border-neutral-200 dark:border-neutral-800 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
       {/* Top Date & Working Day Status Row */}
       <View className="flex-row items-center justify-between mb-4">
         <Text className="text-xs font-semibold font-sans text-neutral-500 dark:text-neutral-400">{todayFormatted}</Text>

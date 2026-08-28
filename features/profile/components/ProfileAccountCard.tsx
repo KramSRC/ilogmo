@@ -26,7 +26,7 @@ export function ProfileAccountCard({
   const memberSince = formatAccountDate(profile?.createdAt);
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-6 shadow-card border border-neutral-200 dark:border-neutral-800">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Account</Text>
