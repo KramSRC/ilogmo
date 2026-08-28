@@ -136,6 +136,7 @@ export default function AppLayout() {
         options={{
           href: null,
           tabBarStyle: { display: 'none' },
+          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen
@@ -150,6 +151,7 @@ export default function AppLayout() {
         options={{
           href: null,
           tabBarStyle: { display: 'none' },
+          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen
@@ -164,6 +166,7 @@ export default function AppLayout() {
         options={{
           href: null,
           tabBarStyle: { display: 'none' },
+          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen
@@ -178,6 +181,7 @@ export default function AppLayout() {
         options={{
           href: null,
           tabBarStyle: { display: 'none' },
+          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen
@@ -185,6 +189,7 @@ export default function AppLayout() {
         options={{
           href: null,
           tabBarStyle: { display: 'none' },
+          unmountOnBlur: true,
         }}
       />
     </Tabs>
