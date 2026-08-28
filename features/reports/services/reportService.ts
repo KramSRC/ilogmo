@@ -7,6 +7,7 @@
 import { Share, Platform } from 'react-native';
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+import * as FileSystem from 'expo-file-system';
 import {
   format,
   parseISO,
@@ -784,16 +785,26 @@ export const reportService = {
       }
 
       // Format clean file URI
-      const fileUri = uri.startsWith('file://') ? uri : `file://${uri}`;
+      const cleanUri = uri.startsWith('file://') ? uri : `file://${uri}`;
 
       // Try Sharing.shareAsync first
       const isSharingAvailable = await Sharing.isAvailableAsync();
       if (isSharingAvailable) {
         try {
-          await Sharing.shareAsync(fileUri, {
+          // On Android, Sharing requires the file to be in the document/cache directory
+          // Print.printToFileAsync sometimes uses an inaccessible temp path
+          const fileName = `iLogMo-OJT-Report-${summary.filterLabel.replace(/\s+/g, '_')}.pdf`;
+          const safeFileUri = `${FileSystem.documentDirectory}${fileName}`;
+          
+          await FileSystem.copyAsync({
+            from: cleanUri,
+            to: safeFileUri,
+          });
+
+          await Sharing.shareAsync(safeFileUri, {
             UTI: '.pdf',
             mimeType: 'application/pdf',
-            dialogTitle: `iLogMo-OJT-Report-${summary.filterLabel.replace(/\s+/g, '_')}.pdf`,
+            dialogTitle: fileName,
           });
           return { success: true, data: true };
         } catch (shareErr) {
@@ -805,7 +816,7 @@ export const reportService = {
       }
 
       // Fallback: Opens system Print dialog / Save as PDF
-      await Print.printAsync({ uri: fileUri });
+      await Print.printAsync({ uri: cleanUri });
       return { success: true, data: true };
     } catch (err: any) {
       console.warn('[reportService.exportPdfReport] PDF generation error:', err);
