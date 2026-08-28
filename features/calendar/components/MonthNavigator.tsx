@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { ChevronLeft, ChevronRight } from 'lucide-react-native';
 import { format } from 'date-fns';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface MonthNavigatorProps {
   selectedMonth: Date;
@@ -19,6 +20,7 @@ export function MonthNavigator({
   onPrevMonth,
   onNextMonth,
 }: MonthNavigatorProps) {
+  const isDark = useThemeStore((state) => state.isDark);
   const monthYearDisplay = format(selectedMonth, 'MMMM yyyy');
 
   return (
@@ -35,7 +37,7 @@ export function MonthNavigator({
           canGoPrev ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-transparent' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent opacity-40'
         }`}
       >
-        <ChevronLeft size={20} color={canGoPrev ? colors.neutral[800] : colors.neutral[400]} />
+        <ChevronLeft size={20} color={canGoPrev ? (isDark ? colors.neutral[300] : colors.neutral[800]) : (isDark ? colors.neutral[600] : colors.neutral[400])} />
       </TouchableOpacity>
 
       {/* Month Year Display */}
@@ -55,7 +57,7 @@ export function MonthNavigator({
           canGoNext ? 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-transparent' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent opacity-40'
         }`}
       >
-        <ChevronRight size={20} color={canGoNext ? colors.neutral[800] : colors.neutral[400]} />
+        <ChevronRight size={20} color={canGoNext ? (isDark ? colors.neutral[300] : colors.neutral[800]) : (isDark ? colors.neutral[600] : colors.neutral[400])} />
       </TouchableOpacity>
     </View>
   );

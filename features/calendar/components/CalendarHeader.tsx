@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, Calendar as CalendarIcon } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface CalendarHeaderProps {
   onPressToday?: () => void;
@@ -11,6 +12,7 @@ export interface CalendarHeaderProps {
 
 export function CalendarHeader({ onPressToday, showTodayButton = false }: CalendarHeaderProps) {
   const router = useRouter();
+  const isDark = useThemeStore((state) => state.isDark);
 
   return (
     <View className="flex-row items-center justify-between pb-3">
@@ -30,7 +32,7 @@ export function CalendarHeader({ onPressToday, showTodayButton = false }: Calend
           className="w-11 h-11 rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           style={{ elevation: 1 }}
         >
-          <ArrowLeft size={20} color={colors.neutral[700]} />
+          <ArrowLeft size={20} color={isDark ? colors.neutral[300] : colors.neutral[700]} />
         </TouchableOpacity>
 
         {/* Title & Subtitle */}
