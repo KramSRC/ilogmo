@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 const LEGEND_ITEMS = [
   { label: 'Present', color: colors.success.DEFAULT },
@@ -11,6 +12,8 @@ const LEGEND_ITEMS = [
 ];
 
 export function CalendarLegend() {
+  const isDark = useThemeStore((state) => state.isDark);
+
   return (
     <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-3 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
       <View className="flex-row justify-between items-center flex-wrap">
@@ -21,7 +24,7 @@ export function CalendarLegend() {
                 width: 8,
                 height: 8,
                 borderRadius: 4,
-                backgroundColor: item.color,
+                backgroundColor: item.label === 'Day Off' ? (isDark ? colors.neutral[600] : item.color) : item.color,
                 marginRight: 6,
               }}
             />

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { CalendarDay } from '../types/calendar.types';
 import { colors } from '@/constants/colors';
+import { useThemeStore } from '@/store/themeStore';
 
 export interface CalendarGridProps {
   days: CalendarDay[];
@@ -11,6 +12,8 @@ export interface CalendarGridProps {
 const WEEK_DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
+  const isDark = useThemeStore((state) => state.isDark);
+
   return (
     <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Weekday Header Row */}
@@ -37,7 +40,7 @@ export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
           } else if (dayItem.status === 'absent') {
             dotColor = colors.error.DEFAULT; // Red #EF4444
           } else if (dayItem.status === 'day_off') {
-            dotColor = colors.neutral[300]; // Neutral #CBD5E1
+            dotColor = isDark ? colors.neutral[600] : colors.neutral[300]; // Neutral
           }
 
           // Container and text styles based on selection & today states
@@ -46,7 +49,7 @@ export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
           const isCurrentMonth = dayItem.isCurrentMonth;
 
           let cellBg = 'bg-transparent';
-          let textColor = isCurrentMonth ? 'text-neutral-800 dark:text-neutral-200' : 'text-neutral-300';
+          let textColor = isCurrentMonth ? 'text-neutral-800 dark:text-neutral-200' : 'text-neutral-300 dark:text-neutral-700';
           let fontWeight = 'font-normal';
           let borderColor = 'border-transparent';
 
