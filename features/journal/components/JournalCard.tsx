@@ -35,7 +35,7 @@ export function JournalCard({ entry, onPress }: JournalCardProps) {
         </View>
 
         {formattedTime ? (
-          <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-900 px-2.5 py-1 rounded-full border border-neutral-200 dark:border-transparent">
+          <View className="flex-row items-center bg-neutral-50 dark:bg-neutral-800 px-2.5 py-1 rounded-full border border-neutral-200 dark:border-transparent">
             <Clock size={12} color={colors.neutral[500]} />
             <Text className="ml-1 text-[11px] font-semibold font-sans text-neutral-600 dark:text-neutral-400">
               {formattedTime}
@@ -79,7 +79,7 @@ export function JournalCard({ entry, onPress }: JournalCardProps) {
       </View>
 
       {/* View Entry Footer CTA */}
-      <View className="flex-row items-center justify-end pt-2 mt-1 border-t border-neutral-50">
+      <View className="flex-row items-center justify-end pt-2 mt-1 border-t border-neutral-50 dark:border-neutral-800">
         <Text className="text-xs font-semibold font-sans text-primary-600 mr-1">View Entry</Text>
         <ChevronRight size={14} color={colors.primary[600]} />
       </View>
