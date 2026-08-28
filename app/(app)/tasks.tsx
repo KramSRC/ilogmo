@@ -43,21 +43,6 @@ export default function TasksScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950" edges={['top', 'left', 'right']}>
-      {/* 1. Header Bar */}
-      <View className="px-5 pt-3 pb-3 flex-row items-center justify-between border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-        <View className="flex-1 mr-3">
-          <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
-            Tasks
-          </Text>
-          <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
-            Stay organized during your OJT
-          </Text>
-        </View>
-
-        {/* Notification Bell */}
-        <NotificationBellButton />
-      </View>
-
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
@@ -71,6 +56,20 @@ export default function TasksScreen() {
         }
         className="px-5 pt-3"
       >
+        {/* 1. Header Section */}
+        <View className="flex-row items-center justify-between pb-4">
+          <View className="flex-1 mr-3">
+            <Text className="text-2xl font-bold font-sans text-neutral-900 dark:text-neutral-100 tracking-tight">
+              Tasks
+            </Text>
+            <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">
+              Stay organized during your OJT
+            </Text>
+          </View>
+
+          {/* Notification Bell */}
+          <NotificationBellButton />
+        </View>
         {/* New Task Action Button */}
         <TouchableOpacity
           onPress={handleCreateNew}
