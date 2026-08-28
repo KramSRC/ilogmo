@@ -40,7 +40,7 @@ export function WeeklyOverviewCard({ stats }: WeeklyOverviewCardProps) {
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">Hours</Text>
         </View>
 
-        <View className="w-px h-7 bg-neutral-200" />
+        <View className="w-px h-7 bg-neutral-200 dark:bg-neutral-800" />
 
         {/* Days Present */}
         <View className="items-center flex-1">
@@ -48,21 +48,21 @@ export function WeeklyOverviewCard({ stats }: WeeklyOverviewCardProps) {
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">Days</Text>
         </View>
 
-        <View className="w-px h-7 bg-neutral-200" />
+        <View className="w-px h-7 bg-neutral-200 dark:bg-neutral-800" />
 
         {/* Late Hours */}
         <View className="items-center flex-1">
-          <Text className="text-sm font-bold font-sans text-amber-600" numberOfLines={1}>
+          <Text className="text-sm font-bold font-sans text-amber-600 dark:text-amber-500" numberOfLines={1}>
             {stats.lateHoursFormatted}
           </Text>
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">Late</Text>
         </View>
 
-        <View className="w-px h-7 bg-neutral-200" />
+        <View className="w-px h-7 bg-neutral-200 dark:bg-neutral-800" />
 
         {/* Attendance Rate */}
         <View className="items-center flex-1">
-          <Text className="text-sm font-bold font-sans text-emerald-600">
+          <Text className="text-sm font-bold font-sans text-emerald-600 dark:text-emerald-500">
             {stats.attendanceRate}%
           </Text>
           <Text className="text-[11px] font-sans text-neutral-500 dark:text-neutral-400 mt-0.5">Attend.</Text>
