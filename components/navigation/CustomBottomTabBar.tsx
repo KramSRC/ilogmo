@@ -118,10 +118,10 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
         <View
           style={{
             height: BAR_HEIGHT,
-            backgroundColor: isDark ? '#171717' : '#FFFFFF',
+            backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
             borderRadius: BAR_HEIGHT / 2,
             borderWidth: 1,
-            borderColor: isDark ? '#262626' : 'rgba(226, 232, 240, 0.95)',
+            borderColor: isDark ? '#1E293B' : 'rgba(226, 232, 240, 0.95)',
             shadowColor: '#000000',
             shadowOffset: { width: 0, height: 4 },
             shadowOpacity: isDark ? 0.35 : 0.09,
@@ -179,7 +179,7 @@ export function CustomBottomTabBar({ state, descriptors, navigation }: any) {
                 ? 'rgba(37, 99, 235, 0.25)'
                 : '#EFF6FF'
               : isDark
-                ? '#171717'
+                ? '#0F172A'
                 : '#FFFFFF',
             borderWidth: 1,
             borderColor: isMoreActive

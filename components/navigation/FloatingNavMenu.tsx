@@ -178,7 +178,7 @@ export function FloatingNavMenu({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: '#171717',
+            backgroundColor: '#0F172A',
             opacity: backdropOpacity,
           }}
         />
@@ -193,8 +193,8 @@ export function FloatingNavMenu({
           width: panelWidth,
           opacity,
           transform: [{ translateY }],
-          backgroundColor: isDark ? '#171717' : '#FFFFFF',
-          borderColor: isDark ? '#262626' : '#E2E8F0',
+          backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
+          borderColor: isDark ? '#1E293B' : '#E2E8F0',
           borderWidth: 1,
           shadowColor: '#000000',
           shadowOffset: { width: 0, height: 6 },

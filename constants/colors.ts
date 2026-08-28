@@ -21,27 +21,27 @@ export const colors = {
     DEFAULT: '#2563EB',
   },
 
-  // Neutrals / Gray
+  // Neutrals / Slate
   neutral: {
-    50: '#fafafa', // Core App Background
-    100: '#f5f5f5',
-    200: '#e5e5e5', // Core Border / Separator
-    300: '#d4d4d4',
-    400: '#a3a3a3', // Placeholder / Muted
-    500: '#737373', // Secondary Text
-    600: '#525252',
-    700: '#404040',
-    800: '#262626',
-    900: '#171717', // Primary Headings & Dark Text
-    950: '#0a0a0a',
+    50: '#F8FAFC', // Core App Background
+    100: '#F1F5F9',
+    200: '#E2E8F0', // Core Border / Separator
+    300: '#CBD5E1',
+    400: '#94A3B8', // Placeholder / Muted
+    500: '#64748B', // Secondary Text
+    600: '#475569',
+    700: '#334155',
+    800: '#1E293B',
+    900: '#0F172A', // Primary Headings & Dark Text
+    950: '#020617',
   },
 
   // Surfaces & Backgrounds
   background: {
-    app: '#fafafa',
+    app: '#F8FAFC',
     card: '#FFFFFF',
     surface: '#FFFFFF',
-    subtle: '#f5f5f5',
+    subtle: '#F1F5F9',
     elevated: '#FFFFFF',
     overlay: 'rgba(15, 23, 42, 0.4)',
     glass: 'rgba(255, 255, 255, 0.85)',

@@ -160,7 +160,7 @@ export default function RootLayout() {
           screenOptions={{
             headerShown: false,
             contentStyle: {
-              backgroundColor: isDark ? '#0a0a0a' : colors.background.app,
+              backgroundColor: isDark ? '#020617' : colors.background.app,
             },
           }}
         >
