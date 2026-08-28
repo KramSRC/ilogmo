@@ -35,8 +35,6 @@ export function TaskFilterBar({
               key={tab.id}
               onPress={() => onSelectStatus(tab.id)}
               activeOpacity={0.7}
-              accessibilityRole="tab"
-              accessibilityState={{ selected: isActive }}
               accessibilityLabel={`${tab.label} tasks, ${tab.count} items`}
               className={`flex-1 flex-row items-center justify-center py-2.5 rounded-xl ${
                 isActive ? 'bg-white dark:bg-neutral-900 shadow-soft-sm dark:shadow-none' : 'bg-transparent'
