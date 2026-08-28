@@ -21,7 +21,7 @@ export function MonthlyProgressCard({
   onNextMonth,
 }: MonthlyProgressCardProps) {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Month Navigator Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
@@ -40,7 +40,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Previous month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-neutral-800"
+            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-transparent"
           >
             <ChevronLeft size={16} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -50,7 +50,7 @@ export function MonthlyProgressCard({
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Next month"
-            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-neutral-800 ml-1.5"
+            className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 items-center justify-center border border-neutral-200 dark:border-transparent ml-1.5"
           >
             <ChevronRight size={16} color={colors.neutral[700]} />
           </TouchableOpacity>

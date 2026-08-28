@@ -247,7 +247,7 @@ export default function JournalEntryScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -402,7 +402,7 @@ export default function JournalEntryScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Challenges <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-transparent">
               <TextInput
                 multiline
                 numberOfLines={3}
@@ -422,7 +422,7 @@ export default function JournalEntryScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Additional Notes <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-transparent">
               <TextInput
                 multiline
                 numberOfLines={3}

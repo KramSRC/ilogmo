@@ -12,7 +12,7 @@ const LEGEND_ITEMS = [
 
 export function CalendarLegend() {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-3 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-3 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
       <View className="flex-row justify-between items-center flex-wrap">
         {LEGEND_ITEMS.map((item) => (
           <View key={item.label} className="flex-row items-center my-0.5 mr-2">

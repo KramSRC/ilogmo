@@ -86,7 +86,7 @@ export default function AttendanceHistoryScreen() {
           accessibilityRole="button"
           accessibilityLabel="Go back"
           style={{ minHeight: 44, minWidth: 44 }}
-          className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none mr-3"
+          className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none mr-3"
         >
           <ArrowLeft size={20} color={colors.neutral[700]} />
         </TouchableOpacity>
@@ -126,7 +126,7 @@ export default function AttendanceHistoryScreen() {
         ) : null}
 
         {/* History List Card */}
-        <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+        <View className="bg-white dark:bg-neutral-900 rounded-card px-4 py-2 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent">
           {history.length === 0 && !isLoading ? (
             <View className="items-center py-12">
               <View className="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-3">

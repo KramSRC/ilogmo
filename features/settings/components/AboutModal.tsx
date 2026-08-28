@@ -21,7 +21,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-transparent max-h-[85%]">
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
@@ -49,7 +49,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
 
           <ScrollView showsVerticalScrollIndicator={false} className="mb-4">
             {/* App Brand Summary */}
-            <View className="items-center py-4 bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 mb-4">
+            <View className="items-center py-4 bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-transparent mb-4">
               <Logo size="md" />
               <Text className="text-lg font-bold font-sans text-neutral-900 dark:text-neutral-100 mt-2">iLogMo</Text>
               <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 text-center px-4 mt-1">
@@ -63,7 +63,7 @@ export function AboutModal({ visible, onClose }: AboutModalProps) {
             </View>
 
             {/* Information Sections */}
-            <View className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 divide-y divide-neutral-100 mb-4">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-transparent divide-y divide-neutral-100 mb-4">
               {/* Developer */}
               <View className="flex-row items-center p-3.5">
                 <View className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-900/40 items-center justify-center mr-3 border border-sky-100 dark:border-sky-800/50">

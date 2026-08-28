@@ -19,7 +19,7 @@ export function ReportAttendanceSection({ attendance }: ReportAttendanceSectionP
   const hasAttendance = attendance.presentCount > 0 || attendance.totalWorkedMinutes > 0;
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">

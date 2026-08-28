@@ -11,7 +11,7 @@ export function JournalSkeleton() {
       {[1, 2, 3].map((key) => (
         <View
           key={key}
-          className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-3.5 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none"
+          className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-3.5 border border-neutral-200 dark:border-transparent shadow-card dark:shadow-none"
         >
           {/* Date skeleton */}
           <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">

@@ -85,7 +85,7 @@ export default function LoginScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent">
             {/* Server Error Alert */}
             {serverError ? (
               <ErrorMessage

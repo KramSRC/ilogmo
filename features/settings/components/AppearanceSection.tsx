@@ -87,7 +87,7 @@ export function AppearanceSection({ themeMode, onSelectTheme }: AppearanceSectio
               className={`flex-1 mx-1 p-3 rounded-2xl items-center justify-center border ${
                 isSelected
                   ? 'border-primary-500'
-                  : 'bg-neutral-50 dark:bg-neutral-900 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800 dark:border-neutral-700'
+                  : 'bg-neutral-50 dark:bg-neutral-900 dark:bg-neutral-800 border-neutral-200 dark:border-transparent dark:border-neutral-700'
               }`}
             >
               <View className="mb-1.5">{opt.icon(activeColor)}</View>

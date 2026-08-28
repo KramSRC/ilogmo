@@ -21,7 +21,7 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
     <View
       accessibilityRole="summary"
       accessibilityLabel={`OJT progress: ${hours.progressPercentage} percent, ${hours.completedHoursFormatted} of ${hours.requiredHours} hours completed. ${hours.remainingHoursFormatted} remaining.`}
-      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4"
+      className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4"
     >
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3">
@@ -37,7 +37,7 @@ export function ReportProgressCard({ hours, dateRangeDisplay }: ReportProgressCa
             { paddingHorizontal: 10, paddingVertical: 4 },
             isCompleted ? { backgroundColor: '#ECFDF5' } : { backgroundColor: '#EFF6FF' },
           ]}
-          className="rounded-full border border-neutral-200 dark:border-neutral-800 flex-row items-center"
+          className="rounded-full border border-neutral-200 dark:border-transparent flex-row items-center"
         >
           {isCompleted ? (
             <Sparkles size={12} color={colors.success.DEFAULT} />

@@ -10,7 +10,7 @@ export interface AttendanceStatusBadgeProps {
 }
 
 export function AttendanceStatusBadge({ status, size = 'sm' }: AttendanceStatusBadgeProps) {
-  let bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+  let bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
   let textColor = 'text-neutral-600 dark:text-neutral-400';
   let label = 'Day Off';
   let icon = <Calendar size={12} color={colors.neutral[500]} />;
@@ -43,7 +43,7 @@ export function AttendanceStatusBadge({ status, size = 'sm' }: AttendanceStatusB
       break;
     case 'day_off':
     default:
-      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
       textColor = 'text-neutral-600 dark:text-neutral-400';
       label = 'Day Off';
       icon = <Calendar size={12} color={colors.neutral[500]} />;

@@ -38,7 +38,7 @@ export function TaskFilterBar({
   return (
     <View className="mb-4">
       {/* 1. Main Status Segmented Control */}
-      <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl mb-3 border border-neutral-200 dark:border-neutral-800">
+      <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl mb-3 border border-neutral-200 dark:border-transparent">
         {statusTabs.map((tab) => {
           const isActive = statusFilter === tab.id;
           return (
@@ -96,7 +96,7 @@ export function TaskFilterBar({
               accessibilityState={{ selected: isSelected }}
               accessibilityLabel={`Filter by ${pill.label}`}
               className={`px-3 py-1.5 rounded-full mr-2 border min-h-[32px] items-center justify-center ${
-                isSelected ? 'bg-neutral-900 border-neutral-900' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
+                isSelected ? 'bg-neutral-900 border-neutral-900' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-transparent'
               }`}
             >
               <Text

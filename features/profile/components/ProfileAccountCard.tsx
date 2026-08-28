@@ -26,7 +26,7 @@ export function ProfileAccountCard({
   const memberSince = formatAccountDate(profile?.createdAt);
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 mb-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Account</Text>
@@ -58,7 +58,7 @@ export function ProfileAccountCard({
           activeOpacity={0.75}
           accessibilityRole="button"
           accessibilityLabel="Change password"
-          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900"
+          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-transparent bg-white dark:bg-neutral-900"
         >
           <View className="flex-row items-center flex-1">
             <View className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/40 items-center justify-center mr-3 border border-indigo-100 dark:border-indigo-800/50">
@@ -76,7 +76,7 @@ export function ProfileAccountCard({
           activeOpacity={0.75}
           accessibilityRole="button"
           accessibilityLabel="Notification settings"
-          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 mt-2"
+          className="flex-row items-center justify-between p-3 rounded-xl border border-neutral-200 dark:border-transparent bg-white dark:bg-neutral-900 mt-2"
         >
           <View className="flex-row items-center flex-1">
             <View className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-900/40 items-center justify-center mr-3 border border-sky-100 dark:border-sky-800/50">

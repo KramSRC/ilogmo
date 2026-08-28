@@ -10,7 +10,7 @@ export interface MonthlySummaryCardProps {
 
 export function MonthlySummaryCard({ summary }: MonthlySummaryCardProps) {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-8">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-8">
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-4 border-b border-neutral-100 dark:border-neutral-800">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100">Monthly Summary</Text>

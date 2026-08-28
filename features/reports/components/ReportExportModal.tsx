@@ -62,7 +62,7 @@ export function ReportExportModal({
       <TouchableWithoutFeedback onPress={onClose}>
         <View className="flex-1 bg-black/50 justify-center items-center px-5">
           <TouchableWithoutFeedback onPress={(e) => e.stopPropagation()}>
-            <View className="bg-white dark:bg-neutral-900 rounded-3xl p-6 w-full max-w-sm shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-3xl p-6 w-full max-w-sm shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent">
               {/* Header */}
               <View className="flex-row items-center justify-between mb-2">
                 <View className="flex-row items-center">
@@ -122,14 +122,14 @@ export function ReportExportModal({
                       className={`p-3.5 rounded-2xl border flex-row items-center ${
                         selectedFormat === 'pdf'
                           ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/40'
-                          : 'border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-transparent bg-neutral-50 dark:bg-neutral-900'
                       }`}
                     >
                       <View
                         className={`w-9 h-9 rounded-xl items-center justify-center mr-3 ${
                           selectedFormat === 'pdf'
                             ? 'bg-primary-600'
-                            : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800'
+                            : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-transparent'
                         }`}
                       >
                         <FileText
@@ -167,14 +167,14 @@ export function ReportExportModal({
                       className={`p-3.5 rounded-2xl border flex-row items-center mt-2.5 ${
                         selectedFormat === 'json'
                           ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/40'
-                          : 'border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-transparent bg-neutral-50 dark:bg-neutral-900'
                       }`}
                     >
                       <View
                         className={`w-9 h-9 rounded-xl items-center justify-center mr-3 ${
                           selectedFormat === 'json'
                             ? 'bg-primary-600'
-                            : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800'
+                            : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-transparent'
                         }`}
                       >
                         <FileCode

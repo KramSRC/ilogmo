@@ -205,7 +205,7 @@ export default function DocumentUploadScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -262,7 +262,7 @@ export default function DocumentUploadScreen() {
               </TouchableOpacity>
             ) : (
               /* Selected File Card */
-              <View className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none">
+              <View className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none">
                 <View className="flex-row items-center justify-between mb-3">
                   <View className="flex-row items-center flex-1 mr-2">
                     <View
@@ -296,7 +296,7 @@ export default function DocumentUploadScreen() {
                 <TouchableOpacity
                   onPress={handlePickDocument}
                   activeOpacity={0.7}
-                  className="bg-neutral-50 dark:bg-neutral-900 py-2 rounded-xl border border-neutral-200 dark:border-neutral-800 items-center"
+                  className="bg-neutral-50 dark:bg-neutral-900 py-2 rounded-xl border border-neutral-200 dark:border-transparent items-center"
                 >
                   <Text className="text-xs font-semibold font-sans text-primary-600">
                     Change File
@@ -363,7 +363,7 @@ export default function DocumentUploadScreen() {
                     className={`mr-2 mb-2.5 px-3.5 py-2 rounded-xl flex-row items-center border ${
                       isSelected
                         ? 'bg-primary-50 dark:bg-primary-900/40 border-primary-600'
-                        : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
+                        : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-transparent'
                     }`}
                   >
                     {isSelected ? (
@@ -394,7 +394,7 @@ export default function DocumentUploadScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Description <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-transparent">
               <TextInput
                 multiline
                 numberOfLines={3}

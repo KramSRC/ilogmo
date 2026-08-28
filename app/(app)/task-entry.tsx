@@ -181,7 +181,7 @@ export default function TaskEntryScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -217,7 +217,7 @@ export default function TaskEntryScreen() {
             </Text>
             <View
               className={`bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border ${
-                errors.title ? 'border-red-500' : 'border-neutral-200 dark:border-neutral-800'
+                errors.title ? 'border-red-500' : 'border-neutral-200 dark:border-transparent'
               }`}
             >
               <TextInput
@@ -243,7 +243,7 @@ export default function TaskEntryScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Priority *
             </Text>
-            <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+            <View className="flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-2xl border border-neutral-200 dark:border-transparent">
               {priorities.map((item) => {
                 const isSelected = priority === item.id;
                 return (
@@ -300,7 +300,7 @@ export default function TaskEntryScreen() {
             <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-1.5">
               Description <Text className="text-neutral-400 font-normal">(Optional)</Text>
             </Text>
-            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-neutral-800">
+            <View className="bg-white dark:bg-neutral-900 rounded-2xl p-3.5 border border-neutral-200 dark:border-transparent">
               <TextInput
                 multiline
                 numberOfLines={4}

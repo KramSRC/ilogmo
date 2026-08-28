@@ -23,7 +23,7 @@ export interface AttendanceOverviewCardProps {
 
 export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps) {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Header */}
       <View className="flex-row items-center justify-between pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center">
@@ -36,7 +36,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
         </View>
 
         {/* Attendance Rate Badge */}
-        <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">
+        <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full border border-neutral-200 dark:border-transparent">
           <Text className="text-xs font-sans text-neutral-600 dark:text-neutral-400 mr-1">Rate:</Text>
           <Text className="text-xs font-bold font-sans text-neutral-900 dark:text-neutral-100">
             {overview.attendanceRateFormatted}
@@ -83,7 +83,7 @@ export function AttendanceOverviewCard({ overview }: AttendanceOverviewCardProps
         </View>
 
         {/* Day Off */}
-        <View className="flex-1 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-3.5 ml-2 border border-neutral-200 dark:border-neutral-800">
+        <View className="flex-1 bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-3.5 ml-2 border border-neutral-200 dark:border-transparent">
           <View className="flex-row items-center mb-1">
             <Coffee size={14} color={colors.neutral[500]} />
             <Text className="ml-1.5 text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300">Day Off</Text>

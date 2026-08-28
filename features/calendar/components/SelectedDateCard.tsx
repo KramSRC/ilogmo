@@ -22,7 +22,7 @@ export interface SelectedDateCardProps {
  * Status Badge for Calendar Selected Date view
  */
 function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
-  let bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+  let bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
   let textColor = 'text-neutral-700 dark:text-neutral-300';
   let label = 'No Record';
   let icon = <Info size={12} color={colors.neutral[500]} />;
@@ -54,7 +54,7 @@ function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
       icon = <AlertCircle size={12} color={colors.error.DEFAULT} />;
       break;
     case 'day_off':
-      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
       textColor = 'text-neutral-600 dark:text-neutral-400';
       label = 'Day Off';
       icon = <CalendarIcon size={12} color={colors.neutral[500]} />;
@@ -66,13 +66,13 @@ function CalendarStatusBadge({ status }: { status: CalendarDayStatus }) {
       icon = <CalendarIcon size={12} color={colors.primary[600]} />;
       break;
     case 'before_ojt':
-      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
       textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'Before OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
       break;
     case 'after_ojt':
-      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800';
+      bg = 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent';
       textColor = 'text-neutral-500 dark:text-neutral-400';
       label = 'After OJT';
       icon = <Info size={12} color={colors.neutral[400]} />;
@@ -92,7 +92,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
 
   if (!details) {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5 items-center">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5 items-center">
         <Text className="text-sm font-sans text-neutral-500 dark:text-neutral-400">
           Tap a date on the calendar to view its details.
         </Text>
@@ -113,7 +113,7 @@ export function SelectedDateCard({ details }: SelectedDateCardProps) {
   };
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
       {/* Section Header */}
       <View className="flex-row justify-between items-start pb-3 mb-3 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-1 mr-2">

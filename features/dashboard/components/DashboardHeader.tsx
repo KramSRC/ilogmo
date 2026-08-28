@@ -52,7 +52,7 @@ export function DashboardHeader({ firstName, unreadCount: propUnreadCount }: Das
         accessibilityRole="button"
         accessibilityLabel={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
         style={{ minHeight: 44, minWidth: 44 }}
-        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-soft-sm dark:shadow-none items-center justify-center relative"
+        className="w-11 h-11 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-transparent shadow-soft-sm dark:shadow-none items-center justify-center relative"
       >
         <Bell size={20} color={colors.neutral[700]} />
         {hasUnread ? (

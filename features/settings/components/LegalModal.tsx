@@ -27,7 +27,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-transparent max-h-[85%]">
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
@@ -56,7 +56,7 @@ export function LegalModal({ visible, type, onClose }: LegalModalProps) {
           </View>
 
           <ScrollView showsVerticalScrollIndicator={false} className="mb-4">
-            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-neutral-800 mb-3">
+            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-5 border border-neutral-200 dark:border-transparent mb-3">
               <Text className="text-sm font-semibold font-sans text-neutral-800 dark:text-neutral-200 mb-2">
                 Document Notice
               </Text>

@@ -151,7 +151,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
       kind: 'text',
       badge: 'TXT',
       color: '#4B5563', // Gray
-      bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
+      bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent',
     };
   }
 
@@ -160,7 +160,7 @@ export function getFileTypeDetails(fileName: string, mimeType?: string): FileTyp
     kind: 'other',
     badge: ext.toUpperCase() || 'FILE',
     color: '#4B5563',
-    bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
+    bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent',
   };
 }
 

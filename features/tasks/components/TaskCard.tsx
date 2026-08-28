@@ -43,7 +43,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
         );
       case 'low':
         return (
-          <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-md border border-neutral-200 dark:border-neutral-800 mr-2">
+          <View className="flex-row items-center bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-md border border-neutral-200 dark:border-transparent mr-2">
             <Text className="text-xs font-bold text-neutral-500 dark:text-neutral-400 mr-1">↓</Text>
             <Text className="text-[10px] font-bold font-sans text-neutral-600 dark:text-neutral-400 uppercase tracking-wider">
               Low
@@ -119,7 +119,7 @@ export function TaskCard({ task, onToggle, onPress, isToggling = false }: TaskCa
   }.`;
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-neutral-800 shadow-card dark:shadow-none">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 border border-neutral-200 dark:border-transparent shadow-card dark:shadow-none">
       <View className="flex-row items-start">
         {/* Checkbox Trigger */}
         <TouchableOpacity

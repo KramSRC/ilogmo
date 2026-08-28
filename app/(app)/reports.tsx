@@ -123,7 +123,7 @@ export default function ReportsScreen() {
             />
 
             {/* 8. Export Action Banner */}
-            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mt-1 mb-3 items-center">
+            <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mt-1 mb-3 items-center">
               <Text className="text-sm font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-1">
                 Formal Progress Report
               </Text>

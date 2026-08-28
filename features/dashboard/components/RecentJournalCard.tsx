@@ -34,7 +34,7 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
         <TouchableOpacity
           onPress={() => router.push('/(app)/journal')}
           activeOpacity={0.85}
-          className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800"
+          className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent"
         >
           <View className="flex-row items-center justify-between mb-2.5">
             <View className="flex-row items-center">
@@ -58,7 +58,7 @@ export function RecentJournalCard({ journal }: RecentJournalCardProps) {
           </Text>
         </TouchableOpacity>
       ) : (
-        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 items-center text-center">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-6 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent items-center text-center">
           <View className="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-800 items-center justify-center mb-3">
             <PenLine size={22} color={colors.neutral[500]} />
           </View>

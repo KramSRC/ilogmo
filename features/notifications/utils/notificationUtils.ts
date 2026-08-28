@@ -145,7 +145,7 @@ export function getNotificationTypeDetails(
       return {
         label: 'Notification',
         color: '#4B5563',
-        bg: 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800',
+        bg: 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-transparent',
         defaultRoute: '/(app)',
       };
     }

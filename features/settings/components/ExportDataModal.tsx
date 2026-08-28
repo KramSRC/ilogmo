@@ -46,7 +46,7 @@ export function ExportDataModal({
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={handleClose}>
       <View className="flex-1 bg-black/50 justify-end">
-        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-neutral-800 max-h-[85%]">
+        <View className="bg-white dark:bg-neutral-900 rounded-t-3xl p-6 border-t border-neutral-200 dark:border-transparent max-h-[85%]">
           {/* Header */}
           <View className="flex-row items-center justify-between pb-3.5 border-b border-neutral-100 dark:border-neutral-800 mb-4">
             <View className="flex-row items-center flex-1 mr-2">
@@ -95,7 +95,7 @@ export function ExportDataModal({
             ) : null}
 
             {/* Explanation card */}
-            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 mb-4">
+            <View className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200 dark:border-transparent mb-4">
               <Text className="text-xs font-bold font-sans text-neutral-700 dark:text-neutral-300 mb-2 uppercase tracking-wide">
                 What is included in your export:
               </Text>

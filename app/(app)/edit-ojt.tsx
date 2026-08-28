@@ -130,7 +130,7 @@ export default function EditOjtScreen() {
   if (isSuccess) {
     return (
       <SafeAreaView className="flex-1 bg-background-app dark:bg-neutral-950 justify-center items-center px-6">
-        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 w-full max-w-sm items-center">
+        <View className="bg-white dark:bg-neutral-900 rounded-card p-8 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent w-full max-w-sm items-center">
           <View className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/40 rounded-3xl items-center justify-center mb-4 border border-emerald-100">
             <CheckCircle2 size={32} color={colors.success.DEFAULT} strokeWidth={2.5} />
           </View>
@@ -152,7 +152,7 @@ export default function EditOjtScreen() {
         className="flex-1"
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
-        <View className="flex-row items-center px-4 py-3 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+        <View className="flex-row items-center px-4 py-3 border-b border-neutral-200 dark:border-transparent bg-white dark:bg-neutral-900">
           <TouchableOpacity
             onPress={() => {
               if (router.canGoBack()) {
@@ -186,7 +186,7 @@ export default function EditOjtScreen() {
           ) : null}
 
           {/* SECTION 1: OJT Requirements */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Requirements
             </Text>
@@ -240,7 +240,7 @@ export default function EditOjtScreen() {
           </View>
 
           {/* SECTION 2: Internship Details */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-5">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-5">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               Internship Details
             </Text>
@@ -316,7 +316,7 @@ export default function EditOjtScreen() {
           </View>
 
           {/* SECTION 3: OJT Schedule */}
-          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-6">
+          <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-6">
             <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-4 pb-2 border-b border-neutral-100 dark:border-neutral-800">
               OJT Schedule
             </Text>
@@ -360,7 +360,7 @@ export default function EditOjtScreen() {
                             activeOpacity={0.75}
                             style={{ minHeight: 44 }}
                             className={`flex-1 mx-0.5 items-center justify-center py-2 rounded-xl border ${
-                              isSelected ? 'bg-primary-600 border-primary-600' : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800'
+                              isSelected ? 'bg-primary-600 border-primary-600' : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-transparent'
                             }`}
                           >
                             <Text className={`text-[11px] font-bold font-sans ${isSelected ? 'text-white' : 'text-neutral-700 dark:text-neutral-300'}`} numberOfLines={1}>

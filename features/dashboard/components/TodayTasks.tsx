@@ -32,7 +32,7 @@ export function TodayTasks({ tasks, onToggleTask }: TodayTasksProps) {
       </View>
 
       {/* Task List Container */}
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent">
         {displayTasks.length === 0 ? (
           <Text className="text-sm font-sans text-neutral-400 py-3 text-center">
             No tasks scheduled for today.

@@ -79,7 +79,7 @@ const MENU_ITEMS: MenuItem[] = [
     subtitle: 'Manage app preferences',
     icon: (c) => <Settings size={18} color={c} />,
     iconColor: colors.neutral[600],
-    iconBg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-800',
+    iconBg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-transparent',
     route: '/(app)/settings',
   },
 ];

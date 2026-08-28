@@ -32,7 +32,7 @@ export function SettingsSection({
         </View>
       ) : null}
 
-      <View className="bg-white dark:bg-neutral-900 rounded-card shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+      <View className="bg-white dark:bg-neutral-900 rounded-card shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent overflow-hidden">
         {children}
       </View>
     </View>

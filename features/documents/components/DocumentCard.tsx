@@ -58,7 +58,7 @@ export function DocumentCard({ document, onPress, onOptionsPress }: DocumentCard
       activeOpacity={0.8}
       accessibilityRole="button"
       accessibilityLabel={`${document.name}, ${fileDetails.extension}, ${formattedSize}, ${categoryLabel} category. Uploaded ${formattedDate}`}
-      className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800"
+      className="bg-white dark:bg-neutral-900 rounded-card p-4 mb-3 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent"
     >
       <View className="flex-row items-start justify-between">
         {/* Left: File Icon + Details */}

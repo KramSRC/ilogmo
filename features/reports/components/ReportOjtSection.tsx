@@ -20,7 +20,7 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
 
   if (!ojt) {
     return (
-      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+      <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
         <Text className="text-base font-bold font-sans text-neutral-900 dark:text-neutral-100 mb-2">OJT Summary</Text>
         <Text className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mb-3">
           No active OJT setup found. Please configure your internship details to view full progress.
@@ -40,7 +40,7 @@ export function ReportOjtSection({ ojt, hours }: ReportOjtSectionProps) {
   const workingDaysFormatted = ojt.workingDays?.join(', ') || 'Monday – Friday';
 
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-5 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-3.5 pb-2.5 border-b border-neutral-100 dark:border-neutral-800">
         <View className="flex-row items-center flex-1 mr-2">

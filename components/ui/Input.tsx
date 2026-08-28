@@ -32,7 +32,7 @@ export const Input = forwardRef<TextInput, InputProps>(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
 
-    let borderColor = 'border-neutral-200 dark:border-neutral-800';
+    let borderColor = 'border-neutral-200 dark:border-transparent';
     let bgColor = editable ? 'bg-white dark:bg-neutral-900' : 'bg-neutral-100 dark:bg-neutral-800';
 
     if (error) {

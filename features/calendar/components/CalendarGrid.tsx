@@ -12,7 +12,7 @@ const WEEK_DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 export function CalendarGrid({ days, onSelectDate }: CalendarGridProps) {
   return (
-    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 mb-4">
+    <View className="bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent mb-4">
       {/* Weekday Header Row */}
       <View className="flex-row justify-between mb-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
         {WEEK_DAYS.map((dayName) => (

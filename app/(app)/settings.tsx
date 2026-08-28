@@ -163,7 +163,7 @@ export default function SettingsScreen() {
           <SettingsRow
             icon={<Mail size={18} color={colors.neutral[600]} />}
             iconBgColor="bg-neutral-50 dark:bg-neutral-900"
-            iconBorderColor="border-neutral-200 dark:border-neutral-800"
+            iconBorderColor="border-neutral-200 dark:border-transparent"
             title="Email"
             value={userEmail}
             rightElement={

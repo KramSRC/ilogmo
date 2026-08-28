@@ -94,7 +94,7 @@ export default function NotificationsScreen() {
             accessibilityRole="button"
             accessibilityLabel="Go back"
             style={{ minHeight: 44, minWidth: 44 }}
-            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-neutral-800 mr-3 shadow-soft-sm dark:shadow-none"
+            className="rounded-full bg-white dark:bg-neutral-900 items-center justify-center border border-neutral-200 dark:border-transparent mr-3 shadow-soft-sm dark:shadow-none"
           >
             <ArrowLeft size={20} color={colors.neutral[700]} />
           </TouchableOpacity>
@@ -113,7 +113,7 @@ export default function NotificationsScreen() {
             activeOpacity={0.7}
             accessibilityRole="button"
             accessibilityLabel="Notification settings"
-            className="w-10 h-10 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 items-center justify-center mr-1"
+            className="w-10 h-10 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-transparent items-center justify-center mr-1"
           >
             <SlidersHorizontal size={18} color={colors.neutral[700]} />
           </TouchableOpacity>

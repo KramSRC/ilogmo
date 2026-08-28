@@ -47,7 +47,7 @@ export function QuickActionCard({ title, subtitle, icon, route }: QuickActionCar
       activeOpacity={0.8}
       accessibilityRole="button"
       accessibilityLabel={`${title}, ${subtitle}`}
-      className="flex-1 bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-neutral-800 min-h-[118px] justify-between"
+      className="flex-1 bg-white dark:bg-neutral-900 rounded-card p-4 shadow-card dark:shadow-none border border-neutral-200 dark:border-transparent min-h-[118px] justify-between"
     >
       <View className={`w-10 h-10 rounded-2xl ${iconBg} border items-center justify-center mb-3`}>
         <IconComponent size={20} color={iconColor} strokeWidth={2.2} />
